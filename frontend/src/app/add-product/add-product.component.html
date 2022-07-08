@@ -1,0 +1,70 @@
+
+<div class="container">
+  <form class="example-form" (ngSubmit)="onSubmit()" #addProductForm="ngForm">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.name"
+               id="name"
+               name="name"
+               class="form-control"
+               required #name="ngModel">
+
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.description"
+               id="description"
+               name="description"
+               class="form-control"
+               required #description="ngModel">
+
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Cena:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.price"
+               id="price"
+               name="price"
+               class="form-control"
+               required #price="ngModel">
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Product name:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.category"
+               id="category"
+               name="category"
+               class="form-control"
+               required #category="ngModel">
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Product name:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.localization"
+               id="localization"
+               name="name"
+               class="form-control"
+               required #localization="ngModel">
+
+      </div>
+
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" [disabled]="!addProductForm.form.valid"
+                class="btn btn-info">Submit
+        </button>
+      </div>
+
+    </div>
+  </form>
+      </div>

@@ -1,14 +1,14 @@
 package com.example.backend.Products;
 
+import com.example.backend.Image.Image;
+import com.example.backend.User.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,7 +23,13 @@ public class Product {
     private String description;
     private double price;
     private String localization;
-    private String image;
+   // private String image;
+    private String category;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id", referencedColumnName = "id")
+    private Image image;
 
+    @ManyToOne
+    User user;
 }

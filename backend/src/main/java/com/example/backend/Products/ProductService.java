@@ -1,5 +1,7 @@
 package com.example.backend.Products;
 
+import java.util.List;
+
 public interface ProductService {
 
     void addProduct(Product product);
@@ -10,4 +12,5 @@ public interface ProductService {
 
     void deleteProduct(Product product);
 
+    List<Product> getOnlyVehicles();
 }

@@ -41,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/tovar").permitAll()
                 .antMatchers(HttpMethod.POST, "/user").permitAll()
                 .antMatchers(HttpMethod.POST, "/createUser").permitAll()
+                .antMatchers(HttpMethod.GET, "/tovar/vehicles").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

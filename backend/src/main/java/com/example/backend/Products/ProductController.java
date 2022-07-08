@@ -28,4 +28,9 @@ public class ProductController {
     public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
     }
+
+    @GetMapping("/tovar/vehicles")
+    public List<Product> getOnlyVehicles() {
+        return productService.getOnlyVehicles();
+    }
 }

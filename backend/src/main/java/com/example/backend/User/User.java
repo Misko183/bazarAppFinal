@@ -1,7 +1,18 @@
 package com.example.backend.User;
+import com.example.backend.Favourite.Favourite;
+import com.example.backend.Products.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "Users")
 public class User {
 
@@ -9,7 +20,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String userName;
-    private String mail;
+    private String email;
     private String password;
     private boolean active;
     private String roles;
@@ -55,11 +66,19 @@ public class User {
     }
 
     public String getMail() {
-        return mail;
+        return email;
     }
 
     public void setMail(String mail) {
-        this.mail = mail;
+        this.email = mail;
     }
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Product> products;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Favourite> favourites;
 }
