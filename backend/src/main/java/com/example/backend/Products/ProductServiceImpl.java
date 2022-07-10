@@ -31,12 +31,27 @@ public class ProductServiceImpl implements ProductService {
         productRepository.delete(product);
     }
 
-    @Override
-    public List<Product> getOnlyVehicles() {
-        return productRepository.findByCategory("Vehicles");
+
+
+    public List<Product> getCurrentCategory() {
+        return currentCategory;
     }
 
-    public List<Product> getByCategory(String category) {
-        return productRepository.findByCategory(category);
+    public void setCurrentCategory(List<Product> currentCategory) {
+        this.currentCategory = currentCategory;
     }
+
+    List<Product> currentCategory;
+
+    @Override
+    public void getByCategory(String category) {
+       setCurrentCategory(productRepository.findByCategory(category));
+    }
+
+
+//    public List<Product> getOnlyMe(String category) {
+//        setCurrentCategory(productRepository.findByCategory(category));
+//    return getCurrentCategory();
+//    }
+
 }

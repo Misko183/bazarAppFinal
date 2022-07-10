@@ -2,6 +2,7 @@ package com.example.backend.Products;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,8 +30,26 @@ public class ProductController {
         productService.addProduct(product);
     }
 
-    @GetMapping("/tovar/vehicles")
-    public List<Product> getOnlyVehicles() {
-        return productService.getOnlyVehicles();
+//    @GetMapping("/tovar/vehicles")
+//    public List<Product> getOnlyVehicles() {
+//        return productService.getOnlyVehicles();
+//    }
+
+    @PostMapping("/category")
+    public void showCategory(@RequestBody String category){
+           productService.getByCategory(category);
+
     }
+
+    @GetMapping("/inzeraty/category")
+    public List<Product> showOnlyOneCategory(){
+        return productService.getCurrentCategory();
+    }
+
+    //skušobna z doplnením
+//    @GetMapping("/inzeraty/categoryy")
+//    public List<Product> showOnlyMe(){
+//       return productService.getOnlyMe("aa");
+//    }
+
 }

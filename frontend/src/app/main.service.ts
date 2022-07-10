@@ -10,10 +10,15 @@ export class MainService {
 
   private getAllProductsUrl: string;
   private addProductUrl: string;
+  private getCategoryUrl: string;
+  private postCategoryUrl: string;
+
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/tovar';
     this.addProductUrl = 'http://localhost:8080/tovar';
+    this.getCategoryUrl = 'http://localhost:8080/inzeraty/category';
+    this.postCategoryUrl = 'http://localhost:8080/category';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -23,4 +28,11 @@ export class MainService {
     return this.http.post<AllProducts>(this.addProductUrl, product);
   }
 
+  public getOneCategory(): Observable<AllProducts[]>{
+    return this.http.get<AllProducts[]>(this.getCategoryUrl);
+  }
+
+  public postCategory(category: string) {
+    return this.http.post<string>(this.postCategoryUrl, category);
+  }
 }

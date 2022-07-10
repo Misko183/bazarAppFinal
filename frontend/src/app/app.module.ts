@@ -17,6 +17,9 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import { AddProductComponent } from './add-product/add-product.component';
+import { VehiclesComponent } from './category/vehicles/vehicles.component';
+import { GardenComponent } from './category/garden/garden.component';
+import { ElectronicComponent } from './category/electronic/electronic.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     MainPageComponent,
     AllProductsComponent,
     AddProductComponent,
+    VehiclesComponent,
+    GardenComponent,
+    ElectronicComponent,
 
   ],
   imports: [

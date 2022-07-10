@@ -43,18 +43,18 @@ mat-sidenav-container {
 
 
 
-/*.btn-info {*/
-/*  background-color: #002b5c;*/
-/*  border-color: #002b5c;*/
-/*}*/
+.btn-info {
+  background-color: black;
+  border-color: black;
+}
 
-/*.btn-info:hover {*/
-/*  border-color: #17a2b8;*/
-/*}*/
+.btn-info:hover {
+  border-color: #ff4a00;
+}
 
-/*.btn {*/
-/*  margin-bottom: 20px;*/
-/*}*/
+.btn {
+  margin-bottom: 15%;
+}
 
 /*!*.card-title {*!*/
 /*!*  color: #002b5c;*!*/

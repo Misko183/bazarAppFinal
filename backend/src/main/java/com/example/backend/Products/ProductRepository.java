@@ -12,4 +12,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByCategory(String vehicles);
 
+    List<Product> findProductsByCategory(String electronic);
+
+
+
 }

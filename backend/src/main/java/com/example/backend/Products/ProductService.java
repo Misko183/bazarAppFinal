@@ -12,5 +12,6 @@ public interface ProductService {
 
     void deleteProduct(Product product);
 
-    List<Product> getOnlyVehicles();
+    void getByCategory(String category);
+
 }
