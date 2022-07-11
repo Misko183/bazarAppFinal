@@ -1,1 +1,6 @@
-<p>image works!</p>
+<div>
+<input type="button" (click)="viewImage()" value="View Image" class="btn1">
+</div>
+<div *ngIf=dbImage>
+  <img [src]="dbImage">
+</div>

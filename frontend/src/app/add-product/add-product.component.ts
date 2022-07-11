@@ -12,6 +12,12 @@ import {AllProducts} from "../allProducts";
 export class AddProductComponent  {
 
   allProducts: AllProducts;
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -29,4 +35,25 @@ export class AddProductComponent  {
     this.router.navigate(['/home']);
   }
 
+
+  public onImageUpload({event}: { event: any }) {
+    this.uploadedImage = event.target.files[0];
+  }
+
+  imageUploadAction() {
+    const imageFormData = new FormData();
+    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+
+
+    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
+      .subscribe((response) => {
+          if (response.status === 200) {
+            this.postResponse = response;
+            this.successResponse = this.postResponse.body.message;
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!';
+          }
+        }
+      );
+  }
 }

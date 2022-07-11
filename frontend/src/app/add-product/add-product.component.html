@@ -58,13 +58,30 @@
                required #localization="ngModel">
 
       </div>
+      <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
+      <div class="col-sm-10">
+        <input type="file" (change)="onImageUpload({event : $event})">
+      </div>
 
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" [disabled]="!addProductForm.form.valid"
-                class="btn btn-info">Submit
+        <button  (click)="imageUploadAction()"
+                 type="submit" [disabled]="!addProductForm.form.valid"
+                class="btn btn-info">Vytvoriť Inzerát
         </button>
       </div>
 
     </div>
+
+
   </form>
       </div>
+
+
+
+
+
+  <div>
+    <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
+  </div>
