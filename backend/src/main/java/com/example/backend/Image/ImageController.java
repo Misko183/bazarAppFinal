@@ -22,7 +22,6 @@ public class ImageController {
             throws IOException {
 
         imageRepository.save(Image.builder()
-                .name(file.getOriginalFilename())
                 .type(file.getContentType())
                 .image(ImageUtility.compressImage(file.getBytes())).build());
         return ResponseEntity.status(HttpStatus.OK)
@@ -30,21 +29,22 @@ public class ImageController {
                         file.getOriginalFilename()));
     }
 
-    @GetMapping(path = {"/get/image/info/{name}"})
-    public Image getImageDetails(@PathVariable("name") String name) throws IOException {
+    //Vypis informacii o obrazku
+    @GetMapping(path = {"/get/image/info/{id}"})
+    public Image getImageDetails(@PathVariable("id") Long id) throws IOException {
 
-        final Optional<Image> dbImage = imageRepository.findByName(name);
+        final Optional<Image> dbImage = imageRepository.findById(id);
 
         return Image.builder()
-                .name(dbImage.get().getName())
                 .type(dbImage.get().getType())
                 .image(ImageUtility.decompressImage(dbImage.get().getImage())).build();
     }
 
-    @GetMapping(path = {"/get/image/{name}"})
-    public ResponseEntity<byte[]> getImage(@PathVariable("name") String name) throws IOException {
+    //Zobrazenie obrazku podla id, treba aj type
+    @GetMapping(path = {"/get/image/{id}"})
+    public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) throws IOException {
 
-        final Optional<Image> dbImage = imageRepository.findByName(name);
+        final Optional<Image> dbImage = imageRepository.findById(id);
 
         return ResponseEntity
                 .ok()

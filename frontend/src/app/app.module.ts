@@ -20,6 +20,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { VehiclesComponent } from './category/vehicles/vehicles.component';
 import { GardenComponent } from './category/garden/garden.component';
 import { ElectronicComponent } from './category/electronic/electronic.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ElectronicComponent } from './category/electronic/electronic.component'
     VehiclesComponent,
     GardenComponent,
     ElectronicComponent,
+    ImageComponent,
 
   ],
   imports: [
