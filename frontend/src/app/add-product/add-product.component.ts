@@ -27,10 +27,7 @@ export class AddProductComponent  {
   ) {
     this.allProducts = new AllProducts();
   }
-
-  onSubmit() {
-    this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoProductList());
-  }
+  
   gotoProductList() {
     this.router.navigate(['/home']);
   }
@@ -40,7 +37,7 @@ export class AddProductComponent  {
     this.uploadedImage = event.target.files[0];
   }
 
-  imageUploadAction() {
+  createAction() {
     const imageFormData = new FormData();
     imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
 
@@ -53,6 +50,7 @@ export class AddProductComponent  {
           } else {
             this.successResponse = 'Image not uploaded due to some error!';
           }
+        this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoProductList());
         }
       );
   }

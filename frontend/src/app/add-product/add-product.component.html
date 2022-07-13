@@ -1,6 +1,6 @@
 
 <div class="container">
-  <form class="example-form" (ngSubmit)="onSubmit()" #addProductForm="ngForm">
+  <form class="example-form"  #addProductForm="ngForm">
 
     <div class="form-group">
       <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
@@ -66,11 +66,12 @@
 
       <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
       <div class="col-sm-offset-2 col-sm-10">
-        <button  (click)="imageUploadAction()"
-                 type="submit" [disabled]="!addProductForm.form.valid"
-                class="btn btn-info">Vytvoriť Inzerát
+        <button   (click)="createAction()"
+                 type="submit"
+                 class="btn btn-info">Vytvoriť Inzerát
         </button>
       </div>
+
 
     </div>
 
@@ -81,7 +82,3 @@
 
 
 
-
-  <div>
-    <output *ngIf=successResponse class="success"><b>{{successResponse}}</b></output>
-  </div>

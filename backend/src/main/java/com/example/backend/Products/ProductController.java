@@ -28,6 +28,7 @@ public class ProductController {
     @PostMapping("/tovar")
     public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
+
     }
 
 //    @GetMapping("/tovar/vehicles")
@@ -51,5 +52,7 @@ public class ProductController {
 //    public List<Product> showOnlyMe(){
 //       return productService.getOnlyMe("aa");
 //    }
+
+
 
 }

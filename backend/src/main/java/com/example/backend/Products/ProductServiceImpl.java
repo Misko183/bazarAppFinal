@@ -1,9 +1,14 @@
 package com.example.backend.Products;
 
+import com.example.backend.Image.Image;
+import com.example.backend.Image.ImageController;
+import com.example.backend.Image.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -11,11 +16,24 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private ImageRepository imageRepository;
+
+    @Autowired
+    private ImageController imageController;
+
+
+
     @Override
     public void addProduct(Product product) {
-        productRepository.save(product);
-    }
 
+    //Vyhladanie posledného obrázku, a priraďovanie k produktu onetoone
+    //Následné vytvorenie produktu s obrázkom
+        Long image = imageRepository.findTopByOrderByIdDesc().get().getId();
+        product.setImage(imageRepository.findById(image).get());
+        productRepository.save(product);
+
+    }
     @Override
     public void getProduct(Product product) {
         productRepository.findByName(product.getName());
@@ -53,5 +71,7 @@ public class ProductServiceImpl implements ProductService {
 //        setCurrentCategory(productRepository.findByCategory(category));
 //    return getCurrentCategory();
 //    }
+
+
 
 }

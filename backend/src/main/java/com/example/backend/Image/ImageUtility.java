@@ -5,7 +5,7 @@ import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
 public class ImageUtility {
-
+     //Rozbitie obrazka na byty
     public static byte[] compressImage(byte[] data) {
 
         Deflater deflater = new Deflater();
@@ -26,6 +26,7 @@ public class ImageUtility {
         return outputStream.toByteArray();
     }
 
+    //Zlobitie obrazka z bytov
     public static byte[] decompressImage(byte[] data) {
         Inflater inflater = new Inflater();
         inflater.setInput(data);
