@@ -21,6 +21,7 @@ import { VehiclesComponent } from './category/vehicles/vehicles.component';
 import { GardenComponent } from './category/garden/garden.component';
 import { ElectronicComponent } from './category/electronic/electronic.component';
 import { ImageComponent } from './image/image.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -34,21 +35,22 @@ import { ImageComponent } from './image/image.component';
     ImageComponent,
 
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatCardModule
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatGridListModule,
+        MatCardModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

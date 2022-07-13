@@ -19,25 +19,26 @@ export class MainPageComponent implements OnInit {
   }
 //button to go to the garden page
   goToGarden() {
-    this.mainService.postCategory("Garden").subscribe( data => {
-      console.log(data);
+    this.mainService.postCategory("Garden").subscribe( () => {
+      this.router.navigate(['/garden']);
     });
-    this.router.navigate(['/garden']);
+
   }
 
   goToElectronics() {
-    this.mainService.postCategory("Electronic").subscribe( data => {
-      console.log(data);
+    this.mainService.postCategory("Electronic").subscribe( () => {
+      this.router.navigate(['/electronic']);
     });
-    this.router.navigate(['/electronic']);
+
   }
 
   goToVehicles() {
     //post "vehicles" to the server
-    this.mainService.postCategory("Vehicles").subscribe( data => {
-      console.log(data);
+    this.mainService.postCategory("Vehicles").subscribe( () => {
+
+      this.router.navigate(['/vehicles']);
   });
-    this.router.navigate(['/vehicles']);
+
   }
 
 }

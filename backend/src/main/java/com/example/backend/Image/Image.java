@@ -1,6 +1,7 @@
 package com.example.backend.Image;
 
 import com.example.backend.Products.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Image {
 	@Column(name = "image", unique = false, nullable = false, length = 100000)
 	private byte[] image;
 
+	@JsonIgnore
 	@OneToOne(mappedBy = "image")
 	private Product product;
 }

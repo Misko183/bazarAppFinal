@@ -37,18 +37,6 @@
 
       </div>
 
-
-      <label class="control-label col-sm-2" > <div class="bold-text"> Kategória:</div></label>
-      <div class="col-sm-10">
-        <input type="text" [(ngModel)]="allProducts.category"
-               id="category"
-               name="category"
-               class="form-control"
-               required #category="ngModel">
-
-      </div>
-
-
       <label class="control-label col-sm-2" > <div class="bold-text"> Lokalizácia:</div></label>
       <div class="col-sm-10">
         <input type="text" [(ngModel)]="allProducts.localization"
@@ -58,6 +46,30 @@
                required #localization="ngModel">
 
       </div>
+
+<!--      <label class="control-label col-sm-2" > <div class="bold-text"> Kategória:</div></label>-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" [(ngModel)]="allProducts.category"-->
+<!--               id="category"-->
+<!--               name="category"-->
+<!--               class="form-control"-->
+<!--               required #category="ngModel">-->
+
+<!--      </div>-->
+
+
+      <mat-label class="control-label col-sm-2">Vyber kategóriu:</mat-label>
+      <div class="col-sm-10">
+        <mat-form-field appearance="fill">
+          <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.category" name="category" id="category" (selectionChange)="chooseCategory()" required>
+            <mat-option value='Electronic'>Elektronika</mat-option>
+            <mat-option value='Garden'>Záhrada</mat-option>
+            <mat-option value='Vehicles'>Vozidlo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
       <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
       <div class="col-sm-10">
         <input type="file" (change)="onImageUpload({event : $event})">

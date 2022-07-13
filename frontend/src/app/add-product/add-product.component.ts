@@ -17,6 +17,7 @@ export class AddProductComponent  {
   postResponse: any;
   successResponse: string;
   image: any;
+  selectedCategory: string;
 
 
   constructor(
@@ -27,7 +28,7 @@ export class AddProductComponent  {
   ) {
     this.allProducts = new AllProducts();
   }
-  
+
   gotoProductList() {
     this.router.navigate(['/home']);
   }
@@ -53,5 +54,15 @@ export class AddProductComponent  {
         this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoProductList());
         }
       );
+  }
+
+  chooseCategory() {
+    if (this.selectedCategory === 'Electronic') {
+      this.allProducts.category = 'Electronic';
+    } else if (this.selectedCategory === 'Garden') {
+      this.allProducts.category = 'Garden';
+    } else if (this.selectedCategory === 'Vehicles') {
+      this.allProducts.category = 'Vehicles';
+    }
   }
 }

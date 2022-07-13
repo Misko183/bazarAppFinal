@@ -5,5 +5,5 @@ export class AllProducts {
   price: number;
   localization: string;
   category: string;
-
+  image: any;
 }
