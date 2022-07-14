@@ -5,6 +5,9 @@
       <mat-card-header>
         <mat-card-title>{{product.name}}</mat-card-title>
       </mat-card-header>
+      <mat-card-actions>
+        <button class="detail_button"  mat-button routerLink="/detail/{{product.id}}">Detail</button>
+      </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

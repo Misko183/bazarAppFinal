@@ -22,6 +22,7 @@ import { GardenComponent } from './category/garden/garden.component';
 import { ElectronicComponent } from './category/electronic/electronic.component';
 import { ImageComponent } from './image/image.component';
 import {MatSelectModule} from "@angular/material/select";
+import { DatailOfProductComponent } from './datail-of-product/datail-of-product.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatSelectModule} from "@angular/material/select";
     GardenComponent,
     ElectronicComponent,
     ImageComponent,
+    DatailOfProductComponent,
 
   ],
     imports: [

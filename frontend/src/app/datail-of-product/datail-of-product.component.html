@@ -1,0 +1,14 @@
+
+<div>
+  <h2>{{allProducts.name}}</h2>
+  <p>Opis:{{allProducts.description}}</p>
+  <p>Cena:{{allProducts.price}}</p>
+  <p>Miesto: {{allProducts.localization}}</p>
+<!--  <img [src]="allProducts.image">-->
+</div>
+<div *ngIf=dbImage>
+  <img [src]="dbImage"
+       width="1000" height="600"
+  >
+</div>
+
