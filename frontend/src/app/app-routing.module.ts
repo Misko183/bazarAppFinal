@@ -7,7 +7,7 @@ import {ElectronicComponent} from "./category/electronic/electronic.component";
 import {GardenComponent} from "./category/garden/garden.component";
 import {VehiclesComponent} from "./category/vehicles/vehicles.component";
 import {ImageComponent} from "./image/image.component";
-import {DatailOfProductComponent} from "./datail-of-product/datail-of-product.component";
+import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +18,7 @@ const routes: Route[] = [
   {path: 'garden', component: GardenComponent},
   {path: 'vehicles', component: VehiclesComponent},
   {path: 'image', component: ImageComponent},
-  {path: 'detail/:id', component: DatailOfProductComponent},
+  {path: 'detail/:id', component: DetailOfProductComponent},
 
 ];
 

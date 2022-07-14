@@ -6,10 +6,10 @@ import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-datail-of-product',
-  templateUrl: './datail-of-product.component.html',
-  styleUrls: ['./datail-of-product.component.css']
+  templateUrl: './detail-of-product.component.html',
+  styleUrls: ['./detail-of-product.component.css']
 })
-export class DatailOfProductComponent  implements OnInit {
+export class DetailOfProductComponent  implements OnInit {
 
   allProducts: AllProducts;
   detailID: number;
