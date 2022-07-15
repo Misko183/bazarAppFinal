@@ -23,6 +23,11 @@ import { ElectronicComponent } from './category/electronic/electronic.component'
 import { ImageComponent } from './image/image.component';
 import {MatSelectModule} from "@angular/material/select";
 import {DetailOfProductComponent} from './detail-of-product/detail-of-product.component';
+import {LoginComponent} from "./component/login/login.component";
+import {LandingComponent} from "./component/landing/landing.component";
+import {AuthInterceptor} from "./security/interceptor/auth.interceptor";
+import {UserService} from "./user/user.service";
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,9 @@ import {DetailOfProductComponent} from './detail-of-product/detail-of-product.co
     ElectronicComponent,
     ImageComponent,
     DetailOfProductComponent,
+    LoginComponent,
+    LandingComponent,
+    RegistrationComponent
 
   ],
     imports: [
@@ -53,7 +61,9 @@ import {DetailOfProductComponent} from './detail-of-product/detail-of-product.co
         MatCardModule,
         MatSelectModule
     ],
-  providers: [],
+  providers: [
+    UserService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

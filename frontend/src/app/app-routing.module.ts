@@ -8,6 +8,8 @@ import {GardenComponent} from "./category/garden/garden.component";
 import {VehiclesComponent} from "./category/vehicles/vehicles.component";
 import {ImageComponent} from "./image/image.component";
 import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
+import {LoginComponent} from "./component/login/login.component";
+import {RegistrationComponent} from "./registration/registration.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +21,9 @@ const routes: Route[] = [
   {path: 'vehicles', component: VehiclesComponent},
   {path: 'image', component: ImageComponent},
   {path: 'detail/:id', component: DetailOfProductComponent},
+  {path: 'login', component: LoginComponent },
+  {path: 'registration', component: RegistrationComponent}
+
 
 ];
 

@@ -1,5 +1,10 @@
 <mat-toolbar>
   BazarApp
+  <span class="username">{{getWhoIsLoggedIn()}}</span>
+  <a routerLink="/login" *ngIf="!isLoggedIn()" class="toolbar_login">Login</a>
+  <a routerLink="/registration" *ngIf="!isLoggedIn()" class="toolbar_register">Registration</a>
+  <a *ngIf="!isLoggedIn()" class="toolbar_split">|</a>
+  <a routerLink="/login" *ngIf="isLoggedIn()" (click)="logout()" class="toolbar_login">Logout</a>
 </mat-toolbar>
 
 <mat-sidenav-container>
