@@ -25,8 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/role")
-    public String getRole() {
-        return userService.getUsersRole();
+    public User getRole() {
+        return userService.getUser();
     }
 
     @PostMapping("/createUser")

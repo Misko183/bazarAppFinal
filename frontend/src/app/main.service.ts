@@ -41,8 +41,8 @@ export class MainService {
   public sendUserName(username: string) {
     return this.http.post<User>(this.sendUser, {"userName" : username});
   }
-  public getUsersRole(): Observable<string> {
-    return this.http.get<string>(this.sendUser);
+  public getUsersRole(): Observable<User> {
+    return this.http.get<User>(this.sendUser);
   }
 
 }

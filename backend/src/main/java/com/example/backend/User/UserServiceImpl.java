@@ -43,9 +43,21 @@ public class UserServiceImpl implements UserService {
     }
 
     String usersRole;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    User user;
+
     @Override
     public void getRoles(String username) {
        setUsersRole(this.repository.findRoleByUserName(username).get().getRoles());
+       setUser(this.repository.findRoleByUserName(username).get());
     }
 }
 
