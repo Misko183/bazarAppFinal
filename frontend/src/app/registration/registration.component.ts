@@ -14,7 +14,7 @@ export class RegistrationComponent  {
 
   userForm: any;
   user: newUser;
-check: boolean = false;
+  check: boolean = false;
 
 
   constructor(
@@ -27,7 +27,7 @@ check: boolean = false;
   CreateForm() {
     this.userForm = this.formBuilder.group({
       'name': ['', Validators.required],
-      //'email': ['', [Validators.required]],
+      'email': ['', [Validators.required]],
       'password': ['', [Validators.required]],
       //'confirmPassword': ['', [Validators.required]]
     });
@@ -37,7 +37,7 @@ check: boolean = false;
     if (this.userForm.dirty && this.userForm.valid) {
       this.user = {
         userName: this.userForm.value.name,
-        //email: this.userForm.value.email,
+        email: this.userForm.value.email,
         password: this.userForm.value.password,
         //confirmPassword: this.userForm.value.confirmPassword,
       }

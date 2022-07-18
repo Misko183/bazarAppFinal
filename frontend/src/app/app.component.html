@@ -16,7 +16,7 @@
       <li class="list-inline-item">
         <a routerLink="/allproducts" class="btn btn-info">EveryThing</a>
       </li>
-      <li class="list-inline-item">
+      <li class="list-inline-item" *ngIf="isAdminLoggedIn()">
         <a routerLink="/createproduct" class="btn btn-info">Vytvoriť Inzerát</a>
       </li>
       <li class="list-inline-item">

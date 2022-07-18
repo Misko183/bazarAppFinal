@@ -17,7 +17,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userName;
     private String email;
@@ -73,11 +73,11 @@ public class User {
         this.email = mail;
     }
 
-
+/*
     @JsonIgnore
     @OneToMany(mappedBy="user")
     private Set<Product> products;
-
+*/
     @JsonIgnore
     @OneToMany(mappedBy="user")
     private Set<Favourite> favourites;

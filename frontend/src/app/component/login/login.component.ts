@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  //overenie požadovaného vyplnenia formulara
   loginGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -20,18 +21,16 @@ export class LoginComponent {
     private readonly router: Router
   ) { }
 
-  skuska: boolean = false;
-
   login(): void {
     if (this.loginGroup.valid) {
       const username = this.loginGroup.value.username;
-      // if username is admin, skuska is true
-      if (username === 'admin') {
-        this.skuska = true;
-      }
+
       const password = this.loginGroup.value.password;
+
+      //poslanie prihlasovaních udajov na service na overenie
       this.authService.login(username, password)
         .subscribe(() => this.router.navigateByUrl('/home'));
     }
   }
 }
+

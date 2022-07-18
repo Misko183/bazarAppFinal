@@ -12,6 +12,7 @@ export class AuthGuard implements CanActivate {
     private readonly router: Router
   ) { }
 
+  //Overenie prihlásenia - vracia true alebo false
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> | boolean {
     if (!this.authService.isLoggedIn()) {
       return this.router.navigateByUrl('/login').then(() => false);

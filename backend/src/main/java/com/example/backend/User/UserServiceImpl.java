@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
     @Override
     public User addUser(User user) {
 //        String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -35,5 +34,18 @@ public class UserServiceImpl implements UserService {
         return this.repository.save(user);
     }
 
+    public String getUsersRole() {
+        return usersRole;
+    }
+
+    public void setUsersRole(String usersRole) {
+        this.usersRole = usersRole;
+    }
+
+    String usersRole;
+    @Override
+    public void getRoles(String username) {
+       setUsersRole(this.repository.findRoleByUserName(username).get().getRoles());
+    }
 }
 

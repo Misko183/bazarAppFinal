@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AllProducts} from "./allProducts";
+import {User} from "./user/user";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class MainService {
   private addProductUrl: string;
   private getCategoryUrl: string;
   private postCategoryUrl: string;
+  private sendUser: string;
 
 
   constructor(private http: HttpClient) {
@@ -19,6 +21,7 @@ export class MainService {
     this.addProductUrl = 'http://localhost:8080/tovar';
     this.getCategoryUrl = 'http://localhost:8080/inzeraty/category';
     this.postCategoryUrl = 'http://localhost:8080/category';
+    this.sendUser = 'http://localhost:8080/role';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -35,4 +38,11 @@ export class MainService {
   public postCategory(category: string) {
     return this.http.post<string>(this.postCategoryUrl, category);
   }
+  public sendUserName(username: string) {
+    return this.http.post<User>(this.sendUser, {"userName" : username});
+  }
+  public getUsersRole(): Observable<string> {
+    return this.http.get<string>(this.sendUser);
+  }
+
 }

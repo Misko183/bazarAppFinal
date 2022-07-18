@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
+import {MainService} from "../../main.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,14 @@ export class AuthService {
   token: string;
   isAdminLoggedIn: boolean = false;
   whoIsLoggedIn: string;
+  data: any;
+
 
   constructor(
-    private readonly httpClient: HttpClient
-  ) { }
+    private readonly httpClient: HttpClient,
+    private mainService: MainService,
+  ) {
+  }
 
   getToken(): string {
     return this.token;
@@ -25,6 +30,26 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
+
+    //post username to http://localhost:8080/role
+
+    // this.httpClient.post('http://localhost:8080/role', {"userName" : username})
+    this.mainService.sendUserName(username).subscribe(() => {
+   //  this.mainService.getUsersRole().pipe(subscribe(data => {
+
+        //.subscribe(data => {
+        //   this.httpClient.get('http://localhost:8080/role').pipe(
+        //     tap(data => {
+        //       this.data = data;
+
+
+          // if (this.httpClient.get('http://localhost:8080/role').pipe(map(value => <boolean>value)) ) {
+          //   this.isAdminLoggedIn = true;
+          //
+          // }
+        }
+    );
+
     if (username === 'admin' && password === 'pass') {
       this.isAdminLoggedIn = true;
     }
@@ -34,7 +59,7 @@ export class AuthService {
     const options = {
       headers: new HttpHeaders({
         Authorization: token,
-        'X-Requested-With' : 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest'
       }),
       withCredentials: true
     };
@@ -48,5 +73,4 @@ export class AuthService {
     this.token = null;
     this.whoIsLoggedIn = '';
   }
-
 }

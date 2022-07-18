@@ -30,6 +30,8 @@ public class Product {
     @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Image image;
 
-    @ManyToOne
+  /*  @ManyToOne
     User user;
+    */
+
 }

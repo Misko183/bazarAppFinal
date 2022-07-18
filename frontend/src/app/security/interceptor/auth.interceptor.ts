@@ -18,6 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     private readonly router: Router
   ) {}
 
+  //Zachytáva a hlási chyby, ak nastane chyba používateľa automaticky odhlasí
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.authService.isLoggedIn()) {
       request = request.clone({

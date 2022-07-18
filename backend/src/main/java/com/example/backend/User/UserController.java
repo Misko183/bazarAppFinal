@@ -17,7 +17,16 @@ public class UserController {
 
     @GetMapping("/user")
     public void getUser() {
+    }
 
+    @PostMapping("/role")
+    public void getRole(@RequestBody User user) {
+         userService.getRoles(user.getUserName());
+    }
+
+    @GetMapping("/role")
+    public String getRole() {
+        return userService.getUsersRole();
     }
 
     @PostMapping("/createUser")
