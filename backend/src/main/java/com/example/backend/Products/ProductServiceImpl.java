@@ -27,6 +27,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private UserServiceImpl userService;
 
+
+    //Pridavanie Inzeratu
     @Override
     public void addProduct(Product product) {
 
@@ -39,11 +41,12 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-
+    //Vymazanie Inzeratu
     @Override
     public void deleteProduct(Product product) {
         productRepository.delete(product);
     }
+
 
 
     public List<Product> getCurrentCategory() {
@@ -56,36 +59,18 @@ public class ProductServiceImpl implements ProductService {
 
     List<Product> currentCategory;
 
+    //Vrátenie Inzeratu podla kategórie
     @Override
     public void getByCategory(String category) {
        setCurrentCategory(productRepository.findByCategory(category));
     }
 
-
-    public List<Product> getOnlyMyProducts() {
-        return onlyMyProducts;
-    }
-
-    public void setOnlyMyProducts(List<Product> onlyMyProducts) {
-        this.onlyMyProducts = onlyMyProducts;
-    }
-
-    List<Product> onlyMyProducts;
-
-
-
+    //Vrátenie iba používateľských inzerátov
     @Override
     public List<Product> getOnlyUsersProducts() {
 
      return productRepository.findByUser(userService.getLoggedUser());
     }
-
-
-
-//    public List<Product> getOnlyMe(String category) {
-//        setCurrentCategory(productRepository.findByCategory(category));
-//    return getCurrentCategory();
-//    }
 
 
 

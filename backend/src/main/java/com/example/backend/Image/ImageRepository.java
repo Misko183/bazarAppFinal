@@ -13,7 +13,6 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
    //Nájde posledne uložený obrázok
 	Optional<Image>  findTopByOrderByIdDesc();
 
-    Optional<Image> findTopBy();
 }
 
 
