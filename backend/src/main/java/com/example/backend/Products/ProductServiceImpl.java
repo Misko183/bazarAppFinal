@@ -71,7 +71,4 @@ public class ProductServiceImpl implements ProductService {
 
      return productRepository.findByUser(userService.getLoggedUser());
     }
-
-
-
 }

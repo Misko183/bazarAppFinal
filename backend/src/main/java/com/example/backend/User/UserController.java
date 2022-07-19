@@ -21,7 +21,7 @@ public class UserController {
 
     @PostMapping("/role")
     public void getRole(@RequestBody User user) {
-         userService.getRoles(user.getUserName());
+         userService.findLoggedUsers(user.getUserName());
     }
 
     @GetMapping("/role")

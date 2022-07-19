@@ -16,10 +16,11 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    //Vytvaranie použivateľa s rolou USER
     @Override
     public User addUser(User user) {
-//        String encodedPassword = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(encodedPassword);
+    //String encodedPassword = passwordEncoder.encode(user.getPassword());
+    //user.setPassword(encodedPassword);
         user.setRoles("USER");
         return this.repository.save(user);
     }
@@ -46,9 +47,8 @@ public class UserServiceImpl implements UserService {
     User loggedUser;
 
     @Override
-    public void getRoles(String username) {
-
-       setLoggedUser(this.repository.findRoleByUserName(username).get());
+    public void findLoggedUsers(String username) {
+       setLoggedUser(this.repository.findByUserName(username).get());
     }
 }
 
