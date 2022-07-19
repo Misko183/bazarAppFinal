@@ -1,5 +1,6 @@
 package com.example.backend.Products;
 
+import com.example.backend.User.User;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
@@ -53,6 +54,16 @@ public class ProductController {
 //       return productService.getOnlyMe("aa");
 //    }
 
+
+    @GetMapping("/myproducts")
+    public List<Product> showOnlyMe(){
+        return productService.getOnlyUsersProducts();
+    }
+
+//    @PostMapping("/myproducts")
+//    public void postMeUser(@RequestBody User user){
+//       productService.getOnlyUsersProducts(user);
+//    }
 
 
 }

@@ -13,6 +13,7 @@ export class AuthService {
   isAdminLoggedIn: boolean = false;
   whoIsLoggedIn: string;
   data: string;
+  isSomeoneLoggedIn: boolean = false;
 
 
   constructor(
@@ -45,6 +46,7 @@ export class AuthService {
     this.whoIsLoggedIn = username;
     const info = btoa(`${username}:${password}`);
     const token = `Basic ${info}`;
+    this.isSomeoneLoggedIn= true;
     const options = {
       headers: new HttpHeaders({
         Authorization: token,
@@ -61,5 +63,6 @@ export class AuthService {
   logout(): void {
     this.token = null;
     this.whoIsLoggedIn = '';
+    this.isSomeoneLoggedIn= false;
   }
 }

@@ -34,7 +34,7 @@ public class User {
         this.id = id;
     }
 
-    public String  getUserName() {
+    public String getUserName() {
         return userName;
     }
 
@@ -49,7 +49,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-   public boolean isActive() {
+
+    public boolean isActive() {
         return active;
     }
 
@@ -73,12 +74,14 @@ public class User {
         this.email = mail;
     }
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private Set<Product> products;
 /*
     @JsonIgnore
     @OneToMany(mappedBy="user")
-    private Set<Product> products;
-*/
-    @JsonIgnore
-    @OneToMany(mappedBy="user")
     private Set<Favourite> favourites;
+*/
 }
+

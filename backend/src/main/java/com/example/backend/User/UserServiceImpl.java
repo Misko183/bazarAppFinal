@@ -34,30 +34,21 @@ public class UserServiceImpl implements UserService {
         return this.repository.save(user);
     }
 
-    public String getUsersRole() {
-        return usersRole;
+
+    public User getLoggedUser() {
+        return loggedUser;
     }
 
-    public void setUsersRole(String usersRole) {
-        this.usersRole = usersRole;
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
     }
 
-    String usersRole;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    User user;
+    User loggedUser;
 
     @Override
     public void getRoles(String username) {
-       setUsersRole(this.repository.findRoleByUserName(username).get().getRoles());
-       setUser(this.repository.findRoleByUserName(username).get());
+
+       setLoggedUser(this.repository.findRoleByUserName(username).get());
     }
 }
 

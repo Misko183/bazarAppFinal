@@ -16,7 +16,7 @@
       <li class="list-inline-item">
         <a routerLink="/allproducts" class="btn btn-info">EveryThing</a>
       </li>
-      <li class="list-inline-item" *ngIf="isAdminLoggedIn()">
+      <li class="list-inline-item" >
         <a routerLink="/createproduct" class="btn btn-info">Vytvoriť Inzerát</a>
       </li>
       <li class="list-inline-item">
@@ -28,8 +28,11 @@
       <li class="list-inline-item">
         <a routerLink="/vehicles" class="btn btn-info">Vozidla</a>
       </li>
-      <li class="list-inline-item">
+      <li class="list-inline-item" *ngIf="isAdminLoggedIn()">
         <a routerLink="/image" class="btn btn-info">Obrazok</a>
+      </li>
+      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">
+        <a routerLink="/myproducts" class="btn btn-info">Moje Inzeráty</a>
       </li>
     </ul>
   </mat-sidenav>

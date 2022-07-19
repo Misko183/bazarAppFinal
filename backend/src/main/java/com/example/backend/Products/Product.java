@@ -23,15 +23,14 @@ public class Product {
     private String description;
     private double price;
     private String localization;
-   // private String image;
     private String category;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")
     private Image image;
 
-  /*  @ManyToOne
+    @ManyToOne
     User user;
-    */
+
 
 }

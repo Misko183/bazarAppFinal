@@ -10,6 +10,7 @@ import {ImageComponent} from "./image/image.component";
 import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
 import {LoginComponent} from "./component/login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
+import {UsersProductsComponent} from "./users-products/users-products.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Route[] = [
   {path: 'image', component: ImageComponent},
   {path: 'detail/:id', component: DetailOfProductComponent},
   {path: 'login', component: LoginComponent },
-  {path: 'registration', component: RegistrationComponent}
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'myproducts', component: UsersProductsComponent}
 
 
 ];

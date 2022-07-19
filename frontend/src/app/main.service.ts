@@ -14,6 +14,7 @@ export class MainService {
   private getCategoryUrl: string;
   private postCategoryUrl: string;
   private sendUser: string;
+  private usersProductsUrl: string;
 
 
   constructor(private http: HttpClient) {
@@ -22,6 +23,7 @@ export class MainService {
     this.getCategoryUrl = 'http://localhost:8080/inzeraty/category';
     this.postCategoryUrl = 'http://localhost:8080/category';
     this.sendUser = 'http://localhost:8080/role';
+    this.usersProductsUrl = 'http://localhost:8080/myproducts';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -45,4 +47,10 @@ export class MainService {
     return this.http.get<User>(this.sendUser);
   }
 
+  public sendUserInfo(id: number) {
+    return this.http.post<User>(this.usersProductsUrl, {"id" : id});
+  }
+  public getUsersProducts(): Observable<AllProducts[]> {
+    return this.http.get<AllProducts[]>(this.usersProductsUrl);
+  }
 }

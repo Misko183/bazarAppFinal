@@ -28,4 +28,8 @@ export class AppComponent {
     return this.authService.isAdminLoggedIn;
   }
 
+  isSomeoneLoggedIn() {
+    return this.authService.isSomeoneLoggedIn;
+  }
+
 }
