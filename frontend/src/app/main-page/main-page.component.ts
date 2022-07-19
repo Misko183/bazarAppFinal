@@ -17,26 +17,24 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-//button to go to the garden page
+
   goToGarden() {
     this.mainService.postCategory("Garden").subscribe( () => {
-      this.router.navigate(['/garden']);
+      this.router.navigate(['/detailcatagory']);
     });
 
   }
 
   goToElectronics() {
     this.mainService.postCategory("Electronic").subscribe( () => {
-      this.router.navigate(['/electronic']);
+      this.router.navigate(['/detailcatagory']);
     });
 
   }
 
   goToVehicles() {
-    //post "vehicles" to the server
     this.mainService.postCategory("Vehicles").subscribe( () => {
-
-      this.router.navigate(['/vehicles']);
+      this.router.navigate(['/detailcatagory']);
   });
 
   }

@@ -28,6 +28,7 @@ import {AuthInterceptor} from "./security/interceptor/auth.interceptor";
 import {UserService} from "./user/user.service";
 import { RegistrationComponent } from './registration/registration.component';
 import { UsersProductsComponent } from './users-products/users-products.component';
+import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catagory.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UsersProductsComponent } from './users-products/users-products.componen
     DetailOfProductComponent,
     LoginComponent,
     RegistrationComponent,
-    UsersProductsComponent
+    UsersProductsComponent,
+    DetailOfCatagoryComponent
 
   ],
     imports: [

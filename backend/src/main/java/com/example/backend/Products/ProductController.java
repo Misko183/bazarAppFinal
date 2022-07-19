@@ -21,12 +21,12 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/tovar")
+    @GetMapping("/advertisement")
     public List<Product> getAllProduct() {
         return (List<Product>) productRepository.findAll();
     }
 
-    @PostMapping("/tovar")
+    @PostMapping("/advertisement")
     public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
 
@@ -43,7 +43,7 @@ public class ProductController {
 
     }
 
-    @GetMapping("/inzeraty/category")
+    @GetMapping("/advertisement/category")
     public List<Product> showOnlyOneCategory(){
         return productService.getCurrentCategory();
     }

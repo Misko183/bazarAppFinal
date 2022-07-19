@@ -11,6 +11,7 @@ import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.co
 import {LoginComponent} from "./component/login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {UsersProductsComponent} from "./users-products/users-products.component";
+import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Route[] = [
   {path: 'detail/:id', component: DetailOfProductComponent},
   {path: 'login', component: LoginComponent },
   {path: 'registration', component: RegistrationComponent},
-  {path: 'myproducts', component: UsersProductsComponent}
+  {path: 'myproducts', component: UsersProductsComponent},
+  {path: 'detailcatagory', component: DetailOfCatagoryComponent},
 
 
 ];

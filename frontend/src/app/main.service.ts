@@ -18,9 +18,9 @@ export class MainService {
 
 
   constructor(private http: HttpClient) {
-    this.getAllProductsUrl = 'http://localhost:8080/tovar';
-    this.addProductUrl = 'http://localhost:8080/tovar';
-    this.getCategoryUrl = 'http://localhost:8080/inzeraty/category';
+    this.getAllProductsUrl = 'http://localhost:8080/advertisement';
+    this.addProductUrl = 'http://localhost:8080/advertisement';
+    this.getCategoryUrl = 'http://localhost:8080/advertisement/category';
     this.postCategoryUrl = 'http://localhost:8080/category';
     this.sendUser = 'http://localhost:8080/role';
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
