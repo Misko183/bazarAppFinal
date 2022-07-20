@@ -17,9 +17,6 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import { AddProductComponent } from './add-product/add-product.component';
-import { VehiclesComponent } from './category/vehicles/vehicles.component';
-import { GardenComponent } from './category/garden/garden.component';
-import { ElectronicComponent } from './category/electronic/electronic.component';
 import { ImageComponent } from './image/image.component';
 import {MatSelectModule} from "@angular/material/select";
 import {DetailOfProductComponent} from './detail-of-product/detail-of-product.component';
@@ -36,9 +33,6 @@ import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catago
     MainPageComponent,
     AllProductsComponent,
     AddProductComponent,
-    VehiclesComponent,
-    GardenComponent,
-    ElectronicComponent,
     ImageComponent,
     DetailOfProductComponent,
     LoginComponent,

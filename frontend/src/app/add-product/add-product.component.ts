@@ -51,6 +51,7 @@ export class AddProductComponent  {
           } else {
             this.successResponse = 'Image not uploaded due to some error!';
           }
+
         this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoProductList());
         }
       );
