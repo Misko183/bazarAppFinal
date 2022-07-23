@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AllProducts} from "./allProducts";
 import {User} from "./user/user";
+import {Favourite} from "./favourite";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class MainService {
   private postCategoryUrl: string;
   private sendUser: string;
   private usersProductsUrl: string;
-
+  private favouriteUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -24,6 +25,7 @@ export class MainService {
     this.postCategoryUrl = 'http://localhost:8080/category';
     this.sendUser = 'http://localhost:8080/role';
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
+    this.favouriteUrl = 'http://localhost:8080/favourite';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -53,4 +55,8 @@ export class MainService {
   public getUsersProducts(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.usersProductsUrl);
   }
+  public addToFavourite(product: number, user: number) {
+    return this.http.post<Favourite>(this.favouriteUrl, {"product" :{ "id": product}, "user" : {"id": user}});
+  }
+
 }

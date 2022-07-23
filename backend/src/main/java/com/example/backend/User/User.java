@@ -78,10 +78,10 @@ public class User {
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Set<Product> products;
-/*
+
     @JsonIgnore
     @OneToMany(mappedBy="user")
     private Set<Favourite> favourites;
-*/
+
 }
 

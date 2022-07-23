@@ -1,5 +1,6 @@
 package com.example.backend.Favourite;
 
+import com.example.backend.Products.Product;
 import com.example.backend.User.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,9 +18,16 @@ public class Favourite {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long idOfProduct;
 
+    /*
+    @ManyToOne
+    User user;
+    */
+
+    @ManyToOne
+    Product product;
 
     @ManyToOne
     User user;
+
 }

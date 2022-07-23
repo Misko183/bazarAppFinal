@@ -46,5 +46,9 @@ export class DetailOfProductComponent  implements OnInit {
         }
       );
   }
-
+  addToFavourite() {
+    this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
+      this.router.navigate(['/home']);
+    } );
+  }
 }

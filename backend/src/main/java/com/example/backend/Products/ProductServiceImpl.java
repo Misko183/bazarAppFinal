@@ -1,9 +1,11 @@
 package com.example.backend.Products;
 
-import com.example.backend.Image.Image;
+import com.example.backend.Favourite.Favourite;
+import com.example.backend.Favourite.FavouriteRepository;
+import com.example.backend.Favourite.FavouriteService;
+import com.example.backend.Favourite.FavouriteServiceImpl;
 import com.example.backend.Image.ImageController;
 import com.example.backend.Image.ImageRepository;
-import com.example.backend.User.User;
 import com.example.backend.User.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +28,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
+    private FavouriteServiceImpl favouriteService;
+
+    @Autowired
+    private FavouriteRepository favouriteRepository;
 
 
     //Pridavanie Inzeratu
@@ -71,4 +79,5 @@ public class ProductServiceImpl implements ProductService {
 
      return productRepository.findByUser(userService.getLoggedUser());
     }
+
 }

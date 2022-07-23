@@ -1,5 +1,6 @@
 package com.example.backend.Products;
 
+import com.example.backend.Favourite.Favourite;
 import com.example.backend.Image.Image;
 import com.example.backend.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -31,6 +32,10 @@ public class Product {
 
     @ManyToOne
     User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private Set<Favourite> favourites;
 
 
 }
