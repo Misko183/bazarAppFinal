@@ -14,6 +14,7 @@ export class AuthService {
   whoIsLoggedIn: string;
   data: string;
   isSomeoneLoggedIn: boolean = false;
+  check: boolean = false;
 
 
   constructor(
@@ -38,26 +39,31 @@ export class AuthService {
       this.data = data.roles;
         if (this.data === "ADMIN" ) {
           this.isAdminLoggedIn = true;
+          this.isSomeoneLoggedIn = true;
+          this.whoIsLoggedIn = username;
+        }
+        if(this.data === "USER") {
+          this.isSomeoneLoggedIn = true;
+          this.whoIsLoggedIn = username;
         }
     });
     });
 
+      const info = btoa(`${username}:${password}`);
+      const token = `Basic ${info}`;
+    //  this.isSomeoneLoggedIn = true;
+      const options = {
+        headers: new HttpHeaders({
+          Authorization: token,
+          'X-Requested-With': 'XMLHttpRequest'
+        }),
+        withCredentials: true
+      };
+      return this.httpClient.get('http://localhost:8080/user', options).pipe(
+        tap(() => this.token = token)
+      );
 
-    this.whoIsLoggedIn = username;
-    const info = btoa(`${username}:${password}`);
-    const token = `Basic ${info}`;
-    this.isSomeoneLoggedIn= true;
-    const options = {
-      headers: new HttpHeaders({
-        Authorization: token,
-        'X-Requested-With': 'XMLHttpRequest'
-      }),
-      withCredentials: true
-    };
-    return this.httpClient.get('http://localhost:8080/user', options).pipe(
-      tap(() => this.token = token)
-    );
-  }
+    }
 
 
   logout(): void {

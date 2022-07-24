@@ -26,7 +26,7 @@ public class FavouriteController {
 
     @GetMapping("/favourite")
     public ArrayList<Product> getUsersFavourite() {
-        return favouriteService.getProductList();
+        return favouriteService.getMeFavourite();
     }
 
 

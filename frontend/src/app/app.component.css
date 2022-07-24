@@ -25,6 +25,16 @@ mat-sidenav-container {
 
 }
 
+a.card-title{
+  color: white;
+  text-decoration: none;
+
+
+
+
+
+
+}
 
 /*!*.content {*!*/
 /*!*  height: calc(100vh - 98px);*!*/

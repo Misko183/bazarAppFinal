@@ -87,33 +87,34 @@ public class FavouriteServiceImpl implements FavouriteService {
         favouriteRepository.save(favourite);
 
 
-        if(getFavourites() == null) {
+    }
 
-            setFavourites(favouriteRepository.findByUser(favourite.getUser()));
+    public ArrayList<Product> getMeFavourite() {
 
-        }
+    if(getFavourites() == null) {
+
+        setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+
+    }
         else {
-            getProductList().clear();
-            getFavourites().clear();
-            setFavourites(favouriteRepository.findByUser(favourite.getUser()));
-        }
+        getProductList().clear();
+        getFavourites().clear();
+        setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+    }
 
 
-          //  favourites.clear();
-          // delete product list
+    //  favourites.clear();
+    // delete product list
 
-        //    setFavourites(favouriteRepository.findByUser(favourite.getUser()));
-
-
-
+    //    setFavourites(favouriteRepository.findByUser(favourite.getUser()));
 
         for (Favourite f : favourites) {
-            setIds(Collections.singletonList(f.getProduct().getId()));
-             productList.add(productRepository.findById(f.getProduct().getId()).get());
-        }
+        setIds(Collections.singletonList(f.getProduct().getId()));
+        productList.add(productRepository.findById(f.getProduct().getId()).get());
+    }
 
         System.out.print(productList);
-
+       return productList;
     }
 
     @Override

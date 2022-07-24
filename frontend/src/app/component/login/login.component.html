@@ -19,5 +19,8 @@
           <button type="submit" [disabled]="!loginGroup.valid" class="btn btn-success">Login</button>
         </div>
       </div>
+  <div *ngIf="check" class="alert alert-success">
+  <strong>Success!</strong> You have successfully registered. You will be redirected to the login page in 5 seconds.
+</div>
   </form>
 </div>

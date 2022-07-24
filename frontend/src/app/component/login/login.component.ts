@@ -21,6 +21,8 @@ export class LoginComponent {
     private readonly router: Router
   ) { }
 
+  check: boolean = this.authService.check;
+
   login(): void {
     if (this.loginGroup.valid) {
       const username = this.loginGroup.value.username;

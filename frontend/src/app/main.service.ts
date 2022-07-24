@@ -58,5 +58,8 @@ export class MainService {
   public addToFavourite(product: number, user: number) {
     return this.http.post<Favourite>(this.favouriteUrl, {"product" :{ "id": product}, "user" : {"id": user}});
   }
+  public getFavourite(): Observable<AllProducts[]> {
+    return this.http.get<AllProducts[]>(this.favouriteUrl);
+  }
 
 }

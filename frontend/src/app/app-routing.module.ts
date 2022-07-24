@@ -9,6 +9,7 @@ import {LoginComponent} from "./component/login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {UsersProductsComponent} from "./users-products/users-products.component";
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
+import {FavouriteComponent} from "./favourite/favourite.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Route[] = [
   {path: 'registration', component: RegistrationComponent},
   {path: 'myproducts', component: UsersProductsComponent},
   {path: 'detailcatagory', component: DetailOfCatagoryComponent},
+  {path: 'myfavourite', component: FavouriteComponent},
 
 
 ];
