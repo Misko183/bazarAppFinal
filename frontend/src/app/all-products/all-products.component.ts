@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MainService} from "../main.service";
 import {AllProducts} from "../allProducts";
+import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-all-products',
@@ -11,12 +13,20 @@ export class AllProductsComponent implements OnInit {
 
   allProducts: AllProducts[];
 
-  constructor(private mainService: MainService) { }
+
+  constructor(
+    private mainService: MainService,
+    ) {
+
+  }
 
   ngOnInit(): void {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data;
+
     } );
   }
+
+
 
 }

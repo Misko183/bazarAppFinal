@@ -34,6 +34,7 @@ export class DetailOfProductComponent  implements OnInit {
   findProduct() {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data.find(product => product.id === this.detailID);
+      this.mainService.updateProduct(this.allProducts).subscribe();
     } );
   }
 

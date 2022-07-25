@@ -10,6 +10,8 @@ public interface ProductService {
 
     void deleteProduct(Product product);
 
+    void updateProduct(Product product);
+
     void getByCategory(String category);
 
     List<Product> getOnlyUsersProducts();

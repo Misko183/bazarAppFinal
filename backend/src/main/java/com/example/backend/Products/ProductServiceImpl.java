@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 
 @Service
@@ -55,6 +55,13 @@ public class ProductServiceImpl implements ProductService {
         productRepository.delete(product);
     }
 
+    //Aktualizácia Inzeratu
+    @Override
+    public void updateProduct(Product product) {
+       Product myProduct = productRepository.findById(product.getId()).get();
+        myProduct.setCountClicksOnProduct(myProduct.getCountClicksOnProduct() + 1);
+        productRepository.save(myProduct);
+    }
 
 
     public List<Product> getCurrentCategory() {
@@ -76,7 +83,6 @@ public class ProductServiceImpl implements ProductService {
     //Vrátenie iba používateľských inzerátov
     @Override
     public List<Product> getOnlyUsersProducts() {
-
      return productRepository.findByUser(userService.getLoggedUser());
     }
 

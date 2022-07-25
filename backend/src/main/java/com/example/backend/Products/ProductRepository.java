@@ -1,6 +1,5 @@
 package com.example.backend.Products;
 
-import com.example.backend.Favourite.Favourite;
 import com.example.backend.User.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -15,8 +14,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByUser(User user);
 
-    Optional<Product> findById(Long id);
+   // Optional<Product> findById(Long id);
 
-    List<Product> findAllById(Long id);
+    Optional<Product> findById(Long id);
 
 }

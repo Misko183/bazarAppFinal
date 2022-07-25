@@ -29,18 +29,16 @@ public class ProductController {
     @PostMapping("/advertisement")
     public void addProduct(@RequestBody Product product) {
         productService.addProduct(product);
-
     }
 
-//    @GetMapping("/tovar/vehicles")
-//    public List<Product> getOnlyVehicles() {
-//        return productService.getOnlyVehicles();
-//    }
+    @PostMapping("/updateproduct")
+    void updateProduct(@RequestBody Product product) {
+        productService.updateProduct(product);
+    }
 
     @PostMapping("/category")
     public void showCategory(@RequestBody String category){
            productService.getByCategory(category);
-
     }
 
     @GetMapping("/advertisement/category")
@@ -48,22 +46,13 @@ public class ProductController {
         return productService.getCurrentCategory();
     }
 
-    //skušobna z doplnením
-//    @GetMapping("/inzeraty/categoryy")
-//    public List<Product> showOnlyMe(){
-//       return productService.getOnlyMe("aa");
-//    }
-
 
     @GetMapping("/myproducts")
     public List<Product> showOnlyMe(){
         return productService.getOnlyUsersProducts();
     }
 
-//    @PostMapping("/myproducts")
-//    public void postMeUser(@RequestBody User user){
-//       productService.getOnlyUsersProducts(user);
-//    }
+
 
 
 }

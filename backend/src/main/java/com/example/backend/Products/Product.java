@@ -25,6 +25,7 @@ public class Product {
     private double price;
     private String localization;
     private String category;
+    private int countClicksOnProduct;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", referencedColumnName = "id")

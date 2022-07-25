@@ -6,4 +6,5 @@ export class AllProducts {
   localization: string;
   category: string;
   image: any;
+  countClicksOnProduct: number;
 }

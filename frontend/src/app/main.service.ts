@@ -17,6 +17,7 @@ export class MainService {
   private sendUser: string;
   private usersProductsUrl: string;
   private favouriteUrl: string;
+  private updateProductUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -26,6 +27,7 @@ export class MainService {
     this.sendUser = 'http://localhost:8080/role';
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
     this.favouriteUrl = 'http://localhost:8080/favourite';
+    this.updateProductUrl = 'http://localhost:8080/updateproduct';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -34,11 +36,12 @@ export class MainService {
   public addProduct(product: AllProducts) {
     return this.http.post<AllProducts>(this.addProductUrl, product);
   }
-
+  public updateProduct(product: AllProducts) {
+    return this.http.post<AllProducts>(this.updateProductUrl, product);
+  }
   public getOneCategory(): Observable<AllProducts[]>{
     return this.http.get<AllProducts[]>(this.getCategoryUrl);
   }
-
   public postCategory(category: string) {
     return this.http.post<string>(this.postCategoryUrl, category);
   }
@@ -49,9 +52,6 @@ export class MainService {
     return this.http.get<User>(this.sendUser);
   }
 
-  public sendUserInfo(id: number) {
-    return this.http.post<User>(this.usersProductsUrl, {"id" : id});
-  }
   public getUsersProducts(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.usersProductsUrl);
   }
