@@ -1,12 +1,9 @@
 mat-toolbar {
-  background: #c20505;
+  background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
   color: white;
   height: 8%;
-  margin-left: 1%;
-  margin-right: 99%;
-  margin-top: 1%;
-  width: 98%;
-  border-radius: 10px;
+
+
 }
 
 mat-sidenav {
@@ -19,9 +16,10 @@ mat-sidenav {
 
   text-align: center;
 }
+
 mat-sidenav-container {
   height: calc(100vh - 65px);
-  background-color: rgb(252, 170, 140);
+  background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
 
 }
 
@@ -71,14 +69,7 @@ a.card-title{
   text-align: center;
   margin-top: 10px;
 }
-.toolbar_login {
-  color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  margin-left: 93%;
-  position: fixed;
-}
+
 span{
   margin-left: 39em;
 }
@@ -114,19 +105,21 @@ span{
 /*!*.btn{*!*/
 /*!*  font-size: 20px;*!*/
 /*!*}*!*/
-.toolbar_register{
+.toolbar_register {
   color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  margin-left: 85%;
-  position: fixed;
+  position: absolute;
+  right: 6%;
 }
+
 .toolbar_split{
   color: white;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  margin-left: 91.5%;
-  position: fixed;
+ position: absolute;
+  right: 4.8%;
+
+}
+
+.toolbar_login {
+  color: white;
+  position: absolute;
+  right: 1%;
 }

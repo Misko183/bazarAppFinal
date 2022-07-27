@@ -1,9 +1,9 @@
 <mat-toolbar>
   <a routerLink="/home" class="card-title">BazarApp </a>
   <span class="username">{{getWhoIsLoggedIn()}}</span>
-  <a routerLink="/login" *ngIf="!isLoggedIn()" class="toolbar_login">Login</a>
-  <a routerLink="/registration" *ngIf="!isLoggedIn()" class="toolbar_register">Registration</a>
-  <a *ngIf="!isLoggedIn()" class="toolbar_split">|</a>
+  <a routerLink="/login" *ngIf="!isLoggedIn()" class="card-title toolbar_login">Login</a>
+  <a routerLink="/registration" *ngIf="!isLoggedIn()" class="card-title toolbar_register">Registration</a>
+  <a *ngIf="!isLoggedIn()" class="card-title toolbar_split">|</a>
   <a routerLink="/login" *ngIf="isLoggedIn()" (click)="logout()" class="toolbar_login">Logout</a>
   <a class="list-inline-item" *ngIf="isSomeoneLoggedIn()">
     <input routerLink="/createproduct" type="image" name="Name of image button" src="../../assets/plus.png" height="40" width="40">
@@ -17,26 +17,26 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
-    <ul class="text-center list-inline py-3">
-      <li class="list-inline-item">
-        <a routerLink="/allproducts" class="btn btn-info">EveryThing</a>
-      </li>
-      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">
-        <a routerLink="/createproduct" class="btn btn-info">Vytvoriť Inzerát</a>
-      </li>
-      <li class="list-inline-item" *ngIf="isAdminLoggedIn()">
-        <a routerLink="/image" class="btn btn-info">Obrazok</a>
-      </li>
-      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">
-        <a routerLink="/myproducts" class="btn btn-info">Moje Inzeráty</a>
-      </li>
-      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">
-        <a routerLink="/myfavourite" class="btn btn-info">Moje obľubenéy</a>
-      </li>
+<!--  <mat-sidenav mode="side" opened>-->
+<!--    <ul class="text-center list-inline py-3">-->
+<!--      <li class="list-inline-item">-->
+<!--        <a routerLink="/allproducts" class="btn btn-info">EveryThing</a>-->
+<!--      </li>-->
+<!--      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">-->
+<!--        <a routerLink="/createproduct" class="btn btn-info">Vytvoriť Inzerát</a>-->
+<!--      </li>-->
+<!--      <li class="list-inline-item" *ngIf="isAdminLoggedIn()">-->
+<!--        <a routerLink="/image" class="btn btn-info">Obrazok</a>-->
+<!--      </li>-->
+<!--      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">-->
+<!--        <a routerLink="/myproducts" class="btn btn-info">Moje Inzeráty</a>-->
+<!--      </li>-->
+<!--      <li class="list-inline-item" *ngIf="isSomeoneLoggedIn()">-->
+<!--        <a routerLink="/myfavourite" class="btn btn-info">Moje obľubenéy</a>-->
+<!--      </li>-->
 
-    </ul>
-  </mat-sidenav>
+<!--    </ul>-->
+<!--  </mat-sidenav>-->
   <mat-sidenav-content>
     <br>
     <router-outlet></router-outlet>
