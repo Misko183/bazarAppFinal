@@ -8,12 +8,40 @@
 /*  margin-left: 20%; !*posunutie do stran*!*/
 
 /*}*/
-.action-container{
+/*.action-container{*/
+/*  display: grid;*/
+/*  grid-template-columns: 200px 250px;*/
+/*  grid-auto-rows: minmax(150px, auto);*/
+/*  grid-gap: 10px;*/
+
+
+
+/*}*/
+.grid-container{
+  position: fixed;
+  width: 100%;
   display: grid;
-  grid-template-columns: 200px 250px;
-  grid-auto-rows: minmax(150px, auto);
-  grid-gap: 10px;
-
-
+  grid-template-columns: repeat(4,1fr);
 
 }
+
+.grid-item{
+
+  padding: 20%;
+  display: grid;
+  place-items: center;
+}
+
+.small_btn{
+  width: 120%;
+  height: 500%;
+  margin: 2%;
+  border: none;
+  background-color: deepskyblue;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+

@@ -18,7 +18,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-  height: calc(100vh - 65px);
+  height: 92%;
   background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
 
 }
