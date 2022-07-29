@@ -21,23 +21,23 @@
   position: fixed;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5,1fr);
 
 }
 
 .grid-item{
 
-  padding: 20%;
+  padding: 5%;
   display: grid;
   place-items: center;
 }
 
 .small_btn{
-  width: 120%;
-  height: 500%;
-  margin: 2%;
+  width: 80%;
+  /*height: 500%;*/
+  margin: 0%;
   border: none;
-  background-color: deepskyblue;
+  background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
   color: white;
   font-size: 1.5rem;
   font-weight: bold;

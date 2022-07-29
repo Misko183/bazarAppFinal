@@ -64,6 +64,20 @@ export class AddProductComponent  {
       this.allProducts.category = 'Garden';
     } else if (this.selectedCategory === 'Vehicles') {
       this.allProducts.category = 'Vehicles';
+    } else if (this.selectedCategory === 'Toys') {
+      this.allProducts.category = 'Toys';
+    } else if (this.selectedCategory === 'Clothes') {
+      this.allProducts.category = 'Clothes';
+    } else if (this.selectedCategory === 'Pets') {
+      this.allProducts.category = 'Pets';
+    } else if (this.selectedCategory === 'Sport') {
+      this.allProducts.category = 'Sport';
+    } else if (this.selectedCategory === 'House') {
+      this.allProducts.category = 'House';
+    } else if (this.selectedCategory === 'HomeElectronics') {
+      this.allProducts.category = 'HomeElectronics';
+    } else if (this.selectedCategory === 'Furniture') {
+      this.allProducts.category = 'Furniture';
     }
   }
 }

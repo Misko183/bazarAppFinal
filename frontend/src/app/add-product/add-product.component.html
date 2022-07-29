@@ -61,9 +61,16 @@
       <div class="col-sm-10">
         <mat-form-field appearance="fill">
           <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.category" name="category" id="category" (selectionChange)="chooseCategory()" required>
+            <mat-option value='Pets'>Domáce Zvieratá</mat-option>
             <mat-option value='Electronic'>Elektronika</mat-option>
-            <mat-option value='Garden'>Záhrada</mat-option>
+            <mat-option value='Toys'>Hračky</mat-option>
+            <mat-option value='Furniture'>Nábytok</mat-option>
+            <mat-option value='House'>Nehnuteľnosti</mat-option>
+            <mat-option value='Clothes'>Oblečenie</mat-option>
+            <mat-option value='HomeElectronics'>Spotrebiče</mat-option>
+            <mat-option value='Sport'>Šport</mat-option>
             <mat-option value='Vehicles'>Vozidlo</mat-option>
+            <mat-option value='Garden'>Záhrada</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
