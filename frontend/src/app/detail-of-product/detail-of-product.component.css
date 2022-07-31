@@ -1,3 +1,32 @@
-div{
-  text-align: center;
+.information{
+position: absolute;
+top: 1%;
+left: 1%;
+right: 50%;
+
+
+
 }
+
+.picture{
+position: absolute;
+  top: 5%;
+  right: 2%;
+}
+/*.container{*/
+/*  width:50%;*/
+/*  display: table-cell;*/
+/*}*/
+
+/*.container .information {*/
+/*  position: fixed;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.container .picture {*/
+/*position: fixed;*/
+/*  align-content: end;*/
+/*  text-align: right*/
+/*;*/
+/*}*/
+
