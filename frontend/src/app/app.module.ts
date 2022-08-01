@@ -27,6 +27,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UsersProductsComponent } from './users-products/users-products.component';
 import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catagory.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FavouriteComponent } from './favourite/favourite.component';
     RegistrationComponent,
     UsersProductsComponent,
     DetailOfCatagoryComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    FeedbackComponent
 
   ],
     imports: [

@@ -33,3 +33,22 @@ h1{
 
 }
 
+
+.header {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.header > div {
+  margin-left: 15px;
+}
+
+.option {
+  margin-right: 15px;
+}
+
+.minsz {
+  margin-right: 15px;
+}
+

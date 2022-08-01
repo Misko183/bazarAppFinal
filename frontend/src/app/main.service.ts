@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {AllProducts} from "./allProducts";
 import {User} from "./user/user";
 import {Favourite} from "./favourite";
+import {Feedback} from "./feedback";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class MainService {
   private usersProductsUrl: string;
   private favouriteUrl: string;
   private updateProductUrl: string;
+  private feedbackUrl: string;
+  private deleteFeedbackUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -28,6 +31,8 @@ export class MainService {
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
     this.favouriteUrl = 'http://localhost:8080/favourite';
     this.updateProductUrl = 'http://localhost:8080/updateproduct';
+    this.feedbackUrl = 'http://localhost:8080/feedback';
+    this.deleteFeedbackUrl = 'http://localhost:8080/deletefeedback';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -61,5 +66,13 @@ export class MainService {
   public getFavourite(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.favouriteUrl);
   }
-
+  public postFeedback(feedback: Feedback) {
+    return this.http.post<Feedback>(this.feedbackUrl, feedback);
+  }
+  public getFeedback(): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(this.feedbackUrl);
+  }
+  public deleteFeedback(feedback: Feedback){
+    return this.http.post<Feedback>(this.deleteFeedbackUrl, feedback);
+  }
 }
