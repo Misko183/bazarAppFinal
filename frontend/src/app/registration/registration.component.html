@@ -28,7 +28,10 @@
       </div>
     </div>
     <div *ngIf="check" class="alert alert-success">
-      <strong>Success!</strong> You have successfully registered. You will be redirected to the login page in 5 seconds.
+      <strong>Super!</strong> Úspešne ste sa zaregistrovali. Na prihlasovaciu stránku budete presmerovaní o 5 sekund.
+    </div>
+    <div *ngIf="checkBadName" class="alert alert-danger">
+      <strong>OOPS!</strong> Takáto používateľske meno už existuje prosím zmeňte ho.
     </div>
   </form>
 </div>

@@ -19,9 +19,15 @@ public class UserController {
     public void getUser() {
     }
 
+    @GetMapping("/usermessege")
+       public boolean returnMesseage(){
+        return userService.isMessegeAboutUser();
+    }
+
+    //Po logine odošle zadané meno a heslo
     @PostMapping("/role")
     public void getRole(@RequestBody User user) {
-         userService.findLoggedUsers(user.getUserName());
+         userService.findLoggedUsers(user.getUserName(), user.getPassword());
     }
 
     @GetMapping("/role")

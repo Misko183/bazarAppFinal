@@ -15,7 +15,7 @@ export class AuthService {
   data: string;
   isSomeoneLoggedIn: boolean = false;
   check: boolean = false;
-
+  changeName: string;
 
   constructor(
     private readonly httpClient: HttpClient,
@@ -33,7 +33,7 @@ export class AuthService {
 
   login(username: string, password: string): Observable<any> {
 
-    this.mainService.sendUserName(username).subscribe(() => {
+    this.mainService.sendUserName(username,password).subscribe(() => {
 
     this.mainService.getUsersRole().subscribe(data => {
       this.data = data.roles;
@@ -49,9 +49,12 @@ export class AuthService {
     });
     });
 
-      const info = btoa(`${username}:${password}`);
+   //vratenie bez mäkčeňov
+    let usernameWithoutAccents = username.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    let passwordWithoutAccents = password.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+      const info = btoa(`${usernameWithoutAccents}:${passwordWithoutAccents}`);
       const token = `Basic ${info}`;
-    //  this.isSomeoneLoggedIn = true;
       const options = {
         headers: new HttpHeaders({
           Authorization: token,

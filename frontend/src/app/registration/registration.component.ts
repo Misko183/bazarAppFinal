@@ -4,6 +4,8 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {UserService} from "../user/user.service";
 import {Router} from "@angular/router";
 import { delay } from 'rxjs/operators';
+import {observable} from "rxjs";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-registration',
@@ -14,8 +16,9 @@ export class RegistrationComponent  {
 
   userForm: any;
   user: newUser;
-  check: boolean = false;
-
+  check: Boolean = false;
+  checkBadName: Boolean = false;
+  usernameExist: Boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,13 +46,31 @@ export class RegistrationComponent  {
       }
     }
     this.userService.save(this.user).subscribe(
-      data => {
+
+      () => {
+        this.userService.getUserMessege().subscribe((data) => {
+        this.usernameExist = data;
+
+        if (this.usernameExist === true) {
+          this.checkBadName = false;
         this.check = true;
-      }
+          setTimeout(() => {
+            this.check = false;
+            this.router.navigate(['/login']);
+          }, 5000);
+        }
+
+            else {
+              this.checkBadName = true;
+              }
+
+          }
+        );
+        }
     );
-    setTimeout(() => {
-      this.check = false;
-      this.router.navigate(['/login']);
-    }, 5000);
+
+
+
+
   }
 }

@@ -50,8 +50,8 @@ export class MainService {
   public postCategory(category: string) {
     return this.http.post<string>(this.postCategoryUrl, category);
   }
-  public sendUserName(username: string) {
-    return this.http.post<User>(this.sendUser, {"userName" : username});
+  public sendUserName(username: string, password: string) {
+    return this.http.post<User>(this.sendUser, {"userName" : username, "password": password});
   }
   public getUsersRole(): Observable<User> {
     return this.http.get<User>(this.sendUser);

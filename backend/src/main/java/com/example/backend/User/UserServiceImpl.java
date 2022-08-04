@@ -16,13 +16,31 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+
+    public boolean isMessegeAboutUser() {
+        return messegeAboutUser;
+    }
+
+    public void setMessegeAboutUser(boolean messegeAboutUser) {
+        this.messegeAboutUser = messegeAboutUser;
+    }
+
+    boolean messegeAboutUser;
+
     //Vytvaranie použivateľa s rolou USER
     @Override
-    public User addUser(User user) {
+    public void addUser(User user) {
     //String encodedPassword = passwordEncoder.encode(user.getPassword());
     //user.setPassword(encodedPassword);
-        user.setRoles("USER");
-        return this.repository.save(user);
+
+        if (repository.findByUserName(user.getUserName()).isPresent()) {
+            setMessegeAboutUser(false);
+        }
+        else {
+            user.setRoles("USER");
+            repository.save(user);
+            setMessegeAboutUser(true);
+        }
     }
 
     @Override
@@ -46,9 +64,10 @@ public class UserServiceImpl implements UserService {
 
     User loggedUser;
 
+    //Hľadanie používateľa podľa mena a hesla a násldne uloženie do loggedUser
     @Override
-    public void findLoggedUsers(String username) {
-       setLoggedUser(this.repository.findByUserName(username).get());
+    public void findLoggedUsers(String username, String password) {
+       setLoggedUser(this.repository.findByUserNameAndPassword(username,password).get());
     }
 }
 
