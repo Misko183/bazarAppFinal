@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 
@@ -45,7 +46,15 @@ public class ProductServiceImpl implements ProductService {
         Long image = imageRepository.findTopByOrderByIdDesc().get().getId();
         product.setImage(imageRepository.findById(image).get());
         product.setUser(userService.getLoggedUser());
-        productRepository.save(product);
+        product.setPrice(product.getPrice().toLowerCase(Locale.ROOT));
+        if(product.getPrice().contains("€") || product.getPrice().contains("$") || product.getPrice().contains("£") || product.getPrice().contains("dohodou")){
+            productRepository.save(product);
+        }
+        else{
+            product.setPrice(product.getPrice()+ "€");
+            productRepository.save(product);
+        }
+
 
     }
 

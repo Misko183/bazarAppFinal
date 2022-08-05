@@ -30,6 +30,7 @@ export class LoginComponent {
       const password = this.loginGroup.value.password;
 
       //poslanie prihlasovaních udajov na service na overenie
+      this.check = true;
       this.authService.login(username, password)
         .subscribe(() => this.router.navigateByUrl('/home'));
     }

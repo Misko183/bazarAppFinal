@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {MainService} from "../../main.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class AuthService {
   constructor(
     private readonly httpClient: HttpClient,
     private mainService: MainService,
+    private readonly router: Router
   ) {
   }
 
@@ -32,9 +34,8 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-
+    this.check = false;
     this.mainService.sendUserName(username,password).subscribe(() => {
-
     this.mainService.getUsersRole().subscribe(data => {
       this.data = data.roles;
         if (this.data === "ADMIN" ) {
@@ -46,6 +47,8 @@ export class AuthService {
           this.isSomeoneLoggedIn = true;
           this.whoIsLoggedIn = username;
         }
+
+
     });
     });
 
