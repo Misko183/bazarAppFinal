@@ -3,18 +3,6 @@ mat-toolbar {
   color: white;
   height: 8%;
 
-
-}
-
-mat-sidenav {
-  margin: 1%; /*okrajova vzdialenosť*/
-  width: 10%;/*šírka*/
-  border-right: none;/*okraj*/
-  background: #c20505;/*farba*/
-  color: white;
-  border-radius: 10px; /*zaoblenie*/
-
-  text-align: center;
 }
 
 mat-sidenav-container {
@@ -24,87 +12,18 @@ mat-sidenav-container {
 }
 
 a.card-title{
+  position: absolute;
+  top: 2%;
   color: white;
   text-decoration: none;
-
-
-
-
-
-
 }
 
-/*!*.content {*!*/
-/*!*  height: calc(100vh - 98px);*!*/
-/*!*  border-radius: 10px;*!*/
-/*!*  margin: 16px;*!*/
-/*!*  margin-left: 32px;*!*/
-
-/*!*  display: flex;*!*/
-/*!*  justify-content: center;*!*/
-/*!*  align-items: center;*!*/
-
-/*!*  font-size: 2rem;*!*/
-/*!*  color: lightgray;*!*/
-
-/*!*}*!*/
-
-
-
-.btn-info {
-  background-color: black;
-  border-color: black;
+a.card-title-ttl{
+  color: black;
+  text-decoration: none;
 }
 
-.btn-info:hover {
-  border-color: #ff4a00;
-}
 
-.btn {
-  margin-bottom: 15%;
-}
-
-.card-title {
-  color: #002b5c;
-  text-align: center;
-  margin-top: 10px;
-}
-
-span{
-  margin-left: 39em;
-}
-
-/*!*.example-tree-invisible {*!*/
-/*!*  display: none;*!*/
-/*!*}*!*/
-
-/*!*.example-tree ul,*!*/
-/*!*.example-tree li {*!*/
-/*!*  margin-top: 0;*!*/
-/*!*  margin-bottom: 0;*!*/
-/*!*  list-style-type: none;*!*/
-/*!*}*!*/
-
-/*!*.example-tree .mat-nested-tree-node div[role=group] {*!*/
-/*!*  padding-left: 40px;*!*/
-/*!*}*!*/
-
-/*!*.example-tree div[role=group] > .mat-tree-node {*!*/
-/*!*  padding-left: 40px;*!*/
-/*!*}*!*/
-/*!*.mat-tree-node{*!*/
-/*!*  background-color: #002b5c;*!*/
-/*!*  color: white;*!*/
-/*!*}*!*/
-/*!*div{*!*/
-/*!*  background-color: #002b5c;*!*/
-/*!*}*!*/
-/*!*.text-center{*!*/
-/*!*  display: inline-grid;*!*/
-/*!*}*!*/
-/*!*.btn{*!*/
-/*!*  font-size: 20px;*!*/
-/*!*}*!*/
 .toolbar_register {
   color: white;
   position: absolute;
@@ -123,3 +42,44 @@ span{
   position: absolute;
   right: 1%;
 }
+
+
+
+/*SIDEBAR*/
+.sidebar {
+  position: absolute;
+  top: 0%;
+  width: 8%;
+  height: 50%;
+  background: linear-gradient(90deg, #c20505 0%, #e1c224 100%);
+  box-shadow: 2px 2px 5px #000000;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+
+#menu {
+  width: 40px;
+  height:40px;
+  left: auto;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 0px solid #000000;
+}
+
+/*#open-close{*/
+/*  margin-top: 12%;*/
+/*  width: 35px;*/
+/*  height:35px;*/
+/*  margin-left: 21%;*/
+/*}*/
+
+/*.closed{*/
+/*  margin-left: 1px;*/
+/*}*/

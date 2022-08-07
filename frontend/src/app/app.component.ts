@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AuthService} from "./security/service/auth.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {AuthService} from "./security/service/auth.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
  constructor(private authService: AuthService) {
 
  }
@@ -30,6 +30,17 @@ export class AppComponent {
 
   isSomeoneLoggedIn() {
     return this.authService.isSomeoneLoggedIn;
+  }
+
+
+  ngOnInit() {
+    this.open = true;
+  }
+
+  open: boolean;
+  prueba() {
+    this.open = !this.open;
+    console.log(this.open);
   }
 
 }

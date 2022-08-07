@@ -56,6 +56,7 @@ export class AuthService {
     let usernameWithoutAccents = username.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
     let passwordWithoutAccents = password.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
+    // const token = "Basic " +  window.btoa(usernameWithoutAccents + ':' + passwordWithoutAccents);
       const info = btoa(`${usernameWithoutAccents}:${passwordWithoutAccents}`);
       const token = `Basic ${info}`;
       const options = {
