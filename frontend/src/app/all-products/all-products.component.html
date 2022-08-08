@@ -39,7 +39,8 @@
     <mat-select [(value)]="selected" (selectionChange)="changeState()">
       <mat-option value='Name'>Názov</mat-option>
        <mat-option value='Location'>Lokalizácia</mat-option>
-      <mat-option value='Price'>Cena</mat-option>
+      <mat-option value='PriceMin'>Cena(od najlacnešieho)</mat-option>
+      <mat-option value='PriceMax'>Cena(od najdrahšieho)</mat-option>
       <mat-option value='Clicks'>Počeť videní</mat-option>
     </mat-select>
   </mat-form-field>

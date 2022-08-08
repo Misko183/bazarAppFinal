@@ -2,7 +2,7 @@ export class AllProducts {
   id: number;
   name: string;
   description: string;
-  price: number;
+  price: string;
   localization: string;
   category: string;
   image: any;

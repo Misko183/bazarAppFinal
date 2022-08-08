@@ -37,12 +37,16 @@ export class DetailOfCatagoryComponent implements OnInit {
 //Filtre
 
   changeState() {
-    if (this.selected === 'Price') {
-      this.allProducts.sort((a, b) => (a.price > b.price) ? 1 : -1)
+    if (this.selected === 'PriceMin') {
+      this.allProducts.sort((a, b) => (a.price < b.price ? 1 : -1))
+      this.allProducts.sort((a, b) => (parseInt(a.price) > parseInt(b.price) ? 1 : -1))
+    } else if (this.selected === 'PriceMax') {
+      this.allProducts.sort((a, b) => (a.price < b.price ? 1 : -1))
+      this.allProducts.sort((a, b) => (parseInt(a.price) < parseInt(b.price) ? 1 : -1))
     } else if (this.selected === 'Name') {
-      this.allProducts.sort((a, b) => (a.name > b.name) ? 1 : -1)
+      this.allProducts.sort((a, b) => (a.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "") > b.name.normalize('NFD').replace(/[\u0300-\u036f]/g, "")) ? 1 : -1)
     } else if (this.selected === 'Location') {
-      this.allProducts.sort((a, b) => (a.localization > b.localization) ? 1 : -1)
+      this.allProducts.sort((a, b) => (a.localization.normalize('NFD').replace(/[\u0300-\u036f]/g, "") > b.localization.normalize('NFD').replace(/[\u0300-\u036f]/g, "")) ? 1 : -1)
     } else {
       this.allProducts.sort((a, b) => (a.countClicksOnProduct < b.countClicksOnProduct) ? 1 : -1)
     }
@@ -51,8 +55,8 @@ export class DetailOfCatagoryComponent implements OnInit {
 
   filterPrice() {
     if (this.check_min_state && this.check_max_state) {
-      this.allProducts = this.allProducts.filter(value => value.price >= this.min_value);
-      this.allProducts = this.allProducts.filter(value => value.price <= this.max_value);
+      this.allProducts = this.allProducts.filter(value => parseInt(value.price) >= this.min_value);
+      this.allProducts = this.allProducts.filter(value => parseInt(value.price)<= this.max_value);
     }
   }
 
@@ -69,14 +73,14 @@ export class DetailOfCatagoryComponent implements OnInit {
   resetFilter() {
     this.min_value = '';
     this.max_value = '';
-    this.mainService.getAllProducts().subscribe(data => {
+    this.mainService.getOneCategory().subscribe(data => {
       this.allProducts = data;
     });
   }
 
   filterProduct(event: any) {
     let searchValue = event.target.value;
-    this.mainService.getAllProducts().subscribe(data => {
+    this.mainService.getOneCategory().subscribe(data => {
       this.allProducts = data.filter(value => value.name.toLowerCase().includes(searchValue.toLowerCase()));
     });
   }
