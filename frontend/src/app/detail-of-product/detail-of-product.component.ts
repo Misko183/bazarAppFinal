@@ -12,6 +12,7 @@ import {HttpClient} from "@angular/common/http";
 export class DetailOfProductComponent  implements OnInit {
 
   allProducts: AllProducts;
+  oneProcust: AllProducts;
   detailID: number;
   dbImage: any;
   postResponse: any;
@@ -39,14 +40,20 @@ export class DetailOfProductComponent  implements OnInit {
   }
 
   viewImage() {
-    this.httpClient.get('http://localhost:8080/get/image/info/' + this.detailID)
+    this.mainService.getAllProducts().subscribe(data => {
+      this.oneProcust  = data.find(product => product.id === this.detailID);
+
+    this.httpClient.get('http://localhost:8080/get/image/info/' + this.oneProcust.image.id)
       .subscribe(
         res => {
           this.postResponse = res;
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
         }
       );
+    });
   }
+
+
   addToFavourite() {
     this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
       this.router.navigate(['/home']);

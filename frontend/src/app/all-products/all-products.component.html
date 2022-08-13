@@ -68,13 +68,29 @@
 </div>
 
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let product of allProducts"  >
-    <button (click)="viewImage(product.id)">Zobrazi Image</button>
+  <div class="grid-item" *ngFor="let product of allProducts" >
+
+<!--    <div *ngIf="allProducts.length">-->
+<!--      {{viewImage(product.image.id) ? viewImage(product.image.id) : ""}}-->
+<!--    </div>-->
+
+
+<!--    <button (click)="viewImage(product.image.id)">Zobrazi Image</button>-->
         <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
-          <div class="picture" *ngIf=dbImage>
-            <img [src]="dbImage" >
+
+          <div class="picture" >
+            <img [src]="list[product.id-1]" >
           </div>
+
+
+
+<!--            <img [src]="aa + product.image.id.image" >-->
+
+
+<!--          <div>-->
+<!--            <img [src]="'data:image/jpeg;base64,'+product.image.id"  >-->
+<!--          </div>-->
           {{product.countClicksOnProduct}}
         </button>
   </div>

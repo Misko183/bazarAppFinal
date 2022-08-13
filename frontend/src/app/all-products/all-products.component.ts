@@ -4,6 +4,8 @@ import {AllProducts} from "../allProducts";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {ifError} from "assert";
+import {of} from "rxjs";
+import {delay} from "rxjs/operators";
 
 
 @Component({
@@ -35,24 +37,62 @@ export class AllProductsComponent implements OnInit {
     private httpClient: HttpClient,
     ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
+
+
   }
 
   ngOnInit(): void {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data;
-
+  this.start();
 
     } );
+  }
 
+  lll: number = 0;
+start() {
+    for(let i = 0; i < 1; i++){
+  for (let product of this.allProducts) {
+    this.listNum.push(product.image.id);
+    this.lll++;
+  }
+      if(this.lll == this.allProducts.length){
+        for (let i = 0; i < this.listNum.length; i++) {
+          this.viewImage(this.listNum[i]);
+        }
+      }
   }
 
 
+}
+
+list: Array<any> = [];
+
+listNum: Array<any> = [];
+
+// toList(number: number) {
+//
+//
+//
+//   for (let i = 0; i < this.listNum.length; i++) {
+//     this.viewImage(this.listNum[i]);
+//   }
+//
+// }
   viewImage(number: number) {
+
     this.httpClient.get('http://localhost:8080/get/image/info/' + number)
       .subscribe(
         res => {
           this.postResponse = res;
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+
+        //if list dont contains dbImage
+        //   if (!this.list.includes(this.dbImage)) {
+
+              this.list.push(this.dbImage);
+
+        //   }
         }
       );
   }
