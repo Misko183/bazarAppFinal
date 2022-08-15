@@ -76,12 +76,17 @@
 
 
 <!--    <button (click)="viewImage(product.image.id)">Zobrazi Image</button>-->
-        <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
+      <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
+
+       <img [src]="product.image.image" >
+
+<!--      <img src="data:image/jpeg;base64,{{+product.image}}">-->
 
           <div class="picture" >
             <img [src]="list[product.id-1]" >
           </div>
+
 
 
 

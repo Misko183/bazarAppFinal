@@ -1,0 +1,20 @@
+
+body{
+position: absolute;
+  top: 0%;
+  width: 100%;
+  background-image: url("../../../assets/log-back.jpg");
+background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.container{
+margin-top: 10%;
+color: white;
+
+}
+
+input{
+width: 60em;
+}

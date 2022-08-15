@@ -4,5 +4,6 @@ export interface newUser
     email: string;
     password: string;
     //confirmPassword: string;
-
+    phone: string;
+    address: string;
 }

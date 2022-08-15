@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {ifError} from "assert";
 import {of} from "rxjs";
 import {delay} from "rxjs/operators";
+import {Image} from "../image";
 
 
 @Component({
@@ -21,6 +22,10 @@ export class AllProductsComponent implements OnInit {
   dbImage: any;
   postResponse: any;
   skusimId: any;
+  dbImage1: any;
+  postResponse1: any;
+
+  random:number = 0;
 
   public selected: string = 'ID';
   public isVisible: boolean = false;
@@ -30,11 +35,13 @@ export class AllProductsComponent implements OnInit {
   check_max_state: boolean = false;
 
 
+
   constructor(
     private mainService: MainService,
     private route: ActivatedRoute,
     private router: Router,
     private httpClient: HttpClient,
+ //   private imageService: Image,
     ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
 
@@ -45,7 +52,7 @@ export class AllProductsComponent implements OnInit {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data;
   this.start();
-
+//this.showImage();
     } );
   }
 
@@ -59,6 +66,7 @@ start() {
       if(this.lll == this.allProducts.length){
         for (let i = 0; i < this.listNum.length; i++) {
           this.viewImage(this.listNum[i]);
+
         }
       }
   }
@@ -89,6 +97,7 @@ listNum: Array<any> = [];
 
         //if list dont contains dbImage
         //   if (!this.list.includes(this.dbImage)) {
+        //delay before adding to list
 
               this.list.push(this.dbImage);
 
@@ -97,6 +106,26 @@ listNum: Array<any> = [];
       );
   }
 
+
+  showImage(aaa: number) {
+
+    this.httpClient.get('http://localhost:8080/get/image/info/' + aaa)
+      .subscribe(
+        res => {
+          this.postResponse1 = res;
+          this.dbImage1 = 'data:image/jpeg;base64,' + this.postResponse1.image;
+        }
+      );
+  }
+
+  // ukaz(number: number) {
+  //   return this.imageService.showImg(number);
+  // }
+
+  plus()
+  {
+    this.random++;
+  }
 //Filtre
 
   changeState() {

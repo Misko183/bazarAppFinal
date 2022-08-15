@@ -3,9 +3,6 @@ position: absolute;
 top: 1%;
 left: 1%;
 right: 50%;
-
-
-
 }
 
 .picture{
@@ -13,6 +10,13 @@ position: absolute;
   top: 5%;
   right: 2%;
 }
+
+.contact{
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+}
+
 /*.container{*/
 /*  width:50%;*/
 /*  display: table-cell;*/

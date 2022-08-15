@@ -22,6 +22,8 @@ public class User {
     private String userName;
     private String email;
     private String password;
+    private String address;
+    private String phone;
     private boolean active;
     private String roles;
 
@@ -64,14 +66,6 @@ public class User {
 
     public void setRoles(String roles) {
         this.roles = roles;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
 

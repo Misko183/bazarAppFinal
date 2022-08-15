@@ -19,6 +19,11 @@ public class UserController {
     public void getUser() {
     }
 
+    @GetMapping("/users")
+    public User getUser1() {
+        return  userRepository.findById(1L).get();
+    }
+
     @GetMapping("/usermessege")
        public boolean returnMesseage(){
         return userService.isMessegeAboutUser();

@@ -1,6 +1,8 @@
 import {MainService} from "./main.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "./user/user";
+import {Image} from "./image";
 
 export class AllProducts {
   id: number;
@@ -9,7 +11,8 @@ export class AllProducts {
   price: string;
   localization: string;
   category: string;
-  image: any;
+  image: Image;
+  user: User;
   countClicksOnProduct: number;
  //  detailID: number;
  //  postResponse: any;

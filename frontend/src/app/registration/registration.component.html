@@ -1,8 +1,9 @@
+<body>
 <div class="container">
-  <h2>User Registration</h2>
+  <h2>Registrácia</h2>
   <form class="form-horizontal" [formGroup]="userForm" (submit)="saveUser()">
     <div class="form-group">
-      <label class="control-label col-sm-2" for="name">Username:</label>
+      <label class="control-label col-sm-2" for="name">Uživateľské meno:</label>
       <div class="col-sm-10">
         <input class="form-control" formControlName="name" id="name" />
       </div>
@@ -16,15 +17,29 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="password">Password:</label>
+      <label class="control-label col-sm-2" for="password">Heslo:</label>
       <div class="col-sm-10">
         <input class="form-control" type="password" formControlName="password" id="password" required />
       </div>
     </div>
 
     <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Telefonné čislo:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="tel" formControlName="phone" id="phone" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Adresa:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" formControlName="address" id="address" required />
+      </div>
+    </div>
+
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" [disabled]="!userForm.valid" class="btn btn-success">Submit</button>
+        <button type="submit" [disabled]="!userForm.valid" class="btn btn-danger">Registrovať</button>
       </div>
     </div>
     <div *ngIf="check" class="alert alert-success">
@@ -35,3 +50,4 @@
     </div>
   </form>
 </div>
+</body>

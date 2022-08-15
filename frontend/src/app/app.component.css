@@ -21,19 +21,21 @@ a.card-title{
 a.card-title-ttl{
   color: black;
   text-decoration: none;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 
 .toolbar_register {
   color: white;
   position: absolute;
-  right: 6%;
+  right: 7%;
 }
 
 .toolbar_split{
   color: white;
  position: absolute;
-  right: 4.8%;
+  right: 6.5%;
 
 }
 
@@ -41,6 +43,14 @@ a.card-title-ttl{
   color: white;
   position: absolute;
   right: 1%;
+}
+
+.nameOfFuncion{
+  color: orangered;
+  font-size: large;
+  font-weight: bold;
+
+
 }
 
 
@@ -52,6 +62,7 @@ a.card-title-ttl{
   width: 8%;
   height: 50%;
   background: linear-gradient(90deg, #c20505 0%, #e1c224 100%);
+  background: #063146;
   box-shadow: 2px 2px 5px #000000;
 }
 .sidebar header {
@@ -61,6 +72,7 @@ a.card-title-ttl{
   text-align: center;
   background: #063146;
   user-select: none;
+  border: solid 4px orangered;
 }
 
 #menu {

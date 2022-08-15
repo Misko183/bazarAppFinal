@@ -1,7 +1,18 @@
 input {
   width: 60em;
 }
-.alert {
-  width: 68.5em;
-  margin-left: 15px;
+
+
+body{
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  background-image: url("../../assets/register.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container{
+  margin-top: 10%;
+  color: white;
 }

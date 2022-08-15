@@ -32,6 +32,8 @@ export class RegistrationComponent  {
       'name': ['', Validators.required],
       'email': ['', [Validators.required]],
       'password': ['', [Validators.required]],
+      'phone': ['', [Validators.required]],
+      'address': ['', [Validators.required]],
       //'confirmPassword': ['', [Validators.required]]
     });
   }
@@ -42,6 +44,8 @@ export class RegistrationComponent  {
         userName: this.userForm.value.name,
         email: this.userForm.value.email,
         password: this.userForm.value.password,
+        phone: this.userForm.value.phone,
+        address: this.userForm.value.address
         //confirmPassword: this.userForm.value.confirmPassword,
       }
     }
