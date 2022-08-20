@@ -39,7 +39,7 @@ export class FeedbackComponent implements OnInit {
   }
 
   deleteFeedback(feedback: Feedback) {
-    if (confirm('Are you sure you want to delete this feedback?')) {
+    if (confirm('Určite chcete vymazať návrh '+feedback.nameOfSuggestion +'?'))  {
       this.mainService.deleteFeedback(feedback).subscribe(() => {
         this.mainService.getFeedback().subscribe(data => {
           this.showFeedback = data;

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
@@ -20,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public User getUser1() {
-        return  userRepository.findById(1L).get();
+    public List<User> getUser1() {
+        return (List<User>) userRepository.findAll();
     }
 
     @GetMapping("/usermessege")
@@ -43,6 +45,11 @@ public class UserController {
     @PostMapping("/createUser")
     public void createUser(@RequestBody User user){
         userService.addUser(user);
+    }
+
+    @PostMapping("/deleteuser")
+    public void deleteUser(@RequestBody User user){
+        userService.deleteUser(user);
     }
 
 }

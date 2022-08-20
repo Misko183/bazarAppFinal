@@ -1,0 +1,42 @@
+<div class="container" *ngIf="isAdmin()">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Informácie o užívateľovi</h1>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Meno uživateľa</th>
+          <th>Heslo</th>
+          <th>Email</th>
+          <th>Telefonné číslo</th>
+          <th>Adresa</th>
+          <th>Vymazať uživateľa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.userName}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.address}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteUser(user)">Vymazať uživateľa</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="userInfo" *ngIf="!isAdmin()">
+  <div class="title">Vaše údaje:</div>
+  <br>
+  <h1>Používateľské meno: {{user.userName}}</h1>
+  <h2>Heslo: {{user.password}}</h2>
+  <h2>Email: {{user.email}}</h2>
+  <h2>Telefónne číslo: {{user.phone}}</h2>
+  <h2>Adresa: {{user.address}}</h2>
+</div>

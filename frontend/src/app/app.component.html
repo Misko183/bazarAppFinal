@@ -25,11 +25,16 @@
   <a class="list-inline-item"  *ngIf="isSomeoneLoggedIn()">
     <input routerLink="/feedback" type="image" src="../../assets/feedbackOk.png" height="40" width="40">
   </a>
+  <a class="list-inline-item"  *ngIf="isSomeoneLoggedIn()">
+     <input routerLink="/profile" type="image" src="../../assets/profile.png" height="40" width="40">
+  </a>
     </div>
-  <a routerLink="/registration" *ngIf="!isLoggedIn()" class="card-title toolbar_register">Registrácia</a>
-  <a *ngIf="!isLoggedIn()" class="card-title toolbar_split">|</a>
-  <a routerLink="/login" *ngIf="!isLoggedIn()" class="card-title toolbar_login">Prihlásenie</a>
-  <a routerLink="/login" *ngIf="isLoggedIn()" (click)="logout()" class="toolbar_login">Odhlásenie</a>
+    <div class="logFuncion">
+  <a routerLink="/registration" *ngIf="!isLoggedIn()" class="list-inline-item">Registrácia</a>
+  <a *ngIf="!isLoggedIn()" class="list-inline-item">|</a>
+  <a routerLink="/login" *ngIf="!isLoggedIn()" class="list-inline-item">Prihlásenie</a>
+  <a routerLink="/login" *ngIf="isLoggedIn()" (click)="logout()" class="list-inline-item">Odhlásenie</a>
+    </div>
 </div>
 </div>
 </mat-toolbar>
@@ -68,24 +73,28 @@
       <ul style="list-style-type:none;" class="text-center list-inline py-3">
         <li>
       <a class="list-inline-item" routerLink="/createproduct" href="#">Vytvoriť inzerát</a>
+          <br>
         <input routerLink="/createproduct" type="image" src="../../assets/plus.png" height="40" width="40">
         </li>
         <li>
       <a class="list-inline-item" routerLink="/myproducts" href="#">Moje inzeráty</a>
+          <br>
         <input routerLink="/myproducts" type="image"  src="../../assets/img_1.png" height="40" width="40">
-
         </li>
         <li>
       <a class="list-inline-item" routerLink="/myfavourite" href="#">Moje obľúbené</a>
+          <br>
         <input routerLink="/myfavourite" type="image"  src="../../assets/img.png" height="40" width="40">
-
-
         </li>
         <li>
       <a class="list-inline-item" routerLink="/feedback" href="#">Spätná väzba</a>
-
+          <br>
         <input routerLink="/feedback" type="image"  src="../../assets/feedbackOk.png" height="40" width="40">
-
+        </li>
+        <li>
+          <a class="list-inline-item" routerLink="/feedback" href="#">Profil</a>
+          <br>
+          <input routerLink="/profile" type="image"  src="../../assets/profile.png" height="40" width="40">
         </li>
       </ul>
     </div>

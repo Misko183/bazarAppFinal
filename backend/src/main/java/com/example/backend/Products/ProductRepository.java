@@ -18,4 +18,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     Optional<Product> findById(Long id);
 
+    void deleteByUserId(long id);
 }

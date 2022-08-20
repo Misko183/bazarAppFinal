@@ -9,18 +9,26 @@ export class UserService {
 
   private usersUrl: string;
   private usermessegeUrl: string;
+  private allUsersUrl: string;
+  private deleteUserUrl: string;
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/createUser';
     this.usermessegeUrl = 'http://localhost:8080/usermessege';
+    this.allUsersUrl = 'http://localhost:8080/users';
+    this.deleteUserUrl = 'http://localhost:8080/deleteuser';
   }
 
   public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+    return this.http.get<User[]>(this.allUsersUrl);
   }
 
   public save(user: newUser) {
     return this.http.post<newUser>(this.usersUrl, user, {observe: 'response'});
+  }
+
+  public deleteUser(user: User) {
+    return this.http.post<User>(this.deleteUserUrl, user);
   }
 
   public getUserMessege(): Observable<Boolean> {

@@ -1,5 +1,9 @@
 package com.example.backend.User;
 
+import com.example.backend.Favourite.FavouriteRepository;
+import com.example.backend.Products.ProductRepository;
+import com.example.backend.Products.ProductServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +11,11 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private ProductRepository productRepository;
+    @Autowired
+    private FavouriteRepository favouriteRepository;
 
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
@@ -51,6 +60,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(User user) {
         return this.repository.save(user);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        this.favouriteRepository.deleteAll(favouriteRepository.findByUser(user));
+        this.productRepository.deleteAll(productRepository.findByUser(user));
+        this.repository.delete(user);
+
     }
 
 
