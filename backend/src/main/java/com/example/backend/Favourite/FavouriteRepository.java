@@ -13,6 +13,7 @@ public interface FavouriteRepository extends CrudRepository<Favourite, Long> {
 
     List<Favourite> findByUser(User user);
 
+    void deleteAllByProductId(long id);
 
-
+    Iterable<? extends Favourite> findByProduct(Product product);
 }

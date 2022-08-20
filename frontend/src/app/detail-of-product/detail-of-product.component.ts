@@ -3,6 +3,7 @@ import {AllProducts} from "../allProducts";
 import {MainService} from "../main.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../security/service/auth.service";
 
 @Component({
   selector: 'app-datail-of-product',
@@ -22,6 +23,7 @@ export class DetailOfProductComponent  implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpClient: HttpClient,
+    private authService: AuthService,
   ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
   }
@@ -58,5 +60,20 @@ export class DetailOfProductComponent  implements OnInit {
     this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
       this.router.navigate(['/home']);
     } );
+  }
+
+  //findProductbyDeateilId() {
+  //  this.mainService.getAllProducts().subscribe(data => {
+  //    this.allProducts = data.find(product => product.id === this.detailID);
+
+
+  deleteProduct() {
+    this.mainService.deleteProduct(this.allProducts).subscribe(() => {
+      this.router.navigate(['/home']);
+    } );
+  }
+
+  isAdminLoggedIn() {
+    return this.authService.isAdminLoggedIn;
   }
 }

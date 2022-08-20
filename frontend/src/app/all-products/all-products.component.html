@@ -79,18 +79,30 @@
       <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
 
-       <img [src]="product.image.image" >
+
 
 <!--      <img src="data:image/jpeg;base64,{{+product.image}}">-->
 
-          <div class="picture" >
+
+          <div class="picture" *ngIf="dbImage" >
             <img [src]="list[product.id-1]" >
           </div>
+        <img [src]="product.image.image" >
+
+
+
+<!--          <img src="data:image/jpeg;base64,{{product.image.type, product.image.image}}" >-->
+<!--        {{ukazMiLasku(product.image.id) ? ukazMiLasku(product.image.id) : ""}}-->
+<!--        <div *ngIf="test">-->
+<!--          <img [src]="listNumlock[bum]" >-->
+<!--        </div>-->
 
 
 
 
-<!--            <img [src]="aa + product.image.id.image" >-->
+
+
+
 
 
 <!--          <div>-->

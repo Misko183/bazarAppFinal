@@ -1,9 +1,10 @@
-<h1>Moje inzeráty</h1>
+<h1 xmlns="http://www.w3.org/1999/html">Moje inzeráty</h1>
 <div class = "grid-container">
   <div class="grid-item" *ngFor="let product of allProducts"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
       {{product.name}}<br>
       {{product.countClicksOnProduct}}
     </button>
+    <button *ngIf="isSomeoneLogIn" class="delete-btn" mat-raised-button color="accent" (click)="deleteProduct(product.id)">Vymazať inzerat</button>
   </div>
 </div>

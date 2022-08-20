@@ -36,6 +36,11 @@ public class ProductController {
         productService.updateProduct(product);
     }
 
+    @PostMapping("/deleteproduct")
+    void deleteProduct(@RequestBody Product product) {
+        productService.deleteProduct(product);
+    }
+
     @PostMapping("/category")
     public void showCategory(@RequestBody String category){
            productService.getByCategory(category);
@@ -45,7 +50,6 @@ public class ProductController {
     public List<Product> showOnlyOneCategory(){
         return productService.getCurrentCategory();
     }
-
 
     @GetMapping("/myproducts")
     public List<Product> showOnlyMe(){

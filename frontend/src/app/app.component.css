@@ -26,6 +26,25 @@ a.card-title-ttl{
 }
 
 
+
+.funcion{
+ display: contents;
+
+}
+.toolbar{
+  display: contents;
+
+}
+mat-toolbar .icon
+{
+  position: absolute;
+  left: 45%;
+  /*position: absolute;*/
+  /*left: 45%;*/
+  /*top: 2%;*/
+
+}
+
 .toolbar_register {
   color: white;
   position: absolute;
@@ -43,27 +62,48 @@ a.card-title-ttl{
   color: white;
   position: absolute;
   right: 1%;
+
 }
 
-.nameOfFuncion{
-  color: orangered;
+/*.nameOfFuncion{*/
+/*  color: orangered;*/
+/*  font-size: large;*/
+/*  font-weight: bold;*/
+
+
+/*}*/
+
+ li a{
+  color: black;
   font-size: large;
   font-weight: bold;
-
+  text-decoration-line: none;
 
 }
-
-
+li
+{
+  margin-bottom: 15%;
+  /*border: black solid 4px;*/
+  border-top: black solid 4px;
+  border-bottom: black solid 4px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background: #063146;
+  background: linear-gradient(90deg, #c20505 0%, #e1c224 100%);
+}
 
 /*SIDEBAR*/
 .sidebar {
   position: absolute;
   top: 0%;
   width: 8%;
-  height: 50%;
+  height: 100%;
   background: linear-gradient(90deg, #c20505 0%, #e1c224 100%);
-  background: #063146;
+  /*background: #063146;*/
+  /*background: #063146;*/
   box-shadow: 2px 2px 5px #000000;
+  text-align: center;
+  border: black solid 4px;
 }
 .sidebar header {
   font-size: 22px;
@@ -72,7 +112,7 @@ a.card-title-ttl{
   text-align: center;
   background: #063146;
   user-select: none;
-  border: solid 4px orangered;
+  /*border: solid 4px black;*/
 }
 
 #menu {
@@ -84,6 +124,20 @@ a.card-title-ttl{
   -webkit-border-radius: 200px 200px 200px 200px;
   border: 0px solid #000000;
 }
+
+/*.toolbar*/
+/*{*/
+/*  display: inherit;*/
+
+/*}*/
+
+/*.toolbar .funcion{*/
+/*display: inherit;*/
+
+/*}*/
+
+
+
 
 /*#open-close{*/
 /*  margin-top: 12%;*/

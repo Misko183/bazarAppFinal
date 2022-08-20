@@ -19,6 +19,7 @@ export class MainService {
   private usersProductsUrl: string;
   private favouriteUrl: string;
   private updateProductUrl: string;
+  private deleteProductUrl: string;
   private feedbackUrl: string;
   private deleteFeedbackUrl: string;
 
@@ -31,6 +32,7 @@ export class MainService {
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
     this.favouriteUrl = 'http://localhost:8080/favourite';
     this.updateProductUrl = 'http://localhost:8080/updateproduct';
+    this.deleteProductUrl = 'http://localhost:8080/deleteproduct';
     this.feedbackUrl = 'http://localhost:8080/feedback';
     this.deleteFeedbackUrl = 'http://localhost:8080/deletefeedback';
   }
@@ -44,6 +46,9 @@ export class MainService {
   public updateProduct(product: AllProducts) {
     return this.http.post<AllProducts>(this.updateProductUrl, product);
   }
+  public deleteProduct(product: AllProducts){
+    return this.http.post<AllProducts>(this.deleteProductUrl, product);
+  }
   public getOneCategory(): Observable<AllProducts[]>{
     return this.http.get<AllProducts[]>(this.getCategoryUrl);
   }
@@ -56,7 +61,6 @@ export class MainService {
   public getUsersRole(): Observable<User> {
     return this.http.get<User>(this.sendUser);
   }
-
   public getUsersProducts(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.usersProductsUrl);
   }

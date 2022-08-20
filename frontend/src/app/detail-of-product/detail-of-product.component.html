@@ -7,7 +7,7 @@
 
 <!--  <img [src]="allProducts.image">-->
   <button (click)="addToFavourite()">Obľúbené</button>
-
+  <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()">Vymazať inzerát</button>
 </div>
 
 <div class="contact">

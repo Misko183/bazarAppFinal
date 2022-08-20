@@ -87,6 +87,7 @@ listNum: Array<any> = [];
 //   }
 //
 // }
+  random1: number = 0;
   viewImage(number: number) {
 
     this.httpClient.get('http://localhost:8080/get/image/info/' + number)
@@ -94,12 +95,13 @@ listNum: Array<any> = [];
         res => {
           this.postResponse = res;
           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-
+         //  this.allProducts1.image.any = this.dbImage;
         //if list dont contains dbImage
         //   if (!this.list.includes(this.dbImage)) {
         //delay before adding to list
 
               this.list.push(this.dbImage);
+              this.random1 = this.random1 + 1;
 
         //   }
         }
@@ -126,6 +128,43 @@ listNum: Array<any> = [];
   {
     this.random++;
   }
+  postResponse2: any;
+  dbImage2 : any;
+
+  justShow() {  //just show image
+    this.httpClient.get('http://localhost:8080/get/image/1')
+      .subscribe(
+        res => {
+          this.postResponse2 = res;
+          this.dbImage2 = 'data:image/jpeg;base64,' + this.postResponse2.image;
+        }
+      );
+  }
+
+  postResponse3: any;
+  dbImage3 : any;
+  bum: number = 0;
+  listNumlock: Array<any> = [];
+  test: boolean = false;
+
+  ukazMiLasku(prosim: number) {
+    this.httpClient.get('http://localhost:8080/get/image/info/' + prosim)
+      .subscribe(
+        res => {
+          this.postResponse3 = res;
+       this.dbImage3 = 'data:image/jpeg;base64,' + this.postResponse3.image;
+        if (!this.listNumlock.includes(this.dbImage3)) {
+          this.test = true;
+          this.listNumlock.push(this.dbImage3);
+          this.bum++;
+        }
+
+        }
+      );
+
+  }
+
+
 //Filtre
 
   changeState() {

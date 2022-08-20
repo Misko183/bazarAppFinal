@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Favourite {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
 
     /*

@@ -61,7 +61,9 @@ public class ProductServiceImpl implements ProductService {
     //Vymazanie Inzeratu
     @Override
     public void deleteProduct(Product product) {
-        productRepository.delete(product);
+        favouriteRepository.deleteAll(favouriteRepository.findByProduct(product));
+        imageRepository.deleteById(productRepository.findById(product.getId()).get().getImage().getId());
+        productRepository.deleteById(product.getId());
     }
 
     //Aktualizácia Inzeratu
@@ -69,6 +71,14 @@ public class ProductServiceImpl implements ProductService {
     public void updateProduct(Product product) {
        Product myProduct = productRepository.findById(product.getId()).get();
         myProduct.setCountClicksOnProduct(myProduct.getCountClicksOnProduct() + 1);
+        productRepository.save(myProduct);
+    }
+
+    //changeProductStatus
+    @Override
+    public void changeProduct(Product product) {
+        Product myProduct = productRepository.findById(product.getId()).get();
+       // myProduct.setStatus(product.getStatus());
         productRepository.save(myProduct);
     }
 
