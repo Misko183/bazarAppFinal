@@ -70,7 +70,6 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
     public User getLoggedUser() {
         return loggedUser;
     }
@@ -86,5 +85,12 @@ public class UserServiceImpl implements UserService {
     public void findLoggedUsers(String username, String password) {
        setLoggedUser(this.repository.findByUserNameAndPassword(username,password).get());
     }
+
+    @Override
+    public void editUser(User user) {
+        this.repository.save(user);
+    }
+
+
 }
 

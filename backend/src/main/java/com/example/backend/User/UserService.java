@@ -12,4 +12,6 @@ public interface UserService {
     void deleteUser(User user);
 
     void findLoggedUsers(String username, String password);
+
+    void editUser(User user);
 }

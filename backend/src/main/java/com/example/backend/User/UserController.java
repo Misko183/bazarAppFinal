@@ -52,4 +52,9 @@ public class UserController {
         userService.deleteUser(user);
     }
 
+    @PostMapping("/edituser")
+    public void editUser(@RequestBody User user){
+        userService.editUser(user);
+    }
+
 }

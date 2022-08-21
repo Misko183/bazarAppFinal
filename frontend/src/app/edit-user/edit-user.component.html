@@ -1,0 +1,47 @@
+<body>
+<div class="container">
+  <h2>Upraviť profil</h2>
+  <form class="form-horizontal" [formGroup]="userForm" >
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Uživateľské meno:</label>
+      <div class="col-sm-10">
+        <input class="form-control" [(ngModel)]="user.userName" formControlName="name" id="name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="email" [(ngModel)]="user.email" formControlName="email" id="email" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Heslo:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text"  [(ngModel)]="user.password" formControlName="password" id="password" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Telefonné čislo:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="tel" [(ngModel)]="user.phone" formControlName="phone" id="phone" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Adresa:</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" [(ngModel)]="user.address" formControlName="address" id="address" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" (click)="editUser()"  class="btn btn-danger">Upraviť</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>

@@ -29,6 +29,7 @@ import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catago
 import { FavouriteComponent } from './favourite/favourite.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UsersProfileComponent } from './users-profile/users-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { UsersProfileComponent } from './users-profile/users-profile.component';
     DetailOfCatagoryComponent,
     FavouriteComponent,
     FeedbackComponent,
-    UsersProfileComponent
+    UsersProfileComponent,
+    EditUserComponent
 
   ],
     imports: [

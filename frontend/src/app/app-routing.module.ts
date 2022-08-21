@@ -12,6 +12,7 @@ import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory
 import {FavouriteComponent} from "./favourite/favourite.component";
 import {FeedbackComponent} from "./feedback/feedback.component";
 import {UsersProfileComponent} from "./users-profile/users-profile.component";
+import {EditUserComponent} from "./edit-user/edit-user.component";
 
 const routes: Route[] = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Route[] = [
   {path: 'detailcatagory', component: DetailOfCatagoryComponent},
   {path: 'myfavourite', component: FavouriteComponent},
   {path: 'feedback', component: FeedbackComponent},
-  {path: 'profile', component: UsersProfileComponent}
+  {path: 'profile', component: UsersProfileComponent},
+  {path: 'editprofile', component: EditUserComponent},
 ];
 
 @NgModule({

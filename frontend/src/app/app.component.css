@@ -110,11 +110,10 @@ li
 .sidebar {
   position: absolute;
   top: 0%;
-  width: 8%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  /*height: 100%;*/
   background: linear-gradient(90deg, #c20505 0%, #e1c224 100%);
-  /*background: #063146;*/
-  /*background: #063146;*/
   box-shadow: 2px 2px 5px #000000;
   text-align: center;
   border: black solid 4px;

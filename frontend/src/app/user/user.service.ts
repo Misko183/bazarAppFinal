@@ -11,12 +11,14 @@ export class UserService {
   private usermessegeUrl: string;
   private allUsersUrl: string;
   private deleteUserUrl: string;
+  private editUserUrl: string;
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/createUser';
     this.usermessegeUrl = 'http://localhost:8080/usermessege';
     this.allUsersUrl = 'http://localhost:8080/users';
     this.deleteUserUrl = 'http://localhost:8080/deleteuser';
+    this.editUserUrl = 'http://localhost:8080/edituser';
   }
 
   public findAll(): Observable<User[]> {
@@ -33,6 +35,8 @@ export class UserService {
 
   public getUserMessege(): Observable<Boolean> {
     return this.http.get<Boolean>(this.usermessegeUrl);
-
+  }
+  public editUser(user: newUser) {
+    return this.http.post<newUser>(this.editUserUrl, user);
   }
 }
