@@ -30,6 +30,10 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UsersProfileComponent } from './users-profile/users-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import {ModalModule} from "./modal/modal.module";
+import {ModalComponent} from "./modal/modal.component";
+// import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -46,25 +50,27 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     FavouriteComponent,
     FeedbackComponent,
     UsersProfileComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditProductComponent,
 
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        HttpClientModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatGridListModule,
-        MatCardModule,
-        MatSelectModule
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatCardModule,
+    MatSelectModule,
+    ModalModule
+  ],
   providers: [
     UserService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],

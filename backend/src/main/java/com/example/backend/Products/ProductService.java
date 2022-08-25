@@ -16,5 +16,5 @@ public interface ProductService {
 
     List<Product> getOnlyUsersProducts();
 
-    void changeProduct(Product product);
+    void editProduct(Product product);
 }

@@ -17,11 +17,11 @@
 
       <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>
       <div class="col-sm-10">
-        <input type="text" [(ngModel)]="allProducts.description"
+        <textarea type="text" [(ngModel)]="allProducts.description"
                id="description"
                name="description"
                class="form-control"
-               required #description="ngModel">
+               required #description="ngModel"></textarea>
 
 
       </div>

@@ -1,4 +1,4 @@
-<h1 xmlns="http://www.w3.org/1999/html">Moje inzeráty</h1>
+<h1>Moje inzeráty</h1>
 <div class = "grid-container">
   <div class="grid-item" *ngFor="let product of allProducts"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
@@ -6,5 +6,71 @@
       {{product.countClicksOnProduct}}
     </button>
     <button *ngIf="isSomeoneLogIn" class="delete-btn" mat-raised-button color="accent" (click)="deleteProduct(product.id)">Vymazať inzerat</button>
+<!--    <button *ngIf="isSomeoneLogIn" class="edit-btn" mat-raised-button color="primary"  (click)="editProduct(product.id)" >Upraviť produkt</button>-->
+<!--    <button *ngIf="isSomeoneLogIn" class="edit-btn" mat-raised-button color="primary"  (click)="editProduct(product.id); openModal('custom-modal-2');" >Upraviť produkt</button>-->
+<!--    <button  (click)="findme(product.id); openModal('custom-modal-5')">Upraviť inzerát</button>-->
+
   </div>
+
 </div>
+
+
+
+
+<!--<jw-modal id="custom-modal-5"  >-->
+
+<!--  <div class="container">-->
+<!--    <form class="example-form"  >-->
+<!--      <div class="form-group">-->
+<!--        <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>-->
+<!--        <div class="col-sm-10">-->
+<!--          <input-->
+<!--            type="text" [(ngModel)]="allProducts1.name"-->
+<!--            id="name"-->
+<!--            name="name"-->
+<!--            class="form-control"-->
+<!--            required #name="ngModel">-->
+
+<!--        </div>-->
+
+
+<!--        <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>-->
+<!--        <div class="col-sm-10">-->
+<!--        <textarea type="text" [(ngModel)]="allProducts1.description"-->
+<!--                  id="description"-->
+<!--                  name="description"-->
+<!--                  class="form-control"-->
+<!--                  required #description="ngModel"></textarea>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+
+<!--    &lt;!&ndash;  <img src="../../assets/addLogo.png">&ndash;&gt;-->
+<!--  </div>-->
+<!--</jw-modal>-->
+
+<!-- <jw-modal id="custom-modal-4" >-->
+
+<!--  <div class="container">-->
+<!--    <form class="example-form"  >-->
+
+<!--      <div class="form-group">&ndash;&gt;-->
+<!--                <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>-->
+<!--                <div class="col-sm-10">-->
+<!--                  <input-->
+<!--                    [ngModel]="allProducts1.name"-->
+<!--                    >-->
+<!--                </div>-->
+<!--</div>-->
+<!--    </form>-->
+
+<!--    &lt;!&ndash;  <img src="../../assets/addLogo.png">&ndash;&gt;-->
+<!--  </div>-->
+<!--</jw-modal>-->
+
+
+
+
+

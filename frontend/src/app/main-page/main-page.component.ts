@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {MainService} from "../main.service";
+import {ModalService} from "../modal/modal.service";
 
 @Component({
   selector: 'app-main-page',

@@ -8,6 +8,7 @@
 <!--  <img [src]="allProducts.image">-->
   <button (click)="addToFavourite()">Obľúbené</button>
   <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()">Vymazať inzerát</button>
+  <button  (click)="openModal('custom-modal-5')">Upraviť inzerát</button>
 </div>
 
 <div class="contact">
@@ -21,3 +22,65 @@
 <div class="picture" *ngIf=dbImage>
   <img [src]="dbImage"width="600">
 </div>
+
+
+
+<jw-modal id="custom-modal-5" >
+
+  <div class="container">
+    <form class="example-form"  #addProductForm="ngForm">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
+        <div class="col-sm-10">
+          <input
+            type="text" [(ngModel)]="allProducts.name"
+            id="name"
+            name="name"
+            class="form-control"
+            required #name="ngModel">
+
+        </div>
+
+
+        <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>
+        <div class="col-sm-10">
+        <textarea type="text" [(ngModel)]="allProducts.description"
+                  id="description"
+                  name="description"
+                  class="form-control"
+                  required #description="ngModel"></textarea>
+
+
+        </div>
+
+
+        <label class="control-label col-sm-2" > <div class="bold-text"> Cena:</div></label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="allProducts.price"
+                 id="price"
+                 name="price"
+                 class="form-control"
+                 required #price="ngModel">
+
+        </div>
+
+        <label class="control-label col-sm-2" > <div class="bold-text"> Lokalizácia:</div></label>
+        <div class="col-sm-10">
+          <input type="text" [(ngModel)]="allProducts.localization"
+                 id="localization"
+                 name="localization"
+                 class="form-control"
+                 required #localization="ngModel">
+
+        </div>
+
+
+      </div>
+
+
+    </form>
+
+    <!--  <img src="../../assets/addLogo.png">-->
+  </div>
+</jw-modal>

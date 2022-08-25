@@ -76,10 +76,10 @@ public class ProductServiceImpl implements ProductService {
 
     //changeProductStatus
     @Override
-    public void changeProduct(Product product) {
-        Product myProduct = productRepository.findById(product.getId()).get();
+    public void editProduct(Product product) {
+       // Product myProduct = productRepository.findById(product.getId()).get();
        // myProduct.setStatus(product.getStatus());
-        productRepository.save(myProduct);
+        productRepository.save(product);
     }
 
 

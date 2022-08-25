@@ -56,7 +56,8 @@ public class ProductController {
         return productService.getOnlyUsersProducts();
     }
 
-
-
-
+    @PostMapping("/editproduct")
+    void editProduct(@RequestBody Product product) {
+        productService.editProduct(product);
+    }
 }

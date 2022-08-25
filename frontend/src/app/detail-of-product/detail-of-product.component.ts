@@ -4,6 +4,7 @@ import {MainService} from "../main.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../security/service/auth.service";
+import {ModalService} from "../modal";
 
 @Component({
   selector: 'app-datail-of-product',
@@ -24,6 +25,7 @@ export class DetailOfProductComponent  implements OnInit {
     private router: Router,
     private httpClient: HttpClient,
     private authService: AuthService,
+    private modalService: ModalService,
   ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
   }
@@ -75,5 +77,15 @@ export class DetailOfProductComponent  implements OnInit {
 
   isAdminLoggedIn() {
     return this.authService.isAdminLoggedIn;
+  }
+
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+
   }
 }
