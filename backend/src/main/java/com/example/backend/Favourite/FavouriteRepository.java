@@ -16,4 +16,6 @@ public interface FavouriteRepository extends CrudRepository<Favourite, Long> {
     void deleteAllByProductId(long id);
 
     Iterable<? extends Favourite> findByProduct(Product product);
+
+    Favourite findByProductAndUser(Product product, User user);
 }

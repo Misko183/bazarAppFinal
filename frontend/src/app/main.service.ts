@@ -22,6 +22,7 @@ export class MainService {
   private deleteProductUrl: string;
   private feedbackUrl: string;
   private deleteFeedbackUrl: string;
+  private removeFavoriteUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -35,6 +36,7 @@ export class MainService {
     this.deleteProductUrl = 'http://localhost:8080/deleteproduct';
     this.feedbackUrl = 'http://localhost:8080/feedback';
     this.deleteFeedbackUrl = 'http://localhost:8080/deletefeedback';
+    this.removeFavoriteUrl = 'http://localhost:8080/removefavourite';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -69,6 +71,9 @@ export class MainService {
   }
   public getFavourite(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.favouriteUrl);
+  }
+  public removeFavourite(product: number){
+    return this.http.post<Favourite>(this.removeFavoriteUrl, {"product" :{ "id": product}});
   }
   public postFeedback(feedback: Feedback) {
     return this.http.post<Feedback>(this.feedbackUrl, feedback);

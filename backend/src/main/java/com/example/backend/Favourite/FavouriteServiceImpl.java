@@ -22,6 +22,16 @@ public class FavouriteServiceImpl implements FavouriteService {
     @Autowired
     private UserServiceImpl userService;
 
+    @Override
+    public void addFavourite(Favourite favourite) {
+        favourite.setUser(userService.getLoggedUser());
+        if (favouriteRepository.findByProductAndUser(favourite.getProduct(), favourite.getUser() ) == null) {
+            favouriteRepository.save(favourite);
+        }
+
+
+    }
+
     public List<Favourite> getFavourites() {
         return favourites;
     }
@@ -32,20 +42,6 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     private List<Favourite> favourites;
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    private List<Product> products;
-
-
-    public List<Long> getIds() {
-        return ids;
-    }
 
     public void setIds(List<Long> ids) {
         this.ids = ids;
@@ -54,84 +50,35 @@ public class FavouriteServiceImpl implements FavouriteService {
     private List<Long> ids;
 
 
-
-    ArrayList<Long> idList = new ArrayList<>();
-
     public ArrayList<Product> getProductList() {
         return productList;
-    }
-
-    public void setProductList(ArrayList<Product> productList) {
-        this.productList = productList;
     }
 
     ArrayList<Product> productList = new ArrayList<>();
 
 
-    public long getWhoIsLoggedIn() {
-        return whoIsLoggedIn;
-    }
-
-    public void setWhoIsLoggedIn(long whoIsLoggedIn) {
-        this.whoIsLoggedIn = whoIsLoggedIn;
-    }
-
-    private long whoIsLoggedIn;
-
-
-    @Override
-    public void addFavourite(Favourite favourite) {
-        System.out.println(favourite.getProduct().getId());
-       // favourite.setProduct(productRepository.findById(3L).get());
-        favourite.setUser(userService.getLoggedUser());
-        favouriteRepository.save(favourite);
-
-
-    }
-
     public ArrayList<Product> getMeFavourite() {
 
-    if(getFavourites() == null) {
+        if (getFavourites() == null) {
 
-        setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+            setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
 
-    }
-        else {
-        getProductList().clear();
-        getFavourites().clear();
-        setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
-    }
-
-
-    //  favourites.clear();
-    // delete product list
-
-    //    setFavourites(favouriteRepository.findByUser(favourite.getUser()));
+        } else {
+            getProductList().clear();
+            getFavourites().clear();
+            setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+        }
 
         for (Favourite f : favourites) {
-        setIds(Collections.singletonList(f.getProduct().getId()));
-        productList.add(productRepository.findById(f.getProduct().getId()).get());
-    }
-
-        System.out.print(productList);
-       return productList;
-    }
-
-    @Override
-    public ArrayList<Product> showFavouriteProducts(){
-
+            setIds(Collections.singletonList(f.getProduct().getId()));
+            productList.add(productRepository.findById(f.getProduct().getId()).get());
+        }
 
         return productList;
     }
 
-
     @Override
     public void removeFavourite(Favourite favourite) {
-        favouriteRepository.delete(favourite);
-    }
-
-    @Override
-    public boolean isFavourite(Favourite favourite) {
-        return false;
+        favouriteRepository.delete(favouriteRepository.findByProductAndUser(favourite.getProduct(), userService.getLoggedUser()));
     }
 }

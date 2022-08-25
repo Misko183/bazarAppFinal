@@ -27,5 +27,13 @@ export class FavouriteComponent implements OnInit {
     });
   }
 
+  removeFavourite(id: number) {
+    this.mainService.removeFavourite(id).subscribe(() => {
+        this.mainService.getFavourite().subscribe(data => {
+          this.allProducts = data;
+        });
+    }
+    );
+  }
 
 }

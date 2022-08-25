@@ -30,4 +30,5 @@ public class Favourite {
     @ManyToOne
     User user;
 
+
 }

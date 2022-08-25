@@ -29,5 +29,8 @@ public class FavouriteController {
         return favouriteService.getMeFavourite();
     }
 
-
+    @PostMapping("/removefavourite")
+    public void removeFavourite(@RequestBody Favourite favourite) {
+        favouriteService.removeFavourite(favourite);
+    }
 }
