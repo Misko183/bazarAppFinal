@@ -59,7 +59,7 @@ export class UsersProfileComponent implements OnInit {
 
 
   showUserData() {
-    this.mainService.getUsersRole().subscribe(data => {
+    this.userService.getUsersRole().subscribe(data => {
         this.user = data;
       }
     );
@@ -78,7 +78,7 @@ export class UsersProfileComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
-    this.mainService.getUsersRole().subscribe(data => {
+    this.userService.getUsersRole().subscribe(data => {
         this.user = data;
       }
     );

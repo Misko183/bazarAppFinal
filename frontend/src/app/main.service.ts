@@ -15,7 +15,6 @@ export class MainService {
   private addProductUrl: string;
   private getCategoryUrl: string;
   private postCategoryUrl: string;
-  private sendUser: string;
   private usersProductsUrl: string;
   private favouriteUrl: string;
   private updateProductUrl: string;
@@ -29,7 +28,6 @@ export class MainService {
     this.addProductUrl = 'http://localhost:8080/advertisement';
     this.getCategoryUrl = 'http://localhost:8080/advertisement/category';
     this.postCategoryUrl = 'http://localhost:8080/category';
-    this.sendUser = 'http://localhost:8080/role';
     this.usersProductsUrl = 'http://localhost:8080/myproducts';
     this.favouriteUrl = 'http://localhost:8080/favourite';
     this.updateProductUrl = 'http://localhost:8080/updateproduct';
@@ -56,12 +54,6 @@ export class MainService {
   }
   public postCategory(category: string) {
     return this.http.post<string>(this.postCategoryUrl, category);
-  }
-  public sendUserName(username: string, password: string) {
-    return this.http.post<User>(this.sendUser, {"userName" : username, "password": password});
-  }
-  public getUsersRole(): Observable<User> {
-    return this.http.get<User>(this.sendUser);
   }
   public getUsersProducts(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.usersProductsUrl);

@@ -36,7 +36,7 @@ export class EditUserComponent implements OnInit {
   }
 
   showUserData() {
-    this.mainService.getUsersRole().subscribe(data => {
+    this.userService.getUsersRole().subscribe(data => {
       this.user = data;
     }
     );

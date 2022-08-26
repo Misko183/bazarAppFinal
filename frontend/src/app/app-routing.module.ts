@@ -5,7 +5,7 @@ import {AllProductsComponent} from "./all-products/all-products.component";
 import {AddProductComponent} from "./add-product/add-product.component";
 import {ImageComponent} from "./image/image.component";
 import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
-import {LoginComponent} from "./component/login/login.component";
+import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {UsersProductsComponent} from "./users-products/users-products.component";
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";

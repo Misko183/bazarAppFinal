@@ -3,7 +3,7 @@ body{
 position: absolute;
   top: 0%;
   width: 100%;
-  background-image: url("../../../assets/log-back.jpg");
+  background-image: url("src/assets/log-back.jpg");
 background-repeat: no-repeat;
   background-size: cover;
 }

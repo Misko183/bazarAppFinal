@@ -12,6 +12,7 @@ export class UserService {
   private allUsersUrl: string;
   private deleteUserUrl: string;
   private editUserUrl: string;
+  private sendUser: string;
 
   constructor(private http: HttpClient) {
     this.usersUrl = 'http://localhost:8080/createUser';
@@ -19,6 +20,7 @@ export class UserService {
     this.allUsersUrl = 'http://localhost:8080/users';
     this.deleteUserUrl = 'http://localhost:8080/deleteuser';
     this.editUserUrl = 'http://localhost:8080/edituser';
+    this.sendUser = 'http://localhost:8080/role';
   }
 
   public findAll(): Observable<User[]> {
@@ -38,5 +40,11 @@ export class UserService {
   }
   public editUser(user: newUser) {
     return this.http.post<newUser>(this.editUserUrl, user);
+  }
+  public sendUserName(username: string, password: string) {
+    return this.http.post<User>(this.sendUser, {"userName" : username, "password": password});
+  }
+  public getUsersRole(): Observable<User> {
+    return this.http.get<User>(this.sendUser);
   }
 }
