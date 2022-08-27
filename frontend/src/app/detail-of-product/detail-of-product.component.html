@@ -1,12 +1,12 @@
 
 <div class="information">
   <h1>{{allProducts.name}}</h1>
-  <p>Opis: {{allProducts.description}}</p>
-  <p>Cena: {{allProducts.price}}</p>
-  <p>Miesto: {{allProducts.localization}}</p>
+  <p class = "description">Opis: {{allProducts.description}}</p>
+  <p class="price">Cena: {{allProducts.price}}</p>
+  <p class="location">Lokacia: {{allProducts.localization}}</p>
 
 <!--  <img [src]="allProducts.image">-->
-  <button (click)="addToFavourite()">Obľúbené</button>
+  <button *ngIf="isSomeoneLoggedIn" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
   <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()">Vymazať inzerát</button>
   <button  (click)="openModal('custom-modal-5')">Upraviť inzerát</button>
 </div>

@@ -1,6 +1,6 @@
 mat-toolbar {
   background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
-  color: white;
+  color: black;
   height: 8%;
 
 }
@@ -14,7 +14,7 @@ mat-sidenav-container {
 a.card-title{
   position: absolute;
   top: 2%;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -46,7 +46,8 @@ mat-toolbar .icon
 }
 .list-inline-item{
   text-decoration: none;
-  color : white;
+  color : black;
+  font-weight: bold;
 }
 
 .logFuncion

@@ -5,6 +5,35 @@ left: 1%;
 right: 50%;
 }
 
+.description{
+  position: relative;
+  font-size: large;
+  color: #faffa7;
+}
+
+.price{
+position: relative;
+  text-align: center;
+  font-size: xx-large;
+  color: gold;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.location{
+  position: relative;
+  text-align: center;
+  font-size: large;
+  color: #faffa7;
+}
+
+h1{
+  text-align: center;
+  font-size: xx-large;
+  color: gold;
+  font-weight: bold ;
+}
+
 .picture{
 position: absolute;
   top: 5%;
@@ -15,6 +44,13 @@ position: absolute;
   position: absolute;
   bottom: 5%;
   left: 2%;
+}
+button{
+  background: repeat;
+  color: darkred;
+  font-weight: bold;
+  border: none;
+  margin-right: 5%;
 }
 
 /*.container{*/

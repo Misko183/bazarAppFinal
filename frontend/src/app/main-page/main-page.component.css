@@ -24,8 +24,8 @@
   position: relative;
   width: 100%;
   display: grid;
+  /*grid-template-columns: repeat(5,1fr);*/
   grid-template-columns: repeat(5,1fr);
-
 }
 
 
@@ -38,7 +38,8 @@
 }
 
 .small_btn{
-  width: 80%;
+  width: auto;
+  height: auto;
   /*height: 500%;*/
   margin: 0%;
 
@@ -52,3 +53,7 @@
 
 }
 
+img{
+  width: 45%;
+  height: auto;
+}

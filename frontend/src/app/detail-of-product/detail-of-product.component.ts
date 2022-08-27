@@ -79,6 +79,10 @@ export class DetailOfProductComponent  implements OnInit {
     return this.authService.isAdminLoggedIn;
   }
 
+  isSomeoneLoggedIn() {
+    return this.authService.isSomeoneLoggedIn;
+  }
+
 
   openModal(id: string) {
     this.modalService.open(id);
