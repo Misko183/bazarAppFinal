@@ -118,6 +118,40 @@ check: boolean = false;
   }
 
 
+  uploadedImage: File;
+  postResponse: any;
+  successResponse: string;
+
+
+  public onImageUpload({event}: { event: any }) {
+    this.uploadedImage = event.target.files[0];
+  }
+
+  createAction() {
+    const imageFormData = new FormData();
+    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+    imageFormData.append('id', this.allProducts1.image.id.toString());
+
+
+
+
+    this.httpClient.post('http://localhost:8080/changeImage', imageFormData ,{ observe: 'response' })
+      .subscribe((response) => {
+          if (response.status === 200) {
+            this.postResponse = response;
+            this.successResponse = this.postResponse.body.message;
+          } else {
+            this.successResponse = 'Image not uploaded due to some error!';
+          }
+
+
+        }
+      );
+  }
+
+
+
+
 
 
 findProduct() {

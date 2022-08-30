@@ -79,9 +79,15 @@ public class ProductServiceImpl implements ProductService {
     //changeProductStatus
     @Override
     public void editProduct(Product product) {
-       // Product myProduct = productRepository.findById(product.getId()).get();
-       // myProduct.setStatus(product.getStatus());
-        productRepository.save(product);
+        product.setPrice(product.getPrice().toLowerCase(Locale.ROOT));
+        if(product.getPrice().contains("€") || product.getPrice().contains("$") || product.getPrice().contains("£") || product.getPrice().contains("dohodou")){
+            productRepository.save(product);
+        }
+        else{
+            product.setPrice(product.getPrice()+ "€");
+            productRepository.save(product);
+        }
+
     }
 
 
@@ -123,13 +129,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+
     public void setOnlyUsersProducts(List<Product> onlyUsersProducts) {
         this.onlyUsersProducts = onlyUsersProducts;
-    }
-
-
-    public List<Product> getOnlyUsersProducts() {
-        return onlyUsersProducts;
     }
 
     List<Product> onlyUsersProducts = new ArrayList<>();
@@ -137,10 +139,6 @@ public class ProductServiceImpl implements ProductService {
 
     public List<Image> getUsersImages() {
         return usersImages;
-    }
-
-    public void setUsersImages(List<Image> usersImages) {
-        this.usersImages = usersImages;
     }
 
     List<Image> usersImages = new ArrayList<>();

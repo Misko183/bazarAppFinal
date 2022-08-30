@@ -89,9 +89,14 @@
           </mat-form-field>
         </div>
 
+        <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
+        <div class="col-sm-10">
+          <input type="file" (change)="onImageUpload({event : $event})">
+        </div>
+
 
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" (click)="editUser()"  class="btn btn-danger">Uložiť zmeny</button>
+          <button type="submit" (click)="createAction(); editUser()"  class="btn btn-danger">Uložiť zmeny</button>
         </div>
 
         <div *ngIf="check" class="alert alert-success">
@@ -106,41 +111,7 @@
       </jw-modal>
      </div>
 
-<!--        <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>-->
-<!--        <div class="col-sm-10">-->
-<!--        <textarea type="text" [(ngModel)]="allProducts1.description"-->
-<!--                  id="description"-->
-<!--                  name="description"-->
-<!--                  class="form-control"-->
-<!--                  required #description="ngModel"></textarea>-->
 
-
-<!--        </div>-->
-<!--      </div>-->
-<!--    </form>-->
-
-<!--    &lt;!&ndash;  <img src="../../assets/addLogo.png">&ndash;&gt;-->
-<!--  </div>-->
-<!--</jw-modal>-->
-
-<!-- <jw-modal id="custom-modal-4" >-->
-
-<!--  <div class="container">-->
-<!--    <form class="example-form"  >-->
-
-<!--      <div class="form-group">&ndash;&gt;-->
-<!--                <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>-->
-<!--                <div class="col-sm-10">-->
-<!--                  <input-->
-<!--                    [ngModel]="allProducts1.name"-->
-<!--                    >-->
-<!--                </div>-->
-<!--</div>-->
-<!--    </form>-->
-
-<!--    &lt;!&ndash;  <img src="../../assets/addLogo.png">&ndash;&gt;-->
-<!--  </div>-->
-<!--</jw-modal>-->
 
 
 

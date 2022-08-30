@@ -1,5 +1,6 @@
 package com.example.backend.Image;
 
+import com.example.backend.Products.Product;
 import com.example.backend.Products.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -41,6 +42,27 @@ public class ImageController {
 
     }
 
+
+    @Primary
+    @PostMapping("/changeImage")
+    public ResponseEntity<ImageUploadResponse> changeImage(@RequestParam("image") MultipartFile file , @RequestParam("id") Long id)
+            throws IOException {
+
+        //Na to isté id zapísanie nového obrázku, upravenie produktu
+        Image image1 = imageRepository.findById(id).get();
+        image1.setImage(ImageUtility.compressImage(file.getBytes()));
+        image1.setType(file.getContentType());
+        imageRepository.save(image1);
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ImageUploadResponse("Image uploaded successfully: " +
+                        file.getOriginalFilename()));
+
+
+    }
+
+
+
     //Vypis informacii o obrazku
     @GetMapping(path = {"/get/image/info/{id}"})
     public Image getImageDetails(@PathVariable("id") Long id) throws IOException {
@@ -66,13 +88,7 @@ public class ImageController {
                 .body(ImageUtility.decompressImage(dbImage.get().getImage()));
     }
 
-
-    @GetMapping(path = {"/lastID"})
-    public Long getLastID() {
-        return imageRepository.findTopByOrderByIdDesc().get().getId();
-    }
-
-
+    //Vrátenie všetkých obrázkov v liste
     @GetMapping(path = {"/getallimages"})
     public List<Image> getImageDetails() throws IOException {
 
@@ -83,21 +99,11 @@ public class ImageController {
                     .type(image.getType())
                     .image(ImageUtility.decompressImage(image.getImage())).build());
         }
-//     dbImage.forEach(
-//              image -> {
-//
-//                    Image.builder()
-//                            .type(image.getType())
-//                            .image(ImageUtility.decompressImage(image.getImage())).build();
-//
-//                }
-//
-//        );
 
      return images;
     }
 
-
+    //Vrátenie obrázkov v jednotlivých katagóriack v liste
     @GetMapping(path = {"/getcategoryimages"})
     public List<Image> getCategoryImages() throws IOException {
 
@@ -112,6 +118,7 @@ public class ImageController {
         return images;
     }
 
+    //Vrátenie obrázkov uživateľových produktov v liste
     @GetMapping(path = {"/getusersproductimages"})
     public List<Image> getUsersproductImages() throws IOException {
 
