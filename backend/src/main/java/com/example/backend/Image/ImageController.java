@@ -1,5 +1,6 @@
 package com.example.backend.Image;
 
+import com.example.backend.Products.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,6 +20,9 @@ public class ImageController {
 
     @Autowired
     ImageRepository imageRepository;
+
+    @Autowired
+    ProductServiceImpl productService;
 
     //Primarne vykoná tento post
     @Primary
@@ -65,4 +71,59 @@ public class ImageController {
     public Long getLastID() {
         return imageRepository.findTopByOrderByIdDesc().get().getId();
     }
+
+
+    @GetMapping(path = {"/getallimages"})
+    public List<Image> getImageDetails() throws IOException {
+
+        final List<Image> dbImage = imageRepository.findAll();
+        final ArrayList<Image> images = new ArrayList<>();
+        for (Image image : dbImage) {
+            images.add(Image.builder()
+                    .type(image.getType())
+                    .image(ImageUtility.decompressImage(image.getImage())).build());
+        }
+//     dbImage.forEach(
+//              image -> {
+//
+//                    Image.builder()
+//                            .type(image.getType())
+//                            .image(ImageUtility.decompressImage(image.getImage())).build();
+//
+//                }
+//
+//        );
+
+     return images;
+    }
+
+
+    @GetMapping(path = {"/getcategoryimages"})
+    public List<Image> getCategoryImages() throws IOException {
+
+        final List<Image> dbImage = productService.getCategoryImages();
+        final ArrayList<Image> images = new ArrayList<>();
+        for (Image image : dbImage) {
+            images.add(Image.builder()
+                    .type(image.getType())
+                    .image(ImageUtility.decompressImage(image.getImage())).build());
+        }
+
+        return images;
+    }
+
+    @GetMapping(path = {"/getusersproductimages"})
+    public List<Image> getUsersproductImages() throws IOException {
+
+        final List<Image> dbImage = productService.getUsersImages();
+        final ArrayList<Image> images = new ArrayList<>();
+        for (Image image : dbImage) {
+            images.add(Image.builder()
+                    .type(image.getType())
+                    .image(ImageUtility.decompressImage(image.getImage())).build());
+        }
+
+        return images;
+    }
+
 }

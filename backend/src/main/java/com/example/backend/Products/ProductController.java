@@ -53,7 +53,7 @@ public class ProductController {
 
     @GetMapping("/myproducts")
     public List<Product> showOnlyMe(){
-        return productService.getOnlyUsersProducts();
+        return productService.showOnlyUsersProducts();
     }
 
     @PostMapping("/editproduct")

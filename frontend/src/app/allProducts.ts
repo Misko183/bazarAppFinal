@@ -14,6 +14,7 @@ export class AllProducts {
   image: Image;
   user: User;
   countClicksOnProduct: number;
+  array: number = 0;
  //  detailID: number;
  //  postResponse: any;
  //  dbImage: any;

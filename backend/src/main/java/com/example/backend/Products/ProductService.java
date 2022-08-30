@@ -14,7 +14,7 @@ public interface ProductService {
 
     void getByCategory(String category);
 
-    List<Product> getOnlyUsersProducts();
+    List<Product> showOnlyUsersProducts();
 
     void editProduct(Product product);
 }

@@ -4,12 +4,14 @@ import com.example.backend.Favourite.Favourite;
 import com.example.backend.Favourite.FavouriteRepository;
 import com.example.backend.Favourite.FavouriteService;
 import com.example.backend.Favourite.FavouriteServiceImpl;
+import com.example.backend.Image.Image;
 import com.example.backend.Image.ImageController;
 import com.example.backend.Image.ImageRepository;
 import com.example.backend.User.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -93,16 +95,74 @@ public class ProductServiceImpl implements ProductService {
 
     List<Product> currentCategory;
 
+
+    public List<Image> getCategoryImages() {
+        return categoryImages;
+    }
+
+    List<Image> categoryImages = new ArrayList<>();
+
     //Vrátenie Inzeratu podla kategórie
     @Override
     public void getByCategory(String category) {
        setCurrentCategory(productRepository.findByCategory(category));
+       //find all images for products in current category
+
+        if (getCategoryImages().size() > 0) {
+            getCategoryImages().clear();
+            for (Product product : currentCategory) {
+                categoryImages.add(imageRepository.findById(product.getImage().getId()).get());
+                ;
+            }
+        }
+        else{
+            for(Product product : currentCategory){
+              categoryImages.add(imageRepository.findById(product.getImage().getId()).get());
+         }
+            }
     }
 
-    //Vrátenie iba používateľských inzerátov
-    @Override
+
+    public void setOnlyUsersProducts(List<Product> onlyUsersProducts) {
+        this.onlyUsersProducts = onlyUsersProducts;
+    }
+
+
     public List<Product> getOnlyUsersProducts() {
-     return productRepository.findByUser(userService.getLoggedUser());
+        return onlyUsersProducts;
+    }
+
+    List<Product> onlyUsersProducts = new ArrayList<>();
+
+
+    public List<Image> getUsersImages() {
+        return usersImages;
+    }
+
+    public void setUsersImages(List<Image> usersImages) {
+        this.usersImages = usersImages;
+    }
+
+    List<Image> usersImages = new ArrayList<>();
+
+    //Vrátenie iba používateľských inzerátov
+
+    @Override
+    public List<Product> showOnlyUsersProducts() {
+        setOnlyUsersProducts(productRepository.findByUser(userService.getLoggedUser()));
+        if (getUsersImages().size() > 0) {
+            getUsersImages().clear();
+            for (Product product : onlyUsersProducts) {
+                usersImages.add(imageRepository.findById(product.getImage().getId()).get());
+            }
+        }
+        else{
+            for(Product product : onlyUsersProducts){
+                usersImages.add(imageRepository.findById(product.getImage().getId()).get());
+            }
+        }
+
+        return productRepository.findByUser(userService.getLoggedUser());
     }
 
 }

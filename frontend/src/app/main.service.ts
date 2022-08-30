@@ -19,6 +19,7 @@ export class MainService {
   private favouriteUrl: string;
   private updateProductUrl: string;
   private deleteProductUrl: string;
+  private editProductUrl: string;
   private feedbackUrl: string;
   private deleteFeedbackUrl: string;
   private removeFavoriteUrl: string;
@@ -32,6 +33,7 @@ export class MainService {
     this.favouriteUrl = 'http://localhost:8080/favourite';
     this.updateProductUrl = 'http://localhost:8080/updateproduct';
     this.deleteProductUrl = 'http://localhost:8080/deleteproduct';
+    this.editProductUrl = 'http://localhost:8080/editproduct';
     this.feedbackUrl = 'http://localhost:8080/feedback';
     this.deleteFeedbackUrl = 'http://localhost:8080/deletefeedback';
     this.removeFavoriteUrl = 'http://localhost:8080/removefavourite';
@@ -48,6 +50,9 @@ export class MainService {
   }
   public deleteProduct(product: AllProducts){
     return this.http.post<AllProducts>(this.deleteProductUrl, product);
+  }
+  public editProduct(product: AllProducts) {
+    return this.http.post<AllProducts>(this.editProductUrl, product);
   }
   public getOneCategory(): Observable<AllProducts[]>{
     return this.http.get<AllProducts[]>(this.getCategoryUrl);

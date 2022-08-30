@@ -68,48 +68,21 @@
 </div>
 
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let product of allProducts" >
+  <div class="grid-item" *ngFor="let product of allProducts;"  >
 
-<!--    <div *ngIf="allProducts.length">-->
-<!--      {{viewImage(product.image.id) ? viewImage(product.image.id) : ""}}-->
-<!--    </div>-->
-
-
-<!--    <button (click)="viewImage(product.image.id)">Zobrazi Image</button>-->
-      <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
+    <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
 
+        <div class="picture" *ngIf=dbImageF>
+          <img [src]="dbImageF[product.id -1]" >
+        </div>
 
-
-<!--      <img src="data:image/jpeg;base64,{{+product.image}}">-->
-
-
-          <div class="picture" *ngIf="dbImage" >
-            <img [src]="list[product.id-1]" >
-          </div>
-        <img [src]="product.image.image" >
-
-
-
-<!--          <img src="data:image/jpeg;base64,{{product.image.type, product.image.image}}" >-->
-<!--        {{ukazMiLasku(product.image.id) ? ukazMiLasku(product.image.id) : ""}}-->
-<!--        <div *ngIf="test">-->
-<!--          <img [src]="listNumlock[bum]" >-->
-<!--        </div>-->
-
-
-
-
-
-
-
-
-
-<!--          <div>-->
-<!--            <img [src]="'data:image/jpeg;base64,'+product.image.id"  >-->
-<!--          </div>-->
           {{product.countClicksOnProduct}}
         </button>
+
+
+
+<!--    {{plusNumber() ? plusNumber() : ""}}-->
   </div>
 </div>
 

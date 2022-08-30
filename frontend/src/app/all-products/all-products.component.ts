@@ -48,10 +48,14 @@ export class AllProductsComponent implements OnInit {
 
   }
 
+  length: number = 0;
+
   ngOnInit(): void {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data;
+      this.length = this.allProducts.length;
   this.start();
+  this.hopeFinal();
 //this.showImage();
     } );
   }
@@ -163,6 +167,38 @@ listNum: Array<any> = [];
       );
 
   }
+
+postResponseF: any;
+dbImageF : Array<any> = [];
+arrayNumberF: number = 0;
+
+  hopeFinal() {
+    this.httpClient.get('http://localhost:8080/getallimages')
+      .subscribe(
+        //for each save to array
+        // res => {
+        //   this.postResponseF = res;
+        //   for (let i = 0; i < this.postResponseF.length; i++) {
+        //     this.dbImageF.push('data:image/jpeg;base64,' + this.postResponseF[i].image);
+        //   }
+        // }
+
+
+
+
+        res => {
+          this.postResponseF = res;
+          for(let image of this.postResponseF){
+            this.dbImageF.push('data:image/jpeg;base64,' + image.image);
+          }
+        }
+      );
+  }
+
+plusNumber() {
+
+
+}
 
 
 //Filtre

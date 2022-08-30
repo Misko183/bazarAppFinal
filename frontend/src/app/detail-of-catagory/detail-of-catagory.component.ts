@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AllProducts} from "../allProducts";
 import {MainService} from "../main.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-detail-of-catagory',
@@ -24,14 +25,31 @@ export class DetailOfCatagoryComponent implements OnInit {
     private mainService: MainService,
     private router: Router,
     private route: ActivatedRoute,
+    private httpClient: HttpClient,
   )
   {}
 
   ngOnInit(): void {
     this.mainService.getOneCategory().subscribe(data => {
       this.allProducts = data;
+      this.hopeFinal();
     });
 
+  }
+
+  postResponseF: any;
+  dbImageF : Array<any> = [];
+
+  hopeFinal() {
+    this.httpClient.get('http://localhost:8080/getcategoryimages')
+      .subscribe(
+        res => {
+          this.postResponseF = res;
+          for(let image of this.postResponseF){
+            this.dbImageF.push('data:image/jpeg;base64,' + image.image);
+          }
+        }
+      );
   }
 
 //Filtre
