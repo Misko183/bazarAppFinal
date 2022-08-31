@@ -1,8 +1,11 @@
 <h1>Obľúbené inzeráty</h1>
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let product of allProducts"  >
+  <div class="grid-item" *ngFor="let product of allProducts; let i = index"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
       {{product.name}}<br>
+      <div class="picture" *ngIf=dbImageF>
+        <img [src]="dbImageF[i]" >
+      </div>
       {{product.countClicksOnProduct}}
     </button>
     <button class="delete-btn" mat-raised-button color="accent" (click)="removeFavourite(product.id)">Odstrániť z obľúbených </button>

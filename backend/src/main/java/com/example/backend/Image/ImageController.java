@@ -1,5 +1,6 @@
 package com.example.backend.Image;
 
+import com.example.backend.Favourite.FavouriteServiceImpl;
 import com.example.backend.Products.Product;
 import com.example.backend.Products.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class ImageController {
 
     @Autowired
     ProductServiceImpl productService;
+
+    @Autowired
+    FavouriteServiceImpl favouriteService;
 
     //Primarne vykoná tento post
     @Primary
@@ -123,6 +127,22 @@ public class ImageController {
     public List<Image> getUsersproductImages() throws IOException {
 
         final List<Image> dbImage = productService.getUsersImages();
+        final ArrayList<Image> images = new ArrayList<>();
+        for (Image image : dbImage) {
+            images.add(Image.builder()
+                    .type(image.getType())
+                    .image(ImageUtility.decompressImage(image.getImage())).build());
+        }
+
+        return images;
+    }
+
+    //Vrátenie obrázkov uživateľových produktov v liste
+    @GetMapping(path = {"/getfavouriteimages"})
+    public List<Image> getFavouriteImages() throws IOException {
+
+        final List<Image> dbImage = favouriteService.getFavouriteImages();
+
         final ArrayList<Image> images = new ArrayList<>();
         for (Image image : dbImage) {
             images.add(Image.builder()

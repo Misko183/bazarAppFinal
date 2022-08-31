@@ -22,9 +22,9 @@ position: relative;
 
 .location{
   position: relative;
-  text-align: center;
   font-size: large;
   color: #faffa7;
+  margin-bottom: 2%;
 }
 
 h1{
@@ -51,6 +51,11 @@ button{
   font-weight: bold;
   border: none;
   margin-right: 5%;
+}
+
+.imageSize{
+  width: auto;
+  max-width: 40em;
 }
 
 /*.container{*/

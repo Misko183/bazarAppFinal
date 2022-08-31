@@ -168,6 +168,8 @@ listNum: Array<any> = [];
 
   }
 
+  scitaj: number = 0;
+
 postResponseF: any;
 dbImageF : Array<any> = [];
 arrayNumberF: number = 0;

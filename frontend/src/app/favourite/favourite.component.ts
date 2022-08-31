@@ -3,6 +3,7 @@ import {Favourite} from "../favourite";
 import {MainService} from "../main.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AllProducts} from "../allProducts";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-favourite',
@@ -17,6 +18,7 @@ export class FavouriteComponent implements OnInit {
     private mainService: MainService,
     private router: Router,
     private route: ActivatedRoute,
+    private httpClient: HttpClient,
   )
    { }
 
@@ -24,6 +26,7 @@ export class FavouriteComponent implements OnInit {
   ngOnInit(): void {
     this.mainService.getFavourite().subscribe(data => {
       this.allProducts = data;
+      this.hopeFinal();
     });
   }
 
@@ -31,9 +34,26 @@ export class FavouriteComponent implements OnInit {
     this.mainService.removeFavourite(id).subscribe(() => {
         this.mainService.getFavourite().subscribe(data => {
           this.allProducts = data;
+          this.router.navigate(['/home']);
+
         });
     }
     );
+  }
+
+  postResponseF: any;
+  dbImageF : Array<any> = [];
+
+  hopeFinal() {
+    this.httpClient.get('http://localhost:8080/getfavouriteimages')
+      .subscribe(
+        res => {
+          this.postResponseF = res;
+          for(let image of this.postResponseF){
+            this.dbImageF.push('data:image/jpeg;base64,' + image.image);
+          }
+        }
+      );
   }
 
 }

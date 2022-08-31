@@ -53,12 +53,12 @@
 
 
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let product of allProducts"  >
+  <div class="grid-item" *ngFor="let product of allProducts; let i = index"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
       {{product.name}}<br>
 
       <div class="picture" *ngIf=dbImageF>
-        <img [src]="dbImageF[0]" >
+        <img [src]="dbImageF[i]" >
       </div>
 
       {{product.countClicksOnProduct}}

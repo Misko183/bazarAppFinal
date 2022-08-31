@@ -1,5 +1,7 @@
 package com.example.backend.Favourite;
 
+import com.example.backend.Image.Image;
+import com.example.backend.Image.ImageRepository;
 import com.example.backend.Products.Product;
 import com.example.backend.Products.ProductRepository;
 import com.example.backend.User.UserServiceImpl;
@@ -21,6 +23,9 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
+    private ImageRepository imageRepository;
 
     @Override
     public void addFavourite(Favourite favourite) {
@@ -57,6 +62,12 @@ public class FavouriteServiceImpl implements FavouriteService {
     ArrayList<Product> productList = new ArrayList<>();
 
 
+    public ArrayList<Image> getFavouriteImages() {
+        return favouriteImages;
+    }
+
+    ArrayList<Image> favouriteImages = new ArrayList<>();
+
     public ArrayList<Product> getMeFavourite() {
 
         if (getFavourites() == null) {
@@ -72,6 +83,19 @@ public class FavouriteServiceImpl implements FavouriteService {
         for (Favourite f : favourites) {
             setIds(Collections.singletonList(f.getProduct().getId()));
             productList.add(productRepository.findById(f.getProduct().getId()).get());
+        }
+
+        if (favouriteImages.size() > 0) {
+            favouriteImages.clear();
+            for (Product product : productList) {
+                favouriteImages.add(imageRepository.findById(product.getImage().getId()).get());
+                ;
+            }
+        }
+        else {
+            for (Product product : productList) {
+                favouriteImages.add(imageRepository.findById(product.getImage().getId()).get());
+            }
         }
 
         return productList;

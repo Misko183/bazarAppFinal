@@ -60,7 +60,7 @@ export class DetailOfProductComponent  implements OnInit {
 
   addToFavourite() {
     this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/allproducts']);
     } );
   }
 
@@ -71,7 +71,7 @@ export class DetailOfProductComponent  implements OnInit {
 
   deleteProduct() {
     this.mainService.deleteProduct(this.allProducts).subscribe(() => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/allproducts']);
     } );
   }
 
