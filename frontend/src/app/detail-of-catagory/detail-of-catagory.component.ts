@@ -39,17 +39,34 @@ export class DetailOfCatagoryComponent implements OnInit {
 
   postResponseF: any;
   dbImageF : Array<any> = [];
+  dbImageId : Array<any> = [];
 
   hopeFinal() {
     this.httpClient.get('http://localhost:8080/getcategoryimages')
       .subscribe(
         res => {
           this.postResponseF = res;
-          for(let image of this.postResponseF){
-            this.dbImageF.push('data:image/jpeg;base64,' + image.image);
+          for (let i = 0; i < this.postResponseF.length; i++) {
+            this.dbImageF[i] = 'data:image/jpeg;base64,' + this.postResponseF[i].image;
+            this.dbImageId[i] = this.postResponseF[i].id;
           }
+
+          for(let i = 0; i < this.dbImageId.length; i++){
+            this.map.set(this.dbImageId[i], this.dbImageF[i]);
+          }
+
+
         }
       );
+  }
+
+  map = new Map();
+
+  returnGoodImage(number: number) {
+
+    if (this.map.has(number)) {
+      return this.map.get(number);
+    }
   }
 
 //Filtre

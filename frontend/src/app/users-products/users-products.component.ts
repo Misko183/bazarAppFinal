@@ -46,7 +46,7 @@ setbool(){
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts1 = data.find(product => product.id === id);
     this.mainService.deleteProduct(this.allProducts1).subscribe(() => {
-      this.router.navigate(['/home']);
+      this.ngOnInit();
     } );
     } );
   }
@@ -137,6 +137,8 @@ check: boolean = false;
 
     this.httpClient.post('http://localhost:8080/changeImage', imageFormData ,{ observe: 'response' })
       .subscribe((response) => {
+        this.ngOnInit();
+
           if (response.status === 200) {
             this.postResponse = response;
             this.successResponse = this.postResponse.body.message;
@@ -151,28 +153,41 @@ check: boolean = false;
 
 
 
-
-
-
 findProduct() {
   this.mainService.getAllProducts().subscribe(data => {
     this.allProducts1 = data.find(product => product.id === this.detailID);
   });
 }
 
-
   postResponseF: any;
   dbImageF : Array<any> = [];
+  dbImageId : Array<any> = [];
 
   hopeFinal() {
     this.httpClient.get('http://localhost:8080/getusersproductimages')
       .subscribe(
         res => {
           this.postResponseF = res;
-          for(let image of this.postResponseF){
-            this.dbImageF.push('data:image/jpeg;base64,' + image.image);
+          for (let i = 0; i < this.postResponseF.length; i++) {
+            this.dbImageF[i] = 'data:image/jpeg;base64,' + this.postResponseF[i].image;
+            this.dbImageId[i] = this.postResponseF[i].id;
           }
+
+          for(let i = 0; i < this.dbImageId.length; i++){
+            this.map.set(this.dbImageId[i], this.dbImageF[i]);
+          }
+
+
         }
       );
+  }
+
+  map = new Map();
+
+  returnGoodImage(number: number) {
+
+    if (this.map.has(number)) {
+      return this.map.get(number);
+    }
   }
 }

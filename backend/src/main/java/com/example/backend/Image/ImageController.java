@@ -116,6 +116,7 @@ public class ImageController {
         final ArrayList<Image> images = new ArrayList<>();
         for (Image image : dbImage) {
             images.add(Image.builder()
+                    .id(image.getId())
                     .type(image.getType())
                     .image(ImageUtility.decompressImage(image.getImage())).build());
         }
@@ -131,6 +132,7 @@ public class ImageController {
         final ArrayList<Image> images = new ArrayList<>();
         for (Image image : dbImage) {
             images.add(Image.builder()
+                    .id(image.getId())
                     .type(image.getType())
                     .image(ImageUtility.decompressImage(image.getImage())).build());
         }
@@ -147,6 +149,7 @@ public class ImageController {
         final ArrayList<Image> images = new ArrayList<>();
         for (Image image : dbImage) {
             images.add(Image.builder()
+                    .id(image.getId())
                     .type(image.getType())
                     .image(ImageUtility.decompressImage(image.getImage())).build());
         }
