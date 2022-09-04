@@ -74,7 +74,11 @@
           {{product.name}}<br>
 
         <div class="picture" *ngIf=dbImageF>
-          <img [src]="dbImageF[i]" >
+          <img [src]="returnGoodImage(product.image.id)" >
+
+
+
+<!--          <img [src]="dbImageFinal[i]" >-->
         </div>
 
           {{product.countClicksOnProduct}}
