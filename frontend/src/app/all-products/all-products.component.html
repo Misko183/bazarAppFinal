@@ -68,25 +68,18 @@
 </div>
 
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let product of allProducts; let i = index"  >
+  <div class="grid-item" *ngFor="let product of allProducts;"  >
 
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
 
         <div class="picture" *ngIf=dbImageF>
           <img [src]="returnGoodImage(product.image.id)" >
-
-
-
-<!--          <img [src]="dbImageFinal[i]" >-->
         </div>
 
           {{product.countClicksOnProduct}}
         </button>
 
-
-
-<!--    {{plusNumber() ? plusNumber() : ""}}-->
   </div>
 </div>
 

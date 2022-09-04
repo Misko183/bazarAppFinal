@@ -17,15 +17,8 @@ import {Image} from "../image";
 export class AllProductsComponent implements OnInit {
 
   allProducts: AllProducts[];
-  allProducts1: AllProducts;
   detailID: number;
-  dbImage: any;
-  postResponse: any;
-  skusimId: any;
-  dbImage1: any;
-  postResponse1: any;
 
-  random:number = 0;
 
   public selected: string = 'ID';
   public isVisible: boolean = false;
@@ -41,140 +34,26 @@ export class AllProductsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpClient: HttpClient,
- //   private imageService: Image,
     ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
 
 
   }
 
-  length: number = 0;
+
 
   ngOnInit(): void {
     this.mainService.getAllProducts().subscribe(data => {
       this.allProducts = data;
-      this.length = this.allProducts.length;
-  this.start();
-  this.hopeFinal();
-//this.showImage();
+       this.hopeFinal();
+
     } );
   }
 
-  lll: number = 0;
-start() {
-    for(let i = 0; i < 1; i++){
-  for (let product of this.allProducts) {
-    this.listNum.push(product.image.id);
-    this.lll++;
-  }
-      if(this.lll == this.allProducts.length){
-        for (let i = 0; i < this.listNum.length; i++) {
-          this.viewImage(this.listNum[i]);
-
-        }
-      }
-  }
-
-
-}
-
-list: Array<any> = [];
-
-listNum: Array<any> = [];
-
-// toList(number: number) {
-//
-//
-//
-//   for (let i = 0; i < this.listNum.length; i++) {
-//     this.viewImage(this.listNum[i]);
-//   }
-//
-// }
-  random1: number = 0;
-  viewImage(number: number) {
-
-    this.httpClient.get('http://localhost:8080/get/image/info/' + number)
-      .subscribe(
-        res => {
-          this.postResponse = res;
-          this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-         //  this.allProducts1.image.any = this.dbImage;
-        //if list dont contains dbImage
-        //   if (!this.list.includes(this.dbImage)) {
-        //delay before adding to list
-
-              this.list.push(this.dbImage);
-              this.random1 = this.random1 + 1;
-
-        //   }
-        }
-      );
-  }
-
-
-  showImage(aaa: number) {
-
-    this.httpClient.get('http://localhost:8080/get/image/info/' + aaa)
-      .subscribe(
-        res => {
-          this.postResponse1 = res;
-          this.dbImage1 = 'data:image/jpeg;base64,' + this.postResponse1.image;
-        }
-      );
-  }
-
-  // ukaz(number: number) {
-  //   return this.imageService.showImg(number);
-  // }
-
-  plus()
-  {
-    this.random++;
-  }
-  postResponse2: any;
-  dbImage2 : any;
-
-  justShow() {  //just show image
-    this.httpClient.get('http://localhost:8080/get/image/1')
-      .subscribe(
-        res => {
-          this.postResponse2 = res;
-          this.dbImage2 = 'data:image/jpeg;base64,' + this.postResponse2.image;
-        }
-      );
-  }
-
-  postResponse3: any;
-  dbImage3 : any;
-  bum: number = 0;
-  listNumlock: Array<any> = [];
-  test: boolean = false;
-
-  ukazMiLasku(prosim: number) {
-    this.httpClient.get('http://localhost:8080/get/image/info/' + prosim)
-      .subscribe(
-        res => {
-          this.postResponse3 = res;
-       this.dbImage3 = 'data:image/jpeg;base64,' + this.postResponse3.image;
-        if (!this.listNumlock.includes(this.dbImage3)) {
-          this.test = true;
-          this.listNumlock.push(this.dbImage3);
-          this.bum++;
-        }
-
-        }
-      );
-
-  }
-
-  scitaj: number = 0;
 
 postResponseF: any;
 dbImageF : Array<any> = [];
-arrayNumberF: number = 0;
   dbImageId : Array<any> = [];
-  dbImageFinal : Array<any> = [];
 
   hopeFinal() {
     this.httpClient.get('http://localhost:8080/getallimages')
@@ -197,10 +76,6 @@ arrayNumberF: number = 0;
       );
   }
 
-
-  obraz: any;
-  response: any;
-
   map = new Map();
 
   returnGoodImage(number: number) {
@@ -209,16 +84,6 @@ arrayNumberF: number = 0;
       return this.map.get(number);
     }
   }
-
-
-
-
-
-
-plusNumber() {
-
-
-}
 
 
 //Filtre
