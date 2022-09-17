@@ -4,10 +4,10 @@
   <p class = "description">Opis: {{allProducts.description}}</p>
   <p class="price">Cena: {{allProducts.price}}</p>
   <p class="location">Lokácia: {{allProducts.localization}}</p>
-
+  <br>
 <!--  <img [src]="allProducts.image">-->
-  <button *ngIf="isSomeoneLoggedIn" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
-  <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()">Vymazať inzerát</button>
+  <button *ngIf="isSomeoneLoggedIn()" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
+  <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()"><img src="../../assets/kôš.png" height="60"> <br> Vymazať inzerát</button>
 
 </div>
 
