@@ -17,7 +17,7 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatCardModule} from "@angular/material/card";
 import { AddProductComponent } from './add-product/add-product.component';
-import { ImageComponent } from './image/image.component';
+
 import {MatSelectModule} from "@angular/material/select";
 import {DetailOfProductComponent} from './detail-of-product/detail-of-product.component';
 import {LoginComponent} from "./login/login.component";
@@ -29,8 +29,7 @@ import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catago
 import { FavouriteComponent } from './favourite/favourite.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { UsersProfileComponent } from './users-profile/users-profile.component';
-import { EditUserComponent } from './edit-user/edit-user.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
+
 import {ModalModule} from "./modal/modal.module";
 import {ModalComponent} from "./modal/modal.component";
 // import { ModalComponent } from './modal/modal.component';
@@ -41,7 +40,7 @@ import {ModalComponent} from "./modal/modal.component";
     MainPageComponent,
     AllProductsComponent,
     AddProductComponent,
-    ImageComponent,
+
     DetailOfProductComponent,
     LoginComponent,
     RegistrationComponent,
@@ -50,8 +49,7 @@ import {ModalComponent} from "./modal/modal.component";
     FavouriteComponent,
     FeedbackComponent,
     UsersProfileComponent,
-    EditUserComponent,
-    EditProductComponent,
+
 
   ],
   imports: [
