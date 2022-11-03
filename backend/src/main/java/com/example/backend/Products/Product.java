@@ -2,7 +2,8 @@ package com.example.backend.Products;
 
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Image.Image;
-import com.example.backend.User.User;
+//import com.example.backend.User.User;
+import com.example.backend.proSecurity.user.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,7 +34,7 @@ public class Product {
     private Image image;
 
     @ManyToOne
-    User user;
+    UserEntity userEntity;
 
     @JsonIgnore
     @OneToMany(mappedBy = "product")

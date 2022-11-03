@@ -4,8 +4,13 @@ import com.example.backend.Image.Image;
 import com.example.backend.Image.ImageRepository;
 import com.example.backend.Products.Product;
 import com.example.backend.Products.ProductRepository;
-import com.example.backend.User.UserServiceImpl;
+//import com.example.backend.User.UserServiceImpl;
+import com.example.backend.proSecurity.user.CurrentUser;
+import com.example.backend.proSecurity.user.UserEntity;
+import com.example.backend.proSecurity.user.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,16 +26,22 @@ public class FavouriteServiceImpl implements FavouriteService {
     @Autowired
     private ProductRepository productRepository;
 
-    @Autowired
-    private UserServiceImpl userService;
+//    @Autowired
+//    private UserServiceImpl userService;
 
     @Autowired
     private ImageRepository imageRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
+
     @Override
-    public void addFavourite(Favourite favourite) {
-        favourite.setUser(userService.getLoggedUser());
-        if (favouriteRepository.findByProductAndUser(favourite.getProduct(), favourite.getUser() ) == null) {
+    public void addFavourite(Favourite favourite, @AuthenticationPrincipal CurrentUser currentUser) {
+        UserEntity userEntity = userRepository.findByUsername(currentUser.getUsername());
+
+        favourite.setUserEntity(userEntity);
+        if (favouriteRepository.findByProductAndUserEntity(favourite.getProduct(), favourite.getUserEntity() ) == null) {
             favouriteRepository.save(favourite);
         }
 
@@ -68,16 +79,16 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     ArrayList<Image> favouriteImages = new ArrayList<>();
 
-    public ArrayList<Product> getMeFavourite() {
+    public ArrayList<Product> getMeFavourite(@AuthenticationPrincipal CurrentUser currentUser) {
 
         if (getFavourites() == null) {
 
-            setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+            setFavourites(favouriteRepository.findByUserEntity(userRepository.findByUsername(currentUser.getUsername())));
 
         } else {
             getProductList().clear();
             getFavourites().clear();
-            setFavourites(favouriteRepository.findByUser(userService.getLoggedUser()));
+            setFavourites(favouriteRepository.findByUserEntity(userRepository.findByUsername(currentUser.getUsername())));
         }
 
         for (Favourite f : favourites) {
@@ -103,6 +114,6 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     @Override
     public void removeFavourite(Favourite favourite) {
-        favouriteRepository.delete(favouriteRepository.findByProductAndUser(favourite.getProduct(), userService.getLoggedUser()));
+        favouriteRepository.delete(favouriteRepository.findByProductAndUserEntity(favourite.getProduct(), favourite.getUserEntity()));
     }
 }

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../security/service/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,32 +7,37 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  //overenie požadovaného vyplnenia formulara
-  loginGroup = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
-  });
+  model: any = {};
+  sessionId: any = "";
 
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router
+      private router: Router,
+      private http: HttpClient
   ) { }
 
-  check: boolean = this.authService.check;
-
-  login(): void {
-    if (this.loginGroup.valid) {
-      const username = this.loginGroup.value.username;
-
-      const password = this.loginGroup.value.password;
-
-      //poslanie prihlasovaních udajov na service na overenie
-      this.check = true;
-      this.authService.login(username, password)
-        .subscribe(() => this.router.navigateByUrl('/home'));
-    }
+  ngOnInit(): void {
   }
+
+  login() {
+    let url = 'http://localhost:8080/api/login';
+    this.http.post<any>(url, {
+      username: this.model.username,
+      password: this.model.password
+    }).subscribe(res => {
+      if (res) {
+        this.sessionId = res.sessionId;
+
+        sessionStorage.setItem(
+          'token',
+          this.sessionId
+        );
+        this.router.navigate(['']);
+      } else {
+          alert("Authentication failed.")
+      }
+    });
 }
 
+}

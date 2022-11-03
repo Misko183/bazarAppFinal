@@ -1,6 +1,7 @@
 package com.example.backend.Products;
 
-import com.example.backend.User.User;
+//import com.example.backend.User.User;
+import com.example.backend.proSecurity.user.UserEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,11 +13,11 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByCategory(String vehicles);
 
-    List<Product> findByUser(User user);
+    List<Product> findByUserEntityUsername(String username);
 
    // Optional<Product> findById(Long id);
 
     Optional<Product> findById(Long id);
 
-    void deleteByUserId(long id);
+    void deleteByUserEntityId(long id);
 }

@@ -1,8 +1,10 @@
 package com.example.backend.Products;
 
-import com.example.backend.User.User;
+//import com.example.backend.User.User;
+import com.example.backend.proSecurity.user.CurrentUser;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,8 +29,8 @@ public class ProductController {
     }
 
     @PostMapping("/advertisement")
-    public void addProduct(@RequestBody Product product) {
-        productService.addProduct(product);
+    public void addProduct(@RequestBody Product product, @AuthenticationPrincipal CurrentUser currentUser) {
+        productService.addProduct(product, currentUser);
     }
 
     @PostMapping("/updateproduct")
@@ -52,8 +54,8 @@ public class ProductController {
     }
 
     @GetMapping("/myproducts")
-    public List<Product> showOnlyMe(){
-        return productService.showOnlyUsersProducts();
+    public List<Product> showOnlyMe(@AuthenticationPrincipal CurrentUser currentUser){
+        return productService.showOnlyUsersProducts(currentUser);
     }
 
     @PostMapping("/editproduct")

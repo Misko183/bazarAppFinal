@@ -1,77 +1,40 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MainPageComponent } from './main-page/main-page.component';
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import { AllProductsComponent } from './all-products/all-products.component';
-import {MatGridListModule} from "@angular/material/grid-list";
-import {MatCardModule} from "@angular/material/card";
-import { AddProductComponent } from './add-product/add-product.component';
-
-import {MatSelectModule} from "@angular/material/select";
-import {DetailOfProductComponent} from './detail-of-product/detail-of-product.component';
-import {LoginComponent} from "./login/login.component";
-import {AuthInterceptor} from "./security/interceptor/auth.interceptor";
-import {UserService} from "./user/user.service";
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RequestInterceptor } from './security/request.interceptor';
 import { RegistrationComponent } from './registration/registration.component';
-import { UsersProductsComponent } from './users-products/users-products.component';
-import { DetailOfCatagoryComponent } from './detail-of-catagory/detail-of-catagory.component';
-import { FavouriteComponent } from './favourite/favourite.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { UsersProfileComponent } from './users-profile/users-profile.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { TestComponent } from './test/test.component';
 
-import {ModalModule} from "./modal/modal.module";
-import {ModalComponent} from "./modal/modal.component";
-// import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
-    AllProductsComponent,
-    AddProductComponent,
-
-    DetailOfProductComponent,
     LoginComponent,
+    HomeComponent,
     RegistrationComponent,
-    UsersProductsComponent,
-    DetailOfCatagoryComponent,
-    FavouriteComponent,
-    FeedbackComponent,
-    UsersProfileComponent,
-
-
+    TestComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
+    AppRoutingModule,
     HttpClientModule,
-    MatButtonModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatCardModule,
     MatSelectModule,
-    ModalModule
   ],
-  providers: [
-    UserService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,8 @@
 package com.example.backend.Favourite;
 
 import com.example.backend.Products.Product;
-import com.example.backend.User.User;
+//import com.example.backend.User.User;
+import com.example.backend.proSecurity.user.UserEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +29,7 @@ public class Favourite {
     Product product;
 
     @ManyToOne
-    User user;
+    UserEntity userEntity;
 
 
 }

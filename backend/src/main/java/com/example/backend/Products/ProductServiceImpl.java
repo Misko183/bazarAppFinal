@@ -7,8 +7,12 @@ import com.example.backend.Favourite.FavouriteServiceImpl;
 import com.example.backend.Image.Image;
 import com.example.backend.Image.ImageController;
 import com.example.backend.Image.ImageRepository;
-import com.example.backend.User.UserServiceImpl;
+//import com.example.backend.User.UserServiceImpl;
+import com.example.backend.proSecurity.user.CurrentUser;
+import com.example.backend.proSecurity.user.UserEntity;
+import com.example.backend.proSecurity.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,8 +33,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ImageController imageController;
 
-    @Autowired
-    private UserServiceImpl userService;
+//    @Autowired
+//    private UserServiceImpl userService;
 
     @Autowired
     private FavouriteServiceImpl favouriteService;
@@ -38,16 +42,18 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private FavouriteRepository favouriteRepository;
 
+    @Autowired
+    private UserRepository userRepository;
 
     //Pridavanie Inzeratu
     @Override
-    public void addProduct(Product product) {
+    public void addProduct(Product product, @AuthenticationPrincipal CurrentUser currentUser) {
 
     //Vyhladanie posledného obrázku, a priraďovanie k produktu onetoone
     //Následné vytvorenie produktu s obrázkom
         Long image = imageRepository.findTopByOrderByIdDesc().get().getId();
         product.setImage(imageRepository.findById(image).get());
-        product.setUser(userService.getLoggedUser());
+        product.setUserEntity(userRepository.findByUsername(currentUser.getUsername()));
         product.setPrice(product.getPrice().toLowerCase(Locale.ROOT));
         if(product.getPrice().contains("€") || product.getPrice().contains("$") || product.getPrice().contains("£") || product.getPrice().contains("dohodou")){
             productRepository.save(product);
@@ -146,8 +152,8 @@ public class ProductServiceImpl implements ProductService {
     //Vrátenie iba používateľských inzerátov
 
     @Override
-    public List<Product> showOnlyUsersProducts() {
-        setOnlyUsersProducts(productRepository.findByUser(userService.getLoggedUser()));
+    public List<Product> showOnlyUsersProducts(@AuthenticationPrincipal CurrentUser currentUser) {
+        setOnlyUsersProducts(productRepository.findByUserEntityUsername(currentUser.getUsername()));
         if (getUsersImages().size() > 0) {
             getUsersImages().clear();
             for (Product product : onlyUsersProducts) {
@@ -160,7 +166,7 @@ public class ProductServiceImpl implements ProductService {
             }
         }
 
-        return productRepository.findByUser(userService.getLoggedUser());
+        return productRepository.findByUserEntityUsername(currentUser.getUsername());
     }
 
 }

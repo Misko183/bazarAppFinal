@@ -1,7 +1,9 @@
 package com.example.backend.Favourite;
 
 import com.example.backend.Products.Product;
+import com.example.backend.proSecurity.user.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +22,13 @@ public class FavouriteController {
     private FavouriteServiceImpl favouriteService;
 
     @PostMapping("/favourite")
-    public void addFavourite(@RequestBody Favourite favourite) {
-        favouriteService.addFavourite(favourite);
+    public void addFavourite(@RequestBody Favourite favourite, @AuthenticationPrincipal CurrentUser currentUser) {
+        favouriteService.addFavourite(favourite, currentUser);
     }
 
     @GetMapping("/favourite")
-    public ArrayList<Product> getUsersFavourite() {
-        return favouriteService.getMeFavourite();
+    public ArrayList<Product> getUsersFavourite(@AuthenticationPrincipal CurrentUser currentUser) {
+        return favouriteService.getMeFavourite(currentUser);
     }
 
     @PostMapping("/removefavourite")

@@ -1,13 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;background: linear-gradient(180deg, #c20505 0%, #e1c224 100%); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;   background: #e1c224;
 
-/*.wrapper-center {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  flex-direction: column;*/
-/*  height: 100%;*/
-/*}*/
-
+}
