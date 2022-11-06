@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
       private router: Router,
-      private http: HttpClient
+      private http: HttpClient,
+      private app: AppComponent,
   ) { }
 
   ngOnInit(): void {
@@ -27,13 +29,16 @@ export class LoginComponent implements OnInit {
       password: this.model.password
     }).subscribe(res => {
       if (res) {
+        this.app.ngOnInit();
         this.sessionId = res.sessionId;
 
         sessionStorage.setItem(
           'token',
           this.sessionId
         );
+
         this.router.navigate(['']);
+        this.app.ngOnInit();
       } else {
           alert("Authentication failed.")
       }

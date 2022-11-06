@@ -60,6 +60,7 @@ body{
 {
   position: relative;
   display: flex;
+  z-index: 1;
 }
 
 .bubbles span
@@ -76,6 +77,7 @@ body{
   animation: animate 15s linear infinite;
   animation-duration: calc(125s / var(--i));
   z-index: 1;
+  display: unset;
 }
 .bubbles span:nth-child(even)
 {

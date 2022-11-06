@@ -1,17 +1,17 @@
 
 <div class="main" >
     <nav>
-      <!--  <div class="hamburger">-->
-      <!--    <div class="line1"></div>-->
-      <!--    <div class="line2"></div>-->
-      <!--    <div class="line3"></div>-->
-      <!--  </div>-->
+        <div class="hamburger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
       <ul class="nav-links">
         <li><a href="home">Home</a></li>
-        <li><a href="login">Login</a></li>
-        <li><a href="registration">Registration</a></li>
+        <li *ngIf="!token"><a href="login">Login</a></li>
+        <li *ngIf="!token"><a href="registration">Registration</a></li>
         <li><a href="test">About</a></li>
-        <!--    <li><button (click)="logout()" class="logout-button" href="#">Logout</button></li>-->
+            <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Logout</button></li>
       </ul>
     </nav>
 

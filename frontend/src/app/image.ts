@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 export class Image{
 
-id?: number;
-type?: string;
+id: number;
+type: string;
 image: any;
 postResponse0: any;
 dbImage0: any;

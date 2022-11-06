@@ -14,6 +14,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { TestComponent } from './test/test.component';
+import {AllProductsComponent} from "./all-products/all-products.component";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { TestComponent } from './test/test.component';
     LoginComponent,
     HomeComponent,
     RegistrationComponent,
-    TestComponent
+    TestComponent,
+    AllProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { TestComponent } from './test/test.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatButtonModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
