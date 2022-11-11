@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { TestComponent } from './test/test.component';
 import {AllProductsComponent} from "./all-products/all-products.component";
 import {MatButtonModule} from "@angular/material/button";
+import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatButtonModule} from "@angular/material/button";
     RegistrationComponent,
     TestComponent,
     AllProductsComponent,
+    DetailOfProductComponent,
   ],
   imports: [
     BrowserModule,

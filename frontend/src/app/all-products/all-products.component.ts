@@ -35,8 +35,8 @@ export class AllProductsComponent implements OnInit {
     private router: Router,
     private httpClient: HttpClient,
     ) {
-    // @ts-ignore
-    this.detailID =+ this.route.snapshot.paramMap.get('id');
+
+    this.detailID  = + this.route.snapshot.paramMap.get('id');
 
 
   }

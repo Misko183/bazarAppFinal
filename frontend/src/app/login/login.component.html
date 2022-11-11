@@ -1,29 +1,8 @@
-<body>
+
 <!--<div class="h-50 d-flex align-items-center justify-content-center">-->
 <!--  <div class="spinner-border text-primary" role="status" >&ndash;&gt;-->
-<div class="everyThing" >
 
-  <div class="h-100 d-flex align-items-center justify-content-center">
-  <form name="form" (ngSubmit)="login()" #loginForm="ngForm">
-    <div id="aa" >
-    <mat-form-field appearance="fill">
-      <mat-label>Používateľské meno</mat-label>
-      <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required  matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Heslo</mat-label>
-      <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required matInput/>
-    </mat-form-field>
-    <div>
-      <button [disabled]="!loginForm.form.valid" class="btn btn-primary">Login</button>
-    </div>
-    <div>
-      <a [routerLink]="['/registration']">Ak nemáte vytvorené konto, kliknite sem</a>
-    </div>
-    </div>
-  </form>
-  </div>
+<body>
 
 <div class="bubbles">
   <span style="--i:10;"></span>
@@ -83,6 +62,69 @@
   <span style="--i:14;"></span>
   <span style="--i:6;"></span>
   <span style="--i:19;"></span>
+  <span style="--i:10;"></span>
+  <span style="--i:4;"></span>
+  <span style="--i:15;"></span>
+  <span style="--i:8;"></span>
+  <span style="--i:20;"></span>
+  <span style="--i:5;"></span>
+  <span style="--i:18;"></span>
+  <span style="--i:6;"></span>
+  <span style="--i:19;"></span>
+  <span style="--i:10;"></span>
+  <span style="--i:11;"></span>
+  <span style="--i:17;"></span>
+  <span style="--i:18;"></span>
+  <span style="--i:14;"></span>
+  <span style="--i:20;"></span>
+  <span style="--i:16;"></span>
+  <span style="--i:14;"></span>
+  <span style="--i:6;"></span>
+  <span style="--i:4;"></span>
+  <span style="--i:15;"></span>
+  <span style="--i:10;"></span>
+  <span style="--i:4;"></span>
+  <span style="--i:15;"></span>
+  <span style="--i:8;"></span>
+  <span style="--i:20;"></span>
+  <span style="--i:5;"></span>
+  <span style="--i:18;"></span>
+  <span style="--i:6;"></span>
+  <span style="--i:19;"></span>
+  <span style="--i:10;"></span>
+  <span style="--i:11;"></span>
+  <span style="--i:17;"></span>
+  <span style="--i:18;"></span>
+  <span style="--i:14;"></span>
 </div>
+
+
+
+
+
+
+  <div class="content">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+  <form name="form" (ngSubmit)="login()" #loginForm="ngForm">
+    <div id="aa" >
+    <mat-form-field appearance="fill">
+      <mat-label>Používateľské meno</mat-label>
+      <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required  matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Heslo</mat-label>
+      <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required matInput/>
+    </mat-form-field>
+    <div>
+      <button [disabled]="!loginForm.form.valid" class="btn btn-primary">Login</button>
+    </div>
+    <div>
+      <a [routerLink]="['/registration']">Ak nemáte vytvorené konto, kliknite sem</a>
+    </div>
+    </div>
+  </form>
   </div>
+    </div>
+
 </body>

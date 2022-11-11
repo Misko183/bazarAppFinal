@@ -1,0 +1,84 @@
+body{
+  min-height: 100vh;
+
+  background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
+}
+
+
+.information{
+position: absolute;
+top: 1%;
+left: 1%;
+right: 50%;
+}
+
+.description{
+  position: relative;
+  font-size: large;
+  color: #faffa7;
+}
+
+.price{
+position: relative;
+  text-align: center;
+  font-size: xx-large;
+  color: gold;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.location{
+  position: relative;
+  font-size: large;
+  color: #faffa7;
+  margin-bottom: 2%;
+}
+
+h1{
+  text-align: center;
+  font-size: xx-large;
+  color: gold;
+  font-weight: bold ;
+}
+
+.picture{
+position: absolute;
+  top: 5%;
+  right: 2%;
+}
+
+.contact{
+  position: absolute;
+  bottom: 13%;
+  left: 2%;
+}
+button{
+  background: repeat;
+  color: darkred;
+  font-weight: bold;
+  border: none;
+  margin-right: 5%;
+}
+
+.imageSize{
+  width: auto;
+  max-width: 30em;
+}
+
+/*.container{*/
+/*  width:50%;*/
+/*  display: table-cell;*/
+/*}*/
+
+/*.container .information {*/
+/*  position: fixed;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.container .picture {*/
+/*position: fixed;*/
+/*  align-content: end;*/
+/*  text-align: right*/
+/*;*/
+/*}*/
+

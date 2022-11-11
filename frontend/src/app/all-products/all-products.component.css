@@ -1,3 +1,8 @@
+/***/
+/*{*/
+/*  background: #131418;*/
+/*}*/
+
 
 /*.example-card {*/
 /*  width: 80%;*/
@@ -59,6 +64,11 @@
 /*width: 100%;*/
 /*  text-align: center;*/
 /*}*/
+
+
+::ng-deep body{
+  background: red;
+}
 
 h1 {
   color: black;
