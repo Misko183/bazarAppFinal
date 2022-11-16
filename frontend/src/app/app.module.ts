@@ -13,7 +13,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { TestComponent } from './test/test.component';
+// import { TestComponent } from './test/test.component';
 import {AllProductsComponent} from "./all-products/all-products.component";
 import {MatButtonModule} from "@angular/material/button";
 import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
@@ -25,7 +25,7 @@ import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.co
     LoginComponent,
     HomeComponent,
     RegistrationComponent,
-    TestComponent,
+    // TestComponent,
     AllProductsComponent,
     DetailOfProductComponent,
   ],
