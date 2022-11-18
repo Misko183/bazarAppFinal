@@ -34,3 +34,4 @@ build/
 frontend/note_modules/
 /frontend/node_modules/
 /frontend/.angular/
+/backend/.mvn/
