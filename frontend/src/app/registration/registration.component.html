@@ -1,0 +1,34 @@
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content">
+
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+  <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label for="username">Username</mat-label>
+      <input matInput type="text" id="username" name="username" placeholder="Enter username" required
+             [(ngModel)]="user.username" #username="ngModel">
+    </mat-form-field>
+    <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+      Použivatelské méno je povinné
+    </div>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label for="password">Password</mat-label>
+      <input matInput type="password" id="password" name="password" placeholder="Enter password" required
+             [(ngModel)]="user.password" #password="ngModel">
+    </mat-form-field>
+    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+      Použivateľské heslo je povinné
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Submit</button>
+    <div>
+      <a [routerLink]="['/login']">Ak už máte účet prihlaste sa tu</a>
+    </div>
+  </form>
+</div>
+</div>
+
