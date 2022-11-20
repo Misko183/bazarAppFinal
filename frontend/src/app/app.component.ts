@@ -16,7 +16,19 @@ token: any = sessionStorage.getItem('token');
 
   }
 
+  dothat() {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const links = document.querySelector(".nav-links li");
 
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+
+      // links. (link => {
+      //   link.classList.toggle("fade");
+      // });
+    });
+  }
 
   logout() {
     sessionStorage.removeItem('token');

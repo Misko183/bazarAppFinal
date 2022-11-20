@@ -1,0 +1,107 @@
+
+<div class="container">
+  <form class="example-form"  #addProductForm="ngForm">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
+      <div class="col-sm-10">
+        <input
+              type="text" [(ngModel)]="allProducts.name"
+               id="name"
+               name="name"
+               class="form-control"
+               required #name="ngModel">
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>
+      <div class="col-sm-10">
+        <textarea type="text" [(ngModel)]="allProducts.description"
+               id="description"
+               name="description"
+               class="form-control"
+               required #description="ngModel"></textarea>
+
+
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Cena:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.price"
+               id="price"
+               name="price"
+               class="form-control"
+               required #price="ngModel">
+
+      </div>
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> Lokácia:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="allProducts.localization"
+               id="localization"
+               name="name"
+               class="form-control"
+               required #localization="ngModel">
+
+      </div>
+
+<!--      <label class="control-label col-sm-2" > <div class="bold-text"> Kategória:</div></label>-->
+<!--      <div class="col-sm-10">-->
+<!--        <input type="text" [(ngModel)]="allProducts.category"-->
+<!--               id="category"-->
+<!--               name="category"-->
+<!--               class="form-control"-->
+<!--               required #category="ngModel">-->
+
+<!--      </div>-->
+
+
+      <mat-label class="control-label col-sm-2">Vyber kategóriu:</mat-label>
+      <div class="col-sm-10">
+        <mat-form-field appearance="fill">
+          <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.category" name="category" id="category" (selectionChange)="chooseCategory()" required>
+            <mat-option value='Pets'>Domáce Zvieratá</mat-option>
+            <mat-option value='Electronic'>Elektronika</mat-option>
+            <mat-option value='Toys'>Hračky</mat-option>
+            <mat-option value='Furniture'>Nábytok</mat-option>
+            <mat-option value='House'>Nehnuteľnosti</mat-option>
+            <mat-option value='Clothes'>Oblečenie</mat-option>
+            <mat-option value='HomeElectronics'>Spotrebiče</mat-option>
+            <mat-option value='Sport'>Šport</mat-option>
+            <mat-option value='Vehicles'>Vozidlo</mat-option>
+            <mat-option value='Garden'>Záhrada</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
+      <div class="col-sm-10">
+        <input type="file" (change)="onImageUpload({event : $event})">
+
+      </div>
+      <br>
+      <img [src]="this.liveDemo" />
+      <br>
+      <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
+      <div class="col-sm-offset-2 col-sm-10">
+        <button   (click)="createAction()"
+                 type="submit"
+                 class="btn btn-info">Vytvoriť Inzerát
+        </button>
+      </div>
+
+
+    </div>
+
+
+  </form>
+
+<!--  <img src="../../assets/addLogo.png">-->
+      </div>
+
+
+
+

@@ -5,9 +5,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import {RegistrationComponent} from "./registration/registration.component";
 import {DisableLoginGuard} from "./security/disable-login.guard";
-// import {TestComponent} from "./test/test.component";
+import {TestComponent} from "./test/test.component";
 import {AllProductsComponent} from "./all-products/all-products.component";
 import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.component";
+import {AddProductComponent} from "./add-product/add-product.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
     { path: 'registration', component: RegistrationComponent,
       // canActivate: [DisableLoginGuard]
     },
-  // { path: 'test', component: TestComponent },
+  { path: 'test', component: TestComponent },
     { path: 'login', component: LoginComponent,
       canActivate: [DisableLoginGuard]
     },
@@ -27,6 +28,7 @@ const routes: Routes = [
   // ]}
   { path: 'allAdvertisements', component: AllProductsComponent },
   {path: 'detail/:id', component: DetailOfProductComponent},
+  {path: 'addAdvertisement', component: AddProductComponent},
 
 ];
 
