@@ -28,6 +28,15 @@ public class UserEntity {
     @Column(nullable = false)
     private String authority;
 
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String address;
+
+    @Column(nullable = false)
+    private String phone;
+
     @JsonIgnore
     @OneToMany(mappedBy = "userEntity")
     private Set<Product> products;

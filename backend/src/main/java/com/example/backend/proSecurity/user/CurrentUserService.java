@@ -1,5 +1,8 @@
 package com.example.backend.proSecurity.user;
 
+import com.example.backend.Favourite.Favourite;
+import com.example.backend.Favourite.FavouriteRepository;
+import com.example.backend.Products.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -39,14 +42,17 @@ public class CurrentUserService implements UserDetailsService {
 
     }
 
+    @Autowired
+    private FavouriteRepository favouriteRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
 
-    public UserEntity getCurrentUser() {
+    public void deleteUser(UserEntity user) {
+        this.favouriteRepository.deleteAll(favouriteRepository.findByUserEntity(user));
+        this.productRepository.deleteAll(productRepository.findByUserEntity(user));
+        this.repository.delete(user);
 
-        return (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    }
-
-    public UserEntity getUser(String username) {
-        return repository.findByUsername(username);
     }
 }

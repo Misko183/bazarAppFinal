@@ -47,6 +47,8 @@ background: white;
   text-align:center;
   top:50%;
   transform:translate(-50%, -50%);
+  padding-right: 8%;
+  padding-left: 8%;
 }
 
 .mat-form-field-appearance-fill .mat-form-field-flex {

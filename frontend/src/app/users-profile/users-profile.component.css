@@ -1,0 +1,25 @@
+::ng-deep body{
+  background: red;
+}
+
+
+.userInfo{
+  position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: auto;
+    background-color: rgba(27, 229, 229, 0.98);
+    margin: auto;
+    border: black solid 5px;
+
+}
+.title{
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}

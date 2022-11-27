@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  refresh() {
+    this.app.ngOnInit();
+  }
+
   login() {
     let url = 'http://localhost:8080/api/login';
     this.http.post<any>(url, {
@@ -29,20 +33,19 @@ export class LoginComponent implements OnInit {
       password: this.model.password
     }).subscribe(res => {
       if (res) {
-        this.app.ngOnInit();
         this.sessionId = res.sessionId;
-
         sessionStorage.setItem(
           'token',
           this.sessionId
         );
+        this.router.navigate(['home']);
+        window.location.reload();
 
-        this.router.navigate(['']);
-        this.app.ngOnInit();
       } else {
           alert("Authentication failed.")
       }
     });
+
 }
 
 }

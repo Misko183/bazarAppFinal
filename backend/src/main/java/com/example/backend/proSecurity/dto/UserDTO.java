@@ -3,6 +3,9 @@ package com.example.backend.proSecurity.dto;
 public class UserDTO {
     private String username;
     private String password;
+    private String email;
+    private String address;
+    private Long phone;
 
     public String getUsername() {
         return username;
@@ -19,4 +22,5 @@ public class UserDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
