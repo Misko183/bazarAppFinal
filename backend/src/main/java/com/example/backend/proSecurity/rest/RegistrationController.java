@@ -28,12 +28,19 @@ public void userRegister(@RequestBody UserEntity user) {
     userEntity.setUsername(user.getUsername());
     userEntity.setPassword(config.passwordEncoder().encode(user.getPassword()));
     userEntity.setAuthority("USER");
-    userEntity.setAddress(user.getAddress());
-    userEntity.setPhone(user.getPhone());
-    userEntity.setEmail(user.getEmail());
 
     repository.save(userEntity);
 }
 
+    @PostMapping("/instructorRegister")
+    public void instructorRegister(@RequestBody UserEntity user) {
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setUsername(user.getUsername());
+        userEntity.setPassword(config.passwordEncoder().encode(user.getPassword()));
+        userEntity.setAuthority("INSTRUCTOR");
+
+        repository.save(userEntity);
+    }
 
 }

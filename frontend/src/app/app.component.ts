@@ -7,21 +7,14 @@ import {RegistrationComponent} from "./registration/registration.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
 
 token: any = sessionStorage.getItem('token');
-  constructor(
 
-  ) {
-  }
 
   ngOnInit(): void {
 
   }
-
-
-
-
 
   dothat() {
     const hamburger = document.querySelector(".hamburger");
@@ -37,14 +30,10 @@ token: any = sessionStorage.getItem('token');
     });
   }
 
-  login() {
-    this.ngOnInit();
-  }
-
   logout() {
     sessionStorage.removeItem('token');
     window.location.href = '/login';
-    // this.ngOnInit();
+    this.ngOnInit();
   }
 }
 

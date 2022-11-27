@@ -15,8 +15,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByUserEntityUsername(String username);
 
-    List<Product> findByUserEntity(UserEntity user);
-
    // Optional<Product> findById(Long id);
 
     Optional<Product> findById(Long id);
