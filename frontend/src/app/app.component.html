@@ -13,10 +13,12 @@
 <!--      </label>-->
 
       <ul class="nav-links">
-        <li><a href="home">Home</a></li>
+        <li><a href="home" >Home</a></li>
         <li *ngIf="!token"><a href="login">Login</a></li>
         <li *ngIf="!token"><a href="registration">Registration</a></li>
         <li *ngIf="token"><a href="addAdvertisement">Pridaj inzerát</a></li>
+        <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
+        <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>
         <li><a href="test">About</a></li>
             <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Logout</button></li>
       </ul>
