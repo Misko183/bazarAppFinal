@@ -21,6 +21,8 @@ import {AddProductComponent} from "./add-product/add-product.component";
 import {UsersProductsComponent} from "./users-products/users-products.component";
 import {ModalModule} from "./modal";
 import {UsersProfileComponent} from "./users-profile/users-profile.component";
+import {FeedbackComponent} from "./feedback/feedback.component";
+import {FavouriteComponent} from "./favourite/favourite.component";
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import {UsersProfileComponent} from "./users-profile/users-profile.component";
     AddProductComponent,
     UsersProductsComponent,
     UsersProfileComponent,
+    FeedbackComponent,
+    FavouriteComponent,
   ],
   imports: [
     BrowserModule,

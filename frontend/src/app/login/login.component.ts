@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           this.sessionId
         );
         this.router.navigate(['home']);
+
         window.location.reload();
 
       } else {

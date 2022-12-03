@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {AllProducts} from "../allProducts";
+import {Feedback} from "../feedback";
+import {Favourite} from "../favourite";
 
 
 @Injectable({
@@ -62,8 +64,25 @@ export class MainService {
     return this.http.get<AllProducts[]>(this.usersProductsUrl);
   }
 
+  public addToFavourite(product: number, user: number) {
+    return this.http.post<Favourite>(this.favouriteUrl, {"product" :{ "id": product}, "user" : {"id": user}});
+  }
+
   public getFavourite(): Observable<AllProducts[]> {
     return this.http.get<AllProducts[]>(this.favouriteUrl);
   }
 
+  public removeFavourite(product: number){
+    return this.http.post<Favourite>(this.removeFavoriteUrl, {"product" :{ "id": product}});
+  }
+
+  public postFeedback(feedback: Feedback) {
+    return this.http.post<Feedback>(this.feedbackUrl, feedback);
+  }
+  public getFeedback(): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(this.feedbackUrl);
+  }
+  public deleteFeedback(feedback: Feedback){
+    return this.http.post<Feedback>(this.deleteFeedbackUrl, feedback);
+  }
 }

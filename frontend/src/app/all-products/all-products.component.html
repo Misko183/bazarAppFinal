@@ -1,4 +1,4 @@
-<h1>Inzeráty</h1>
+
 <!--<mat-grid-list cols="4" rowHeight="350">-->
 <!--  <mat-grid-tile *ngFor="let product of allProducts">-->
 <!--    <mat-card class="example-card">-->
@@ -33,6 +33,10 @@
 <!--  </div>-->
 <!--</div>-->
 
+
+<!--<body>-->
+<div class="everyThing">
+<h1>Inzeráty</h1>
 <div class="header">
   <mat-form-field appearance="fill" class="option">
     <mat-label>Zoradiť podľa:</mat-label>
@@ -49,21 +53,22 @@
     <input matInput (keyup)="filterProduct($event)" placeholder="Search">
   </mat-form-field>
 
-  <div>
-    <mat-form-field class="mat_input minsz" appearance="fill">
+    <mat-form-field class="mat_input min" appearance="fill">
       <mat-label>Minimálna cena</mat-label>
       <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value"
              placeholder="type only number">
     </mat-form-field>
-  </div>
-  <mat-form-field class="mat_input" appearance="fill" >
+
+  <mat-form-field class="mat_input max" appearance="fill" >
     <mat-label>Maximálna cena</mat-label>
     <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value"
            placeholder="type only number">
   </mat-form-field>
-  <div class="btns">
-    <button mat-raised-button color="primary" class="apply rgbn" (click)="filterPrice()">Apply filter</button>
-    <button mat-raised-button color="warn" class="reset" (click)="resetFilter()">Reset filter</button>
+  <div class="btnsA">
+    <button class="apply" (click)="filterPrice()">Aplikuj cenový filter</button>
+  </div>
+  <div class="btnsR">
+    <button  class="reset" class="reset" (click)="resetFilter()">Resetuj cenový filter</button>
   </div>
 </div>
 
@@ -82,4 +87,6 @@
 
   </div>
 </div>
+</div>
+<!--</body>-->
 

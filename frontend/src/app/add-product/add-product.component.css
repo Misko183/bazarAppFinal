@@ -1,13 +1,15 @@
 
 html{
   /*background: black;*/
-background: #4fc3dc;
+/*background: #4fc3dc;*/
+  background: radial-gradient(ellipse at right bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
 }
 
 body{
   height: calc(100vh - 6rem);
   /*background: black;*/
-background: #4fc3dc;
+/*background: #4fc3dc;*/
+  background: radial-gradient(ellipse at right bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
 }
 
 input{
@@ -28,7 +30,8 @@ img{
 
 ::ng-deep body{
   /*background: black;*/
-background: #4fc3dc;
+/*background: #4fc3dc;*/
+  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
 }
 
 .input .upload{
@@ -38,8 +41,16 @@ background: #4fc3dc;
 
 .form-group{
   weight: 100%;
-
+  color: black;
 }
+
+@media(max-width: 800px) {
+.container{
+  margin-top: 6rem;
+}
+}
+
+
 form{
   /*text-align: center;*/
 

@@ -11,6 +11,8 @@ import {DetailOfProductComponent} from "./detail-of-product/detail-of-product.co
 import {AddProductComponent} from "./add-product/add-product.component";
 import {UsersProductsComponent} from "./users-products/users-products.component";
 import {UsersProfileComponent} from "./users-profile/users-profile.component";
+import {FeedbackComponent} from "./feedback/feedback.component";
+import {FavouriteComponent} from "./favourite/favourite.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,6 +35,8 @@ const routes: Routes = [
   {path: 'addAdvertisement', component: AddProductComponent},
   {path: 'usersAdvertisements', component: UsersProductsComponent},
   {path: 'usersProfile', component: UsersProfileComponent},
+  {path: 'feedback', component: FeedbackComponent},
+  {path: 'favourite', component: FavouriteComponent},
 ];
 
 @NgModule({

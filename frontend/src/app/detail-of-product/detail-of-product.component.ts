@@ -57,13 +57,13 @@ export class DetailOfProductComponent  implements OnInit {
     });
   }
 
-/* toto bolo
+/* toto bolo*/
   addToFavourite() {
     this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
       this.router.navigate(['/allproducts']);
     } );
   }
-  */
+
 
 
   //findProductbyDeateilId() {
