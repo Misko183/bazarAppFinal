@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../user";
 // import {UserService} from "../user/user.service";
 import {MainService} from "../services/mainService";
-import {AuthService} from "../services/authService";
+import {UserService} from "../services/userService";
 import {ModalService} from "../modal";
 import {FormBuilder, Validators} from "@angular/forms";
 // import {User} from "../user";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppComponent} from "../app.component";
+import {AuthService} from "../security/authService";
 
 @Component({
   selector: 'app-users-profile',
@@ -24,7 +25,8 @@ export class UsersProfileComponent implements OnInit {
   constructor(
     // private userService: UserService,
     private mainService: MainService,
-    private authService: AuthService,
+    private authService: UserService,
+    private authServiceSecurtiy: AuthService,
     private modalService: ModalService,
     private formBuilder: FormBuilder,
     private router: Router,
@@ -55,9 +57,11 @@ export class UsersProfileComponent implements OnInit {
     }
   }
 
-  // isAdmin(): boolean {
-  //   return this.authService.isAdminLoggedIn;
-  // }
+  isAdmin(): boolean {
+    if (this.authServiceSecurtiy.getAuthority()) {
+      return true;
+    }
+  }
 
 
   showUserData() {

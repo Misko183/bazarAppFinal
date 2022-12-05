@@ -73,7 +73,7 @@ export class MainService {
   }
 
   public removeFavourite(product: number){
-    return this.http.post<Favourite>(this.removeFavoriteUrl, {"product" :{ "id": product}});
+    return this.http.post<AllProducts>(this.removeFavoriteUrl, {"id": product});
   }
 
   public postFeedback(feedback: Feedback) {

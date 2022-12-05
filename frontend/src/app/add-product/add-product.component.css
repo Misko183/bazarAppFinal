@@ -29,9 +29,16 @@ img{
 }
 
 ::ng-deep body{
-  /*background: black;*/
-/*background: #4fc3dc;*/
   background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
+}
+
+.everyThing
+{
+  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+
 }
 
 .input .upload{
@@ -51,10 +58,6 @@ img{
 }
 
 
-form{
-  /*text-align: center;*/
-
-}
 
 .custom-file-upload {
   border: 1px solid #ccc;

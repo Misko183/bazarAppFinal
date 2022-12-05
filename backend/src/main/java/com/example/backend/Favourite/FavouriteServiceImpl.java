@@ -113,7 +113,7 @@ public class FavouriteServiceImpl implements FavouriteService {
     }
 
     @Override
-    public void removeFavourite(Favourite favourite) {
-        favouriteRepository.delete(favouriteRepository.findByProductAndUserEntity(favourite.getProduct(), favourite.getUserEntity()));
+    public void removeFavourite(Product product, @AuthenticationPrincipal CurrentUser currentUser) {
+        favouriteRepository.delete(favouriteRepository.findByProductAndUserEntity(product, userRepository.findByUsername(currentUser.getUsername())));
     }
 }

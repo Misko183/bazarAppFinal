@@ -1,40 +1,38 @@
-<!--<div class="container" *ngIf="isAdmin()">-->
-<!--  FUNKCNY ADMIN-->
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--      <h1>Informácie o užívateľovi</h1>-->
-<!--      <table class="table table-striped">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--          <th>Meno uživateľa</th>-->
-<!--          <th>Heslo</th>-->
-<!--&lt;!&ndash;          <th>Email</th>&ndash;&gt;-->
-<!--&lt;!&ndash;          <th>Telefonné číslo</th>&ndash;&gt;-->
-<!--&lt;!&ndash;          <th>Adresa</th>&ndash;&gt;-->
-<!--          <th>Vymazať uživateľa</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr *ngFor="let user of users">-->
-<!--          <td>{{user.username}}</td>-->
-<!--          <td>{{user.password}}</td>-->
-<!--&lt;!&ndash;          <td>{{user.email}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;          <td>{{user.phone}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;          <td>{{user.address}}</td>&ndash;&gt;-->
-<!--          <td>-->
-<!--            <button class="btn btn-danger" (click)="deleteUser(user)">Vymazať uživateľa</button>-->
-<!--          </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="container" *ngIf="isAdmin()">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Informácie o užívateľovi</h1>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Meno uživateľa</th>
+          <th>Heslo</th>
+<!--          <th>Email</th>-->
+<!--          <th>Telefonné číslo</th>-->
+<!--          <th>Adresa</th>-->
+          <th>Vymazať uživateľa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+<!--          <td>{{user.email}}</td>-->
+<!--          <td>{{user.phone}}</td>-->
+<!--          <td>{{user.address}}</td>-->
+          <td>
+            <button class="btn btn-danger" (click)="deleteUser(user)">Vymazať uživateľa</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
 
-
-<!--<div class="userInfo" *ngIf="!isAdmin()">-->
-<div class="userInfo" >
+<div class="userInfo" *ngIf="!isAdmin()">
 <div class="title">Vaše údaje:</div>
   <br>
   <h1>Používateľské meno: {{user.username}}</h1>
@@ -101,3 +99,4 @@
 
   <img src="../../assets/return.png" (click)="closeModal('custom-modal-1');" height="40">
 </jw-modal>
+

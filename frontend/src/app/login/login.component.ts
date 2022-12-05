@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
   sessionId: any = "";
+  authority: any = "";
 
   constructor(
       private router: Router,
@@ -34,10 +35,19 @@ export class LoginComponent implements OnInit {
     }).subscribe(res => {
       if (res) {
         this.sessionId = res.sessionId;
+        this.authority = res.authority;
+
+
         sessionStorage.setItem(
           'token',
           this.sessionId
         );
+
+        sessionStorage.setItem(
+          'authority',
+          this.authority
+        );
+
         this.router.navigate(['home']);
 
         window.location.reload();

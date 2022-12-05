@@ -3,7 +3,7 @@ import {AllProducts} from "../allProducts";
 import {MainService} from "../services/mainService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {AuthService} from "../services/authService";
+import {UserService} from "../services/userService";
 import {ModalService} from "../modal";
 
 @Component({
@@ -24,7 +24,7 @@ export class DetailOfProductComponent  implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private httpClient: HttpClient,
-    private authService: AuthService,
+    private authService: UserService,
     private modalService: ModalService,
   ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');

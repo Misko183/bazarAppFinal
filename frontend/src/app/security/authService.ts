@@ -5,9 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor() { }
+  constructor() {
+  }
 
   isLoggedIn() {
     return sessionStorage.getItem('token');
+  }
+
+  getAuthority() {
+    if (sessionStorage.getItem('authority') == "ADMIN") {
+      return sessionStorage.getItem('authority');
+    }
   }
 }

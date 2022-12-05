@@ -32,7 +32,7 @@ public class FavouriteController {
     }
 
     @PostMapping("/removefavourite")
-    public void removeFavourite(@RequestBody Favourite favourite) {
-        favouriteService.removeFavourite(favourite);
+    public void removeFavourite(@RequestBody Product product, @AuthenticationPrincipal CurrentUser currentUser) {
+        favouriteService.removeFavourite(product, currentUser);
     }
 }

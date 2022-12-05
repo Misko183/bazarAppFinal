@@ -1,58 +1,59 @@
-<!--&lt;!&ndash;<div class="container" *ngIf="!isAdmin()">&ndash;&gt;-->
-<!--<div class="container">-->
-<!--  <h2><div class="bold-text">Spätná väzba</div></h2>-->
-<!--  <form [formGroup]="feedbackForm" (ngSubmit)="completeLogin()">-->
-<!--    <div class="form-group">-->
-<!--      <label class="control-label col-sm-2" > <div class="bold-text">Názov návrhu:</div></label>-->
-<!--      <div class="col-sm-10">-->
-<!--        <input type="text" [(ngModel)]="feedback.nameOfSuggestion"-->
-<!--               id="nameOfSuggestion"-->
-<!--               name="nameOfSuggestion"-->
-<!--               formControlName="nameOfSuggestion"-->
-<!--               class="form-control"-->
-<!--               placeholder="Názov návrhu"-->
-<!--               required>-->
+<div class="container" *ngIf="!isAdmin()">
+<div class="container">
+  <h2><div class="bold-text">Spätná väzba</div></h2>
+  <form [formGroup]="feedbackForm" (ngSubmit)="completeLogin()">
+    <div class="form-group">
+      <label class="control-label col-sm-2" > <div class="bold-text">Názov návrhu:</div></label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="feedback.nameOfSuggestion"
+               id="nameOfSuggestion"
+               name="nameOfSuggestion"
+               formControlName="nameOfSuggestion"
+               class="form-control"
+               placeholder="Názov návrhu"
+               required>
 
-<!--        <mat-error *ngIf="feedbackForm.controls['nameOfSuggestion'].invalid && feedbackForm.controls['nameOfSuggestion'].touched">-->
-<!--        <span *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required">-->
-<!--          Name is required-->
-<!--        </span>-->
-<!--        </mat-error>-->
-<!--      </div>-->
+        <mat-error *ngIf="feedbackForm.controls['nameOfSuggestion'].invalid && feedbackForm.controls['nameOfSuggestion'].touched">
+        <span *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required">
+          Name is required
+        </span>
+        </mat-error>
+      </div>
 
 
-<!--      <label class="control-label col-sm-2"> <div class="bold-text">Špecifikácia návrhu:</div></label>-->
-<!--      <div class="col-sm-10">-->
-<!--        <textarea [(ngModel)]="feedback.description"-->
-<!--                  id="description"-->
-<!--                  name="description"-->
-<!--                  formControlName="description"-->
-<!--                  class="form-control"-->
-<!--                  placeholder="Špecifikácia návrhu"-->
-<!--                  required></textarea>-->
+      <label class="control-label col-sm-2"> <div class="bold-text">Špecifikácia návrhu:</div></label>
+      <div class="col-sm-10">
+        <textarea [(ngModel)]="feedback.description"
+                  id="description"
+                  name="description"
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="Špecifikácia návrhu"
+                  required></textarea>
 
-<!--        <mat-error *ngIf="feedbackForm.controls.description.invalid && feedbackForm.controls.description.touched">-->
-<!--        <span *ngIf="feedbackForm.controls.description.errors.required">-->
-<!--          Complaint is required-->
-<!--        </span>-->
-<!--        </mat-error>-->
+        <mat-error *ngIf="feedbackForm.controls.description.invalid && feedbackForm.controls.description.touched">
+        <span *ngIf="feedbackForm.controls.description.errors.required">
+          Complaint is required
+        </span>
+        </mat-error>
 
-<!--      </div>-->
+      </div>
 
-<!--&lt;!&ndash;      *ngIf="!isAdmin()&ndash;&gt;-->
-<!--      <div class="form-group">-->
-<!--        <div class="col-sm-offset-2 col-sm-10">-->
-<!--          <button type="submit" [disabled]="!feedbackForm.valid" class="btn btn-success">Submit</button>-->
-<!--          <div *ngIf="success" class="alert alert-success">-->
-<!--            <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne odoslaná.-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </form>-->
-<!--</div>-->
+<!--      *ngIf="!isAdmin()-->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" [disabled]="!feedbackForm.valid" class="btn btn-success">Submit</button>
+          <div *ngIf="success" class="alert alert-success">
+            <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne odoslaná.
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
 
-<!--<div class="container" *ngIf="isAdmin()">-->
+<div class="container" *ngIf="isAdmin()">
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -84,4 +85,5 @@
     </div>
   </div>
 </div>
+  </div>
 

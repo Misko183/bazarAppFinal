@@ -3,6 +3,7 @@ package com.example.backend.proSecurity.dto;
 public class UserDTO {
     private String username;
     private String password;
+    private String authority;
     private String email;
     private String address;
     private Long phone;
@@ -23,4 +24,11 @@ public class UserDTO {
         this.password = password;
     }
 
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 }

@@ -20,7 +20,7 @@
         <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
         <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>
         <li *ngIf="token"><a href="favourite">Obľúbené</a></li>
-        <li *ngIf="!token"><a href="feedback">Spätná väzba</a></li>
+        <li ><a href="feedback">Spätná väzba</a></li>
         <li><a href="test">About</a></li>
             <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Logout</button></li>
       </ul>

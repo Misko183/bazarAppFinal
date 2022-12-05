@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Feedback} from "../feedback";
 import {FormControl, FormGroup} from "@angular/forms";
-import {AuthService} from "../services/authService";
+import {UserService} from "../services/userService";
 import {MainService} from "../services/mainService";
+import {AuthService} from "../security/authService";
 
 @Component({
   selector: 'app-feedback',
@@ -16,7 +17,11 @@ export class FeedbackComponent implements OnInit {
   feedbackForm: FormGroup;
   success: boolean = false;
 
-  constructor(private mainService: MainService, private authService: AuthService) {
+  constructor(
+    private mainService: MainService,
+    private authService: UserService,
+    private authServiceSecurtiy: AuthService
+  ) {
     this.feedback = new Feedback();
   }
 
@@ -34,9 +39,10 @@ export class FeedbackComponent implements OnInit {
     this.success = true;
   }
 
-  // isAdmin(): boolean{
-  //   return this.authService.isAdminLoggedIn;
-  // }
+  isAdmin(): boolean{
+   if(this.authServiceSecurtiy.getAuthority())
+   {return true;}
+  }
 
   deleteFeedback(feedback: Feedback) {
     if (confirm('Určite chcete vymazať návrh '+feedback.nameOfSuggestion +'?'))  {

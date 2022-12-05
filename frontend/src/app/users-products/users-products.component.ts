@@ -3,7 +3,7 @@ import {MainService} from "../services/mainService";
 import {AllProducts} from "../allProducts";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {AuthService} from "../services/authService";
+import {UserService} from "../services/userService";
 import {ModalService} from "../modal";
 
 @Component({
@@ -27,7 +27,7 @@ setbool(){
     private mainService: MainService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService,
+    private authService: UserService,
     private modalService: ModalService,
     private httpClient: HttpClient,
   )
