@@ -1,5 +1,6 @@
 package com.example.backend.Products;
 
+import com.example.backend.Category.Category;
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Favourite.FavouriteRepository;
 import com.example.backend.Favourite.FavouriteService;
@@ -168,5 +169,22 @@ public class ProductServiceImpl implements ProductService {
 
         return productRepository.findByUserEntityUsername(currentUser.getUsername());
     }
+
+
+    public List<Product> getCurrentCategories() {
+        return currentCategories;
+    }
+
+    public void setCurrentCategories(List<Product> currentCategories) {
+        this.currentCategories = currentCategories;
+    }
+
+    List<Product> currentCategories;
+
+    @Override
+    public void returnProductsByCategory(Category category){
+        setCurrentCategories(productRepository.findAllByKindOfCategory(category));
+    }
+
 
 }

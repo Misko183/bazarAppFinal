@@ -11,10 +11,11 @@ export class AllProducts {
   price: string;
   localization: string;
   category: string;
-  image: Image;
+  image: any;
   user: User;
   countClicksOnProduct: number;
   array: number = 0;
+  kindOfCategory: any;
 
 
 }

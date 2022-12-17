@@ -1,40 +1,57 @@
 
-<!--<body>-->
+
 <div class="partTwo">
 <div class = "grid-container">
-  <div class="grid-item">
-    <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/vsetko%20blue.png" /> </button>
+
+    <div class="grid-item">
+      <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/vsetko%20blue.png" /> </button>
+    </div>
+  <div class="grid-item" *ngFor="let category of categoryArray">
+    <button type = "button"  class = "small_btn"  (click)="rerouteToCategory(category.id)"><br>{{category.name}}<br><br><img [src]="category.imageOfCategory"/> </button>
   </div>
-  <div class="grid-item">
-    <button type = "button" id = "b2" class = "small_btn" (click)="goToGarden()"><br>Záhrada<br><br><img src="../../assets/nastroje%20blue.png"  /></button>
-  </div>
-  <div class="grid-item">
-    <button  type = "button" id = "b3" class = "small_btn" (click)="goToElectronics()"><br>Elektronika<br><br><img src="../../assets/elektronika%20blue.png"  /></button>
-  </div>
-  <div class="grid-item">
-    <button type = "button" id = "b4" class = "small_btn" (click)="goToVehicles()"><br>Vozidla<br><br><img src="../../assets/car%20blue.gif"  /></button>
-  </div>
-  <div class="grid-item b5">
-    <button type = "button" id = "b5" class = "small_btn" (click)="goToSport()"><br>Šport<br><br><img src="../../assets/sport%20blue.png"  /></button>
-  </div>
-  <div class="grid-item">
-    <button type = "button" id = "b6" class = "small_btn" (click)="goToToys()"><br>Hračky<br><br><img src="../../assets/hracky%20blue.png"  /></button>
-  </div>
-  <div class="grid-item">
-    <button type = "button" id = "b7" class = "small_btn" (click)="goToPets()"><br>Domáce zvieratá<br><br><img src="../../assets/zvierata%20blue.png"  /></button>
-  </div>
-  <div class="grid-item b5">
-    <button type = "button" id = "b8" class = "small_btn" (click)="goToHouse()"><br>Nehnuteľnosti<br><br><img src="../../assets/dom%20blue.png" /></button>
-  </div>
-  <div class="grid-item b5">
-    <button type = "button" id = "b9" class = "small_btn" (click)="goToClothes()"><br>Oblečenie<br><br><img src="../../assets/oblecenie%20blue.png"  /></button>
-  </div>
-  <div class="grid-item">
-    <button type = "button" id = "b10" class = "small_btn" (click)="goToFurniture()"><br>Nábytok<br><br><img src="../../assets/nabytok%20blue.png" /></button>
-  </div>
-  <div class="grid-item">
-    <button type = "button" id = "b11" class = "small_btn" (click)="goToHomeElectronics()"><br>Spotrebiče<br><br><img src="../../assets/spotrebice%20blue.png"  /></button>
-  </div>
+
+<!-- -->
+<!-- -->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/vsetko%20blue.png" /> </button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b2" class = "small_btn" (click)="goToGarden()"><br>Záhrada<br><br><img src="../../assets/nastroje%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button  type = "button" id = "b3" class = "small_btn" (click)="goToElectronics()"><br>Elektronika<br><br><img src="../../assets/elektronika%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b4" class = "small_btn" (click)="goToVehicles()"><br>Vozidla<br><br><img src="../../assets/car%20blue.gif"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item b5">-->
+<!--    <button type = "button" id = "b5" class = "small_btn" (click)="goToSport()"><br>Šport<br><br><img src="../../assets/sport%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b6" class = "small_btn" (click)="goToToys()"><br>Hračky<br><br><img src="../../assets/hracky%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b7" class = "small_btn" (click)="goToPets()"><br>Domáce zvieratá<br><br><img src="../../assets/zvierata%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item b5">-->
+<!--    <button type = "button" id = "b8" class = "small_btn" (click)="goToHouse()"><br>Nehnuteľnosti<br><br><img src="../../assets/dom%20blue.png" /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item b5">-->
+<!--    <button type = "button" id = "b9" class = "small_btn" (click)="goToClothes()"><br>Oblečenie<br><br><img src="../../assets/oblecenie%20blue.png"  /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b10" class = "small_btn" (click)="goToFurniture()"><br>Nábytok<br><br><img src="../../assets/nabytok%20blue.png" /></button>-->
+<!--  </div>-->
+<!--  <div class="grid-item">-->
+<!--    <button type = "button" id = "b11" class = "small_btn" (click)="goToHomeElectronics()"><br>Spotrebiče<br><br><img src="../../assets/spotrebice%20blue.png"  /></button>-->
+<!--  </div>-->
+
+
+
+
+
+
+<!--  Do počtu-->
 <!--  <div class="grid-item">-->
 <!--    <button type = "button" id = "b12" class = "small_btn" (click)="goToToys()"><br>Hračky<br><br><img src="../../assets/hracky%20blue.png"  /></button>-->
 <!--  </div>-->
@@ -55,5 +72,5 @@
 <!--  </div>-->
 </div>
 </div>
-<!--</body>-->
+
 

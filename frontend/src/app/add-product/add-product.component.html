@@ -59,20 +59,19 @@
 
 
 
+
+
       <mat-label class="control-label col-sm-2">Vyber kategóriu:</mat-label>
       <div class="col-sm-10">
         <mat-form-field appearance="fill">
-          <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.category" name="category" id="category" (selectionChange)="chooseCategory()" required>
-            <mat-option value='Pets'>Domáce Zvieratá</mat-option>
-            <mat-option value='Electronic'>Elektronika</mat-option>
-            <mat-option value='Toys'>Hračky</mat-option>
-            <mat-option value='Furniture'>Nábytok</mat-option>
-            <mat-option value='House'>Nehnuteľnosti</mat-option>
-            <mat-option value='Clothes'>Oblečenie</mat-option>
-            <mat-option value='HomeElectronics'>Spotrebiče</mat-option>
-            <mat-option value='Sport'>Šport</mat-option>
-            <mat-option value='Vehicles'>Vozidlo</mat-option>
-            <mat-option value='Garden'>Záhrada</mat-option>
+          <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.kindOfCategory" name="category" id="category" (selectionChange)="chooseCategory()" required>
+<!--            <div *ngFor="let category of categoryArray ">-->
+              <mat-option *ngFor="let category of categoryArray" [value]="category" >
+              {{category.name}}
+              </mat-option>
+
+<!--            </div>-->
+
           </mat-select>
         </mat-form-field>
       </div>

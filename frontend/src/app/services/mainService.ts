@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {AllProducts} from "../allProducts";
 import {Feedback} from "../feedback";
 import {Favourite} from "../favourite";
+import {Category} from "../category";
 
 
 @Injectable({
@@ -23,6 +24,12 @@ export class MainService {
   private feedbackUrl: string;
   private deleteFeedbackUrl: string;
   private removeFavoriteUrl: string;
+  private postKindOfCategoryUrl: string;
+  private getKindOfCategoryUrl: string;
+  private getProductsByCategoryUrl: string;
+  private postProductsByCategoryUrl: string;
+  private getImageUrl: string;
+  private getCategoryImageUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -37,6 +44,12 @@ export class MainService {
     this.feedbackUrl = 'http://localhost:8080/feedback';
     this.deleteFeedbackUrl = 'http://localhost:8080/deletefeedback';
     this.removeFavoriteUrl = 'http://localhost:8080/removefavourite';
+    this.postKindOfCategoryUrl = 'http://localhost:8080/createcategory';
+    this.getKindOfCategoryUrl = 'http://localhost:8080/getallcategories';
+    this.getProductsByCategoryUrl = 'http://localhost:8080/getcategoryinformation';
+    this.postProductsByCategoryUrl = 'http://localhost:8080/postcategoryinformation';
+    this.getImageUrl = 'http://localhost:8080/get/image/info/';
+    this.getCategoryImageUrl = 'http://localhost:8080/get/categoryimage/info/';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -84,5 +97,27 @@ export class MainService {
   }
   public deleteFeedback(feedback: Feedback){
     return this.http.post<Feedback>(this.deleteFeedbackUrl, feedback);
+  }
+  public postKindOfCategory(category: Category) {
+    return this.http.post<Category>(this.postKindOfCategoryUrl, category);
+  }
+  public getKindOfCategory(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.getKindOfCategoryUrl);
+  }
+
+  public postProductsByCategory(category: number){
+    return this.http.post<Category>(this.postProductsByCategoryUrl, { "id": category});
+  }
+
+  public getProductsByCategory(): Observable<AllProducts[]> {
+    return this.http.get<AllProducts[]>(this.getProductsByCategoryUrl);
+  }
+
+  getImage(id: number) {
+    return this.http.get(this.getImageUrl + id);
+  }
+
+  getCategoryImage(id: number) {
+    return this.http.get(this.getCategoryImageUrl + id);
   }
 }

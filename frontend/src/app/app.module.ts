@@ -23,6 +23,8 @@ import {ModalModule} from "./modal";
 import {UsersProfileComponent} from "./users-profile/users-profile.component";
 import {FeedbackComponent} from "./feedback/feedback.component";
 import {FavouriteComponent} from "./favourite/favourite.component";
+import { CategoryFormComponent } from './category-form/category-form.component';
+import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import {FavouriteComponent} from "./favourite/favourite.component";
     UsersProfileComponent,
     FeedbackComponent,
     FavouriteComponent,
+    CategoryFormComponent,
+    DetailOfCatagoryComponent,
   ],
   imports: [
     BrowserModule,

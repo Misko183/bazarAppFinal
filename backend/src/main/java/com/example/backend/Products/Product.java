@@ -1,5 +1,6 @@
 package com.example.backend.Products;
 
+import com.example.backend.Category.Category;
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Image.Image;
 //import com.example.backend.User.User;
@@ -40,5 +41,6 @@ public class Product {
     @OneToMany(mappedBy = "product")
     private List<Favourite> favourites;
 
-
+    @ManyToOne
+    Category kindOfCategory;
 }

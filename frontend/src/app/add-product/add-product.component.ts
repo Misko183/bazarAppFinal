@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MainService} from "../services/mainService";
 import {AllProducts} from "../allProducts";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-add-product',
@@ -12,12 +13,18 @@ import {AllProducts} from "../allProducts";
 export class AddProductComponent  {
 
   allProducts: AllProducts;
+  allProductsArray: AllProducts[];
+  categoryArray: Category[];
   uploadedImage: File;
   dbImage: any;
   postResponse: any;
   successResponse: string;
   image: any;
-  selectedCategory: string;
+  selectedCategory: any;
+  array: [];
+
+
+
 
 
   constructor(
@@ -26,6 +33,7 @@ export class AddProductComponent  {
     private mainService: MainService,
     private httpClient: HttpClient
   ) {
+    this.returnCategory();
     this.allProducts = new AllProducts();
   }
 
@@ -36,6 +44,17 @@ export class AddProductComponent  {
   gotoUsersProducts() {
     this.router.navigate(['/myproducts']);
   }
+
+  returnCategory() {
+    this.mainService.getKindOfCategory().forEach((category) => {
+      this.categoryArray = category;
+
+      }
+    );
+
+  }
+
+
 
 
   public onImageUpload({event}: { event: any }) {
@@ -71,26 +90,6 @@ export class AddProductComponent  {
   }
 
   chooseCategory() {
-    if (this.selectedCategory === 'Electronic') {
-      this.allProducts.category = 'Electronic';
-    } else if (this.selectedCategory === 'Garden') {
-      this.allProducts.category = 'Garden';
-    } else if (this.selectedCategory === 'Vehicles') {
-      this.allProducts.category = 'Vehicles';
-    } else if (this.selectedCategory === 'Toys') {
-      this.allProducts.category = 'Toys';
-    } else if (this.selectedCategory === 'Clothes') {
-      this.allProducts.category = 'Clothes';
-    } else if (this.selectedCategory === 'Pets') {
-      this.allProducts.category = 'Pets';
-    } else if (this.selectedCategory === 'Sport') {
-      this.allProducts.category = 'Sport';
-    } else if (this.selectedCategory === 'House') {
-      this.allProducts.category = 'House';
-    } else if (this.selectedCategory === 'HomeElectronics') {
-      this.allProducts.category = 'HomeElectronics';
-    } else if (this.selectedCategory === 'Furniture') {
-      this.allProducts.category = 'Furniture';
-    }
+    this.allProducts.kindOfCategory= this.selectedCategory;
   }
 }

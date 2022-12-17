@@ -13,6 +13,8 @@ import {UsersProductsComponent} from "./users-products/users-products.component"
 import {UsersProfileComponent} from "./users-profile/users-profile.component";
 import {FeedbackComponent} from "./feedback/feedback.component";
 import {FavouriteComponent} from "./favourite/favourite.component";
+import {CategoryFormComponent} from "./category-form/category-form.component";
+import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,6 +39,8 @@ const routes: Routes = [
   {path: 'usersProfile', component: UsersProfileComponent},
   {path: 'feedback', component: FeedbackComponent},
   {path: 'favourite', component: FavouriteComponent},
+  {path: 'createCategory', component: CategoryFormComponent},
+  {path: 'detailcatagory', component: DetailOfCatagoryComponent},
 ];
 
 @NgModule({

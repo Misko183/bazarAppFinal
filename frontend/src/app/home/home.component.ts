@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {MainService} from "../services/mainService";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-home',
@@ -10,16 +11,45 @@ import {MainService} from "../services/mainService";
 })
 export class HomeComponent implements OnInit {
 
-
+  categoryArray: Category[];
 
   constructor(
     private router: Router,
     private mainService: MainService,
   )
-  { }
+  {
+    // this.showListOfCategories();
+  }
 
   ngOnInit(): void {
+
+    this.mainService.getKindOfCategory().subscribe(data => {
+      if (data.length > 0) {
+        this.categoryArray = data;
+        for (let i = 0; i < this.categoryArray.length; i++) {
+          this.mainService.getCategoryImage(this.categoryArray[i].imageOfCategory.id).subscribe((data: any) => {
+            this.categoryArray[i].imageOfCategory = 'data:image/jpeg;base64,' + data.image;
+          });
+        }
+      }
+    });
   }
+
+  // showListOfCategories() {
+  //   this.mainService.getKindOfCategory().forEach((category) => {
+  //       this.categoryArray = category;
+  //
+  //     }
+  //   );
+  // }
+
+  rerouteToCategory(id: number) {
+    this.mainService.postProductsByCategory(id).subscribe(() => {
+      this.router.navigate(['/detailcatagory']);
+    }
+    );
+  }
+
 
   goToGarden() {
     this.mainService.postCategory("Garden").subscribe( () => {

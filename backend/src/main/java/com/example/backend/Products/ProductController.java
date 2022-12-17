@@ -1,6 +1,7 @@
 package com.example.backend.Products;
 
 //import com.example.backend.User.User;
+import com.example.backend.Category.Category;
 import com.example.backend.proSecurity.user.CurrentUser;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +62,15 @@ public class ProductController {
     @PostMapping("/editproduct")
     void editProduct(@RequestBody Product product) {
         productService.editProduct(product);
+    }
+
+    @GetMapping("/getcategoryinformation")
+    List<Product> returnProductsByCategory(){
+       return productService.getCurrentCategories();
+    }
+
+    @PostMapping("/postcategoryinformation")
+    void postProductsByCategory(@RequestBody Category category){
+         productService.returnProductsByCategory(category);
     }
 }

@@ -1,0 +1,39 @@
+<form class="example-form" #addCategoryForm="ngForm">
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
+
+    <input
+      type="text" [(ngModel)]="category.name"
+      id="name"
+      name="name"
+      class="form-control"
+      required #name="ngModel">
+
+
+    <div class="col-sm-10">
+      <input class="upload" type="file" (change)="onImageUpload({event : $event})">
+
+    </div>
+
+    <img [src]="this.liveDemo" />
+
+
+    <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
+    <div class="col-sm-offset-2 col-sm-10">
+      <button   (click)="createCategory()"
+                type="submit"
+                class="btn btn-info">Vytvoriť Inzerát
+      </button>
+      <br>
+    </div>
+
+
+  </div>
+
+
+</form>
+
+<!--  <img src="../../assets/addLogo.png">-->
+
+
