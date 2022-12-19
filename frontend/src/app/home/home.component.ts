@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     private mainService: MainService,
   )
   {
+
     // this.showListOfCategories();
   }
 
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < this.categoryArray.length; i++) {
           this.mainService.getCategoryImage(this.categoryArray[i].imageOfCategory.id).subscribe((data: any) => {
             this.categoryArray[i].imageOfCategory = 'data:image/jpeg;base64,' + data.image;
+
           });
         }
       }

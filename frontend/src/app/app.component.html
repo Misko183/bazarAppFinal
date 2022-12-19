@@ -1,11 +1,45 @@
 
 <div class="main" >
     <nav>
-        <div class="hamburger" (click)="dothat()">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
+<!--        <div class="hamburger" (click)="dothat()">-->
+<!--          <div class="line1"></div>-->
+<!--          <div class="line2"></div>-->
+<!--          <div class="line3"></div>-->
+<!--        </div>-->
+      <div  class="hamburger" (click)="activate()" [ngClass]="{'closed': !open}" >
+        <img src="assets/white%20hamburger.png" height="40" width="40">
+        <a  id="open-close">
+          <i class="fa" [ngClass]="{'fa-bars': !open, 'fa-times': open}" ></i>
+        </a>
+      </div>
+
+
+      <div class="sidebar" *ngIf="!open" >
+
+
+        <header>
+          BazarApp
+        </header>
+        <ul style="list-style-type:none;" class="text-center list-inline py-3">
+          <li><a href="home" >Home</a></li>
+          <li *ngIf="!token"><a href="login">Prihlásenie</a></li>
+          <li *ngIf="!token"><a href="registration">Registrácia</a></li>
+          <li *ngIf="token"><a href="addAdvertisement">Pridaj inzerát</a></li>
+          <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
+          <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>
+          <li *ngIf="token"><a href="favourite">Obľúbené</a></li>
+          <li *ngIf="token"><a href="createCategory">categoria</a></li>
+          <li ><a href="feedback">Spätná väzba</a></li>
+          <li><a href="test">About</a></li>
+          <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Logout</button></li>
+        </ul>
+        <div (click)="activate()" [ngClass]="{'closed': !open}" >
+          <img src="assets/X.png" height="40" width="40">
+          <a >
+            <i class="fa" [ngClass]="{'fa-bars': !open, 'fa-times': open}" ></i>
+          </a>
         </div>
+      </div>
 
 <!--      <input id="menu__toggle" type="checkbox" />-->
 <!--      <label class="menu__btn" for="menu__toggle">-->
@@ -14,8 +48,8 @@
 
       <ul class="nav-links">
         <li><a href="home" >Home</a></li>
-        <li *ngIf="!token"><a href="login">Login</a></li>
-        <li *ngIf="!token"><a href="registration">Registration</a></li>
+        <li *ngIf="!token"><a href="login">Prihlásenie</a></li>
+        <li *ngIf="!token"><a href="registration">Registrácia</a></li>
         <li *ngIf="token"><a href="addAdvertisement">Pridaj inzerát</a></li>
         <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
         <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>

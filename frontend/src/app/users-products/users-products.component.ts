@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../services/userService";
 import {ModalService} from "../modal";
+import {Category} from "../category";
 
 @Component({
   selector: 'app-users-products',
@@ -16,6 +17,7 @@ export class UsersProductsComponent implements OnInit {
   allProducts: AllProducts[];
   allProducts1: AllProducts;
  detailID: number;
+ dbImage: any;
 bool: boolean = false;
 all: AllProducts;
 
@@ -33,6 +35,7 @@ setbool(){
   )
   {
     this.detailID = +this.route.snapshot.paramMap.get('id');
+    this.returnCategory();
   }
 
   ngOnInit(): void {
@@ -68,8 +71,15 @@ setbool(){
 
     this.allProducts1 = this.allProducts.find(product => product.id === id);
     this.luckyBool = true;
+    // this.viewImage();
     this.openModal('custom-modal-1');
-
+    this.httpClient.get('http://localhost:8080/get/image/info/' + this.allProducts1.image.id)
+      .subscribe(
+        res => {
+          this.postResponse = res;
+          this.liveDemo = 'data:image/jpeg;base64,' + this.postResponse.image;
+        }
+      );
 
   }
 
@@ -97,34 +107,22 @@ check: boolean = false;
     );
   }
 
-  selectedCategory: any;
 
 
-  chooseCategory() {
-    if (this.selectedCategory === 'Electronic') {
-      this.allProducts1.category = 'Electronic';
-    } else if (this.selectedCategory === 'Garden') {
-      this.allProducts1.category = 'Garden';
-    } else if (this.selectedCategory === 'Vehicles') {
-      this.allProducts1.category = 'Vehicles';
-    } else if (this.selectedCategory === 'Toys') {
-      this.allProducts1.category = 'Toys';
-    } else if (this.selectedCategory === 'Clothes') {
-      this.allProducts1.category = 'Clothes';
-    } else if (this.selectedCategory === 'Pets') {
-      this.allProducts1.category = 'Pets';
-    } else if (this.selectedCategory === 'Sport') {
-      this.allProducts1.category = 'Sport';
-    } else if (this.selectedCategory === 'House') {
-      this.allProducts1.category = 'House';
-    } else if (this.selectedCategory === 'HomeElectronics') {
-      this.allProducts1.category = 'HomeElectronics';
-    } else if (this.selectedCategory === 'Furniture') {
-      this.allProducts1.category = 'Furniture';
-    }
+  returnCategory() {
+    this.mainService.getKindOfCategory().forEach((category) => {
+        this.categoryArray = category;
+
+      }
+    );
+
   }
 
-
+  chooseCategory() {
+    this.allProducts1.kindOfCategory = this.category;
+  }
+  categoryArray: Category[];
+  category: any;
   uploadedImage: File;
   postResponse: any;
   successResponse: string;
@@ -132,7 +130,14 @@ check: boolean = false;
 
   public onImageUpload({event}: { event: any }) {
     this.uploadedImage = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      this.liveDemo = e.target.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
   }
+
+  liveDemo:any;
 
   createAction() {
     const imageFormData = new FormData();
@@ -158,6 +163,19 @@ check: boolean = false;
       );
   }
 
+  // viewImage() {
+  //   this.mainService.getAllProducts().subscribe(data => {
+  //     this.allProducts1  = data.find(product => product.id === this.detailID);
+  //
+  //     this.httpClient.get('http://localhost:8080/get/image/info/' + this.allProducts1.image.id)
+  //       .subscribe(
+  //         res => {
+  //           this.postResponse = res;
+  //           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+  //         }
+  //       );
+  //   });
+  // }
 
 
 findProduct() {

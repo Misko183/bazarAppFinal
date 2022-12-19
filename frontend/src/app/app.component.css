@@ -89,7 +89,7 @@ nav{
     display:block;
     position: absolute;
     cursor: pointer;
-    right: 5%;
+    left: 5%;
     top: 50%;
     transform: translate(-5%, -50%);
     z-index: 2;
@@ -196,3 +196,60 @@ nav{
   content: '';
   top: -8px;
 }
+
+.sidebar {
+  position: absolute;
+  top: 6rem;
+  width: 40%;
+  height: calc(100vh - 6rem);
+  background-color: #131418;
+  box-shadow: 2px 2px 5px blue;
+  text-align: center;
+  border: black solid 4px;
+  border-bottom-right-radius: 10%;
+  z-index: 4;
+  font-size: 4vw;
+}
+.sidebar header {
+  font-size: 4vw;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+  /*border: solid 4px black;*/
+  z-index: 4;
+}
+
+.sidebar a{
+  font-size: 4vw;
+}
+
+.sidebar li{
+  margin-top: 10%;
+}
+
+@media(min-width: 600px) {
+  .sidebar {
+   width: 240px;
+
+  }
+  .sidebar header {
+    font-size: 22px;
+  }
+
+  .sidebar a{
+    font-size: 22px;
+  }
+}
+
+/*#menu {*/
+/*  width: 40px;*/
+/*  height:40px;*/
+/*  left: auto;*/
+/*  border-radius: 200px 200px 200px 200px;*/
+/*  -moz-border-radius: 200px 200px 200px 200px;*/
+/*  -webkit-border-radius: 200px 200px 200px 200px;*/
+/*  border: 0px solid #000000;*/
+/*  z-index: 4;*/
+/*}*/

@@ -20,6 +20,11 @@ token: any = sessionStorage.getItem('token');
   }
 
 
+  open: boolean = true;
+  activate() {
+    this.open = !this.open;
+    console.log(this.open);
+  }
 
 
 

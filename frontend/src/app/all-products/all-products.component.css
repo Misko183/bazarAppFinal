@@ -45,8 +45,9 @@ h1 {
   /*height: 500%;*/
   margin: 0%;
 
-  background: linear-gradient(90deg, #e1c224 0%, #ff5911 100%);
-  color: black;
+  /*background: linear-gradient(90deg, #e1c224 0%, #ff5911 100%);*/
+  animation: bgcolor 1s infinite;
+  color: white;
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 10px;
@@ -216,6 +217,54 @@ button{
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
+
+
+
+}
+
+@keyframes bgcolor {
+  0% {
+    background: linear-gradient(0deg, #000000 90%, #f51100 100%);
+  }
+  9% {
+    background: linear-gradient(30deg, #000000 90%, #f51100 100%);
+  }
+  18% {
+    background: linear-gradient(60deg, #000000 90%, #f51100 100%);
+  }
+
+  28% {
+    background: linear-gradient(90deg, #000000 90%, #f51100 100%);
+  }
+
+  37% {
+    background: linear-gradient(120deg, #000000 90%, #f51100 100%);
+  }
+
+  46% {
+    background: linear-gradient(150deg, #000000 90%, #f51100 100%);
+  }
+  56% {
+    background: linear-gradient(180deg, #000000 90%, #f51100 100%);
+  }
+
+  65% {
+    background: linear-gradient(210deg, #000000 90%, #f51100 100%);
+  }
+  74% {
+    background: linear-gradient(240deg, #000000 90%, #f51100 100%);
+  }
+  83% {
+    background: linear-gradient(270deg, #000000 90%, #f51100 100%);
+  }
+
+  92% {
+    background: linear-gradient(300deg, #000000 90%, #f51100 100%);
+  }
+
+  100% {
+    background: linear-gradient(330deg, #000000 90%, #f51100 100%);
+  }
 
 
 

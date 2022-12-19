@@ -170,10 +170,7 @@
   .grid-container { margin-top:  6rem; }
 }
 
-@media (max-width: 600px) {
-  .grid-container { grid-template-columns: repeat(2, 1fr);}
-  .grid-container { margin-top: 6rem; }
-}
+
 
 
 .grid-item{
@@ -215,9 +212,27 @@ background: linear-gradient(90deg, #000000 0%, #03036c 100%);
   border: 3px solid #00d7c3;
 }
 
+@media (max-width: 600px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr);}
+  .grid-container { margin-top: 6rem; }
+  .small_btn{
+    font-size: 15px;
+  }
+}
 
 img{
   width: 45%;
   height: auto;
 }
 
+.partTwo{
+  /*background:  radial-gradient(ellipse at left bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
+  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
+  /*overflow: hidden;*/
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+
+
+
+}

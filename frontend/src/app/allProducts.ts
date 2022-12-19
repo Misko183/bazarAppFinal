@@ -10,7 +10,7 @@ export class AllProducts {
   description: string;
   price: string;
   localization: string;
-  category: string;
+  // category: string;
   image: any;
   user: User;
   countClicksOnProduct: number;
