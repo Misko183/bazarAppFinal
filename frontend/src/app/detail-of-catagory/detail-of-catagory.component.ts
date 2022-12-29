@@ -47,39 +47,39 @@ export class DetailOfCatagoryComponent implements OnInit {
 
 
   }
-
-  postResponseF: any;
-  dbImageF : Array<any> = [];
-  dbImageId : Array<any> = [];
-
-  hopeFinal() {
-    this.httpClient.get('http://localhost:8080/getcategoryimages')
-      .subscribe(
-        res => {
-          this.postResponseF = res;
-          for (let i = 0; i < this.postResponseF.length; i++) {
-            this.dbImageF[i] = 'data:image/jpeg;base64,' + this.postResponseF[i].image;
-            this.dbImageId[i] = this.postResponseF[i].id;
-          }
-
-          for(let i = 0; i < this.dbImageId.length; i++){
-            this.map.set(this.dbImageId[i], this.dbImageF[i]);
-          }
-
-
-        }
-      );
-  }
-
-  map = new Map();
-
-  returnGoodImage(number: number) {
-
-    if (this.map.has(number)) {
-      return this.map.get(number);
-    }
-  }
-
+  //
+  // postResponseF: any;
+  // dbImageF : Array<any> = [];
+  // dbImageId : Array<any> = [];
+  //
+  // hopeFinal() {
+  //   this.httpClient.get('http://localhost:8080/getcategoryimages')
+  //     .subscribe(
+  //       res => {
+  //         this.postResponseF = res;
+  //         for (let i = 0; i < this.postResponseF.length; i++) {
+  //           this.dbImageF[i] = 'data:image/jpeg;base64,' + this.postResponseF[i].image;
+  //           this.dbImageId[i] = this.postResponseF[i].id;
+  //         }
+  //
+  //         for(let i = 0; i < this.dbImageId.length; i++){
+  //           this.map.set(this.dbImageId[i], this.dbImageF[i]);
+  //         }
+  //
+  //
+  //       }
+  //     );
+  // }
+  //
+  // map = new Map();
+  //
+  // returnGoodImage(number: number) {
+  //
+  //   if (this.map.has(number)) {
+  //     return this.map.get(number);
+  //   }
+  // }
+  //
 
 
 
@@ -124,15 +124,32 @@ export class DetailOfCatagoryComponent implements OnInit {
   resetFilter() {
     this.min_value = '';
     this.max_value = '';
-    this.mainService.getOneCategory().subscribe(data => {
-      this.allProducts = data;
+    this.mainService.getProductsByCategory().subscribe(data => {
+      if (data.length > 0) {
+        this.allProducts = data;
+        for (let i = 0; i < this.allProducts.length; i++) {
+          this.mainService.getImage(this.allProducts[i].image.id).subscribe((data: any) => {
+            this.allProducts[i].image = 'data:image/jpeg;base64,' + data.image;
+          });
+        }
+      }
     });
   }
 
   filterProduct(event: any) {
     let searchValue = event.target.value;
-    this.mainService.getOneCategory().subscribe(data => {
+    this.mainService.getProductsByCategory().subscribe(data => {
+
+
       this.allProducts = data.filter(value => value.name.toLowerCase().includes(searchValue.toLowerCase()));
+        for (let i = 0; i < this.allProducts.length; i++) {
+          this.mainService.getImage(this.allProducts[i].image.id).subscribe((data: any) => {
+            this.allProducts[i].image = 'data:image/jpeg;base64,' + data.image;
+          });
+        }
+
+
+
     });
   }
 
