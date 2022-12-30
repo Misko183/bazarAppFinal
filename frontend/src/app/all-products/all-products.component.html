@@ -1,75 +1,62 @@
-
-<!--<mat-grid-list cols="4" rowHeight="350">-->
-<!--  <mat-grid-tile *ngFor="let product of allProducts">-->
-<!--    <mat-card class="example-card">-->
-<!--      <div class = "title">-->
-<!--        <h2>{{product.name}}</h2>-->
-<!--      </div>-->
-<!--      <div class="clicks">-->
-<!--        <p>{{product.countClicksOnProduct}}</p>-->
-<!--      </div>-->
-<!--      <div class="button">-->
-<!--        <button class="detail_button"  mat-button routerLink="/detail/{{product.id}}">Detail</button>-->
-<!--      </div>-->
-<!--    </mat-card>-->
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->
-
-<!--<div class = "grid-container">-->
-<!--  <div class="grid-item" *ngFor="let product of allProducts">-->
-
-<!--<div class = "item">-->
-<!--      <div class = "title">-->
-<!--        <p>{{product.name}}</p>-->
-<!--      </div>-->
-<!--      <div class="clicks">-->
-<!--        <p>{{product.countClicksOnProduct}}</p>-->
-<!--      </div>-->
-<!--      <div class="button">-->
-<!--        <button class="detail_button"  mat-button routerLink="/detail/{{product.id}}">Detail</button>-->
-<!--      </div>-->
-
-<!--</div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<body>-->
+<div class="background">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 <div class="everyThing">
-<h1>Inzeráty</h1>
-<div class="header">
-  <mat-form-field appearance="fill" class="option">
-    <mat-label>Zoradiť podľa:</mat-label>
-    <mat-select [(value)]="selected" (selectionChange)="changeState()">
-      <mat-option value='Name'>Názov</mat-option>
-       <mat-option value='Location'>Lokácia</mat-option>
-      <mat-option value='PriceMin'>Cena(od najlacnešieho)</mat-option>
-      <mat-option value='PriceMax'>Cena(od najdrahšieho)</mat-option>
-      <mat-option value='Clicks'>Počeť videní</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Vyhľadávanie</mat-label>
-    <input matInput (keyup)="filterProduct($event)" placeholder="Search">
-  </mat-form-field>
-
-    <mat-form-field class="mat_input min" appearance="fill">
-      <mat-label>Minimálna cena</mat-label>
-      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value"
-             placeholder="type only number">
+<h1>Všetky inzeráty</h1>
+  <div class="header">
+    <mat-form-field appearance="fill" class="option">
+      <mat-label><a class = "filter-text">Zoradiť podľa:</a></mat-label>
+      <mat-select [(value)]="selected" (selectionChange)="changeState()">
+        <mat-option value='Name'>Názov</mat-option>
+        <mat-option value='Location'>Lokácia</mat-option>
+        <mat-option value='PriceMin'>Cena(od najlacnejšieho)</mat-option>
+        <mat-option value='PriceMax'>Cena(od najdrahšieho)</mat-option>
+        <mat-option value='Clicks'>Počeť videní</mat-option>
+        <a class = "filter-text"></a>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label> <a class = "filter-text">Vyhľadávanie</a></mat-label>
+      <input matInput (keyup)="filterProduct($event)" placeholder="Hľadaj">
     </mat-form-field>
 
-  <mat-form-field class="mat_input max" appearance="fill" >
-    <mat-label>Maximálna cena</mat-label>
-    <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value"
-           placeholder="type only number">
-  </mat-form-field>
-  <div class="btnsA">
-    <button class="apply" (click)="filterPrice()">Aplikuj cenový filter</button>
-  </div>
-  <div class="btnsR">
-    <button  class="reset" class="reset" (click)="resetFilter()">Resetuj cenový filter</button>
-  </div>
+
+    <mat-form-field class="mat_input minsz" appearance="fill">
+      <mat-label><a class = "filter-text">Minimálna cena</a></mat-label>
+      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMinChange($event)" [(ngModel)]="min_value"
+             placeholder="Píš iba čísla">
+    </mat-form-field>
+
+
+    <mat-form-field class="mat_input" appearance="fill" >
+      <mat-label><a class = "filter-text">Maximálna cena</a></mat-label>
+      <input matInput (keypress)="onlyNumbers($event)" (ngModelChange)="onMaxChange($event)" [(ngModel)]="max_value"
+             placeholder="Píš iba čísla">
+    </mat-form-field>
+
+
+  <button mat-raised-button color="primary" class="apply" (click)="filterPrice()">Aplikuj filter</button>
+
+  <button mat-raised-button color="warn" class="reset" (click)="resetFilter()"> Obnov filter</button>
 </div>
 
 <div class = "grid-container">
@@ -78,16 +65,21 @@
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
           {{product.name}}<br>
 
-        <div class="picture" *ngIf=dbImageF>
-          <img [src]="returnGoodImage(product.image.id)" >
-        </div>
-      Cena: {{product.price}}
+<!--        <div class="picture" *ngIf=dbImageF>-->
+<!--          <img [src]="returnGoodImage(product.image.id)" >-->
+<!--        </div>-->
+      <div class="picture" >
+        <img [src]="this.product.image" >
+      </div>
+
       <br>
-      Počet videní: {{product.countClicksOnProduct}}
+      <a class="text"> Cena: {{product.price}}</a>
+      <br>
+      <a class="text">Počet videní: {{product.countClicksOnProduct}}</a>
         </button>
 
   </div>
 </div>
 </div>
-<!--</body>-->
+
 

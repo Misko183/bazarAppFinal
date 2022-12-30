@@ -59,25 +59,20 @@ setbool(){
   }
   token: any = sessionStorage.getItem('token');
 
-  // isSomeoneLogIn() {
-  //   return this.authService.token !== null;
-  // }
-
-
-
   luckyBool: boolean = false;
 
   editProduct(id: number) {
 
     this.allProducts1 = this.allProducts.find(product => product.id === id);
     this.luckyBool = true;
+
     // this.viewImage();
-    this.openModal('custom-modal-1');
     this.httpClient.get('http://localhost:8080/get/image/info/' + this.allProducts1.image.id)
       .subscribe(
         res => {
           this.postResponse = res;
           this.liveDemo = 'data:image/jpeg;base64,' + this.postResponse.image;
+          this.openModal('custom-modal-1');
         }
       );
 
@@ -162,20 +157,6 @@ check: boolean = false;
         }
       );
   }
-
-  // viewImage() {
-  //   this.mainService.getAllProducts().subscribe(data => {
-  //     this.allProducts1  = data.find(product => product.id === this.detailID);
-  //
-  //     this.httpClient.get('http://localhost:8080/get/image/info/' + this.allProducts1.image.id)
-  //       .subscribe(
-  //         res => {
-  //           this.postResponse = res;
-  //           this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
-  //         }
-  //       );
-  //   });
-  // }
 
 
 findProduct() {

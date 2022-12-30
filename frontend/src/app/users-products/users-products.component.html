@@ -1,22 +1,77 @@
+<ul class="background">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<div class="everyThing">
+  <br>
 <h1>Moje inzeráty</h1>
 <div class = "grid-container">
   <div class="grid-item" *ngFor="let product of allProducts"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
       {{product.name}}<br>
-      <div class="picture" *ngIf=dbImageF>
+      <div class="picture" *ngIf="dbImageF">
         <img [src]="returnGoodImage(product.image.id)" >
       </div>
-      {{product.countClicksOnProduct}}
+      <br>
+      <a class="text">Počet videní: {{product.countClicksOnProduct}}</a>
     </button>
-    <button *ngIf="token" class="delete-btn" mat-raised-button color="accent" (click)="deleteProduct(product.id)">Vymazať inzerat</button>
     <button *ngIf="token" class="edit-btn" mat-raised-button color="primary"  (click)="editProduct(product.id)" >Upraviť produkt</button>
-<!--    <button *ngIf="isSomeoneLogIn" class="edit-btn" mat-raised-button color="primary"  (click)="editProduct(product.id); openModal('custom-modal-2');" >Upraviť produkt</button>-->
+    <button *ngIf="token" class="delete-btn" mat-raised-button color="accent" (click)="deleteProduct(product.id)">Vymazať inzerat</button>
+    <!--    <button *ngIf="isSomeoneLogIn" class="edit-btn" mat-raised-button color="primary"  (click)="editProduct(product.id); openModal('custom-modal-2');" >Upraviť produkt</button>-->
 <!--    <button  (click)="findme(product.id); openModal('custom-modal-5')">Upraviť inzerát</button>-->
 
   </div>
-
 </div>
-
+</div>
 
 
 <div *ngIf="luckyBool">
