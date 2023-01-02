@@ -63,7 +63,7 @@
   <div class="grid-item" *ngFor="let product of allProducts;"  >
 
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
-          {{product.name}}<br>
+      <a class="text">{{product.name}}</a><br>
 
 <!--        <div class="picture" *ngIf=dbImageF>-->
 <!--          <img [src]="returnGoodImage(product.image.id)" >-->

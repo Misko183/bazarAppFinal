@@ -9,7 +9,7 @@ import {ModalService} from "../modal";
 @Component({
   selector: 'app-datail-of-product',
   templateUrl: './detail-of-product.component.html',
-  styleUrls: ['./detail-of-product.component.css']
+  styleUrls: ['./detail-of-product.component.css', './detailModal.less']
 })
 export class DetailOfProductComponent  implements OnInit {
 

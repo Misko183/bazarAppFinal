@@ -1,84 +1,79 @@
-body{
-  min-height: 100vh;
-
-  background: linear-gradient(180deg, #c20505 0%, #e1c224 100%);
+.imageSize{
+  max-height: 15em;
+  max-width: 90%;
+  cursor: pointer;
 }
 
+.everyThing{
+  min-height: calc(100vh - 6rem);
+  background: linear-gradient(0deg, #000000 0%, #03036c 100%);
+  background: repeating-conic-gradient(#000000 0%, #03036c 100%);
+  background: radial-gradient(circle, #03036c 50%, #000000  80%);
+}
 
 .information{
-position: absolute;
-top: 1%;
-left: 1%;
-right: 50%;
-}
-
-.description{
   position: relative;
-  font-size: large;
-  color: #faffa7;
-}
-
-.price{
-position: relative;
+  justify-content: center;
   text-align: center;
-  font-size: xx-large;
-  color: gold;
-  padding-top: 5%;
-  padding-bottom: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  color: white;
+  /*border: 10px solid #4fc3dc;*/
+  border:10px solid black;
+  background: radial-gradient(circle at bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 80%, #0f2e40 100%);
+  min-height: calc(100vh - 6rem);
 }
 
-.location{
-  position: relative;
-  font-size: large;
-  color: #faffa7;
-  margin-bottom: 2%;
-}
-
-h1{
-  text-align: center;
-  font-size: xx-large;
-  color: gold;
-  font-weight: bold ;
+.text{
+  margin-left: 10%;
+  margin-right: 10%;
+  height: auto;
 }
 
 .picture{
-position: absolute;
-  top: 5%;
-  right: 2%;
+  position: relative;
+  justify-content: center;
+  text-align: center;
 }
 
-.contact{
-  position: absolute;
-  bottom: 13%;
-  left: 2%;
+.imageDetail{
+  max-height: 70vh;
+  max-width: 90%;
 }
+
+.modal-body{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-header{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+
+}
+
+h2{
+ color: white;
+}
+
 button{
-  background: repeat;
-  color: darkred;
-  font-weight: bold;
-  border: none;
-  margin-right: 5%;
+  color: white;
 }
 
-.imageSize{
-  width: auto;
-  max-width: 30em;
+button:hover{
+  color: lightseagreen;
 }
 
-/*.container{*/
-/*  width:50%;*/
-/*  display: table-cell;*/
-/*}*/
+.fav-btn{
+  color: white;
+  background: repeating-linear-gradient(45deg, #000000, #000000 20px, #03036c 20px, #03036c 30px);
+  max-width: 90%;
+}
 
-/*.container .information {*/
-/*  position: fixed;*/
-/*  text-align: left;*/
-/*}*/
-
-/*.container .picture {*/
-/*position: fixed;*/
-/*  align-content: end;*/
-/*  text-align: right*/
-/*;*/
-/*}*/
-
+@media (max-width: 800px) {
+  .everyThing{
+    padding-top: 6rem;
+  }
+}

@@ -1,18 +1,19 @@
-<body>
+<div class="everyThing">
 <div class="information">
-  <h1>{{allProducts.name}}</h1>
-  <p class = "description">Opis: {{allProducts.description}}</p>
-  <p class="price">Cena: {{allProducts.price}}</p>
-  <p class="location">Lokácia: {{allProducts.localization}}</p>
   <br>
-<!--  <img [src]="allProducts.image">-->
-
-<!--  <button *ngIf="isSomeoneLoggedIn()" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>-->
-  <button (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
-  <!--  <button *ngIf="isAdminLoggedIn()" (click)="deleteProduct()"><img src="../../assets/kôš.png" height="60"> <br> Vymazať inzerát</button>-->
-
-</div>
-
+  <h1>{{allProducts.name}}</h1>
+  <div class = "description">Popis: <div class="text">{{allProducts.description}}</div></div>
+  <br>
+  <div class="price">Cena: {{allProducts.price}}</div>
+  <br>
+  <div class="location">Lokácia: {{allProducts.localization}}</div>
+  <br>
+  <div class="picture" *ngIf=dbImage>
+    <img class="imageSize" [src]="dbImage" (click)="openModal('custom-modal-1')">
+  </div>
+  <br>
+ <button class="fav-btn" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
+ <br>
 <div class="contact">
   <h2>Kontakt:</h2>
 <!--  <p>Používateľ: {{allProducts.user.userName}}</p>-->
@@ -20,9 +21,18 @@
 <!--  <p>Telefonne číslo: {{allProducts.user.phone}}</p>-->
 <!--  <p>Adresa: {{allProducts.user.address}}</p>-->
 </div>
-
-<div class="picture" *ngIf=dbImage>
-  <img class="imageSize" [src]="dbImage">
 </div>
-</body>
+</div>
+
+
+<jw-modal id="custom-modal-1">
+  <div class="modal-header">
+    <h2 class="modal-title">{{allProducts.name}}</h2>
+  </div>
+  <div class="modal-body">
+    <img class="imageDetail" [src]="dbImage">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="closeModal('custom-modal-1')">Zavrieť</button>
+  </div>
 

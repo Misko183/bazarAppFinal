@@ -1,14 +1,70 @@
+<ul class="background">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<div class="everyThing">
+  <br>
 <h1>Obľúbené inzeráty</h1>
 <div class = "grid-container">
   <div class="grid-item" *ngFor="let product of allProducts;"  >
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
-      {{product.name}}<br>
+      <a class="text">{{product.name}}</a><br>
       <div class="picture" *ngIf=dbImageF>
         <img [src]="returnGoodImage(product.image.id)" >
       </div>
+      <br>
       {{product.countClicksOnProduct}}
     </button>
     <button class="delete-btn" mat-raised-button color="accent" (click)="removeFavourite(product.id)">Odstrániť z obľúbených </button>
   </div>
 </div>
-
+</div>
