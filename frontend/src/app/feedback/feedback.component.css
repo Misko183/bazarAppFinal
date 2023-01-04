@@ -1,3 +1,87 @@
+.maincantainer{
+    background-color: #000000;
+
+}
+
 .container{
-  background: #4fc3dc;
+  height: calc(100vh - 6rem);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*background: black;*/
+
+}
+
+input[type="text"]{
+  background: white;
+  color: black;
+}
+
+
+
+.container-inside{
+  background: linear-gradient(90deg, #000000 0%, #03036c 100%);
+  padding: 5%;
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 5px solid #00d7c3;
+  border-radius: 10px;
+  line-height: 3;
+  overflow: scroll;
+  text-align: center;
+}
+
+.container-inside::-webkit-scrollbar {
+  display: none;
+}
+
+.container-inside {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.btn{
+  background: linear-gradient(90deg, #000000 0%, #03036c 100%);
+
+}
+
+.containerAdmin{
+  background: linear-gradient(90deg, #000000 0%, #1a1a5a  50%, #000000 100%);
+
+}
+
+.containerAdmin-inside{
+  min-height: calc(100vh - 6rem);
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+
+}
+
+th{
+  color: white;
+}
+
+td{
+  color: white;
+
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>*{
+  color: red;
+}
+
+.table-striped>tbody>tr:nth-of-type(even)>*{
+  color: lightseagreen;
+}
+
+@media (max-width: 800px) {
+  .containerAdmin{
+    padding-top: 6rem;
+  }
+
+  .containerAdmin-inside{
+    overflow-x: scroll;
+  }
 }

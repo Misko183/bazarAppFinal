@@ -12,7 +12,7 @@ export class AllProducts {
   localization: string;
   // category: string;
   image: any;
-  user: User;
+  userEntity: User;
   countClicksOnProduct: number;
   array: number = 0;
   kindOfCategory: any;

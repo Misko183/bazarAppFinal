@@ -26,10 +26,8 @@ public class FeedbackServiceImpl implements FeedbackService {
 
           feedback.setUserId(userEntity.getId());
           feedback.setUserName(userEntity.getUsername());
-
-          /* dorobiť mail do userEntity
           feedback.setEmail(userEntity.getEmail());
-          */
+
           feedbackRepository.save(feedback);
 
     }

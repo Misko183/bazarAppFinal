@@ -72,8 +72,21 @@ button:hover{
   max-width: 90%;
 }
 
+p{
+  color: black;
+  font-weight: bold;
+}
+
+h2{
+  color: black;
+}
+
 @media (max-width: 800px) {
   .everyThing{
     padding-top: 6rem;
+  }
+  .information{
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }

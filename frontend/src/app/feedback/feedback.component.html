@@ -1,10 +1,11 @@
-<div class="container" *ngIf="!isAdmin()">
-<div class="container">
-  <h2><div class="bold-text">Spätná väzba</div></h2>
-  <form [formGroup]="feedbackForm" (ngSubmit)="completeLogin()">
+<div class="maincantainer" *ngIf="!isAdmin()">
+<div class="container" >
+<div class="container-inside"  >
+ <h2><div class="bold-text">Spätná väzba</div></h2>
+  <form  [formGroup]="feedbackForm" (ngSubmit)="completeLogin()">
     <div class="form-group">
-      <label class="control-label col-sm-2" > <div class="bold-text">Názov návrhu:</div></label>
-      <div class="col-sm-10">
+      <label class="l-input" > <div class="bold-text">Názov návrhu:</div></label>
+      <div class="input">
         <input type="text" [(ngModel)]="feedback.nameOfSuggestion"
                id="nameOfSuggestion"
                name="nameOfSuggestion"
@@ -15,14 +16,14 @@
 
         <mat-error *ngIf="feedbackForm.controls['nameOfSuggestion'].invalid && feedbackForm.controls['nameOfSuggestion'].touched">
         <span *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required">
-          Name is required
+          Názov návrhu je povinný
         </span>
         </mat-error>
       </div>
 
 
-      <label class="control-label col-sm-2"> <div class="bold-text">Špecifikácia návrhu:</div></label>
-      <div class="col-sm-10">
+      <label class="t-input"> <div class="bold-text">Špecifikácia návrhu:</div></label>
+      <div class="textarea">
         <textarea [(ngModel)]="feedback.description"
                   id="description"
                   name="description"
@@ -33,7 +34,7 @@
 
         <mat-error *ngIf="feedbackForm.controls.description.invalid && feedbackForm.controls.description.touched">
         <span *ngIf="feedbackForm.controls.description.errors.required">
-          Complaint is required
+          Popis návrhu je povinný
         </span>
         </mat-error>
 
@@ -41,9 +42,9 @@
 
 <!--      *ngIf="!isAdmin()-->
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" [disabled]="!feedbackForm.valid" class="btn btn-success">Submit</button>
-          <div *ngIf="success" class="alert alert-success">
+        <div class="button">
+          <button type="submit" [disabled]="!feedbackForm.valid" class="btn">Submit</button>
+          <div *ngIf="success" class="btn-ok">
             <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne odoslaná.
           </div>
         </div>
@@ -52,11 +53,13 @@
   </form>
 </div>
 </div>
+</div>
 
-<div class="container" *ngIf="isAdmin()">
-<div class="container">
-  <div class="row">
+
+<div class="containerAdmin" *ngIf="isAdmin()">
+<div class="containerAdmin-inside">
     <div class="col-md-12">
+      <br>
       <h1>Spätná väzba</h1>
       <table class="table table-striped">
         <thead>
@@ -85,5 +88,5 @@
     </div>
   </div>
 </div>
-  </div>
+
 
