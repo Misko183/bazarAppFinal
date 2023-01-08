@@ -1,5 +1,9 @@
 package com.example.backend.proSecurity.rest;
 
+import com.example.backend.Favourite.FavouriteRepository;
+import com.example.backend.Image.ImageRepository;
+import com.example.backend.Products.Product;
+import com.example.backend.Products.ProductRepository;
 import com.example.backend.proSecurity.configuration.AppConfig;
 import com.example.backend.proSecurity.user.CurrentUser;
 import com.example.backend.proSecurity.user.CurrentUserService;
@@ -22,6 +26,15 @@ public class UserController {
     public CurrentUserService currentUserService;
 
     @Autowired
+    public FavouriteRepository favouriteRepository;
+
+    @Autowired
+    public ProductRepository productRepository;
+
+    @Autowired
+    public ImageRepository imageRepository;
+
+    @Autowired
     public AppConfig config;
 
     @GetMapping("/user")
@@ -35,7 +48,29 @@ public class UserController {
 
     @PostMapping("/deleteuser")
     public void deleteUser(@RequestBody UserEntity user){
-        currentUserService.deleteUser(user);
+        List<Product> products = productRepository.findByUserEntity(user);
+
+        for (Product product : products) {
+            favouriteRepository.deleteAll(favouriteRepository.findAllByProduct(product));
+        }
+        if (favouriteRepository.findByUserEntity(user) != null && productRepository.findByUserEntity(user) != null) {
+            favouriteRepository.deleteAll(favouriteRepository.findByUserEntity(user));
+            productRepository.deleteAll(productRepository.findByUserEntity(user));
+            currentUserService.deleteUser(user);
+        }
+        else if(favouriteRepository.findByUserEntity(user) != null && productRepository.findByUserEntity(user) == null){
+            favouriteRepository.deleteAll(favouriteRepository.findByUserEntity(user));
+            currentUserService.deleteUser(user);
+        }
+        else if(productRepository.findByUserEntity(user) != null && favouriteRepository.findByUserEntity(user) == null){
+            productRepository.deleteAll(productRepository.findByUserEntity(user));
+            currentUserService.deleteUser(user);
+        }
+        else{
+            currentUserService.deleteUser(user);
+        }
+
+
     }
 
     @GetMapping("/infoAboutUser")

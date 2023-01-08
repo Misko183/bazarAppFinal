@@ -16,14 +16,21 @@ jw-modal {
   /* enables scrolling for tall modals */
   overflow: auto;
 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+
 .jw-modal-body {
   padding: 20px;
   background: linear-gradient(90deg, #161120 0%, #7272ff 50%, #161120 100%);
+  border-radius: 10px;
   //background: #363333;
   /* margin exposes part of the modal background */
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
+  width: fit-content;
+  overflow: auto;
 }
 }
 

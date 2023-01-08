@@ -19,4 +19,6 @@ public interface FavouriteRepository extends CrudRepository<Favourite, Long> {
     Iterable<? extends Favourite> findByProduct(Product product);
 
     Favourite findByProductAndUserEntity(Product product, UserEntity user);
+
+    List<Favourite> findAllByProduct(Product product);
 }

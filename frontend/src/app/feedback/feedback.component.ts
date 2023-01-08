@@ -33,7 +33,7 @@ export class FeedbackComponent implements OnInit {
     });
   }
 
-  completeLogin() {
+  completeFeedback() {
     this.mainService.postFeedback(this.feedback).subscribe();
     this.feedbackForm.reset();
     this.success = true;

@@ -1,0 +1,54 @@
+.everyThing
+{
+  background: repeating-linear-gradient(45deg, #000000, #000000 10px, #131418 10px, #131418 20px);
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.container
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /*background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
+  background: radial-gradient(circle, #42424b 40%, #000000  80%);
+  min-height: calc(100vh - 6rem);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+
+}
+
+@media(max-width: 800px) {
+  .everyThing {
+    padding-top: 6rem;
+  }
+}
+
+img
+{
+  width: 80%;
+
+}
+
+form{
+  text-align: center;
+}
+
+input
+{
+  color: white;
+}
+
+a{
+  color: white;
+  text-decoration-line: none;
+  font-size: xx-large;
+}

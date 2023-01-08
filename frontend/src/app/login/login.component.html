@@ -2,7 +2,6 @@
 <!--<div class="h-50 d-flex align-items-center justify-content-center">-->
 <!--  <div class="spinner-border text-primary" role="status" >&ndash;&gt;-->
 
-<body>
 
 <div class="bubbles">
   <span style="--i:10;"></span>
@@ -98,6 +97,7 @@
   <span style="--i:14;"></span>
 </div>
 
+<div class="everyThing">
   <div class="content">
   <div class="h-100 d-flex align-items-center justify-content-center">
   <form name="form" (ngSubmit)="login(); refresh()" #loginForm="ngForm">
@@ -112,8 +112,9 @@
       <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required matInput/>
     </mat-form-field>
     <div>
-      <button [disabled]="!loginForm.form.valid" class="btn btn-primary">Login</button>
+      <button [disabled]="!loginForm.form.valid" class="btn btn-primary">Prihlásenie</button>
     </div>
+      <br>
     <div>
       <a [routerLink]="['/registration']">Ak nemáte vytvorené konto, kliknite sem</a>
     </div>
@@ -121,4 +122,5 @@
   </form>
   </div>
     </div>
-</body>
+</div>
+
