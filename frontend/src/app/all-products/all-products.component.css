@@ -1,3 +1,16 @@
+.everyThing {
+  /*background:  radial-gradient(ellipse at left bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
+
+  /*overflow: hidden;*/
+  padding-top: 6rem;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+
+}
+
+
+
 h1{
   text-align: center;
   color: #fff;
@@ -333,18 +346,14 @@ input{
     margin-top: 0;
   }
 
-}
-
-
-.everyThing {
-  /*background:  radial-gradient(ellipse at left bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
-
-  /*overflow: hidden;*/
-  background-repeat: no-repeat;
-  overflow: hidden;
-  background-attachment: fixed;
+  .everyThing{
+    padding-top: 0;
+  }
 
 }
+
+
+
 
 /*}*/
 @keyframes move {

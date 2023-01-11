@@ -167,7 +167,7 @@
 
 @media (max-width: 800px) {
   .grid-container { grid-template-columns: repeat(3, 1fr); }
-  .grid-container { margin-top:  6rem; }
+  .grid-container {  }
 }
 
 
@@ -214,7 +214,7 @@ background: linear-gradient(90deg, #000000 0%, #03036c 100%);
 
 @media (max-width: 600px) {
   .grid-container { grid-template-columns: repeat(2, 1fr);}
-  .grid-container { margin-top: 6rem; }
+  /*.grid-container { margin-top: 6rem; }*/
   .small_btn{
     font-size: 15px;
   }
@@ -232,7 +232,7 @@ img{
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
-
+  padding-top: 6rem;
 
 
 }

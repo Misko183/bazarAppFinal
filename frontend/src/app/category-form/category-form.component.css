@@ -1,5 +1,6 @@
 .everyThing
 {
+  padding-top: 6rem;
   background: repeating-linear-gradient(45deg, #000000, #000000 10px, #131418 10px, #131418 20px);
   min-height: calc(100vh - 6rem);
   display: flex;

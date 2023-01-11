@@ -79,6 +79,7 @@ img{
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
+  padding-top: 6rem;
 
 }
 
@@ -229,7 +230,7 @@ img{
 }
 @media(max-width: 800px){
   h1{
-    padding-top: 6rem;
+
   }
 
 

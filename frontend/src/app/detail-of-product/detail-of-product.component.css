@@ -9,6 +9,7 @@
   background: linear-gradient(0deg, #000000 0%, #03036c 100%);
   background: repeating-conic-gradient(#000000 0%, #03036c 100%);
   background: radial-gradient(circle, #03036c 50%, #000000  80%);
+  padding-top: 6rem;
 }
 
 .information{

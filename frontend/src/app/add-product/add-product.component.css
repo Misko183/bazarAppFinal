@@ -1,16 +1,4 @@
 
-html{
-  /*background: black;*/
-/*background: #4fc3dc;*/
-  background: radial-gradient(ellipse at right bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
-}
-
-body{
-  height: calc(100vh - 6rem);
-  /*background: black;*/
-/*background: #4fc3dc;*/
-  background: radial-gradient(ellipse at right bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
-}
 
 input{
     /*width: 60em;*/
@@ -28,16 +16,36 @@ img{
   padding-top: 1em;
 }
 
-::ng-deep body{
-  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
-}
 
 .everyThing
 {
-  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);
+  padding-top: 6rem;
+  /*background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
+  min-height: calc(100vh);
+
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align:center;
+  overflow: scroll;
+  height: min-content;
+
+}
+
+
+.maincontainer{
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
 }
 
@@ -52,51 +60,61 @@ img{
 }
 
 @media(max-width: 800px) {
-.container{
-  margin-top: 6rem;
-}
+
 }
 
 
 
-.custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+/*.custom-file-upload {*/
+/*  border: 1px solid #ccc;*/
+/*  display: inline-block;*/
+/*  padding: 6px 12px;*/
+/*  cursor: pointer;*/
+/*  color: white;*/
+/*}*/
+
 ::-webkit-file-upload-button {
   background: black;
-  color: red;
+  color: #0dcaf0;
   padding: 1em;
+  border: 1px solid #0dcaf0;
 }
+
+::-webkit-file-upload-button:hover {
+  background: #0dcaf0;
+  color: black;
+}
+
+.upload{
+  color: white;
+}
+
 
 button{
   background: black;
-  color: red;
+  color: #0dcaf0;
   padding: 1em;
 }
 
 
+
+
+
 #container{
-  /*background: #00adef;*/
-  /*background: -moz-linear-gradient(-45deg, #00adef 0%, #0076e5 100%);*/
-  /*background: -webkit-linear-gradient(-45deg, #00adef 0%,#0076e5 100%);*/
-  /*background: linear-gradient(135deg, #00adef 0%,#0076e5 100%);*/
-  background-image: linear-gradient(0deg, #020ef5 20%, #000000 50%);
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00adef', endColorstr='#0076e5',GradientType=1 );
   position: fixed;
   height: auto;
   width: 100%;
   margin:  auto;
   padding: 0px;
-  z-index: initial;
+  z-index: 2;
 
 }
 
 .container-inside
 {
-  z-index: 1;
+
 }
 
 
@@ -109,7 +127,7 @@ button{
   margin: 0px auto;
   padding: 0px ;
   overflow: visible;
-
+   z-index: -1;
 }
 
 #circle-small {
@@ -124,7 +142,7 @@ button{
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  opacity: 0.4;
+  opacity: 0.5;
 
 }
 
@@ -140,7 +158,7 @@ button{
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 0.4;
 
 }
 
@@ -156,7 +174,7 @@ button{
   width: 900px;
   height: 900px;
   border-radius: 50%;
-  opacity: 0.2;
+  opacity: 0.3;
 
 }
 
@@ -172,7 +190,7 @@ button{
   width: 1200px;
   height: 1200px;
   border-radius: 50%;
-  opacity: 0.1;
+  opacity: 0.2;
 
 }
 
@@ -188,8 +206,52 @@ button{
   width: 1500px;
   height: 1500px;
   border-radius: 50%;
+  opacity: 0.1;
+
+}
+
+#circle-xxxlarge {
+  -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+  animation: circle-small-scale 3s ease-in-out infinite alternate;
+  animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+  animation-delay: 1.5s;
+  position: absolute;
+  top: -550px;
+  left: -900px;
+  background: #020ef5;
+  width: 1800px;
+  height: 1800px;
+  border-radius: 50%;
   opacity: 0.05;
 
+}
+
+#circle-xxxxlarge {
+  -webkit-animation: circle-small-scale 3s ease-in-out infinite alternate;
+  animation: circle-small-scale 3s ease-in-out infinite alternate;
+  animation-timing-function: cubic-bezier(.6, 0, .4, 1);
+  animation-delay: 1.8s;
+  position: absolute;
+  top: -700px;
+  left: -1050px;
+  background: #020ef5;
+  width: 2100px;
+  height: 2100px;
+  border-radius: 50%;
+  opacity: 0.025;
+
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex
+{
+  /*background-color: lightskyblue;*/
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+a{
+  color: #ffffff;
+  text-decoration-line: none;
 }
 
 @-webkit-keyframes circle-small-scale {

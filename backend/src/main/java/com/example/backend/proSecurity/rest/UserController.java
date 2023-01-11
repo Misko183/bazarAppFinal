@@ -88,7 +88,17 @@ public class UserController {
 
     @PostMapping("/edituser")
     public void editUser(@RequestBody UserEntity user){
-        user.setPassword(config.passwordEncoder().encode(user.getPassword()));
-        userRepository.save(user);
+
+        UserEntity userEntity = userRepository.findById(user.getId()).get();
+        userEntity.setUsername(user.getUsername());
+        userEntity.setPhone(user.getPhone());
+        userEntity.setAddress(user.getAddress());
+        userEntity.setEmail(user.getEmail());
+       if (user.getPassword() != null){
+//        if (config.passwordEncoder().encode(user.getPassword()).equals(userEntity.getPassword())) {
+            userEntity.setPassword(config.passwordEncoder().encode(user.getPassword()));
+        }
+
+        userRepository.save(userEntity);
     }
 }

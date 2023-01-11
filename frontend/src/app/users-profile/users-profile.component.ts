@@ -20,6 +20,7 @@ export class UsersProfileComponent implements OnInit {
   users: User[];
   userForm: any;
   user: User;
+
   check: boolean = false;
 
   constructor(
@@ -67,6 +68,7 @@ export class UsersProfileComponent implements OnInit {
   showUserData() {
     this.authService.getUsersRole().subscribe(data => {
         this.user = data;
+        this.user.password = null;
       }
     );
   }
@@ -91,6 +93,7 @@ export class UsersProfileComponent implements OnInit {
   }
 
   editUser(): void {
+
     this.authService.editUser(this.user).subscribe(
       () => {
         this.check = true;

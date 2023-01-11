@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
+import {AuthService} from "./security/authService";
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent  {
 
 token: any = sessionStorage.getItem('token');
   constructor(
-
+    private authServiceSecurtiy: AuthService
   ) {
   }
 
@@ -50,6 +51,11 @@ token: any = sessionStorage.getItem('token');
     sessionStorage.removeItem('token');
     window.location.href = '/login';
     // this.ngOnInit();
+  }
+
+  isAdmin(): boolean{
+    if(this.authServiceSecurtiy.getAuthority())
+    {return true;}
   }
 }
 

@@ -1,3 +1,7 @@
+.maincontainer
+{
+  padding-top: 6rem;
+}
 
 .container{
   height: calc(100vh - 6rem);
@@ -43,6 +47,7 @@ input[type="text"]{
 
 .containerAdmin{
   background: linear-gradient(90deg, #000000 0%, #1a1a5a  50%, #000000 100%);
+  padding-top: 6rem;
  overflow: auto;
 }
 
@@ -77,7 +82,6 @@ td{
     padding-top: 6rem;
   }
   .container{
-    padding-top: 6rem;
   }
 
   .containerAdmin-inside{
@@ -128,3 +132,5 @@ img {
 
   }
 }
+
+
