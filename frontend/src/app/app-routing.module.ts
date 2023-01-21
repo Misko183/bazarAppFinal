@@ -15,6 +15,8 @@ import {FeedbackComponent} from "./feedback/feedback.component";
 import {FavouriteComponent} from "./favourite/favourite.component";
 import {CategoryFormComponent} from "./category-form/category-form.component";
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
+import {RegistrationByEmailComponent} from "./registration-by-email/registration-by-email.component";
+import {ConfirmVerificationComponent} from "./confirm-verification/confirm-verification.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,6 +28,9 @@ const routes: Routes = [
     { path: 'registration', component: RegistrationComponent,
       // canActivate: [DisableLoginGuard]
     },
+  { path: 'registrationByEmail', component: RegistrationByEmailComponent,
+    // canActivate: [DisableLoginGuard]
+  },
   { path: 'test', component: TestComponent },
     { path: 'login', component: LoginComponent,
       canActivate: [DisableLoginGuard]
@@ -41,6 +46,7 @@ const routes: Routes = [
   {path: 'favourite', component: FavouriteComponent},
   {path: 'createCategory', component: CategoryFormComponent},
   {path: 'detailcatagory', component: DetailOfCatagoryComponent},
+  {path: 'confirmVerification', component: ConfirmVerificationComponent},
 ];
 
 @NgModule({

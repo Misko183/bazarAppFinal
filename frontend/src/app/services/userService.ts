@@ -17,6 +17,8 @@ export class UserService {
   private editUserUrl = 'http://localhost:8080/api/edituser';
   private allUsersUrl = 'http://localhost:8080/api/users';
   private sendUser = 'http://localhost:8080/api/infoAboutUser';
+  private emailRegisterUrl = 'http://localhost:8080/register';
+  private registerMessageUrl = 'http://localhost:8080/registrationMessage';
 
   registerUser(user: User) {
     return this.http.post<User>(this.registerUrl, user);
@@ -36,6 +38,14 @@ export class UserService {
 
   public getUsersRole(): Observable<User> {
     return this.http.get<User>(this.sendUser);
+  }
+
+  public registerByEmail(user: User) {
+    return this.http.post<User>(this.emailRegisterUrl, user);
+  }
+
+  public returnMessage() {
+    return this.http.get<String>(this.registerMessageUrl);
   }
 
 }

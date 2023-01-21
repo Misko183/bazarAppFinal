@@ -16,6 +16,7 @@ public class CurrentUser implements UserDetails {
     private String username;
     private String password;
     private List<GrantedAuthority> authorities;
+    private boolean isEnabled;
 
     public void setId(Long id) {
         this.id = id;
@@ -34,6 +35,9 @@ public class CurrentUser implements UserDetails {
         this.authorities = List.of(new SimpleGrantedAuthority(authority));
     }
 
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -72,7 +76,7 @@ public class CurrentUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+      return this.isEnabled;
     }
 
 }

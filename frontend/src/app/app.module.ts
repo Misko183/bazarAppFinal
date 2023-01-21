@@ -25,6 +25,8 @@ import {FeedbackComponent} from "./feedback/feedback.component";
 import {FavouriteComponent} from "./favourite/favourite.component";
 import { CategoryFormComponent } from './category-form/category-form.component';
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
+import { RegistrationByEmailComponent } from './registration-by-email/registration-by-email.component';
+import { ConfirmVerificationComponent } from './confirm-verification/confirm-verification.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory
     FavouriteComponent,
     CategoryFormComponent,
     DetailOfCatagoryComponent,
+    RegistrationByEmailComponent,
+    ConfirmVerificationComponent,
   ],
   imports: [
     BrowserModule,

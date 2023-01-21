@@ -45,7 +45,8 @@
         </li>
         <li><a href="home" >Domov</a></li>
         <li *ngIf="!token"><a href="login">Prihlásenie</a></li>
-        <li *ngIf="!token"><a href="registration">Registrácia</a></li>
+<!--        <li *ngIf="!token"><a href="registration">Registrácia</a></li>-->
+        <li *ngIf="!token"><a href="registrationByEmail">Registrácia</a></li>
         <li *ngIf="token"><a href="addAdvertisement">Pridať inzerát</a></li>
         <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
 <!--        <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>-->

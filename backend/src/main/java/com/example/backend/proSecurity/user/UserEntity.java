@@ -17,6 +17,7 @@ import java.util.Set;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -36,6 +37,8 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String phone;
+
+    private boolean isEnabled;
 
     @JsonIgnore
     @OneToMany(mappedBy = "userEntity")
