@@ -62,7 +62,7 @@
         <img [src]="returnGoodImage(product.image.id)" >
       </div>
       <br>
-      {{product.countClicksOnProduct}}
+      <a class="text">Počet videní: {{product.countClicksOnProduct}}</a>
     </button>
     <button class="delete-btn" mat-raised-button color="accent" (click)="removeFavourite(product.id)">Odstrániť z obľúbených </button>
   </div>

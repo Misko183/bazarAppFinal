@@ -28,6 +28,7 @@ public class SessionFilter extends OncePerRequestFilter {
         this.currentUserService = currentUserService;
     }
 
+    //Zachytáva hlavičky z authentificaciou, aplikované automaticky spring logikou
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,

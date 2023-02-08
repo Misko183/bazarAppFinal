@@ -1,41 +1,72 @@
 .everyThing
 {
   padding-top: 6rem;
-  background: repeating-linear-gradient(45deg, #000000, #000000 10px, #131418 10px, #131418 20px);
+  /*background: repeating-linear-gradient(45deg, #000000, #000000 01px, #131418 10px, #131418 20px);*/
+
+}
+
+.maincontainer{
+
+  background: repeating-conic-gradient(#000000, #007bff, #000000, #007bff, #000000, #007bff, #000000, #007bff, #000000);
   min-height: calc(100vh - 6rem);
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
+  position: fixed;
+  width: 100%;
 }
 
 
 .container
 {
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /*background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
-  background: radial-gradient(circle, #42424b 40%, #000000  80%);
-  min-height: calc(100vh - 6rem);
-  background-repeat: no-repeat;
+  background: #000000c7;
+
+  border-radius: 40%;
+  padding: 5%;
+  width: fit-content;
   overflow: hidden;
-  background-attachment: fixed;
 
 }
 
+a{
+  color: white;
+  text-decoration-line: none;
+  font-size: xx-large;
+}
+
 @media(max-width: 800px) {
-  .everyThing {
-    padding-top: 6rem;
+
+  .container {
+    padding: 10%;
+  }
+  a{
+    font-size: x-large;
+  }
+}
+
+@media(max-width: 350px) {
+
+  .container {
+    padding: 8%;
+  }
+  a{
+    font-size: large;
+  }
+  input{
+    width: 100%;
   }
 }
 
 img
 {
-  width: 80%;
+  max-width: 200px;
 
 }
 
@@ -48,8 +79,9 @@ input
   color: white;
 }
 
-a{
-  color: white;
-  text-decoration-line: none;
-  font-size: xx-large;
+.form-control
+{
+  color: black;
 }
+
+

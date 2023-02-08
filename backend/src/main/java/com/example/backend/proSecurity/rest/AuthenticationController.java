@@ -27,18 +27,23 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<ResponseDTO> login(@RequestBody UserDTO user) {
+        //spring boot authentifikuje to uživateľské meno a heslo
         manager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
         );
+        //Moje výpisy na overenie aktualne prihlasenych meno+authority
         System.out.println(user.getUsername());
-    System.out.println(userRepository.findByUsername(user.getUsername()).getAuthority());
+        System.out.println(userRepository.findByUsername(user.getUsername()).getAuthority());
 
+        //nastavenie authority podľa username
         final String autority = userRepository.findByUsername(user.getUsername()).getAuthority();
+        //vytvorenie sessionId=tokenu pre angular, generované v InMemorySessionRegistry
         final String sessionId = sessionRegistry.registerSession(user.getUsername());
         ResponseDTO response = new ResponseDTO();
         response.setSessionId(sessionId);
         response.setAuthority(autority);
 
+        //vrátenie response frontendu, ktorý obsahuje sessionId=token a authority
         return ResponseEntity.ok(response);
     }
 }

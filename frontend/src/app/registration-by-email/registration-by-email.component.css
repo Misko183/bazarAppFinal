@@ -1,7 +1,8 @@
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, #020ef5 20%, #000000 50%);
+  background-image: linear-gradient(-60deg, #222222 30%, #00d7c3 50%, #222222 70%);
+/*linear-gradient(-60deg, #000000 0%, #61DAFB 50%, #000000 0% )*/
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -21,13 +22,15 @@
 }
 
 .content {
-  background: white;
+  background: #222222;
   border-radius: 10%;
-  border: #131418 3px solid;
-  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  /*border: #131418 3px solid;*/
+  /*box-shadow:0 0 .25em rgba(0,0,0,.25);*/
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 5px solid #00d7c3;
   box-sizing:border-box;
 
-  padding: 5%;
+  padding: 2%;
   padding-right: 7%;
   padding-left: 7%;
   display: flex;
@@ -41,6 +44,20 @@
 
 }
 
+* {
+  color: #00ffdc;
+}
+
+::ng-deep .mat-input-element mat-form-field-autofill-control ng-tns-c69-1 cdk-text-field-autofill-monitored ng-dirty ng-invalid ng-touched {
+  color: #00d7c3;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+  background-color: #222222;
+  border-bottom: #00d7c3 2px dashed;
+
+}
 
 .everyThing{
   min-height: 100vh;
@@ -53,21 +70,30 @@
 
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
-  background-color: white;
-  border-bottom: #000000 2px solid;
-  color: black;
+  background-color: #222222;
+  border-bottom: #00d7c3 2px solid;
+  color: #00d7c3;
 }
 
 ::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill){
-  color: black;
+  color: #00d7c3;
 }
 
-.input {
-  border-radius: 4px 4px 0 0;
-  padding: 0.75em 0.75em 0 0.75em;
-  background: blue;
+::ng-deep .mat-form-field-label {
+  color: #00d7c3;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #575555;
+  opacity: 1; /* Firefox */
 }
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #575555;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #575555;
+}
 
 h1 {
   font-family:monospace;
@@ -107,17 +133,52 @@ h1 {
 }
 
 
-.alert
-{
-  background-color: #f44336;
-  color: white;
-  opacity: 1;
-  transition: opacity 0.6s;
-  margin-bottom: 0;
-}
 
-.alert-success {background-color: #0d6efd;}
+
+
 
 .text{
-  color: yellow;
+  text-decoration-line: none;
+  color: #00d7c3;
+  font-weight: bold;
 }
+
+.btn-done{
+  background-color: #00d7c3;
+  color: black;
+  padding: 5%;
+  border: 2px solid #00d7c3;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.alert
+{
+
+  background-color: #222222;
+  text-decoration-line: none;
+  margin-bottom: 0;
+  border: 3px solid red;
+}
+
+.alert-success {
+  border: #00d7c3 3px solid;
+  background: #222222;
+  color: black;
+
+}
+
+.warn-text{
+  color: red;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+
+.success-text{
+  color: #00d7c3;
+  font-weight: bold;
+  text-decoration-line: none;
+}
+
+
+

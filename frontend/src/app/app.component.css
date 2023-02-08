@@ -36,22 +36,6 @@ nav{
 .nav-links li a:hover {
   color: #61DAFB;
 }
-/*.nav-links li {*/
-/*  position: relative;*/
-/*}*/
-/*.nav-links li a::before {*/
-/*  content: "";*/
-/*  display: block;*/
-/*  height: 3px;*/
-/*  width: 0%;*/
-/*  background-color: #61DAFB;*/
-/*  position: absolute;*/
-/*  transition: all ease-in-out 250ms;*/
-/*  margin: 0 0 0 10%;*/
-/*}*/
-/*.nav-links li a:hover::before{*/
-/*  width: 80%;*/
-/*}*/
 
 /*Styling Buttons*/
 .logout-button{
@@ -126,7 +110,7 @@ nav{
   width: 40%;
   height: calc(100vh - 6rem);
   background-color: #131418;
-  box-shadow: 2px 2px 5px blue;
+  box-shadow: 2px 2px 5px #00d7c3;
   text-align: center;
   border: black solid 4px;
   border-bottom-right-radius: 10%;
@@ -175,13 +159,5 @@ a:hover {
   color: #61DAFB;
 }
 
-/*#menu {*/
-/*  width: 40px;*/
-/*  height:40px;*/
-/*  left: auto;*/
-/*  border-radius: 200px 200px 200px 200px;*/
-/*  -moz-border-radius: 200px 200px 200px 200px;*/
-/*  -webkit-border-radius: 200px 200px 200px 200px;*/
-/*  border: 0px solid #000000;*/
-/*  z-index: 4;*/
-/*}*/
+
+

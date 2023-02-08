@@ -47,6 +47,7 @@ input[type="text"]{
 
 .containerAdmin{
   background: linear-gradient(90deg, #000000 0%, #1a1a5a  50%, #000000 100%);
+  background: #222222;
   padding-top: 6rem;
  overflow: auto;
 }

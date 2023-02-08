@@ -9,7 +9,10 @@
 <div class="everyThing">
 
   <div class="content">
+    <h1><a class="text">Registrácia</a></h1>
+    <br>
     <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+
       <mat-form-field appearance="fill">
         <mat-label for="username">Používateľské meno</mat-label>
 
@@ -20,7 +23,7 @@
 
       </mat-form-field>
       <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-        Použivatelské méno je povinné
+        <a class="warn-text">Použivatelské meno je povinné</a>
       </div>
       <br>
       <mat-form-field appearance="fill">
@@ -33,7 +36,7 @@
 
       </mat-form-field>
       <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Použivateľské heslo je povinné
+        <a class="warn-text">Použivateľské heslo je povinné</a>
       </div>
       <br>
       <mat-form-field appearance="fill">
@@ -46,7 +49,7 @@
 
       </mat-form-field>
       <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-        Použivateľský email je povinný
+        <a class="warn-text">Použivateľský email je povinný</a>
       </div>
       <br>
       <mat-form-field appearance="fill">
@@ -59,7 +62,7 @@
 
       </mat-form-field>
       <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
-        Použivateľský telefón je povinný
+        <a class="warn-text">Použivateľský telefón je povinný</a>
       </div>
       <br>
       <mat-form-field appearance="fill">
@@ -72,10 +75,10 @@
 
       </mat-form-field>
       <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
-        Použivateľská adresa je povinná
+        <a class="warn-text">Použivateľská adresa je povinná</a>
       </div>
       <br>
-      <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.form.valid">Registrovať</button>
+      <button type="submit" class="btn-done" [disabled]="!registrationForm.form.valid">Registrovať</button>
       <!--    <br>-->
       <!--    <br>-->
       <!--    <div>-->
@@ -86,10 +89,10 @@
     </form>
     <br>
     <div *ngIf="messageTrue" class="alert alert-success">
-      <strong>{{message}}</strong>
+      <a class="success-text">{{message}}</a>
     </div>
     <div *ngIf="checkBadRegister" class="alert alert-danger">
-      <strong>{{message}}</strong>
+     <a class="warn-text">{{message}}</a>
     </div>
   </div>
 </div>

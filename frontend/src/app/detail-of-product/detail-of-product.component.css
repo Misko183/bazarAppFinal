@@ -6,9 +6,15 @@
 
 .everyThing{
   min-height: calc(100vh - 6rem);
-  background: linear-gradient(0deg, #000000 0%, #03036c 100%);
-  background: repeating-conic-gradient(#000000 0%, #03036c 100%);
-  background: radial-gradient(circle, #03036c 50%, #000000  80%);
+  /*background: linear-gradient(0deg, #000000 0%, #03036c 100%);*/
+  /*background: repeating-conic-gradient(#000000 0%, #03036c 100%);*/
+
+
+  /*background: radial-gradient(circle, #00ffea 50%, #000000  80%);*/
+  background: #222222;
+
+
+/*radial-gradient(circle, #00ffea 50%, #000000  80%)*/
   padding-top: 6rem;
 }
 
@@ -18,10 +24,16 @@
   text-align: center;
   margin-left: 20%;
   margin-right: 20%;
-  color: white;
+  font-size: large;
+  color: #00d7c3;
   /*border: 10px solid #4fc3dc;*/
-  border:10px solid black;
-  background: radial-gradient(circle at bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 80%, #0f2e40 100%);
+  /*border:10px solid black;*/
+  /*background: radial-gradient(circle at bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 80%, #0f2e40 100%);*/
+  /*background: radial-gradient(circle at bottom, #19ddff 5%, #234d70 25%, #0f1116 80%, #000000 100%);*/
+  background: radial-gradient(circle at bottom, #00ffea 5%, #000000 70%);
+  border-radius: 10%;
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
   min-height: calc(100vh - 6rem);
 }
 
@@ -55,22 +67,42 @@
 
 }
 
+.modal-title{
+  color: #00d7c3;
+}
+
 h2{
- color: white;
+  color: black;
+  font-weight: bold;
 }
 
 button{
-  color: white;
-}
-
-button:hover{
-  color: lightseagreen;
+  color: #00d7c3;
 }
 
 .fav-btn{
-  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+button:hover{
+  color: #00d7c3;
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
+  margin: -1px;
+}
+
+.btn:hover{
+  margin: -2px;
+}
+
+.fav-btn{
+  color: #00d7c3;
   background: repeating-linear-gradient(45deg, #000000, #000000 20px, #03036c 20px, #03036c 30px);
   max-width: 90%;
+  background: #222222;
+  border: black solid 2px;
+  border-radius: 10%
 }
 
 p{
@@ -78,9 +110,6 @@ p{
   font-weight: bold;
 }
 
-h2{
-  color: black;
-}
 
 @media (max-width: 800px) {
   .everyThing{
