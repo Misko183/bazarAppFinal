@@ -82,8 +82,8 @@
     <form class="example-form"  >
       <h1>Upraviť inzerát</h1>
       <div class="form-group">
-        <label class="control-label col-sm-2" > <div class="bold-text"> Názov:</div></label>
-        <div class="col-sm-10">
+        <label class="" > <div class="bold-text"> Názov:</div></label>
+        <div class="">
           <input
             type="text" [(ngModel)]="allProducts1.name"
             id="name"
@@ -95,8 +95,8 @@
 
 
 
-        <label class="control-label col-sm-2" > <div class="bold-text"> Opis:</div></label>
-        <div class="col-sm-10">
+        <label class="" > <div class="bold-text"> Opis:</div></label>
+        <div class="">
         <textarea type="text" [(ngModel)]="allProducts1.description"
                   id="description"
                   name="description"
@@ -107,8 +107,8 @@
         </div>
 
 
-        <label class="control-label col-sm-2" > <div class="bold-text"> Cena:</div></label>
-        <div class="col-sm-10">
+        <label class="" > <div class="bold-text"> Cena:</div></label>
+        <div class="">
           <input type="text" [(ngModel)]="allProducts1.price"
                  id="price"
                  name="price"
@@ -117,8 +117,8 @@
 
         </div>
 
-        <label class="control-label col-sm-2" > <div class="bold-text"> Lokácia:</div></label>
-        <div class="col-sm-10">
+        <label class="" > <div class="bold-text"> Lokácia:</div></label>
+        <div class="">
           <input type="text" [(ngModel)]="allProducts1.localization"
                  id="localization"
                  name="localization"
@@ -127,10 +127,8 @@
 
         </div>
 
-        <mat-label class="control-label col-sm-2">Vyber kategóriu:</mat-label>
-        <div class="col-sm-10">
-
-
+        <mat-label class="">Vyber kategóriu:</mat-label>
+        <div class="option">
           <mat-form-field appearance="fill" >
             <mat-select >
               <mat-option *ngFor="let category of categoryArray" [value]="category">
@@ -142,15 +140,16 @@
           </mat-form-field>
         </div>
 
-        <label class="control-label col-sm-2" > <div class="bold-text"> </div></label>
-        <div class="col-sm-10">
-          <input type="file" (change)="onImageUpload({event : $event})">
+        <label class="" > <div class="bold-text"> </div></label>
+        <div class="">
+          <input class="input" type="file" (change)="onImageUpload({event : $event})">
         </div>
+        <br>
+        <div class="image">
         <img [src]="this.liveDemo" />
+       <br>
 
-
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" (click)="editUser(); createAction()"  class="btn btn-danger">Uložiť zmeny</button>
+          <button type="submit" (click)="editUser(); createAction()"  class="btn-submit">Uložiť zmeny</button>
         </div>
 
         <div *ngIf="check" class="alert alert-success">
@@ -161,7 +160,8 @@
       </div>
       </form>
   </div>
-  <img src="../../assets/return.png" (click)="closeModal('custom-modal-1');" height="40">
+  <button type="button" class="btn" (click)="closeModal('custom-modal-1')">Zavrieť</button>
+<!--  <img src="../../assets/return.png" (click)="closeModal('custom-modal-1');" height="40">-->
       </jw-modal>
      </div>
 

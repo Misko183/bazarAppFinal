@@ -44,7 +44,7 @@
   <h2><a>Email:</a> {{user.email}}</h2>
   <h2><a>Telefónne číslo:</a> {{user.phone}}</h2>
   <h2><a>Adresa:</a> {{user.address}}</h2>
-  <button class="btn btn-danger" (click)="openModal('custom-modal-1')">Upraviť účet</button>
+  <button class="btn" (click)="openModal('custom-modal-1')">Upraviť účet</button>
 </div>
 </div>
 </div>
@@ -95,8 +95,8 @@
           <button type="submit" (click)="editUser()"  class="btn btn-danger">Uložiť zmeny</button>
         </div>
       </div>
-
-      <div *ngIf="check" class="alert alert-success">
+<br>
+      <div *ngIf="check" >
         <strong>Super!</strong> Úspešne ste zmenili svoje údaje. Priláste sa prosím znova o 5 sekund.
       </div>
       <br>

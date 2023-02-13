@@ -1,7 +1,7 @@
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, #222222 30%, #00d7c3 50%, #222222 70%);
+  background-image: linear-gradient(-60deg, #222222 30%, #0dcaf0 50%, #222222 70%);
   bottom:0;
   left:-50%;
   opacity:.5;
@@ -100,8 +100,8 @@ div{
 
   background: #222222;
   border-radius: 10%;
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 5px solid #00d7c3;
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  border: 5px solid #0dcaf0;
   box-sizing:border-box;
   padding: 5%;
   padding-right: 7%;
@@ -117,24 +117,24 @@ div{
 }
 
 *{
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple {
   background-color: #222222;
-  border-bottom: #00d7c3 2px dashed;
+  border-bottom: #0dcaf0 2px dashed;
 }
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: #222222;
-  border-bottom: #00d7c3 2px solid;
-  color: #00d7c3;
+  border-bottom: #0dcaf0 2px solid;
+  color: #0dcaf0;
 }
 
 ::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill){
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 
 ::ng-deep .mat-form-field-label {
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #575555;
@@ -151,15 +151,15 @@ div{
 
 .text{
   text-decoration-line: none;
-  color: #00d7c3;
+  color: #0dcaf0;
   font-weight: bold;
 }
 
 .btn-done{
-  background-color: #00d7c3;
+  background-color: #0dcaf0;
   color: black;
   padding: 5%;
-  border: 2px solid #00d7c3;
+  border: 2px solid #0dcaf0;
   border-radius: 10px;
   font-weight: bold;
 }

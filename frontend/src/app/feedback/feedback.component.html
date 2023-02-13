@@ -21,7 +21,6 @@
         </mat-error>
       </div>
 
-
       <label class="t-input"> <div class="bold-text">Špecifikácia návrhu:</div></label>
       <div class="textarea">
         <textarea [(ngModel)]="feedback.description"
@@ -43,7 +42,7 @@
 <!--      *ngIf="!isAdmin()-->
       <div class="form-group">
         <div class="button">
-          <button type="submit" [disabled]="!feedbackForm.valid" class="btn">Submit</button>
+          <button type="submit" [disabled]="!feedbackForm.valid" class="btn">Poslať návrh</button>
           <div *ngIf="success" class="btn-ok">
             <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne odoslaná.
           </div>

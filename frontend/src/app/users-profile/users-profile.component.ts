@@ -88,6 +88,7 @@ export class UsersProfileComponent implements OnInit {
     this.modalService.close(id);
     this.authService.getUsersRole().subscribe(data => {
         this.user = data;
+        window.location.reload();
       }
     );
   }

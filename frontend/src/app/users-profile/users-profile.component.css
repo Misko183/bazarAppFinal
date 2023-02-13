@@ -1,6 +1,7 @@
 .maincontainer
 {
   padding-top: 6rem;
+  background: linear-gradient(210deg, #222222 20%, #0dcaf0 50%, #222222 80%);
 }
 
 .container{
@@ -13,20 +14,24 @@
 
 }
 
+.jw-container{
+  background: #222222;
+}
+
 input[type="text"]{
   background: white;
   color: black;
 }
 
 .container a{
-  color:  #00d7c3;
+  color:  #0dcaf0;
 }
 
 .container-inside{
-  background: linear-gradient(90deg, #000000 0%, #03036c 100%);
+  background: #222222;
   padding: 5%;
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 5px solid #00d7c3;
+  box-shadow: 0 0 10px 0 #000000 inset, 0 0 20px 2px #000000;
+  border: 5px solid #0dcaf0;
   border-radius: 10px;
   line-height: 3;
   overflow: scroll;
@@ -42,6 +47,21 @@ input[type="text"]{
   scrollbar-width: none;  /* Firefox */
 }
 
+.btn{
+  background: #222222;
+  border: 2px solid #0dcaf0;
+  color: #0dcaf0;
+}
+
+.btn:hover{
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  color: black;
+  background: #0dcaf0;
+}
+
+.btn-ok{
+
+}
 
 
 
@@ -54,7 +74,7 @@ input[type="text"]{
 
 .containerAdmin-inside{
   min-height: calc(100vh - 6rem);
-  color: white;
+  color: #0dcaf0;
   margin-left: 10%;
   margin-right: 10%;
   text-align: center;
@@ -62,7 +82,7 @@ input[type="text"]{
 }
 
 th{
-  color: white;
+  color: #0dcaf0;
 }
 
 td{

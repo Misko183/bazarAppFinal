@@ -1,7 +1,7 @@
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, #222222 30%, #00d7c3 50%, #222222 70%);
+  background-image: linear-gradient(-60deg, #222222 30%, #0dcaf0 50%, #222222 70%);
 /*linear-gradient(-60deg, #000000 0%, #61DAFB 50%, #000000 0% )*/
   bottom:0;
   left:-50%;
@@ -26,8 +26,8 @@
   border-radius: 10%;
   /*border: #131418 3px solid;*/
   /*box-shadow:0 0 .25em rgba(0,0,0,.25);*/
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 5px solid #00d7c3;
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  border: 5px solid #0dcaf0;
   box-sizing:border-box;
 
   padding: 2%;
@@ -45,17 +45,17 @@
 }
 
 * {
-  color: #00ffdc;
+  color: #0dcaf0;
 }
 
 ::ng-deep .mat-input-element mat-form-field-autofill-control ng-tns-c69-1 cdk-text-field-autofill-monitored ng-dirty ng-invalid ng-touched {
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 
 
 ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
   background-color: #222222;
-  border-bottom: #00d7c3 2px dashed;
+  border-bottom: #0dcaf0 2px dashed;
 
 }
 
@@ -71,16 +71,16 @@
 
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: #222222;
-  border-bottom: #00d7c3 2px solid;
-  color: #00d7c3;
+  border-bottom: #0dcaf0 2px solid;
+  color: #0dcaf0;
 }
 
 ::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill){
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 
 ::ng-deep .mat-form-field-label {
-  color: #00d7c3;
+  color: #0dcaf0;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #575555;
@@ -139,15 +139,15 @@ h1 {
 
 .text{
   text-decoration-line: none;
-  color: #00d7c3;
+  color: #0dcaf0;
   font-weight: bold;
 }
 
 .btn-done{
-  background-color: #00d7c3;
+  background-color: #0dcaf0;
   color: black;
   padding: 5%;
-  border: 2px solid #00d7c3;
+  border: 2px solid #0dcaf0;
   border-radius: 10px;
   font-weight: bold;
 }
@@ -162,7 +162,7 @@ h1 {
 }
 
 .alert-success {
-  border: #00d7c3 3px solid;
+  border: #0dcaf0 3px solid;
   background: #222222;
   color: black;
 
@@ -175,7 +175,7 @@ h1 {
 }
 
 .success-text{
-  color: #00d7c3;
+  color: #0dcaf0;
   font-weight: bold;
   text-decoration-line: none;
 }

@@ -9,12 +9,12 @@
 
 .partTwo{
   min-height: calc(100vh - 6rem);
-  background: linear-gradient(210deg, #222222 20%, #00d7c3 50%, #222222 80%);
+  background: linear-gradient(210deg, #222222 20%, #0dcaf0 50%, #222222 80%);
 }
 
-.partTwo .grid-container{
+.grid-container{
   /*padding-top: 6%;*/
-  position: absolute;
+  /*position: absolute;*/
   /*background: linear-gradient(0deg, #000000 0%, #03036c 100%);*/
   width: 100%;
   display: grid;
@@ -55,12 +55,12 @@
   /*height: 500%;*/
   margin: 0%;
   background: #222222;
-  color: #00d7c3;
+  color: #0dcaf0;
   font-size: 2vw;
   min-font-size: 5px;
   font-weight: bold;
   cursor: pointer;
-  border: 3px solid #00d7c3;
+  border: 3px solid #0dcaf0;
   border-radius: 50px;
   box-shadow: 0 0 10px 0 #000000 inset, 0 0 20px 2px #000000;
   transition: all .15s ease-in-out;
@@ -70,8 +70,8 @@
 .small_btn:hover{
 background: linear-gradient(90deg, #000000 0%, #03036c 100%);
   /*background: black;*/
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 3px solid #00d7c3;
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  border: 3px solid #0dcaf0;
 }
 
 @media (max-width: 600px) {
