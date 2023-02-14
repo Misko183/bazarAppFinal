@@ -73,13 +73,15 @@
         </thead>
         <tbody>
         <tr *ngFor="let feedback of showFeedback">
-          <td>{{feedback.userName}}</td>
-          <td>{{feedback.email}}</td>
-          <td>{{feedback.dateOfCreation}}</td>
-          <td>{{feedback.nameOfSuggestion}}</td>
-          <td>{{feedback.description}}</td>
+          <td><div class="align">{{feedback.userName}}</div></td>
+          <td><div class="align">{{feedback.email}}</div></td>
+          <td><div class="align">{{feedback.dateOfCreation}}</div></td>
+          <td><div class="align">{{feedback.nameOfSuggestion}}</div></td>
+          <td><div class="align">{{feedback.description}}</div></td>
           <td>
-            <button class="btn btn-danger" (click)="deleteFeedback(feedback)">Vybavené</button>
+            <div class="align">
+            <button class="btn-admin" (click)="deleteFeedback(feedback)">Vybavené</button>
+            </div>
           </td>
         </tr>
         </tbody>

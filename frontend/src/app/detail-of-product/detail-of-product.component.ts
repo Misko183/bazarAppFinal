@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {UserService} from "../services/userService";
 import {ModalService} from "../modal";
+import {AuthService} from "../security/authService";
 
 @Component({
   selector: 'app-datail-of-product',
@@ -26,6 +27,7 @@ export class DetailOfProductComponent  implements OnInit {
     private httpClient: HttpClient,
     private authService: UserService,
     private modalService: ModalService,
+    private authServiceSecurtiy: AuthService,
   ) {
     this.detailID = +this.route.snapshot.paramMap.get('id');
   }
@@ -60,7 +62,7 @@ export class DetailOfProductComponent  implements OnInit {
 /* toto bolo*/
   addToFavourite() {
     this.mainService.addToFavourite(this.detailID, this.detailID).subscribe(data => {
-      this.router.navigate(['/allproducts']);
+      this.router.navigate(['/allAdvertisements']);
     } );
   }
 
@@ -73,7 +75,7 @@ export class DetailOfProductComponent  implements OnInit {
 
   deleteProduct() {
     this.mainService.deleteProduct(this.allProducts).subscribe(() => {
-      this.router.navigate(['/allproducts']);
+      this.router.navigate(['/allAdvertisements']);
     } );
   }
 
@@ -85,6 +87,12 @@ export class DetailOfProductComponent  implements OnInit {
   //   return this.authService.isSomeoneLoggedIn;
   // }
 
+  token: any = sessionStorage.getItem('token');
+
+  isAdmin(): boolean{
+    if(this.authServiceSecurtiy.getAuthority())
+    {return true;}
+  }
 
   openModal(id: string) {
     this.modalService.open(id);

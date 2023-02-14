@@ -12,9 +12,12 @@
     <img class="imageSize" [src]="dbImage" (click)="openModal('custom-modal-1')">
   </div>
   <br>
- <button class="fav-btn" (click)="addToFavourite()"> <img src="../../assets/favourite.png" height="60" > <br> Pridať medzi obľúbené</button>
+  <div class="buttons">
+ <button *ngIf="token" class="fav-btn" (click)="addToFavourite()"> <img src="../../assets/hviezda%20modra.png" height="60" > <br> Pridať medzi obľúbené</button>
  <br>
+  <button *ngIf="isAdmin() && token" class="fav-btn" (click)="deleteProduct()"><img src="../../assets/modrý%20kôš.png" height="60"> <br> Vymazať inzerát</button>
   <br>
+    </div>
 <div class="contact">
   <h2>Kontakt:</h2>
   <p>Používateľ: {{allProducts.userEntity.username}}</p>

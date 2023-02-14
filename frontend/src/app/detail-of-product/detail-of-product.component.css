@@ -83,17 +83,26 @@ button{
 .fav-btn{
   padding-top: 1%;
   padding-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1% ;
+  width: 20%;
 }
 
 button:hover{
   color: #0dcaf0;
   box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
   border: 3px solid #0dcaf0;
-  margin: -1px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 .btn:hover{
   margin: -2px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
 }
 
 input

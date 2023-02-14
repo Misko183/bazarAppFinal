@@ -6,7 +6,7 @@
 <div class = "grid-container">
 
     <div class="grid-item">
-      <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/vsetko%20blue.png" /> </button>
+      <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/Všetko.png" /> </button>
     </div>
   <div class="grid-item" *ngFor="let category of categoryArray">
     <button type = "button"  class = "small_btn"  (click)="rerouteToCategory(category.id)"><br>{{category.name}}<br><br><div class="picture" ><img [src]="category.imageOfCategory"/></div> </button>
