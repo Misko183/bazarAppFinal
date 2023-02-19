@@ -183,6 +183,17 @@ div{
 }
 
 @media(max-width: 800px) {
+  .content {
+    padding-top: 10%;
+    padding-right: 13%;
+    padding-left: 13%;
+  }
+
+  .everyThing{
+    padding-top: 6rem;
+  }}
+
+@media(max-width: 800px) {
   .everyThing {
     padding-top: 6rem;
   }

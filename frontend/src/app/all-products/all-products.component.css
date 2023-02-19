@@ -14,7 +14,9 @@
 h1{
   text-align: center;
   color: #0dcaf0;
+  position: relative;
   z-index: 1;
+  font-weight: bold;
 }
 .grid-container{
 
@@ -52,7 +54,7 @@ h1{
 
 .text{
   text-decoration-line: none;
-  color: #0dcaf0;
+  color: #00ffff;
 }
 
 img{

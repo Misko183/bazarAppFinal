@@ -42,7 +42,7 @@ export class AddProductComponent  {
   }
 
   gotoUsersProducts() {
-    this.router.navigate(['/myproducts']);
+    this.router.navigate(['/usersAdvertisements']);
   }
 
   returnCategory() {

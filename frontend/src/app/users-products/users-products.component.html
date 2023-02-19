@@ -1,57 +1,79 @@
-<ul class="background">
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-</ul>
-
+<!--<ul class="background">-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--</ul>-->
+<div class="background">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 <div class="everyThing">
+  <br>
   <br>
 <h1>Moje inzeráty</h1>
 <div class = "grid-container">
@@ -77,7 +99,7 @@
 
 <div *ngIf="luckyBool">
 <jw-modal id="custom-modal-1"  >
-
+  <div class="jw-container">
   <div class="container">
     <form class="example-form"  >
       <h1>Upraviť inzerát</h1>
@@ -92,8 +114,7 @@
             required #name="ngModel">
 
         </div>
-
-
+<br>
 
         <label class="" > <div class="bold-text"> Opis:</div></label>
         <div class="">
@@ -106,7 +127,7 @@
 
         </div>
 
-
+        <br>
         <label class="" > <div class="bold-text"> Cena:</div></label>
         <div class="">
           <input type="text" [(ngModel)]="allProducts1.price"
@@ -116,7 +137,7 @@
                  required #price="ngModel">
 
         </div>
-
+        <br>
         <label class="" > <div class="bold-text"> Lokácia:</div></label>
         <div class="">
           <input type="text" [(ngModel)]="allProducts1.localization"
@@ -126,7 +147,7 @@
                  required #localization="ngModel">
 
         </div>
-
+        <br>
         <mat-label class="">Vyber kategóriu:</mat-label>
         <div class="option">
           <mat-form-field appearance="fill" >
@@ -160,8 +181,10 @@
       </div>
       </form>
   </div>
+    <br>
   <button type="button" class="btn" (click)="closeModal('custom-modal-1')">Zavrieť</button>
 <!--  <img src="../../assets/return.png" (click)="closeModal('custom-modal-1');" height="40">-->
+  </div>
       </jw-modal>
      </div>
 
