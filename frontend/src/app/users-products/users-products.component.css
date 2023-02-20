@@ -322,6 +322,18 @@ padding-top: 6rem;
   text-align: center;
 }
 
+@media (max-width: 950px) {
+  .jw-container {
+    width: 500px;
+  }
+}
+
+@media (max-width: 650px) {
+  .jw-container {
+    width: 300px;
+
+  }
+}
 
 @media(max-width: 1150px){
   .btn-group

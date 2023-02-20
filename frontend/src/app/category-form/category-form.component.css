@@ -7,7 +7,7 @@
 
 .maincontainer{
 
-  background: repeating-conic-gradient(#222222, #0dcaf0, #222222, #0dcaf0, #222222, #0dcaf0, #222222, #0dcaf0, #222222);
+  background: linear-gradient(210deg, #222222 20%, #0dcaf0 50%, #222222 80%);
   min-height: calc(100vh - 6rem);
   display: flex;
   justify-content: center;
