@@ -1,7 +1,7 @@
 .maincantainer{
   padding-top: 6rem;
   background-color: #000000;
-
+  background: linear-gradient(210deg, #222222 20%, #0dcaf0 50%, #222222 80%);
 }
 
 .container{
@@ -22,10 +22,10 @@ input[type="text"]{
 
 
 .container-inside{
-  background: linear-gradient(90deg, #02022d 0%, #02022d 100%);
+  background: #222222;
   padding: 5%;
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-  border: 5px solid #00d7c3;
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  border: 5px solid #0dcaf0;
   border-radius: 10px;
   line-height: 3;
   overflow: scroll;
@@ -43,12 +43,12 @@ input[type="text"]{
 
 
 .text{
-  color: #00d7c3;
+  color: #0dcaf0;
   text-decoration-line: none;
   font-size: 5em;
 }
 .text-little{
-  color: #00d7c3;
+  color: #0dcaf0;
   font-size: 4em;
   text-decoration-line: none;
 }

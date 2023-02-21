@@ -134,3 +134,9 @@ p{
     margin-right: 10%;
   }
 }
+
+@media (max-width: 1700px) {
+  .fav-btn{
+    width: 200px;;
+  }
+}

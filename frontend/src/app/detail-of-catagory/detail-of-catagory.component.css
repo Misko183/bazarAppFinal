@@ -216,7 +216,7 @@ background: #ad0000;
 @media (min-width: 440px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 8rem;
+
   }
   .header {
     display: grid;
@@ -244,7 +244,7 @@ background: #ad0000;
 @media (min-width: 600px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 8rem;
+
   }
   .header {
     display: grid;
@@ -334,7 +334,7 @@ background: #ad0000;
 }
 @media(max-width: 800px){
   h1{
-    padding-top: 6rem;
+
   }
 
   header{
