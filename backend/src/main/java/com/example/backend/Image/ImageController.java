@@ -1,6 +1,8 @@
 package com.example.backend.Image;
 
 import com.example.backend.Favourite.FavouriteServiceImpl;
+import com.example.backend.ImageAnother.ImageAnother;
+import com.example.backend.ImageAnother.ImageAnotherRepository;
 import com.example.backend.Products.Product;
 import com.example.backend.Products.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class ImageController {
     public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
             throws IOException {
 
-   //Ukladá pomocou compresie obrazok v bytovoj podobe a jeho typ
+        //Ukladá pomocou compresie obrazok v bytovoj podobe a jeho typ
         imageRepository.save(Image.builder()
                 .type(file.getContentType())
                 .image(ImageUtility.compressImage(file.getBytes())).build());
@@ -49,7 +52,7 @@ public class ImageController {
 
     @Primary
     @PostMapping("/changeImage")
-    public ResponseEntity<ImageUploadResponse> changeImage(@RequestParam("image") MultipartFile file , @RequestParam("id") Long id)
+    public ResponseEntity<ImageUploadResponse> changeImage(@RequestParam("image") MultipartFile file, @RequestParam("id") Long id)
             throws IOException {
 
         //Na to isté id zapísanie nového obrázku, upravenie produktu
@@ -64,7 +67,6 @@ public class ImageController {
 
 
     }
-
 
 
     //Vypis informacii o obrazku
@@ -82,10 +84,10 @@ public class ImageController {
     @GetMapping(path = {"/get/image/{id}"})
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) throws IOException {
 
-    //Hľadanie obrázka podľa id
+        //Hľadanie obrázka podľa id
         final Optional<Image> dbImage = imageRepository.findById(id);
 
-    //Vratenie obrázka pomocou decompresie do pôvodného formátu
+        //Vratenie obrázka pomocou decompresie do pôvodného formátu
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.valueOf(dbImage.get().getType()))
@@ -105,7 +107,7 @@ public class ImageController {
                     .image(ImageUtility.decompressImage(image.getImage())).build());
         }
 
-     return images;
+        return images;
     }
 
     //Vrátenie obrázkov v jednotlivých katagóriack v liste
@@ -157,4 +159,37 @@ public class ImageController {
         return images;
     }
 
+    @Autowired
+    private ImageAnotherRepository imageAnotherRepository;
+
+
+    @GetMapping(path = {"/get/images/info/{id}"})
+    public ArrayList<ImageAnother> getImagesDetails(@PathVariable("id") Long id) throws IOException {
+
+
+        List<ImageAnother> dbImageAnother = imageAnotherRepository.findAllByImageMain(imageRepository.findById(id).get());
+       ArrayList<ImageAnother> returnImages = new ArrayList<>();
+        for(ImageAnother image : dbImageAnother)
+        {
+        returnImages.add(ImageAnother.builder()
+                .id(image.getId())
+                .type(image.getType())
+                .image(ImageUtility.decompressImage(image.getImage())).build());
+    }
+        return returnImages;
+    }
+
+
+
+
+//    @PostMapping("/upload/anotherImage")
+//    public void uploadImage(@RequestParam("image") MultipartFile[] files) throws IOException {
+//        System.out.println(files);
+//
+//        for (MultipartFile file : files) {
+//            imageRepository.save(Image.builder()
+//                    .type(file.getContentType())
+//                    .image(ImageUtility.compressImage(file.getBytes())).build());
+//        }
+//    }
 }

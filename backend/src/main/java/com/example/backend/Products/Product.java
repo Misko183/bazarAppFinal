@@ -4,6 +4,7 @@ import com.example.backend.Category.Category;
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Image.Image;
 //import com.example.backend.User.User;
+//import com.example.backend.ImageAnother.ImageAnother;
 import com.example.backend.proSecurity.user.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -43,4 +44,5 @@ public class Product {
 
     @ManyToOne
     Category kindOfCategory;
+
 }

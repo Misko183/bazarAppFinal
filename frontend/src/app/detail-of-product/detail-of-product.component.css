@@ -4,6 +4,12 @@
   cursor: pointer;
 }
 
+.imageSize2{
+  max-height: 10em;
+  max-width: 50%;
+  cursor: pointer;
+}
+
 .everyThing{
   min-height: calc(100vh - 6rem);
   /*background: linear-gradient(0deg, #000000 0%, #03036c 100%);*/
@@ -139,4 +145,21 @@ p{
   .fav-btn{
     width: 200px;;
   }
+}
+
+.align{
+  display: flex;
+  justify-content: center;
+}
+
+.obrazky {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.obrazky img {
+  width: 30%; /* definujte šírku obrázkov */
+  cursor: pointer;
 }

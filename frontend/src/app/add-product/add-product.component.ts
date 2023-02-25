@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MainService} from "../services/mainService";
 import {AllProducts} from "../allProducts";
 import {Category} from "../category";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-product',
@@ -31,7 +32,8 @@ export class AddProductComponent  {
     private route: ActivatedRoute,
     private router: Router,
     private mainService: MainService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    public sanitizer: DomSanitizer
   ) {
     this.returnCategory();
     this.allProducts = new AllProducts();
@@ -55,11 +57,43 @@ export class AddProductComponent  {
   }
 
 
+  selectedFiles: File[] = [];
+  selectedFilesUrls: string[] = [];
 
+
+  onImagesUpload({event}: { event: any}) {
+    for (let i = 0; i < event.target.files.length; i++) {
+      this.selectedFiles.push(event.target.files[i]);
+      this.selectedFilesUrls.push(URL.createObjectURL(event.target.files[i]));
+    }
+  }
+
+  removeSelectedFile(index: number) {
+    this.selectedFiles.splice(index, 1);
+    this.selectedFilesUrls.splice(index, 1);
+  }
+
+  uploadFiles() {
+    const formData = new FormData();
+    const mainData = new FormData();
+    mainData.append('image', this.selectedFiles[0])
+    for (let i = 1; i < this.selectedFiles.length; i++) {
+      formData.append('image', this.selectedFiles[i]);
+    }
+       this.httpClient.post('http://localhost:8080/upload/image/', mainData, { observe: 'response' })
+      .subscribe(() => {
+       this.httpClient.post('http://localhost:8080/upload/anotherImage', formData, ).subscribe(response => {
+        console.log(response);
+        this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoUsersProducts());
+      }
+      )
+    });
+  }
+
+// /upload/anotherImage
 
   public onImageUpload({event}: { event: any }) {
     this.uploadedImage = event.target.files[0];
-
     const reader = new FileReader();
     reader.onload = (e: any) => {
       this.liveDemo = e.target.result;

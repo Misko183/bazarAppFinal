@@ -1,5 +1,7 @@
 package com.example.backend.Image;
 
+
+import com.example.backend.ImageAnother.ImageAnother;
 import com.example.backend.Products.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -8,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "image")
@@ -31,4 +34,8 @@ public class Image {
 	@JsonIgnore
 	@OneToOne(mappedBy = "image")
 	private Product product;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "imageMain")
+	private List<ImageAnother> ImageAnother;
 }

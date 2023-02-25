@@ -62,16 +62,21 @@
       </div>
 
 
-      <label class="" > <div class="bold-text"> </div></label>
-      <div class="">
-        <input class="upload" type="file" (change)="onImageUpload({event : $event})">
+      <div>
+        <input type="file" multiple (change)="onImagesUpload({event: $event})">
+        <div *ngIf="selectedFilesUrls.length > 0">
+          <ul>
+            <div *ngFor="let url of selectedFilesUrls; let i = index">
+              <img [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
+              <button type="button" (click)="removeSelectedFile(i)">Remove</button>
+            </div>
+          </ul>
+        </div>
       </div>
 
-      <img [src]="this.liveDemo" />
-
       <label class="" > <div class="bold-text"> </div></label>
       <div class="">
-        <button   (click)="createAction()"
+        <button   (click)="uploadFiles()"
                  type="submit"
                  class="btn btn-info">Vytvoriť Inzerát
         </button>
