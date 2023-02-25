@@ -77,6 +77,24 @@
       <div [hidden]="address.valid || address.pristine" class="alert alert-danger">
         <a class="warn-text">Použivateľská adresa je povinná</a>
       </div>
+
+      <br>
+
+      <div *ngIf="showPassword">
+      <mat-form-field appearance="fill" >
+        <mat-label for="adminPassword">Admin password</mat-label>
+        <input matInput type="password" id="adminPassword" name="adminPassword" placeholder="Enter admin password" required
+               [(ngModel)]="user.confirmPassword" #adminPassword="ngModel">
+      </mat-form-field>
+        <br>
+      </div>
+
+      <mat-slide-toggle (change)="togglePassword()">
+        Admin vytvorenie
+
+      </mat-slide-toggle>
+      <br>
+      <br>
       <br>
       <button type="submit" class="btn-done" [disabled]="!registrationForm.form.valid">Registrovať</button>
       <!--    <br>-->

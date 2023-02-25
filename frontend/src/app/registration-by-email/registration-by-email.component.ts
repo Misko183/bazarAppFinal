@@ -30,6 +30,12 @@ export class RegistrationByEmailComponent implements OnInit {
 
   }
 
+  showPassword: boolean = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit() {
 
     this.messageTrue = true;

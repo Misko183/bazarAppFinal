@@ -27,6 +27,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
 import { RegistrationByEmailComponent } from './registration-by-email/registration-by-email.component';
 import { ConfirmVerificationComponent } from './confirm-verification/confirm-verification.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 @NgModule({
@@ -48,19 +49,20 @@ import { ConfirmVerificationComponent } from './confirm-verification/confirm-ver
     RegistrationByEmailComponent,
     ConfirmVerificationComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    ModalModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        ModalModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+    ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

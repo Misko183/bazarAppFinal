@@ -38,6 +38,9 @@ public class UserEntity {
     @Column(nullable = false)
     private String phone;
 
+    @Column
+    private String confirmPassword = "BASIC USER";
+
     private boolean isEnabled;
 
     @JsonIgnore
