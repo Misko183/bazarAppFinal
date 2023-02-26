@@ -28,7 +28,6 @@ import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory
 import { RegistrationByEmailComponent } from './registration-by-email/registration-by-email.component';
 import { ConfirmVerificationComponent } from './confirm-verification/confirm-verification.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -63,7 +62,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         ModalModule,
         ReactiveFormsModule,
         MatSlideToggleModule,
-        FontAwesomeModule,
     ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }],
   bootstrap: [AppComponent]
