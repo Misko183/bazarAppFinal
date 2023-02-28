@@ -1,6 +1,7 @@
 package com.example.backend.proSecurity.user;
 
 
+import com.example.backend.Compare.CompareProducts;
 import com.example.backend.Products.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -47,4 +48,7 @@ public class UserEntity {
     @OneToMany(mappedBy = "userEntity")
     private Set<Product> products;
 
+    @JsonIgnore
+    @OneToOne(mappedBy = "userEntity")
+    private CompareProducts compareProducts;
 }

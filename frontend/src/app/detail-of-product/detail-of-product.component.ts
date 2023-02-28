@@ -95,6 +95,13 @@ export class DetailOfProductComponent  implements OnInit {
     } );
   }
 
+  compareProduct() {
+    this.mainService.postCompareProduct(this.allProducts).subscribe(() => {
+      this.router.navigate(['/compareOfProducts']);
+    } );
+  }
+
+
 
   token: any = sessionStorage.getItem('token');
 

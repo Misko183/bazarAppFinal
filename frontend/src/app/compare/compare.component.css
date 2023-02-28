@@ -1,0 +1,165 @@
+.imageSize{
+  max-height: 15em;
+  max-width: 90%;
+  cursor: pointer;
+}
+
+.imageSize2{
+  max-height: 10em;
+  max-width: 50%;
+  cursor: pointer;
+}
+
+.everyThing {
+  min-height: calc(100vh - 6rem);
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background: white;
+}
+
+.product1 {
+  flex: 1;
+  text-align: center;
+  background: white;
+}
+
+.product2 {
+  flex: 1;
+  text-align: center;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .everyThing {
+    flex-direction: column; /* Stĺpec */
+  }
+
+  .information,
+  .information2 {
+    flex: 1; /* Zaberá 1/2 výšky kontajnera */
+  }
+}
+
+.text{
+  margin-left: 10%;
+  margin-right: 10%;
+  height: auto;
+}
+
+.picture{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+.imageDetail{
+  max-height: 70vh;
+  max-width: 90%;
+}
+
+.modal-body{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal-header{
+  position: relative;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.modal-title{
+  color: #0dcaf0;
+}
+
+h2{
+  color: black;
+  font-weight: bold;
+}
+
+button{
+  color: #0dcaf0;
+}
+
+.fav-btn{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1% ;
+  width: 20%;
+}
+
+button:hover{
+  color: #0dcaf0;
+  box-shadow: 0 0 10px 0 #0dcaf0 inset, 0 0 20px 2px #0dcaf0;
+  border: 3px solid #0dcaf0;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.btn:hover{
+  margin: -2px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+}
+
+input
+{
+  color: white;
+}
+
+.fav-btn{
+  color: #0dcaf0;
+  background: repeating-linear-gradient(45deg, #000000, #000000 20px, #03036c 20px, #03036c 30px);
+  max-width: 90%;
+  background: #222222;
+  border: black solid 2px;
+  border-radius: 10%
+}
+
+p{
+  color: black;
+  font-weight: bold;
+}
+
+
+@media (max-width: 800px) {
+  .everyThing{
+    padding-top: 6rem;
+  }
+  .information{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media (max-width: 1700px) {
+  .fav-btn{
+    width: 200px;;
+  }
+}
+
+.align{
+  display: flex;
+  justify-content: center;
+}
+
+.obrazky {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.obrazky img {
+  width: 30%; /* definujte šírku obrázkov */
+  cursor: pointer;
+}

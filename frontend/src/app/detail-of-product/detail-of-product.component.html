@@ -22,6 +22,8 @@
  <br>
   <button *ngIf="isAdmin() && token" class="fav-btn" (click)="deleteProduct()"><img src="../../assets/modrý%20kôš.png" height="60"> <br> Vymazať inzerát</button>
   <br>
+    <button *ngIf="token" class="fav-btn" (click)="compareProduct()"><img src="../../assets/logg.png" height="60"> <br> Porovnať inzerát</button>
+    <br>
     </div>
 <div class="contact">
   <br>

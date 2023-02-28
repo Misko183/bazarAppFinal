@@ -5,6 +5,7 @@ import {AllProducts} from "../allProducts";
 import {Feedback} from "../feedback";
 import {Favourite} from "../favourite";
 import {Category} from "../category";
+import {Compare} from "../Compare";
 
 
 @Injectable({
@@ -30,6 +31,8 @@ export class MainService {
   private postProductsByCategoryUrl: string;
   private getImageUrl: string;
   private getCategoryImageUrl: string;
+  private postCompareProductUrl: string;
+  private getCompareProductUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -50,6 +53,8 @@ export class MainService {
     this.postProductsByCategoryUrl = 'http://localhost:8080/postcategoryinformation';
     this.getImageUrl = 'http://localhost:8080/get/image/info/';
     this.getCategoryImageUrl = 'http://localhost:8080/get/categoryimage/info/';
+    this.postCompareProductUrl = 'http://localhost:8080/addProductToCompare';
+    this.getCompareProductUrl = 'http://localhost:8080/getCompareProducts';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -119,5 +124,13 @@ export class MainService {
 
   getCategoryImage(id: number) {
     return this.http.get(this.getCategoryImageUrl + id);
+  }
+
+  public postCompareProduct(product: AllProducts) {
+    return this.http.post<Compare>(this.postCompareProductUrl, {"product1" :{ "id": product.id}});
+  }
+
+  public getCompareProduct(): Observable<Compare> {
+    return this.http.get<Compare>(this.getCompareProductUrl);
   }
 }

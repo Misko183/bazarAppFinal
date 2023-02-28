@@ -28,6 +28,7 @@ import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory
 import { RegistrationByEmailComponent } from './registration-by-email/registration-by-email.component';
 import { ConfirmVerificationComponent } from './confirm-verification/confirm-verification.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { CompareComponent } from './compare/compare.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     DetailOfCatagoryComponent,
     RegistrationByEmailComponent,
     ConfirmVerificationComponent,
+    CompareComponent,
   ],
     imports: [
         BrowserModule,

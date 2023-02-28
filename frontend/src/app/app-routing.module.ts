@@ -17,6 +17,7 @@ import {CategoryFormComponent} from "./category-form/category-form.component";
 import {DetailOfCatagoryComponent} from "./detail-of-catagory/detail-of-catagory.component";
 import {RegistrationByEmailComponent} from "./registration-by-email/registration-by-email.component";
 import {ConfirmVerificationComponent} from "./confirm-verification/confirm-verification.component";
+import {CompareComponent} from "./compare/compare.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: 'createCategory', component: CategoryFormComponent},
   {path: 'detailcatagory', component: DetailOfCatagoryComponent},
   {path: 'confirmVerification', component: ConfirmVerificationComponent},
+  {path: 'compareOfProducts', component: CompareComponent},
 ];
 
 @NgModule({

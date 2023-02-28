@@ -1,6 +1,7 @@
 package com.example.backend.Products;
 
 import com.example.backend.Category.Category;
+import com.example.backend.Compare.CompareProducts;
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Image.Image;
 //import com.example.backend.User.User;
@@ -44,5 +45,13 @@ public class Product {
 
     @ManyToOne
     Category kindOfCategory;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product1")
+    private List<CompareProducts> compareProducts;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product2")
+    private List<CompareProducts> compareProducts2;
 
 }

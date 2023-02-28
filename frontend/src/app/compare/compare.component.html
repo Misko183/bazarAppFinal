@@ -1,0 +1,87 @@
+<div class="everyThing">
+  <div class="product1">
+    <br>
+    <h1>{{firstProduct.name}}</h1>
+    <div class="price">Cena: {{firstProduct.price}}</div>
+    <br>
+    <div class="location">Lokácia: {{firstProduct.localization}}</div>
+    <br>
+    <div class = "description">Popis: <div class="text">{{firstProduct.description}}</div></div>
+    <br>
+    <div class="picture" *ngIf=dbImage>
+      <img class="imageSize" [src]="dbImage" (click)="openModal('custom-modal-1', dbImage)">
+    </div>
+    <div class="obrazky">
+      <div class="" *ngFor="let image of dbImages;">
+        <img *ngIf="image" class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
+      </div>
+    </div>
+    <br>
+
+    <div class="contact">
+      <br>
+      <h2>Kontakt:</h2>
+      <p>Používateľ: {{firstProduct.userEntity.username}}</p>
+      <p>Email: {{firstProduct.userEntity.email}}</p>
+      <p>Telefonne číslo: {{firstProduct.userEntity.phone}}</p>
+      <p>Adresa: {{firstProduct.userEntity.address}}</p>
+    </div>
+  </div>
+
+  <div class="product2">
+    <br>
+    <h1>{{secondProduct.name}}</h1>
+    <div class="price">Cena: {{secondProduct.price}}</div>
+    <br>
+    <div class="location">Lokácia: {{secondProduct.localization}}</div>
+    <br>
+    <div class = "description">Popis: <div class="text">{{secondProduct.description}}</div></div>
+    <br>
+    <div class="picture" *ngIf=dbImage2>
+      <img class="imageSize" [src]="dbImage2" (click)="openModal('custom-modal-1', dbImage2)">
+    </div>
+    <div class="obrazky">
+      <div class="" *ngFor="let image of dbImages2;">
+        <img *ngIf="image" class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
+      </div>
+    </div>
+    <br>
+
+    <div class="contact">
+      <br>
+      <h2>Kontakt:</h2>
+      <p>Používateľ: {{secondProduct.userEntity.username}}</p>
+      <p>Email: {{secondProduct.userEntity.email}}</p>
+      <p>Telefonne číslo: {{secondProduct.userEntity.phone}}</p>
+      <p>Adresa: {{secondProduct.userEntity.address}}</p>
+    </div>
+  </div>
+</div>
+
+
+<jw-modal id="custom-modal-1">
+<!--  <div class="modal-header">-->
+<!--    <h2 class="modal-title">{{allProducts.name}}</h2>-->
+<!--  </div>-->
+  <div class="modal-body">
+    <img class="imageDetail" [src]="currentImage">
+  </div>
+  <br>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="closeModal('custom-modal-1')">Zavrieť</button>
+  </div>
+</jw-modal>
+
+<jw-modal id="custom-modal-2">
+<!--  <div class="modal-header">-->
+<!--    <h2 class="modal-title">{{allProducts.name}}</h2>-->
+<!--  </div>-->
+  <div class="modal-body">
+    <img class="imageDetail" [src]="currentImages">
+  </div>
+  <br>
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="closeModal('custom-modal-2')">Zavrieť</button>
+  </div>
+</jw-modal>
+
