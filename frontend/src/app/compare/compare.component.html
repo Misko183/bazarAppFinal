@@ -1,5 +1,6 @@
 <div class="everyThing">
-  <div class="product1">
+    <div *ngIf="!dbImage" >Zatiaľ žiadné inzeráty na porovnanie</div>
+  <div class="product1" *ngIf="dbImage">
     <br>
     <h1>{{firstProduct.name}}</h1>
     <div class="price">Cena: {{firstProduct.price}}</div>
@@ -8,12 +9,12 @@
     <br>
     <div class = "description">Popis: <div class="text">{{firstProduct.description}}</div></div>
     <br>
-    <div class="picture" *ngIf=dbImage>
+    <div class="picture">
       <img class="imageSize" [src]="dbImage" (click)="openModal('custom-modal-1', dbImage)">
     </div>
     <div class="obrazky">
       <div class="" *ngFor="let image of dbImages;">
-        <img *ngIf="image" class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
+        <img class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
       </div>
     </div>
     <br>
@@ -28,7 +29,7 @@
     </div>
   </div>
 
-  <div class="product2">
+  <div class="product2" *ngIf="dbImage2">
     <br>
     <h1>{{secondProduct.name}}</h1>
     <div class="price">Cena: {{secondProduct.price}}</div>
@@ -37,12 +38,12 @@
     <br>
     <div class = "description">Popis: <div class="text">{{secondProduct.description}}</div></div>
     <br>
-    <div class="picture" *ngIf=dbImage2>
+    <div class="picture" >
       <img class="imageSize" [src]="dbImage2" (click)="openModal('custom-modal-1', dbImage2)">
     </div>
     <div class="obrazky">
       <div class="" *ngFor="let image of dbImages2;">
-        <img *ngIf="image" class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
+        <img class="obrazok" [src]="image" (click)="openModal2('custom-modal-2', image)">
       </div>
     </div>
     <br>
@@ -60,9 +61,6 @@
 
 
 <jw-modal id="custom-modal-1">
-<!--  <div class="modal-header">-->
-<!--    <h2 class="modal-title">{{allProducts.name}}</h2>-->
-<!--  </div>-->
   <div class="modal-body">
     <img class="imageDetail" [src]="currentImage">
   </div>
@@ -73,9 +71,6 @@
 </jw-modal>
 
 <jw-modal id="custom-modal-2">
-<!--  <div class="modal-header">-->
-<!--    <h2 class="modal-title">{{allProducts.name}}</h2>-->
-<!--  </div>-->
   <div class="modal-body">
     <img class="imageDetail" [src]="currentImages">
   </div>
