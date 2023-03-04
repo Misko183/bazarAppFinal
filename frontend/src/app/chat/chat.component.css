@@ -1,0 +1,54 @@
+
+.container-main {
+  min-height: calc(100vh - 6rem);
+  padding-top: 6rem;
+
+  background: white;
+
+}
+
+.container-inside {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section-one {
+  flex: 2;
+  text-align: center;
+  background: white;
+}
+
+.section-two {
+  flex: 1;
+  text-align: center;
+  background: white;
+}
+
+.section-three {
+  flex: 2;
+  text-align: center;
+  background: white;
+}
+
+.me{
+/*background: #8bf88b;*/
+  text-align: right;
+  padding-right:10px ;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+.he{
+  /*background: #f57070;*/
+  text-align: left;
+  padding-left:5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+
+

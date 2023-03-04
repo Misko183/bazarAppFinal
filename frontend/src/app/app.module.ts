@@ -29,6 +29,7 @@ import { RegistrationByEmailComponent } from './registration-by-email/registrati
 import { ConfirmVerificationComponent } from './confirm-verification/confirm-verification.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { CompareComponent } from './compare/compare.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { CompareComponent } from './compare/compare.component';
     RegistrationByEmailComponent,
     ConfirmVerificationComponent,
     CompareComponent,
+    ChatComponent,
   ],
     imports: [
         BrowserModule,

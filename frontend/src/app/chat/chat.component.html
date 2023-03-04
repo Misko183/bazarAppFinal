@@ -1,0 +1,60 @@
+<div class="container-main">
+  <div class="container-inside">
+
+  <div class="section-one">
+  <form #chatForm2="ngForm" (ngSubmit)="addChatContact(chatForm2.value)">
+    <div class="">
+      <input type="text" class="form-control" name="user2" ngModel placeholder="Napíš adresáta">
+    </div>
+    <button type="submit" class="btn btn-primary">Poslať žiadosť o chat</button>
+    <div *ngIf="success" class="btn-ok">
+      <strong>Žiadosť bola poslaná</strong>
+    </div>
+  </form>
+
+
+    <br>
+    <br>
+    <a>Žiadosti o kontakt</a>
+  <div *ngFor="let chatContact of chatContactList">
+    <div>{{ chatContact.firstUser.username }}</div>
+    <button (click)="acceptChatContact(chatContact.id)">Povoliť</button>
+  </div>
+  </div>
+
+    <div class="section-two">
+      <br>
+      <br>
+      <a>Kontakty</a>
+      <div *ngFor="let chatContact of chatContactListAccepted">
+        <div>{{ chatContact.firstUser.username }} ---> {{ chatContact.secondUser.username }}</div>
+        <button (click)="startChat(chatContact.firstUser.username, chatContact.secondUser.username)">Napísať</button>
+      </div>
+    </div>
+
+
+
+      <div class="section-three">
+      <div class="chat" style="overflow-y: auto; height: calc(100vh - 30rem)" >
+        <div class="" *ngFor="let chat of chatList">
+<!--          <div class="" [ngClass]="{ 'message-right': chat.userSender.id}">-->
+            <div class="me" *ngIf="chat.userSender.username === currentUser">
+            {{ chat.message }}
+          </div>
+          <div class="he" *ngIf="chat.userSender.username !== currentUser">
+            {{ chat.message }}
+          </div>
+        </div>
+      </div>
+      <form #chatForm="ngForm" (ngSubmit)="sendChat(chatInput)">
+        <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="chatInput" name="message"placeholder="Napíš správu...">
+        </div>
+        <button type="submit" class="btn btn-primary">Odoslať</button>
+      </form>
+
+
+  </div>
+  </div>
+      </div>
+

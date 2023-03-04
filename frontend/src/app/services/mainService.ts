@@ -6,6 +6,10 @@ import {Feedback} from "../feedback";
 import {Favourite} from "../favourite";
 import {Category} from "../category";
 import {Compare} from "../Compare";
+import {Chat} from "../chat";
+import {ChatComponent} from "../chat/chat.component";
+import {ChatContact} from "../chatContact";
+import {User} from "../user";
 
 
 @Injectable({
@@ -33,6 +37,13 @@ export class MainService {
   private getCategoryImageUrl: string;
   private postCompareProductUrl: string;
   private getCompareProductUrl: string;
+  private postChatUrl: string;
+  private getChatUrl: string;
+  private postAddChatContactUrl: string;
+  private getChatContactUrl: string;
+  private postAcceptChatContactUrl: string;
+  private getChatContactsAcceptedUrl: string;
+  private getWhoIamUrl: string;
 
   constructor(private http: HttpClient) {
     this.getAllProductsUrl = 'http://localhost:8080/advertisement';
@@ -55,6 +66,13 @@ export class MainService {
     this.getCategoryImageUrl = 'http://localhost:8080/get/categoryimage/info/';
     this.postCompareProductUrl = 'http://localhost:8080/addProductToCompare';
     this.getCompareProductUrl = 'http://localhost:8080/getCompareProducts';
+    this.postChatUrl = 'http://localhost:8080/chat';
+    this.getChatUrl = 'http://localhost:8080/chatGet';
+    this.postAddChatContactUrl = 'http://localhost:8080/addChatContact';
+    this.getChatContactUrl = 'http://localhost:8080/getChatContacts';
+    this.postAcceptChatContactUrl = 'http://localhost:8080/acceptChatContact';
+    this.getChatContactsAcceptedUrl = 'http://localhost:8080/getChatContactsAccepted';
+    this.getWhoIamUrl = 'http://localhost:8080/whoIam';
   }
 
   public getAllProducts(): Observable<AllProducts[]> {
@@ -132,5 +150,34 @@ export class MainService {
 
   public getCompareProduct(): Observable<Compare> {
     return this.http.get<Compare>(this.getCompareProductUrl);
+  }
+
+  public postChat(message:String, receiver: String){
+    return this.http.post<Chat>(this.postChatUrl, {"message":message, "userReceiver":{"username": receiver}})
+  }
+
+  public getChat(receiver: String, sender:String): Observable<Chat[]>{
+    return this.http.post<Chat[]>(this.getChatUrl, {"userReceiver":{"username": receiver}, "userSender":{"username": sender}});
+  }
+
+
+  public postAddChatContact(user2: String){
+    return this.http.post<ChatContact>(this.postAddChatContactUrl, {"secondUser":{"username": user2}})
+  }
+
+  public getChatContacts(): Observable<ChatContact[]>{
+    return this.http.get<ChatContact[]>(this.getChatContactUrl);
+  }
+
+  public postAcceptChatContact(chatContact: number){
+    return this.http.post<ChatContact>(this.postAcceptChatContactUrl, {"id": chatContact});
+  }
+
+  public getChatContactsAccepted(): Observable<ChatContact[]>{
+    return this.http.get<ChatContact[]>(this.getChatContactsAcceptedUrl);
+  }
+
+  public getWhoIam(): Observable<User> {
+    return this.http.get<User>(this.getWhoIamUrl);
   }
 }
