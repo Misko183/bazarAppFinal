@@ -82,12 +82,17 @@ export class AddProductComponent  {
     }
        this.httpClient.post('http://localhost:8080/upload/image/', mainData, { observe: 'response' })
       .subscribe(() => {
+        if (this.selectedFiles.length > 1){
        this.httpClient.post('http://localhost:8080/upload/anotherImage', formData, ).subscribe(response => {
         console.log(response);
         this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoUsersProducts());
       }
       )
-    });
+    }
+      else {
+          this.mainService.addProduct(this.allProducts).subscribe(() => this.gotoUsersProducts());
+        }
+      });
   }
 
 // /upload/anotherImage

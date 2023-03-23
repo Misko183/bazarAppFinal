@@ -1,6 +1,8 @@
 package com.example.backend.Products;
 
 import com.example.backend.Category.Category;
+import com.example.backend.Compare.CompareProducts;
+import com.example.backend.Compare.CompareProductsRepository;
 import com.example.backend.Favourite.Favourite;
 import com.example.backend.Favourite.FavouriteRepository;
 import com.example.backend.Favourite.FavouriteService;
@@ -9,6 +11,8 @@ import com.example.backend.Image.Image;
 import com.example.backend.Image.ImageController;
 import com.example.backend.Image.ImageRepository;
 //import com.example.backend.User.UserServiceImpl;
+import com.example.backend.ImageAnother.ImageAnother;
+import com.example.backend.ImageAnother.ImageAnotherRepository;
 import com.example.backend.proSecurity.user.CurrentUser;
 import com.example.backend.proSecurity.user.UserEntity;
 import com.example.backend.proSecurity.user.UserRepository;
@@ -34,8 +38,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ImageController imageController;
 
-//    @Autowired
-//    private UserServiceImpl userService;
+    @Autowired
+    private ImageAnotherRepository imageAnotherRepository;
 
     @Autowired
     private FavouriteServiceImpl favouriteService;
@@ -45,6 +49,10 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CompareProductsRepository compareProductsRepository;
+
 
     //Pridavanie Inzeratu
     @Override
@@ -71,6 +79,21 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteProduct(Product product) {
         favouriteRepository.deleteAll(favouriteRepository.findByProduct(product));
+
+        List<CompareProducts> compareProducts = (List<CompareProducts>) compareProductsRepository.findAll();
+        for (CompareProducts compareProduct : compareProducts) {
+            if(compareProduct.getProduct1().getId() == product.getId()){
+                compareProduct.setProduct1(compareProduct.getProduct2());
+                compareProduct.setProduct2(null);
+                compareProductsRepository.save(compareProduct);
+            }
+            else if(compareProduct.getProduct2().getId() == product.getId()){
+                compareProduct.setProduct2(null);
+                compareProductsRepository.save(compareProduct);
+            }
+        }
+
+        imageAnotherRepository.deleteAll(imageAnotherRepository.findAllByImageMain(product.getImage()));
         imageRepository.deleteById(productRepository.findById(product.getId()).get().getImage().getId());
         productRepository.deleteById(product.getId());
     }

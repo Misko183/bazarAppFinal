@@ -28,6 +28,7 @@ public class ImageAnotherController {
     public void uploadImage(@RequestParam("image") MultipartFile[] files) throws IOException {
         System.out.println(Arrays.toString(files));
 
+        if (files.length != 0) {
         for (MultipartFile file : files) {
             imageAnotherRepository.save(ImageAnother.builder()
                     .type(file.getContentType())
@@ -36,5 +37,6 @@ public class ImageAnotherController {
 
 
         }
+    }
     }
 }

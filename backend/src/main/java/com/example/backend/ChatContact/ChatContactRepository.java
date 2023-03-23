@@ -12,6 +12,8 @@ public interface ChatContactRepository extends CrudRepository<ChatContact, Long>
 
     List<ChatContact> findAllBySecondUser(UserEntity secondUser);
 
+    List<ChatContact> findAllByFirstUser(UserEntity firstUser);
+
     List<ChatContact> findAllBySecondUserAndAccepted(UserEntity secondUser, boolean accepted);
 
     List<ChatContact> findAllByFirstUserAndAccepted(UserEntity firstUser, boolean accepted);
