@@ -36,6 +36,6 @@ public class Image {
 	private Product product;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "imageMain")
+	@OneToMany(mappedBy = "imageMain", cascade = CascadeType.ALL)
 	private List<ImageAnother> ImageAnother;
 }

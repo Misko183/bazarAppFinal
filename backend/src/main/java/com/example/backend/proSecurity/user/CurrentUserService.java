@@ -50,8 +50,8 @@ public class CurrentUserService implements UserDetailsService {
 
 
     public void deleteUser(UserEntity user) {
-        this.favouriteRepository.deleteAll(favouriteRepository.findByUserEntity(user));
-        this.productRepository.deleteAll(productRepository.findByUserEntity(user));
+//        this.favouriteRepository.deleteAll(favouriteRepository.findByUserEntity(user));
+//        this.productRepository.deleteAll(productRepository.findByUserEntity(user));
         this.repository.delete(user);
 
     }

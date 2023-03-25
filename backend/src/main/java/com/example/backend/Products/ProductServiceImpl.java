@@ -93,8 +93,8 @@ public class ProductServiceImpl implements ProductService {
             }
         }
 
-        imageAnotherRepository.deleteAll(imageAnotherRepository.findAllByImageMain(product.getImage()));
-        imageRepository.deleteById(productRepository.findById(product.getId()).get().getImage().getId());
+//        imageAnotherRepository.deleteAll(imageAnotherRepository.findAllByImageMain(product.getImage()));
+//        imageRepository.deleteById(productRepository.findById(product.getId()).get().getImage().getId());
         productRepository.deleteById(product.getId());
     }
 
