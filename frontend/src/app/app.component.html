@@ -1,5 +1,5 @@
 
-<div class="main" >
+<!-- <div class="main" >
     <nav>
       <div  class="hamburger" (click)="activate()" [ngClass]="{'closed': !open}" >
         <img src="assets/white%20hamburger.png" height="40" width="40">
@@ -25,7 +25,7 @@
           <li *ngIf="token"><a href="chat">Napísať užívateľovi</a></li>
           <li *ngIf="token && isAdmin()"><a href="createCategory">Kategórie</a></li>
           <li *ngIf="token"><a href="feedback">Spätná väzba</a></li>
-<!--          <li><a href="test">About</a></li>-->
+          <li><a href="test">About</a></li>
           <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Odhlásiť</button></li>
         </ul>
         <div class="x" (click)="activate()" [ngClass]="{'closed': !open}" >
@@ -47,26 +47,81 @@
         </li>
         <li><a href="home" >Domov</a></li>
         <li *ngIf="!token"><a href="login">Prihlásenie</a></li>
-<!--        <li *ngIf="!token"><a href="registration">Registrácia</a></li>-->
+        <li *ngIf="!token"><a href="registration">Registrácia</a></li>
         <li *ngIf="!token"><a href="registrationByEmail">Registrácia</a></li>
         <li *ngIf="token"><a href="addAdvertisement">Pridať inzerát</a></li>
         <li *ngIf="token"><a href="usersAdvertisements">Moje inzeráty</a></li>
-<!--        <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>-->
+        <li *ngIf="token"><a href="usersProfile">Môj profil</a></li>
         <li *ngIf="token"><a href="favourite">Obľúbené</a></li>
-<!--        <li *ngIf="token && isAdmin()"><a href="createCategory">Kategórie</a></li>-->
-<!--        <li *ngIf="token" ><a href="feedback">Spätná väzba</a></li>-->
-<!--        <li><a href="test">About</a></li>-->
+      <li *ngIf="token && isAdmin()"><a href="createCategory">Kategórie</a></li>
+     <li *ngIf="token" ><a href="feedback">Spätná väzba</a></li>
+     <li><a href="test">About</a></li>
             <li *ngIf="token"><button (click)="logout()" class="logout-button" href="#">Odhlásiť</button></li>
       </ul>
 
     </nav>
 
-  </div>
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+    <div class="container-xl">
+      <a class="navbar-brand" href="home">
+        <img src="../assets/white.png" class="img-fluid" style="max-width: 70px;" alt="Logo">
+      </a>
+      <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse" id="navbarsExample07XL">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li *ngIf="token && isAdmin()" class="nav-item">
+            <a class="nav-link active" href="createCategory">Vytvoriť kategóriu</a>
+          </li>
+          <li *ngIf="token" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">Inzeráty</a>
+            <ul class="dropdown-menu" [ngClass]="{ 'show': dropdownOpen }">
+              <li><a class="dropdown-item" href="addAdvertisement">Pridať inzerát</a></li>
+              <li><a class="dropdown-item" href="usersAdvertisements">Moje inzeráty</a></li>
+              <li><a class="dropdown-item" href="compareOfProducts">Porovnanie inzerátov</a></li>
+              <li><a class="dropdown-item" href="favourite">Obľúbené inzeráty</a></li>
+            </ul>
+          </li>
+          <li *ngIf="token" class="nav-item">
+            <a class="nav-link active" href="usersProfile">Môj profil</a>
+          </li>
+          <li *ngIf="token" class="nav-item">
+            <a class="nav-link active" href="chat">Napísať užívateľovi</a>
+          </li>
+          <li *ngIf="token" class="nav-item">
+            <a class="nav-link active" href="feedback">Spätná väzba</a>
+          </li>
+          
+        </ul>
+        <div class="col-md-3 text-end">
+          <a *ngIf="!token" type="button" class="btn text-white" href="login">Prihlásenie</a>
+          <span *ngIf="!token" class="text-white">|</span>
+          <a *ngIf="!token" type="button" class="btn text-white" href="registrationByEmail">Registrácia</a>
+          <a *ngIf="token" (click)="logout()" type="button" class="btn text-white">Odhlásiť sa</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
 
 
 <ng-container>
 <router-outlet></router-outlet>
 </ng-container>
+
+<div class="container">
+  <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <img src="../assets/black.png" class="img-fluid" style="max-width: 70px;" alt="Logo">
+      </a>
+      <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Bazar.sk | Design by <a href="https://sladecek.sk" class="text-black" target="_blank">sladecek</a> with ❤️</span>
+    </div>
+  </footer>
+</div>
 
 

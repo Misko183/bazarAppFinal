@@ -1,20 +1,54 @@
-
-<div class="everyThing">
-
-<div class="partTwo">
-
-<div class = "grid-container">
-
-    <div class="grid-item">
-      <button type = "button"  id = "b1" class = "small_btn" routerLink="/allAdvertisements" ><br>Všetky Inzeráty<br><br><img src="../../assets/Všetko.png" /> </button>
+<!-- <div class="everyThing">
+  <div class="partTwo">
+    <div class="grid-container">
+      <div class="grid-item">
+        <button
+          type="button"
+          id="b1"
+          class="small_btn"
+          routerLink="/allAdvertisements"
+        >
+          <br />Všetky Inzeráty<br /><br /><img src="../../assets/Všetko.png" />
+        </button>
+      </div>
+      <div class="grid-item" *ngFor="let category of categoryArray">
+        <button
+          type="button"
+          class="small_btn"
+          (click)="rerouteToCategory(category.id)"
+        >
+          <br />{{ category.name }}<br /><br />
+          <div class="picture"><img [src]="category.imageOfCategory" /></div>
+        </button>
+      </div>
     </div>
-  <div class="grid-item" *ngFor="let category of categoryArray">
-    <button type = "button"  class = "small_btn"  (click)="rerouteToCategory(category.id)"><br>{{category.name}}<br><br><div class="picture" ><img [src]="category.imageOfCategory"/></div> </button>
+  </div>
+</div> -->
+
+<div class="container mt-5">
+  <div class="row text-center d-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center">
+    <div class="col-12 justify-content-center d-flex mb-3">
+      <div class="card">
+        <a routerLink="/allAdvertisements">
+        <div class="card-body">
+            <h4 class="card-title"><strong>Všetky Inzeráty</strong></h4>
+            <img class="img-fluid" src="../../assets/Všetko.png" />
+        </div>
+      </a>
+      </div>
+    </div>
+  </div>
+  <hr class="mb-4">
+  <div class="row text-center d-lg-flex d-xl-flex justify-content-center align-items-lg-center justify-content-xl-center align-items-xl-center">
+    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3" *ngFor="let category of categoryArray">
+      <div class="card">
+        <a (click)="rerouteToCategory(category.id)">
+        <div class="card-body">
+            <h4 class="card-title"><strong>{{ category.name }}</strong></h4>
+            <img class="img-fluid" [src]="category.imageOfCategory"/>
+        </div>
+      </a>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-
-
-
-</div>
-

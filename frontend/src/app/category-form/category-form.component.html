@@ -1,38 +1,59 @@
-<div class="everyThing">
-  <div class="maincontainer">
-  <div class="container">
-<form class="example-form" #addCategoryForm="ngForm">
-  <div class="form-group">
-    <br>
-    <label class="" > <div class="bold-text"><a class="text">Názov kategórie:</a></div></label>
-    <br>
-    <br>
-    <input
-      type="text" [(ngModel)]="category.name"
-      id="name"
-      name="name"
-      class="form-control"
-      required #name="ngModel">
-    <br>
-    <div class="">
-      <input class="upload" type="file" (change)="onImageUpload({event : $event})">
-    </div>
-    <br>
-    <img [src]="this.liveDemo" />
-
-    <br>
-    <br>
-    <div class="">
-      <button   (click)="createCategory()"
-                type="submit"
-                class="btn btn-info">Vytvoriť Kategóriu
-      </button>
-      <br>
+<div class="container">
+  <div
+    class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+  >
+    <div
+      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
+    >
+      <form
+        #addCategoryForm="ngForm"
+        class="text-center"
+        style="
+          width: 320px;
+          padding: 25px;
+          box-shadow: 2px 7px 18px;
+          border-radius: 7px;
+        "
+      >
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Názov kategórie:</label
+        >
+        <input
+          [(ngModel)]="category.name"
+          name="name"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          required
+        />
+        <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-size: 18px; font-weight: bold"
+          >Ikona kategórie:</label
+        >
+        <input
+          class="form-control"
+          type="file"
+          style="box-shadow: 7px 7px 17px; border-width: 0; margin-bottom: 43px"
+          required
+          (change)="onImageUpload({event : $event})"
+        />
+        <img [src]="this.liveDemo" class="img-fluid"/>
+        <button
+          (click)="createCategory()"
+          class="btn btn-primary"
+          type="button"
+          style="background: #0dcaf0; color: rgb(0, 0, 0); font-weight: bold"
+        >
+          Vytvoriť kategóriu
+        </button>
+      </form>
     </div>
   </div>
-</form>
 </div>
-</div>
-</div>
-
-

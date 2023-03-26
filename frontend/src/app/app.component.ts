@@ -10,6 +10,17 @@ import {AuthService} from "./security/authService";
 })
 export class AppComponent  {
 
+  navbarOpen = false;
+  dropdownOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
 token: any = sessionStorage.getItem('token');
   constructor(
     private authServiceSecurtiy: AuthService
