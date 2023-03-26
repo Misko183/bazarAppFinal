@@ -9,6 +9,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppComponent} from "../app.component";
 import {AuthService} from "../security/authService";
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-users-profile',
@@ -16,6 +17,8 @@ import {AuthService} from "../security/authService";
   styleUrls: ['./users-profile.component.css']
 })
 export class UsersProfileComponent implements OnInit {
+
+  faLinkedin = faLinkedin;
 
   users: User[];
   userForm: any;
