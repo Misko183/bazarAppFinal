@@ -2,3 +2,8 @@
 {
     margin-top: 5%;
 }
+
+.container.fft{
+    position: absolute !important;
+    bottom: 0 !important;
+}

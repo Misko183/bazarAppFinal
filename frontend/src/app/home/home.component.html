@@ -25,29 +25,74 @@
   </div>
 </div> -->
 
-<div class="container mt-5">
-  <div class="row text-center d-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center">
-    <div class="col-12 justify-content-center d-flex mb-3">
-      <div class="card">
-        <a routerLink="/allAdvertisements">
-        <div class="card-body">
-            <h4 class="card-title"><strong>Všetky Inzeráty</strong></h4>
-            <img class="img-fluid" src="../../assets/Všetko.png" />
-        </div>
-      </a>
+<!-- <section>
+  <div>
+      <div class="border rounded border-0 d-flex flex-column justify-content-center align-items-center p-4 py-5" style="background: linear-gradient(rgba(0,123,255,0.2), rgba(0,123,255,0.2)), url('https://cdn.bootstrapstudio.io/placeholders/1400x800.png') center / cover;height: 500px;">
+          <div class="row">
+              <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center">
+                  <div>
+                      <h1 class="text-uppercase fw-bold mb-3">Biben dum<br />fringi dictum, augue purus</h1>
+                      <p class="mb-4">Etiam a rutrum, mauris lectus aptent convallis. Fusce vulputate aliquam, sagittis odio metus. Nulla porttitor vivamus viverra laoreet, aliquam netus.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section> -->
+
+<!-- <section
+  class="text-center text-white call-to-action"
+  style="
+    background: url('../../assets/bg-masthead.jpg') no-repeat center center;
+    background-size: cover;
+  "
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto position-relative">
+        <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+      </div>
+      <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+        <form>
+          
+            <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder="Enter your email..." style="border-radius: 24px;" /></div>
+            
+          
+        </form>
       </div>
     </div>
   </div>
-  <hr class="mb-4">
-  <div class="row text-center d-lg-flex d-xl-flex justify-content-center align-items-lg-center justify-content-xl-center align-items-xl-center">
-    <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3" *ngFor="let category of categoryArray">
+</section> -->
+
+<div class="container mt-5">
+  <div class="row text-center d-flex justify-content-center align-items-center">
+    <div class="col-12 justify-content-center d-flex mb-3">
+      <div class="card">
+        <a routerLink="/allAdvertisements">
+          <div class="card-body">
+            <h4 class="card-title"><strong>Všetky Inzeráty</strong></h4>
+            <img class="img-fluid" src="../../assets/Všetko.png" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr class="mb-4" />
+  <div class="row text-center d-flex justify-content-center align-items-center">
+    <div
+      class="d-flex justify-content-center col-sm-6 col-md-3 col-lg-3 col-xl-3 mb-3"
+      *ngFor="let category of categoryArray"
+    >
       <div class="card">
         <a (click)="rerouteToCategory(category.id)">
-        <div class="card-body">
-            <h4 class="card-title"><strong>{{ category.name }}</strong></h4>
-            <img class="img-fluid" [src]="category.imageOfCategory"/>
-        </div>
-      </a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <strong>{{ category.name }}</strong>
+            </h4>
+            <img class="img-fluid" [src]="category.imageOfCategory" />
+          </div>
+        </a>
       </div>
     </div>
   </div>

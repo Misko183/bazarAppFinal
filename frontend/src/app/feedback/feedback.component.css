@@ -1,4 +1,4 @@
-.maincantainer{
+/* .maincantainer{
   padding-top: 6rem;
   background: linear-gradient(210deg, #222222 20%, #0dcaf0 50%, #222222 80%);
 
@@ -9,9 +9,9 @@
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   /*background: black;*/
-
+/* 
 }
 
 input[type="text"]{
@@ -37,8 +37,8 @@ input[type="text"]{
 }
 
 .container-inside {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }
 
 
@@ -126,5 +126,4 @@ td{
   border-style: solid;
   border-width: 0;
 
-}
-
+}  */

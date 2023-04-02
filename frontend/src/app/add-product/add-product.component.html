@@ -188,7 +188,8 @@
 
         <div class="row">
           <div class="col-6">
-            <select
+
+            <mat-select
               class="form-control"
               type="file"
               style="
@@ -197,16 +198,16 @@
                 margin-bottom: 43px;
               "
               required
-              (change)="onImageUpload({ event: $event })"
+              [(value)]="selectedCategory"
               [(ngModel)]="allProducts.kindOfCategory"
               name="category"
               (selectionChange)="chooseCategory()"
+
             >
-            <option selected>Vyber kategóriu</option>
-              <option *ngFor="let category of categoryArray" [value]="category">
+              <mat-option *ngFor="let category of categoryArray" [value]="category">
                 {{ category.name }}
-              </option>
-            </select>
+              </mat-option>
+            </mat-select>
           </div>
           <div class="col-6">
             <input

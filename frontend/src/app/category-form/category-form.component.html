@@ -8,14 +8,10 @@
       <form
         #addCategoryForm="ngForm"
         class="text-center"
-        style="
-          width: 320px;
-          padding: 25px;
-          box-shadow: 2px 7px 18px;
-          border-radius: 7px;
-        "
-      >
-        <label
+        style="padding: 25px;">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label
           class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
           style="font-weight: bold; font-size: 18px"
           >Názov kategórie:</label
@@ -32,7 +28,9 @@
           "
           required
         />
-        <label
+        </div>
+        <div class="col-12 col-md-6">
+          <label
           class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
           style="font-size: 18px; font-weight: bold"
           >Ikona kategórie:</label
@@ -44,7 +42,15 @@
           required
           (change)="onImageUpload({event : $event})"
         />
+        </div>
+        
+      </div>
+      <div class="col-12 mb-3">
         <img [src]="this.liveDemo" class="img-fluid"/>
+      </div>
+        
+       
+        
         <button
           (click)="createCategory()"
           class="btn btn-primary"

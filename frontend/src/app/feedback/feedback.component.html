@@ -1,61 +1,171 @@
-<div class="maincantainer" *ngIf="!isAdmin()">
-<div class="container" >
-<div class="container-inside"  >
- <h2><div class="bold-text">Spätná väzba</div></h2>
-  <form  [formGroup]="feedbackForm" (ngSubmit)="completeFeedback()">
-    <div class="form-group">
-      <label class="l-input" > <div class="bold-text">Názov návrhu:</div></label>
-      <div class="input">
-        <input type="text" [(ngModel)]="feedback.nameOfSuggestion"
-               id="nameOfSuggestion"
-               name="nameOfSuggestion"
-               formControlName="nameOfSuggestion"
-               class="form-control"
-               placeholder="Názov návrhu"
-               required>
-
-        <mat-error *ngIf="feedbackForm.controls['nameOfSuggestion'].invalid && feedbackForm.controls['nameOfSuggestion'].touched">
-        <span *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required">
-          Názov návrhu je povinný
-        </span>
-        </mat-error>
-      </div>
-
-      <label class="t-input"> <div class="bold-text">Špecifikácia návrhu:</div></label>
-      <div class="textarea">
-        <textarea [(ngModel)]="feedback.description"
-                  id="description"
-                  name="description"
-                  formControlName="description"
-                  class="form-control"
-                  placeholder="Špecifikácia návrhu"
-                  required></textarea>
-
-        <mat-error *ngIf="feedbackForm.controls.description.invalid && feedbackForm.controls.description.touched">
-        <span *ngIf="feedbackForm.controls.description.errors.required">
-          Popis návrhu je povinný
-        </span>
-        </mat-error>
-
-      </div>
-
-<!--      *ngIf="!isAdmin()-->
+<!-- <div class="container" *ngIf="!isAdmin()">
+  <div class="container-inside">
+    <form [formGroup]="feedbackForm" (ngSubmit)="completeFeedback()">
       <div class="form-group">
-        <div class="button">
-          <button type="submit" [disabled]="!feedbackForm.valid" class="btn">Poslať návrh</button>
-          <div *ngIf="success" class="btn-ok">
-            <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne odoslaná.
+        <label class="l-input">
+          <div class="bold-text">Názov návrhu:</div></label
+        >
+        <div class="input">
+          <input
+            type="text"
+            [(ngModel)]="feedback.nameOfSuggestion"
+            id="nameOfSuggestion"
+            name="nameOfSuggestion"
+            formControlName="nameOfSuggestion"
+            class="form-control"
+            placeholder="Názov návrhu"
+            required
+          />
+
+          <mat-error
+            *ngIf="
+              feedbackForm.controls['nameOfSuggestion'].invalid &&
+              feedbackForm.controls['nameOfSuggestion'].touched
+            "
+          >
+            <span
+              *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required"
+            >
+              Názov návrhu je povinný
+            </span>
+          </mat-error>
+        </div>
+
+        <label class="t-input">
+          <div class="bold-text">Špecifikácia návrhu:</div></label
+        >
+        <div class="textarea">
+          <textarea
+            [(ngModel)]="feedback.description"
+            id="description"
+            name="description"
+            formControlName="description"
+            class="form-control"
+            placeholder="Špecifikácia návrhu"
+            required
+          ></textarea>
+
+          <mat-error
+            *ngIf="
+              feedbackForm.controls.description.invalid &&
+              feedbackForm.controls.description.touched
+            "
+          >
+            <span *ngIf="feedbackForm.controls.description.errors.required">
+              Popis návrhu je povinný
+            </span>
+          </mat-error>
+        </div>
+        <div class="form-group">   
+          <div class="button">
+            <button type="submit" [disabled]="!feedbackForm.valid" class="btn">
+              Poslať návrh
+            </button>
+            <div *ngIf="success" class="btn-ok">
+              <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne
+              odoslaná.
+            </div>
           </div>
         </div>
       </div>
+    </form>
+  </div>
+</div> -->
+
+<div class="container" *ngIf="!isAdmin()">
+  <div
+    class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+  >
+    <div
+      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
+    >
+      <form
+        [formGroup]="feedbackForm" (ngSubmit)="completeFeedback()"
+        class="text-center"
+        style="padding: 25px; width: 100%;">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-weight: bold; font-size: 18px"
+          >Názov návrhu:</label
+        >
+        <input
+        [(ngModel)]="feedback.nameOfSuggestion"
+        id="nameOfSuggestion"
+        name="nameOfSuggestion"
+        formControlName="nameOfSuggestion"
+          class="form-control"
+          type="text"
+          style="
+            box-shadow: 7px 6px 17px;
+            border-radius: 7;
+            margin-bottom: 22px;
+          "
+          required
+        />
+        <mat-error
+        *ngIf="
+          feedbackForm.controls['nameOfSuggestion'].invalid &&
+          feedbackForm.controls['nameOfSuggestion'].touched
+        "
+      >
+        <span
+          *ngIf="feedbackForm.controls['nameOfSuggestion'].errors.required"
+        >
+          Názov návrhu je povinný
+        </span>
+      </mat-error>
+        </div>
+        <div class="col-12 col-md-6">
+          <label
+          class="form-label d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-start justify-content-start"
+          style="font-size: 18px; font-weight: bold"
+          >Špecifikácia návrhu:</label
+        >
+        <textarea
+        [(ngModel)]="feedback.description"
+            id="description"
+            name="description"
+            formControlName="description"
+        rows="1"
+          class="form-control"
+          style="box-shadow: 7px 7px 17px; border-width: 0; margin-bottom: 22px"
+          required
+          
+        ></textarea>
+        <mat-error
+            *ngIf="
+              feedbackForm.controls.description.invalid &&
+              feedbackForm.controls.description.touched
+            "
+          >
+            <span *ngIf="feedbackForm.controls.description.errors.required">
+              Popis návrhu je povinný
+            </span>
+          </mat-error>
+        </div>
+        
+      </div>  
+      <div *ngIf="success" class="btn-ok">
+              <strong>Ďakujeme! </strong>Vaša spätná väzba bola úspešne
+              odoslaná.
+        </div>   
+        <button
+          
+          class="btn btn-primary"
+          type="submit" [disabled]="!feedbackForm.valid"
+          style="background: #0dcaf0; color: rgb(0, 0, 0); font-weight: bold"
+        >
+          Vytvoriť kategóriu
+        </button>
+      </form>
     </div>
-  </form>
-</div>
-</div>
+  </div>
 </div>
 
 
-<div class="containerAdmin" *ngIf="isAdmin()">
+<!-- <div class="containerAdmin" *ngIf="isAdmin()">
 <div class="containerAdmin-inside">
     <div class="col-md-12">
       <br>
@@ -88,6 +198,36 @@
       </table>
     </div>
   </div>
+</div> -->
+
+<!-- For admin -->
+<div class="container mt-5" *ngIf="isAdmin()">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Meno uživateľa</th>
+          <th scope="col">Email</th>
+          <th scope="col">Dátum odoslania</th>
+          <th scope="col">Názov návrhu</th>
+          <th scope="col">Špecifikácia návrhu</th>
+          <th scope="col">Vybavené</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of showFeedback">
+          <td>{{ feedback.userName }}</td>
+          <td>{{ feedback.email }}</td>
+          <td>{{ feedback.dateOfCreation }}</td>
+          <td>{{ feedback.nameOfSuggestion }}</td>
+          <td>{{ feedback.description }}</td>
+          <td>
+            <button class="btn btn-info" (click)="deleteFeedback(feedback)">
+              Vybavené
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-

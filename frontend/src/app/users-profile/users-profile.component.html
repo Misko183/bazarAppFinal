@@ -1,111 +1,263 @@
-
-<div class="containerAdmin" *ngIf="isAdmin()">
-<div class="containerAdmin-inside">
+<!-- <div class="containerAdmin" *ngIf="isAdmin()">
+  <div class="containerAdmin-inside">
     <div class="col-md-12">
-      <br>
+      <br />
       <h1>Informácie o užívateľoch</h1>
-      <br>
+      <br />
       <table class="table table-striped">
         <thead>
-        <tr>
-          <th>Meno uživateľa</th>
+          <tr>
+            <th>Meno uživateľa</th> -->
 <!--          <th>Heslo</th>-->
-          <th>Email</th>
-          <th>Telefonné číslo</th>
-          <th>Adresa</th>
-          <th>Vymazať uživateľa</th>
-        </tr>
+<!-- <th>Email</th>
+            <th>Telefonné číslo</th>
+            <th>Adresa</th>
+            <th>Vymazať uživateľa</th>
+          </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users">
-          <td><div class="align">{{user.username}}</div></td>
+          <tr *ngFor="let user of users">
+            <td>
+              <div class="align">{{ user.username }}</div>
+            </td> -->
 <!--          <td>{{user.password}}</td>-->
-          <td><div class="align">{{user.email}}</div></td>
-          <td><div class="align">{{user.phone}}</div></td>
-          <td><div class="align">{{user.address}}</div></td>
-          <td>
-            <button class="btn btn-danger" (click)="deleteUser(user)">Vymazať uživateľa</button>
-          </td>
-        </tr>
+<!-- <td>
+              <div class="align">{{ user.email }}</div>
+            </td>
+            <td>
+              <div class="align">{{ user.phone }}</div>
+            </td>
+            <td>
+              <div class="align">{{ user.address }}</div>
+            </td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteUser(user)">
+                Vymazať uživateľa
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div> -->
+
+<!-- Edit Profile Modal -->
+<!-- <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true"> -->
+  <!-- <jw-modal id="custom-modal-11">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal" [formGroup]="userForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" [(ngModel)]="user.username" formControlName="name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" [(ngModel)]="user.email" formControlName="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" [(ngModel)]="user.phone" formControlName="phone">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="user.password" formControlName="password">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" [(ngModel)]="user.address" formControlName="address"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="editUser()">Save Changes</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal('custom-modal-11')">Cancel</button>
+  </div>
+</div>
+</div>
+</jw-modal> -->
+  <!-- </div> -->
+
+<!-- End of user profile -->
+
+<!-- <div class="maincontainer" *ngIf="!isAdmin()">
+  <div class="container">
+    <div class="container-inside">
+      <h1><a>Vaše údaje:</a></h1>
+      <h1><a>Používateľské meno:</a> {{ user.username }}</h1> -->
+      <!--  <h2>Heslo: {{user.password}}</h2>-->
+      <!-- <h2><a>Email:</a> {{ user.email }}</h2>
+      <h2><a>Telefónne číslo:</a> {{ user.phone }}</h2>
+      <h2><a>Adresa:</a> {{ user.address }}</h2>
+      <button class="btn" (click)="openModal('custom-modal-1')">
+        Upraviť účet
+      </button>
+    </div>
+  </div>
+</div> -->
+
+<!-- For admin -->
+<div class="container mt-5" *ngIf="isAdmin()">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Meno uživateľa</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefónne číslo</th>
+          <th scope="col">Adresa</th>
+          <th scope="col">Vymazať uživateľa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.address }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteUser(user)">
+              Vymazať uživateľa
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
+<!-- For user -->
 
-
-<div class="maincontainer" *ngIf="!isAdmin()">
-<div class="container">
-<div class="container-inside">
-  <h1><a><fa-icon [icon]="faLinkedin"></fa-icon> Vaše údaje:</a></h1>
-  <h1><a>Používateľské meno:</a> {{user.username}}</h1>
-<!--  <h2>Heslo: {{user.password}}</h2>-->
-  <h2><a>Email:</a> {{user.email}}</h2>
-  <h2><a>Telefónne číslo:</a> {{user.phone}}</h2>
-  <h2><a>Adresa:</a> {{user.address}}</h2>
-  <button class="btn" (click)="openModal('custom-modal-1')">Upraviť účet</button>
-</div>
-</div>
+<div class="container mt-4" *ngIf="!isAdmin()">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Používateľské meno</label>
+              <input type="text" class="form-control" id="name" placeholder="{{ user.username }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label> 
+              <input type="email" class="form-control" id="email" placeholder="{{ user.email }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telefón</label>
+              <input type="tel" class="form-control" id="phone" placeholder="{{ user.phone }}" disabled>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Adresa</label>
+              <input type="text" class="form-control" id="address" rows="3" placeholder="{{ user.address }}" disabled>
+            </div>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#editProfileModal" (click)="openModal('custom-modal-1')" >Upraviť profil</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <jw-modal id="custom-modal-1">
-
   <div class="jw-container">
     <h2>Upraviť profil</h2>
-    <br>
-    <form class="form-horizontal" [formGroup]="userForm" >
+    <br />
+    <form class="form-horizontal" [formGroup]="userForm">
       <div class="form-group">
         <label class="" for="name">Uživateľské meno:</label>
         <div class="">
-          <input class="form-control" [(ngModel)]="user.username" formControlName="name" id="name" />
+          <input
+            class="form-control"
+            [(ngModel)]="user.username"
+            formControlName="name"
+            id="name"
+          />
         </div>
       </div>
-      <br>
+      <br />
       <div class="form-group">
         <label class="" for="email">Email:</label>
         <div class="">
-          <input class="form-control" type="email" [(ngModel)]="user.email" formControlName="email" id="email" required />
+          <input
+            class="form-control"
+            type="email"
+            [(ngModel)]="user.email"
+            formControlName="email"
+            id="email"
+            required
+          />
         </div>
       </div>
-      <br>
+      <br />
       <div class="form-group">
         <label class="" for="phone">Telefonné čislo:</label>
         <div class="">
-          <input class="form-control" type="tel" [(ngModel)]="user.phone" formControlName="phone" id="phone" required />
+          <input
+            class="form-control"
+            type="tel"
+            [(ngModel)]="user.phone"
+            formControlName="phone"
+            id="phone"
+            required
+          />
         </div>
       </div>
-      <br>
+      <br />
       <div class="">
         <label class="control-label col-sm-2" for="address">Adresa:</label>
         <div class="">
-          <input class="form-control" type="text" [(ngModel)]="user.address" formControlName="address" id="address" required />
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="user.address"
+            formControlName="address"
+            id="address"
+            required
+          />
         </div>
       </div>
-      <br>
+      <br />
       <div class="form-group">
         <label class="" for="password">Nové heslo:</label>
         <div class="">
-          <input class="form-control" type="text"  placeholder="Ak chcete nové heslo píšte sem" [(ngModel)]="user.password" formControlName="password" id="password" required />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Ak chcete nové heslo píšte sem"
+            [(ngModel)]="user.password"
+            formControlName="password"
+            id="password"
+            required
+          />
         </div>
       </div>
-      <br>
+      <br />
       <div class="form-group">
         <div class="">
-          <button type="submit" (click)="editUser()"  class="btn btn-danger">Uložiť zmeny</button>
+          <button type="submit" (click)="editUser()" class="btn btn-danger">
+            Uložiť zmeny
+          </button>
         </div>
       </div>
-<br>
-      <div *ngIf="check" >
-        <strong>Super!</strong> Úspešne ste zmenili svoje údaje. Priláste sa prosím znova o 5 sekund.
+      <br />
+      <div *ngIf="check">
+        <strong>Super!</strong> Úspešne ste zmenili svoje údaje. Priláste sa
+        prosím znova o 5 sekund.
       </div>
-      <br>
+      <br />
       <div class="">
-      <img src="../../assets/X.png" (click)="closeModal('custom-modal-1');" height="40">
+        <img
+          src="../../assets/X.png"
+          (click)="closeModal('custom-modal-1')"
+          height="40"
+        />
       </div>
     </form>
   </div>
-
-
 </jw-modal>
-

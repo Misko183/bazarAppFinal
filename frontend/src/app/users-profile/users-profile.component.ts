@@ -9,16 +9,13 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AppComponent} from "../app.component";
 import {AuthService} from "../security/authService";
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-users-profile',
   templateUrl: './users-profile.component.html',
   styleUrls: ['./users-profile.component.css']
 })
-export class UsersProfileComponent implements OnInit {
-
-  faLinkedin = faLinkedin;
+export class UsersProfileComponent implements OnInit {  
 
   users: User[];
   userForm: any;

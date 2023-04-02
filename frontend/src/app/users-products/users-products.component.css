@@ -1,0 +1,12 @@
+img{
+    float: center;
+      width:  100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 7px;
+  
+  }
+
+  .container {
+    margin-top: 5%;
+  }

@@ -36,7 +36,6 @@ div{
 
 .bubbles
 {
-  height: calc(100vh - 6rem );
   position: fixed;
   display: flex;
   z-index: -1;
@@ -165,8 +164,7 @@ div{
 }
 
 .everyThing{
-  padding-top: 6rem;
-  min-height: 100vh;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
