@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Renderer2, Input, OnInit} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
@@ -10,6 +10,30 @@ import {AuthService} from "./security/authService";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
+
+  isScrolled = false;
+
+  // @HostListener("window:scroll", [])
+  // onWindowScroll() {
+  //   const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  //   if (scrollPosition > 0) {
+  //     this.isScrolled = true;
+  //   } else {
+  //     this.isScrolled = false;
+  //   }
+  // }
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition > 0) {
+      this.isScrolled = true;
+      this.renderer.setStyle(document.querySelector('.navbar'), 'background', 'linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%)', 1);
+    } else {
+      this.isScrolled = false;
+      this.renderer.removeStyle(document.querySelector('.navbar'), 'background-color');
+    }
+  }
 
   navbarOpen = false;
   dropdownOpen = false;
@@ -26,7 +50,8 @@ export class AppComponent  {
 token: any = sessionStorage.getItem('token');
   constructor(
     private authServiceSecurtiy: AuthService,
-    private router: Router
+    private router: Router,
+    private renderer: Renderer2
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

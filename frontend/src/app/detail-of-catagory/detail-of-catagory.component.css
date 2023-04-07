@@ -2,6 +2,17 @@
 /*  background: radial-gradient(ellipse at left top, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
 /*}*/
 
+.linled{
+  cursor: pointer;
+}
+
+.cardic {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 15px;
+  border: 0;
+  padding: 15px;
+}
+
 
 h1{
   text-align: center;

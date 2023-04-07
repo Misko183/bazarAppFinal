@@ -10,3 +10,11 @@ img{
   .container {
     margin-top: 5%;
   }
+
+  h1{
+    text-align: center;
+    color: #0dcaf0;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+  }

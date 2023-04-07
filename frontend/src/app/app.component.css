@@ -161,7 +161,6 @@ a:hover {
 
 .navbar {
   background-color: transparent !important;
-  background-color: rgb(255, 255, 255, 0.1) !important; 
 }
 
 .container-xl {
@@ -202,7 +201,7 @@ p {
 }
 
 .inner-header {
-  height:15vh;
+  height:20vh;
   width:100%;
   margin: 0;
   padding: 0;

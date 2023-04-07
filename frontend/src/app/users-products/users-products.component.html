@@ -20,7 +20,7 @@
 </div>
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
   <h1>Moje inzeráty</h1>
   <div class="row text-center d-lg-flex d-xl-flex justify-content-center align-items-lg-center justify-content-xl-center align-items-xl-center m-2">
       <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 mb-3" style="padding: 5px; margin: 15px; box-shadow: 7px 7px 17px;border-radius: 7px;" *ngFor="let product of allProducts">
@@ -30,6 +30,21 @@
           <div class="d-flex justify-content-center">
             <button class="btn btn-primary" type="button" style="margin-right: 15px;background: rgb(42,0,162);" (click)="editProduct(product.id)">Upraviť inzerát</button>
             <button class="btn btn-primary" type="button" style="background: rgb(214,0,0);" (click)="deleteProduct(product.id)">Vymazať inzerát</button></div>
+      </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row">
+      <div class="col text-center" style="padding-right: 0px;padding-left: 0px;" *ngFor="let product of allProducts">
+          <h1>{{product.name}}</h1>
+          <img [src]="returnGoodImage(product.image.id)" class="img-fluid" style="min-width: 200px;min-height: 150px;" />
+          <p>Počet videní: {{product.countClicksOnProduct}}</p>
+          <div class="btn-group" role="group">
+            <button class="btn btn-primary" type="button" style="margin-right: 0px;background: var(--bs-purple);" (click)="editProduct(product.id)">Upraviť</button>
+            <button class="btn btn-primary" type="button" style="background: var(--bs-danger);" (click)="deleteProduct(product.id)">Vymazať</button>
+          </div>
       </div>
   </div>
 </div>

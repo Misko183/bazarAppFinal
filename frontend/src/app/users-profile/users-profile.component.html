@@ -166,7 +166,20 @@
 
 <jw-modal id="custom-modal-1">
   <div class="jw-container">
-    <h2>Upraviť profil</h2>
+    <div class="row">
+      <div class="col-10">
+        <h2>Upraviť profil</h2>
+      </div>
+      <div class="col-2">
+        <img
+        src="../../assets/X.png"
+        (click)="closeModal('custom-modal-1')"
+        height="40"
+        class="linked"
+      />
+      </div>
+    </div>
+    
     <br />
     <form class="form-horizontal" [formGroup]="userForm">
       <div class="form-group">
@@ -251,13 +264,6 @@
         prosím znova o 5 sekund.
       </div>
       <br />
-      <div class="">
-        <img
-          src="../../assets/X.png"
-          (click)="closeModal('custom-modal-1')"
-          height="40"
-        />
-      </div>
     </form>
   </div>
 </jw-modal>

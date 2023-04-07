@@ -9,6 +9,17 @@
 
 }
 
+.linled{
+  cursor: pointer;
+}
+
+.cardic {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 15px;
+  border: 0;
+  padding: 15px;
+}
+
 
 
 h1{

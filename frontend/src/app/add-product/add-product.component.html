@@ -220,15 +220,16 @@
               "
               required
               (change)="onImagesUpload({event: $event})"
+              multiple
             />
           </div>
         </div>
 
             <div class="row" *ngIf="selectedFilesUrls.length > 0">
-              <div class="col-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
-                <div>
+              <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
+                <div class="d-flex flex-column align-items-center">
                   <img class="mb-2" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
-                  <button type="button" (click)="removeSelectedFile(i)">Remove</button>
+                  <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
                 </div>
               </div>
             </div>

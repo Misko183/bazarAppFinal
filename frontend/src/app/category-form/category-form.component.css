@@ -7,3 +7,12 @@
     position: absolute !important;
     bottom: 0 !important;
 }
+
+img{
+      float: center;
+      width:  115px;
+      height: 115px;
+      object-fit: cover;
+      border: 0px;
+      border-radius: 3px;
+  }
