@@ -333,7 +333,7 @@ body{
   -o-transform: translate(0,  0);
   transform: translate(0,  0);
   padding: 10px;
-  height: 250px;
+  height: 50vh;
   overflow: auto;
 }
 .direct-chat-msg, .direct-chat-text {
@@ -363,6 +363,7 @@ body{
   border: 1px solid #d2d6de;
   margin: 5px 0 0 50px;
   color: #444;
+  width: fit-content;
 }
 .direct-chat-text:after, .direct-chat-text:before {
   position: absolute;
@@ -385,7 +386,7 @@ body{
 }
 .right .direct-chat-text {
   margin-right: 50px;
-  margin-left: 0;
+  margin-left: auto;
 }
 .right .direct-chat-text:after, .right .direct-chat-text:before {
   right: auto;

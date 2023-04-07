@@ -89,8 +89,8 @@
       </tr>
       <tr>
         <th scope="row">Fotografia</th>
-        <td><img class="img-fluid" [src]="dbImage" (click)="openModal('custom-modal-1', dbImage)"></td>
-        <td><img class="img-fluid"[src]="dbImage2" (click)="openModal('custom-modal-1', dbImage2)"></td>
+        <td><img class="image" [src]="dbImage" (click)="openModal('custom-modal-1', dbImage)"></td>
+        <td><img class="image" [src]="dbImage2" (click)="openModal('custom-modal-1', dbImage2)"></td>
       </tr>
       <tr>
         <th scope="row">Používateľ</th>
@@ -120,7 +120,7 @@
 
 <jw-modal id="custom-modal-1">
   <div class="modal-body">
-    <img class="imageDetail" [src]="currentImage">
+    <img class="img-fluid imageDetail" [src]="currentImage">
   </div>
   <br>
   <div class="modal-footer">
@@ -129,8 +129,8 @@
 </jw-modal>
 
 <jw-modal id="custom-modal-2">
-  <div class="modal-body">
-    <img class="imageDetail" [src]="currentImages">
+  <div class="modal-body d-flex align-items-center">
+    <img class="img-fluid imageDetail" [src]="currentImages">
   </div>
   <br>
   <div class="modal-footer">
