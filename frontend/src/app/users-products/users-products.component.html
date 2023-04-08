@@ -37,7 +37,7 @@
 
 <div class="container">
   <div class="row">
-      <div class="col text-center" style="padding-right: 0px;padding-left: 0px;" *ngFor="let product of allProducts">
+      <div class="col text-center cardic" style="padding-right: 0px;padding-left: 0px;" *ngFor="let product of allProducts">
           <h1>{{product.name}}</h1>
           <img [src]="returnGoodImage(product.image.id)" class="img-fluid" style="min-width: 200px;min-height: 150px;" />
           <p>Počet videní: {{product.countClicksOnProduct}}</p>

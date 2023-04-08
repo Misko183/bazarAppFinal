@@ -432,6 +432,13 @@ img{
   box-shadow: 40vmin 0 5.927226395302844vmin currentColor;
 }
 
+.cardic {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 15px;
+  border: 0;
+  padding: 15px;
+}
+
 
 
 

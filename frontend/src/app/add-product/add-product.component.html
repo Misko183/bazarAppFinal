@@ -109,7 +109,7 @@
         #addProductForm="ngForm"
         class="text-center"
         style="
-          width: 90%;
+          width: 60%;
           padding: 25px;
           box-shadow: 2px 7px 18px;
           border-radius: 7px;
@@ -187,7 +187,7 @@
         />
 
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-6">
 
             <mat-select
               class="form-control"
@@ -195,7 +195,7 @@
               style="
                 box-shadow: 7px 7px 17px;
                 border-width: 0;
-                margin-bottom: 43px;
+                margin-bottom: 22px;
               "
               required
               [(value)]="selectedCategory"
@@ -209,19 +209,27 @@
               </mat-option>
             </mat-select>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-md-6">
+            <label for="img" class="input-for-img">Vložiť fotografie</label>
             <input
+            id="img"
               class="form-control"
               type="file"
               style="
                 box-shadow: 7px 7px 17px;
                 border-width: 0;
                 margin-bottom: 43px;
+                display: none;
               "
               required
               (change)="onImagesUpload({event: $event})"
               multiple
+              accept="image/*"
+              title = "Žiadne fotografie nie sú vložené"
             />
+            <!-- <input type="file" name="uploadfile" id="img" style="display:none;"/>
+            <label for="img">Click me to upload image</label> -->
+
           </div>
         </div>
 

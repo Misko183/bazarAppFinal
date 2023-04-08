@@ -65,7 +65,7 @@ h1{
 
 .text{
   text-decoration-line: none;
-  color: #00ffff;
+  color: black;
 }
 
 img{
@@ -81,8 +81,10 @@ img{
 ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex
 {
   /*background-color: lightskyblue;*/
-  background-color: #0a257e;
-  border-radius: 5px;
+  /* background-color: #bbcbff; */
+  border-radius: 7px !important; 
+  padding: 5px !important;
+  box-shadow: 3px 3px 17px #000000;
 }
 
 .mat-label{
@@ -110,16 +112,25 @@ input{
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #0dcaf0;
+  color: #727272;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #0dcaf0;
+  color: #727272;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #0dcaf0;
+  color: #727272;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-underline::before {
+ display: none;
+ content: none;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background: none !important;
 }
 
 
@@ -130,7 +141,7 @@ input{
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
-  border: black solid 2px;
+  border: none;
   -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
   -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
   box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
@@ -144,8 +155,8 @@ input{
 
 .apply
 {
-  background: #03036c;
-  border: black solid 2px;
+  background: #009fbf;
+  border: none;
   margin-right: 1%;
   margin-left: 1%;
   -webkit-border-radius: 30px;
@@ -227,7 +238,7 @@ input{
 }
 
 .filter-text{
-  color: #fff;
+  color: #000;
   text-decoration-line: none;
 }
 

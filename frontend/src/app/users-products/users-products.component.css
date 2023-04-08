@@ -18,3 +18,10 @@ img{
     z-index: 1;
     font-weight: bold;
   }
+
+  .cardic {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 15px;
+    border: 0;
+    padding: 15px;
+  }

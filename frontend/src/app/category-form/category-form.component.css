@@ -16,3 +16,22 @@ img{
       border: 0px;
       border-radius: 3px;
   }
+
+  .input-for-img{
+    color: black; 
+    height: 36px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 7px 7px 17px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  .input-for-img:hover{
+    background-color: #f2f2f2;
+    color: black;
+    box-shadow: 7px 7px 17px rgba(0,172,193,1);
+  }
