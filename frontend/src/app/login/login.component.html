@@ -46,13 +46,14 @@
       <p style="text-align: center; padding-right: 30px; padding-left: 30px">
         Zadajte svoje osobné údaje a vydajte sa na cestu s nami.
       </p>
-      <button
+      <a
+        [routerLink]="['/registrationByEmail']"
         class="btn btn-primary"
         type="button"
-        style="border-radius: 8px; background: rgb(75, 112, 226); margin: 0 20%;"
+        style="border-radius: 8px; background: rgb(75, 112, 226); margin: 0 20%"
       >
         Registrovať sa
-      </button>
+      </a>
     </div>
     <div
       class="col-lg-8 col-xl-7 col-xxl-6 text-center d-flex d-xxl-flex flex-column justify-content-center align-items-center justify-content-sm-center align-items-sm-center justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center justify-content-xxl-center align-items-xxl-center"
@@ -67,15 +68,24 @@
           4px 4px 10px rgb(209, 217, 230);
       "
     >
-      <h1 style="margin-bottom: 20px">Registrácia</h1>
-      <form class="text-center d-flex flex-column">
+      <h1 style="margin-bottom: 20px">Prihlásenie</h1>
+      <form
+        class="text-center d-flex flex-column"
+        name="form"
+        (ngSubmit)="login(); refresh()"
+        #loginForm="ngForm"
+      >
         <p style="text-align: center; margin-bottom: 6px">
           Použi svoje meno alebo email na registráciu.
         </p>
         <input
+          [(ngModel)]="model.username"
+          #username="ngModel"
+          name="username"
+          matInput
           class="form-control"
           type="text"
-          placeholder="Email"
+          placeholder="Použivatelské meno"
           style="
             border-radius: 8px;
             border-width: 0px;
@@ -85,10 +95,14 @@
             margin-bottom: 15px;
             height: 40px;
           "
+          required
         /><input
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          name="password"
           class="form-control"
           type="text"
-          placeholder="Password"
+          placeholder="Heslo"
           style="
             border-radius: 8px;
             border-width: 0px;
@@ -98,6 +112,8 @@
             margin-bottom: 15px;
             height: 40px;
           "
+          required
+          matInput
         /><a
           href="#"
           style="
@@ -109,6 +125,7 @@
           "
           >Zabudnuté heslo?</a
         ><button
+          [disabled]="!loginForm.form.valid"
           class="btn btn-primary"
           type="button"
           style="
