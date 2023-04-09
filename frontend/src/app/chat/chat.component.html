@@ -152,51 +152,45 @@
           <div class="direct-chat-messages">
             <div *ngFor="let chat of chatList">
               <!-- Message. Default to the left -->
-              <div class="direct-chat-msg">
+              <div class="direct-chat-msg"  *ngIf="chat.userSender.username !== currentUser">
                 <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name float-start">On</span>
+                  <span class="direct-chat-name float-start">{{chat.userSender.username}}</span>
                 </div>
                 <!-- /.direct-chat-info -->
                 <img
                   class="direct-chat-img"
-                  src="https://bootdey.com/img/Content/user_1.jpg"
+                  src="https://bootdey.com/img/Content/avatar/avatar4.png"
                   alt="Message User Image"
                 /><!-- /.direct-chat-img -->
                 <div
                   class="direct-chat-text"
-                  *ngIf="chat.userSender.username !== currentUser"
-                >
-                  {{ chat.message }}
-                </div>
-                <!-- /.direct-chat-text -->
-              </div>
-              <!-- /.direct-chat-msg -->
 
-              <!-- Message to the right -->
-              <div class="direct-chat-msg right">
-                <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name float-end">Ja</span>
-                </div>
-                <!-- /.direct-chat-info -->
-                <img
-                  class="direct-chat-img"
-                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                  alt="Message User Image"
-                /><!-- /.direct-chat-img -->
-                <div
-                  class="direct-chat-text"
-                  *ngIf="chat.userSender.username === currentUser"
                 >
                   {{ chat.message }}
                 </div>
                 <!-- /.direct-chat-text -->
               </div>
-              <!-- /.direct-chat-msg -->
+
+              <div class="direct-chat-msg right" *ngIf="chat.userSender.username === currentUser">
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name float-end">{{chat.userSender.username}}</span>
+                </div>
+
+                <img
+                  class="direct-chat-img"
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  alt="Message User Image"
+                />
+                <div
+                  class="direct-chat-text"
+                >
+                  {{ chat.message }}
+                </div>
+              </div>
             </div>
           </div>
-          <!--/.direct-chat-messages-->
         </div>
-        <!-- /.box-body -->
+
         <div class="box-footer">
           <form #chatForm="ngForm" (ngSubmit)="sendChat(chatInput)">
             <div class="input-group">
