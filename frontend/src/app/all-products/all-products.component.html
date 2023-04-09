@@ -1,8 +1,7 @@
 <div class="container">
   <div class="everyThing">
-    <br />
-    <div class="header">
-      <mat-form-field appearance="fill" class="option">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-lg-3"> <mat-form-field appearance="fill" class="option">
         <mat-label><a class="filter-text">Zoradiť podľa:</a></mat-label>
         <mat-select [(value)]="selected" (selectionChange)="changeState()">
           <mat-option value="Name">Názov</mat-option>
@@ -12,13 +11,16 @@
           <mat-option value="Clicks">Počeť videní</mat-option>
           <a class="filter-text"></a>
         </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
+      </mat-form-field></div>
+      <div class="col-12 col-sm-6 col-lg-3"><mat-form-field appearance="fill">
         <mat-label> <a class="filter-text">Vyhľadávanie</a></mat-label>
-        <input matInput (keyup)="filterProduct($event)" placeholder="Hľadaj" />
-      </mat-form-field>
-
-      <mat-form-field class="mat_input minsz" appearance="fill">
+        <input
+          matInput
+          (keyup)="filterProduct($event)"
+          placeholder="Hľadaj"
+        />
+      </mat-form-field></div>
+      <div class="col-6 col-sm-6 col-lg-3"><mat-form-field class="mat_input minsz" appearance="fill">
         <mat-label><a class="filter-text">Minimálna cena</a></mat-label>
         <input
           matInput
@@ -27,9 +29,8 @@
           [(ngModel)]="min_value"
           placeholder="Píš iba čísla"
         />
-      </mat-form-field>
-
-      <mat-form-field class="mat_input" appearance="fill">
+      </mat-form-field></div>
+      <div class="col-6 col-sm-6 col-lg-3"><mat-form-field class="mat_input" appearance="fill">
         <mat-label><a class="filter-text">Maximálna cena</a></mat-label>
         <input
           matInput
@@ -38,54 +39,50 @@
           [(ngModel)]="max_value"
           placeholder="Píš iba čísla"
         />
-      </mat-form-field>
-
-      <button
+      </mat-form-field></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-3 col-xxl-2 mb-2"><button
         mat-raised-button
         color="primary"
         class="apply"
         (click)="filterPrice()"
       >
         Aplikuj filter
-      </button>
-
-      <button
+      </button></div>
+      <div class="col-xl-3 col-xxl-2"><button
         mat-raised-button
         color="warn"
         class="reset"
         (click)="resetFilter()"
       >
         Obnov filter
-      </button>
+      </button></div>
     </div>
-
     <!-- <div class = "grid-container">
   <div class="grid-item" *ngFor="let product of allProducts;"  >
-
     <button  class="small_btn"  mat-button routerLink="/detail/{{product.id}}"  >
-      <a class="text">{{product.name}}</a><br> -->
+      <a class="text">{{product.name}}<br></a>
 
-    <!--        <div class="picture" *ngIf=dbImageF>-->
-    <!--          <img [src]="returnGoodImage(product.image.id)" >-->
-    <!--        </div>-->
-    <!-- <div class="picture" >
-        <img [src]="this.product.image" >
-      </div>
-
+      <div class="picture" >
+                <img [src]="this.product.image" >
+              </div>
       <br>
       <a class="text"> Cena: {{product.price}}</a>
       <br>
       <a class="text">Počet videní: {{product.countClicksOnProduct}}</a>
-        </button>
-
+    </button>
   </div>
 </div>
+
 </div> -->
-    <div class="row mt-5" style="margin-top: 90px !important;">
+  <hr>
+    <div class="row mt-3">
       <div
         class="col text-center linled cardic"
         routerLink="/detail/{{ product.id }}"
         *ngFor="let product of allProducts"
+        style="max-width: 600px;"
       >
         <h1>{{ product.name }}</h1>
         <img
@@ -136,16 +133,16 @@
           </div>
         </div>
         <!-- <div class="row">
-          <div class="col">
-            <a
-              mat-raised-button
-              color="primary"
-              class="btn btn-info"
-              routerLink="/detail/{{ product.id }}"
-              >Detail</a
-            >
-          </div>
-        </div> -->
+      <div class="col">
+        <a
+          mat-raised-button
+          color="primary"
+          class="btn btn-info"
+          routerLink="/detail/{{ product.id }}"
+          >Detail</a
+        >
+      </div>
+    </div> -->
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ export class ConfirmVerificationComponent implements OnInit {
     );
     setTimeout(() => {
       router.navigate(['/login']);
-    } , 5000);
+    } , 500000);
 
 
   }

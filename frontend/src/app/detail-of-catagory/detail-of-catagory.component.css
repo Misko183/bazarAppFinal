@@ -2,7 +2,7 @@
   /*background:  radial-gradient(ellipse at left bottom, #b1e5ee 5%, #2d89d4 25%, #1d3363 50%, #000000 100%);*/
 
   /*overflow: hidden;*/
-  padding-top: 6rem;
+  padding-top: 2rem;
   background-repeat: no-repeat;
   overflow: hidden;
   background-attachment: fixed;
@@ -15,8 +15,9 @@
 
 .cardic {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border: 1px solid #0000002e !important;
+  border-radius: 8px;
   margin: 15px;
-  border: 0;
   padding: 15px;
 }
 
@@ -24,10 +25,10 @@
 
 h1{
   text-align: center;
-  color: #0dcaf0;
+  color: #000000;
   position: relative;
   z-index: 1;
-  font-weight: bold;
+  font-weight: 400;
 }
 .grid-container{
 
@@ -74,6 +75,7 @@ img{
 }
 
 .mat-form-field{
+  width: 100%;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -85,6 +87,8 @@ img{
   border-radius: 7px !important; 
   padding: 5px !important;
   box-shadow: 3px 3px 17px #000000;
+  box-shadow: inset -2px -2px 4px #f9f9f9, inset 2px 2px 4px #d1d9e6;
+  background: #e8f7ff;
 }
 
 .mat-label{
@@ -135,6 +139,7 @@ input{
 
 
 .reset{
+  width: 100%;
   background: #ad0000;
   margin-right: 1%;
   margin-left: 1%;
@@ -155,6 +160,7 @@ input{
 
 .apply
 {
+  width: 100%;
   background: #009fbf;
   border: none;
   margin-right: 1%;
@@ -362,10 +368,6 @@ input{
   }
 }
 @media(max-width: 800px){
-  h1{
-    padding-top: 6rem;
-  }
-
   header{
     margin-top: 0;
   }
