@@ -1,9 +1,7 @@
 h1{
   text-align: center;
-  color: #0dcaf0;
   position: relative;
   z-index: 1;
-  font-weight: bold;
 }
 .grid-container{
 
@@ -437,6 +435,8 @@ img{
   margin: 15px;
   border: 0;
   padding: 15px;
+  border: 1px solid #0000002e !important;
+  border-radius: 8px;
 }
 
 

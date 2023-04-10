@@ -13,10 +13,8 @@ img{
 
   h1{
     text-align: center;
-    color: #0dcaf0;
     position: relative;
     z-index: 1;
-    font-weight: bold;
   }
 
   .cardic {
@@ -24,4 +22,28 @@ img{
     margin: 15px;
     border: 0;
     padding: 15px;
+    border: 1px solid #0000002e !important;
+    border-radius: 8px;
+  }
+
+  .link{
+    cursor: pointer;
+  }
+
+  .input-for-img{
+    color: black; 
+    height: 36px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 7px 7px 17px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+
+  .input-for-img:hover{
+    background-color: #f2f2f2;
+    color: black;
   }

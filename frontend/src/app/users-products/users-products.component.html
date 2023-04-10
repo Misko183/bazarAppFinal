@@ -37,10 +37,38 @@
 
 <div class="container">
   <div class="row">
-      <div class="col text-center cardic" style="padding-right: 0px;padding-left: 0px;" *ngFor="let product of allProducts">
-          <h1>{{product.name}}</h1>
-          <img [src]="returnGoodImage(product.image.id)" class="img-fluid" style="min-width: 200px;min-height: 150px;" />
-          <p>Počet videní: {{product.countClicksOnProduct}}</p>
+      <div class="col text-center cardic" style="padding-right: 5px;padding-left: 5px;" *ngFor="let product of allProducts">
+          <h1 routerLink="/detail/{{product.id}}" class="link">{{product.name}}</h1>
+          <img routerLink="/detail/{{product.id}}" [src]="returnGoodImage(product.image.id)" class="img-fluid link" style="min-width: 200px;min-height: 150px;" />
+          <div class="row mt-3 px-3 link" routerLink="/detail/{{product.id}}">
+            <div class="col" style="text-align: left">
+              <p><strong>Počet videní:</strong></p>
+            </div>
+            <div class="col" style="text-align: right">
+              {{ product.countClicksOnProduct }}
+              <svg
+                width="16px"
+                height="16px"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    fill="#000000"
+                    fill-rule="evenodd"
+                    d="M3.415 10.242c-.067-.086-.13-.167-.186-.242a16.806 16.806 0 011.803-2.025C6.429 6.648 8.187 5.5 10 5.5c1.813 0 3.57 1.148 4.968 2.475A16.816 16.816 0 0116.771 10a16.9 16.9 0 01-1.803 2.025C13.57 13.352 11.813 14.5 10 14.5c-1.813 0-3.57-1.148-4.968-2.475a16.799 16.799 0 01-1.617-1.783zm15.423-.788L18 10l.838.546-.002.003-.003.004-.01.016-.037.054a17.123 17.123 0 01-.628.854 18.805 18.805 0 01-1.812 1.998C14.848 14.898 12.606 16.5 10 16.5s-4.848-1.602-6.346-3.025a18.806 18.806 0 01-2.44-2.852 6.01 6.01 0 01-.037-.054l-.01-.016-.003-.004-.001-.002c0-.001-.001-.001.837-.547l-.838-.546.002-.003.003-.004.01-.016a6.84 6.84 0 01.17-.245 18.804 18.804 0 012.308-2.66C5.151 5.1 7.394 3.499 10 3.499s4.848 1.602 6.346 3.025a18.803 18.803 0 012.44 2.852l.037.054.01.016.003.004.001.002zM18 10l.838-.546.355.546-.355.546L18 10zM1.162 9.454L2 10l-.838.546L.807 10l.355-.546zM9 10a1 1 0 112 0 1 1 0 01-2 0zm1-3a3 3 0 100 6 3 3 0 000-6z"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          </div>
           <div class="btn-group" role="group">
             <button class="btn btn-primary" type="button" style="margin-right: 0px;background: var(--bs-purple);" (click)="editProduct(product.id)">Upraviť</button>
             <button class="btn btn-primary" type="button" style="background: var(--bs-danger);" (click)="deleteProduct(product.id)">Vymazať</button>
@@ -53,7 +81,7 @@
 <jw-modal id="custom-modal-1"  >
   <div class="jw-container">
   <div class="container">
-    <form class="example-form"  >
+    <form class="example-form d-flex flex-column justify-content-center" style="width: 100%;">
       <h1>Upraviť inzerát</h1>
       <div class="form-group">
         <label class="" > <div class="bold-text"> Názov:</div></label>
@@ -63,7 +91,9 @@
             id="name"
             name="name"
             class="form-control"
-            required #name="ngModel">
+            required #name="ngModel"
+            style="border-radius: 7px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
 
         </div>
 <br>
@@ -74,7 +104,8 @@
                   id="description"
                   name="description"
                   class="form-control"
-                  required #description="ngModel"></textarea>
+                  required #description="ngModel" style="border-radius: 7px;
+                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);"></textarea>
 
 
         </div>
@@ -86,7 +117,8 @@
                  id="price"
                  name="price"
                  class="form-control"
-                 required #price="ngModel">
+                 required #price="ngModel" style="border-radius: 7px;
+                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
 
         </div>
         <br>
@@ -96,13 +128,14 @@
                  id="localization"
                  name="localization"
                  class="form-control"
-                 required #localization="ngModel">
+                 required #localization="ngModel" style="border-radius: 7px;
+                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);">
 
         </div>
         <br>
         <mat-label class="">Vyber kategóriu:</mat-label>
         <div class="option">
-          <mat-form-field appearance="fill" >
+          <mat-form-field appearance="fill">
             <mat-select >
               <mat-option *ngFor="let category of categoryArray" [value]="category">
                 {{category.name}}
@@ -115,15 +148,34 @@
 
         <label class="" > <div class="bold-text"> </div></label>
         <div class="">
-          <input class="input" type="file" (change)="onImageUpload({event : $event})">
+          <!-- <input class="input" type="file" (change)="onImageUpload({event : $event})"> -->
+          <label
+          for="img"
+          class="input-for-img"
+          >Vložiť fotografiu</label>
+        <input
+          id="img"
+          class="form-control"
+          type="file"
+          style="box-shadow: 7px 7px 17px; border-width: 0; margin-bottom: 43px;display: none;"
+          required
+          (change)="onImageUpload({event : $event})"
+          accept="image/*"
+          multiple
+        />
         </div>
         <br>
         <div class="image">
         <img [src]="this.liveDemo" />
        <br>
 
-          <button type="submit" (click)="editUser(); createAction()"  class="btn-submit">Uložiť zmeny</button>
+          
         </div>
+        <button type="submit" (click)="editUser(); createAction()"  class="btn btn-primary text-center d-flex justify-content-center align-items-center" style="
+          background: rgb(84, 105, 212);
+          height: 29px;
+          margin-top: 10px;
+        ">Uložiť zmeny</button>
 
         <div *ngIf="check" class="alert alert-success">
           <strong>Super!</strong> Úspešne ste zmenili svoj inzeráť.

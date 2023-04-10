@@ -8,6 +8,7 @@
 img{
   border-radius: 7px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 ul{

@@ -3,7 +3,7 @@
     class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
   >
     <div
-      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
+      class="col-11 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center"
     >
       <form
         #addCategoryForm="ngForm"
@@ -58,9 +58,9 @@
         
         <button
           (click)="createCategory()"
-          class="btn btn-primary"
+          class="btn btn-primary mt-3"
           type="button"
-          style="background: #0dcaf0; color: rgb(0, 0, 0); font-weight: bold"
+          style="background: rgb(84, 105, 212); color: rgb(255, 255, 255);"
         >
           Vytvoriť kategóriu
         </button>

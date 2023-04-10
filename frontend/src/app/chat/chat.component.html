@@ -82,7 +82,7 @@
             <button
               class="btn btn-primary"
               type="submit"
-              style="border-radius: 48px"
+              style="border-radius: 48px; background: rgb(84, 105, 212)"
             >
               Poslať žiadosť o chat
             </button>
@@ -99,9 +99,29 @@
       <div class="row">
         <div class="col-12">
           <h4><strong>Žiadosti o kontakt</strong></h4>
-          <div *ngFor="let chatContact of chatContactList">
-            <div>{{ chatContact.firstUser.username }}</div>
-            <button (click)="acceptChatContact(chatContact.id)">Povoliť</button>
+          <div class="row d-flex justify-content-center">
+            <div
+              class="col-12 col-md-6 col-xl-3 d-flex flex-column justify-content-center align-items-center mb-2 p-1 mx-2"
+              *ngFor="let chatContact of chatContactList"
+              style="
+                max-width: 150px;
+                border-radius: 7px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+              "
+            >
+              <div class="">{{ chatContact.firstUser.username }}</div>
+              <button
+                class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center"
+                style="
+                  background: rgb(84, 105, 212);
+                  height: 29px;
+                  margin-top: 10px;
+                "
+                (click)="acceptChatContact(chatContact.id)"
+              >
+                Povoliť
+              </button>
+            </div>
           </div>
         </div>
         <hr />
@@ -109,31 +129,38 @@
           <div class="row bootstrap snippets">
             <div class="col-12">
               <h4><strong>Kontakty</strong></h4>
-              <div
-                *ngFor="let chatContact of chatContactListAccepted"
-                class="d-flex flex-column justify-content-center border border-radius p-2"
-              >
-                <p>
-                  {{ chatContact.firstUser.username }} ---&gt;
-                  {{ chatContact.secondUser.username }}
-                </p>
-                <button
-                  (click)="
-                    startChat(
-                      chatContact.firstUser.username,
-                      chatContact.secondUser.username
-                    )
-                  "
-                  class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center"
-                  type="button"
+              <div class="row d-flex justify-content-center">
+                <div
+                  *ngFor="let chatContact of chatContactListAccepted"
+                  class="col-12 col-md-6 col-xl-3 d-flex flex-column justify-content-center align-items-center mb-2 p-1 mx-2"
                   style="
-                    background: var(--bs-gray-800);
-                    height: 29px;
-                    margin-top: -10px;
+                    max-width: 150px;
+                    border-radius: 7px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
                   "
                 >
-                  Napísať
-                </button>
+                  <p>
+                    {{ chatContact.firstUser.username }} ---&gt;
+                    {{ chatContact.secondUser.username }}
+                  </p>
+                  <button
+                    (click)="
+                      startChat(
+                        chatContact.firstUser.username,
+                        chatContact.secondUser.username
+                      )
+                    "
+                    class="btn btn-primary text-center d-xl-flex justify-content-xl-center align-items-xl-center"
+                    type="button"
+                    style="
+                      background: rgb(84, 105, 212);
+                      height: 29px;
+                      margin-top: -5px;
+                    "
+                  >
+                    Napísať
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -152,9 +179,14 @@
           <div class="direct-chat-messages">
             <div *ngFor="let chat of chatList">
               <!-- Message. Default to the left -->
-              <div class="direct-chat-msg"  *ngIf="chat.userSender.username !== currentUser">
+              <div
+                class="direct-chat-msg"
+                *ngIf="chat.userSender.username !== currentUser"
+              >
                 <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name float-start">{{chat.userSender.username}}</span>
+                  <span class="direct-chat-name float-start">{{
+                    chat.userSender.username
+                  }}</span>
                 </div>
                 <!-- /.direct-chat-info -->
                 <img
@@ -162,18 +194,20 @@
                   src="https://bootdey.com/img/Content/avatar/avatar4.png"
                   alt="Message User Image"
                 /><!-- /.direct-chat-img -->
-                <div
-                  class="direct-chat-text"
-
-                >
+                <div class="direct-chat-text">
                   {{ chat.message }}
                 </div>
                 <!-- /.direct-chat-text -->
               </div>
 
-              <div class="direct-chat-msg right" *ngIf="chat.userSender.username === currentUser">
+              <div
+                class="direct-chat-msg right"
+                *ngIf="chat.userSender.username === currentUser"
+              >
                 <div class="direct-chat-info clearfix">
-                  <span class="direct-chat-name float-end">{{chat.userSender.username}}</span>
+                  <span class="direct-chat-name float-end">{{
+                    chat.userSender.username
+                  }}</span>
                 </div>
 
                 <img
@@ -181,9 +215,7 @@
                   src="https://bootdey.com/img/Content/avatar/avatar7.png"
                   alt="Message User Image"
                 />
-                <div
-                  class="direct-chat-text"
-                >
+                <div class="direct-chat-text">
                   {{ chat.message }}
                 </div>
               </div>
@@ -202,7 +234,15 @@
                 class="form-control"
               />
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-primary btn-flat">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-flat"
+                  style="
+                    background: rgb(84, 105, 212);
+                    margin-left: 5px;
+                    border-radius: 8px;
+                  "
+                >
                   Odoslať
                 </button>
               </span>
