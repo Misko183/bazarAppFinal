@@ -47,18 +47,19 @@
   <div class="row">
     <div class="col-12 col-md-6">
       <div class="row" style="margin-top: 10px; margin-right: 10px;">
-        <div class="col-xxl-12 mb-2" style="
+        <div class="col-xxl-12 mb-2 d-flex justify-content-center" style="
         border: 1px solid #0000002e !important;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-        padding: 15px;"
+        padding: 15px;
+        width: fit-content;"
         *ngIf=dbImage
         >
           <img
             [src]="dbImage"
             (click)="openModal('custom-modal-1')"
             class="img-fluid"
-            style="width: 100%; height: 100%"
+            style="width: 100%;height: 100%;object-fit: cover;"
           />
         </div>
         <div class="col-3" *ngFor="let image of dbImages;">
@@ -189,7 +190,7 @@
     <h2 class="modal-title">{{ allProducts.name }}</h2>
   </div>
   <div class="modal-body">
-    <img class="imageDetail img-fluid" [src]="dbImage" />
+    <img class="imageDetail img-fluid" [src]="dbImage" style="max-width: 50%;height: auto;"/>
   </div>
   <br />
   <div class="modal-footer">
@@ -204,7 +205,7 @@
     <h2 class="modal-title">{{ allProducts.name }}</h2>
   </div>
   <div class="modal-body">
-    <img class="imageDetail img-fluid" [src]="currentImage" style="max-height: 800px;"/>
+    <img class="imageDetail img-fluid" [src]="currentImage" style="max-width: 50%;height: auto;"/>
   </div>
   <br />
   <div class="modal-footer">
