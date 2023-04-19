@@ -1,104 +1,4 @@
-<!-- 
-
-<div class="everyThing">
-  <div id="container-inside">
-    <div id="circle-small"></div>
-    <div id="circle-medium"></div>
-    <div id="circle-large"></div>
-    <div id="circle-xlarge"></div>
-    <div id="circle-xxlarge"></div>
-    <div id="circle-xxxlarge"></div>
-    <div id="circle-xxxxlarge"></div>
-  </div>
-
-
-  <div class="maincontainer">
-  <div class="container">
-  <form class="example-form"  #addProductForm="ngForm">
-    <div class="form-group">
-      <br>
-      <label class="" > <div class="bold-text"><a class="text">Názov:</a></div></label>
-        <input
-              type="text" [(ngModel)]="allProducts.name"
-               id="name"
-               name="name"
-               class="form-control"
-               required #name="ngModel">
-
-      <br>
-      <label class="" > <div class="bold-text"><a class="text">Opis:</a></div></label>
-        <textarea type="text" [(ngModel)]="allProducts.description"
-               id="description"
-               name="description"
-               class="form-control"
-               required #description="ngModel"></textarea>
-
-      <br>
-      <label class="" > <div class="bold-text"><a class="text">Cena:</a></div></label>
-        <input type="text" [(ngModel)]="allProducts.price"
-               id="price"
-               name="price"
-               class="form-control"
-               required #price="ngModel">
-
-      <br>
-      <label class="" > <div class="bold-text"><a class="text">Lokácia:</a></div></label>
-        <input type="text" [(ngModel)]="allProducts.localization"
-               id="localization"
-               name="name"
-               class="form-control"
-               required #localization="ngModel">
-      <br>
-      <mat-label class=""><a class="text">Vyber kategóriu:</a></mat-label>
-      <div class="">
-        <mat-form-field appearance="fill">
-          <mat-select [(value)]="selectedCategory" [(ngModel)]="allProducts.kindOfCategory" name="category" id="category" (selectionChange)="chooseCategory()" required>
-              <mat-option *ngFor="let category of categoryArray" [value]="category" >
-              {{category.name}}
-              </mat-option>
-
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-
-      <div>
-        <input type="file" multiple (change)="onImagesUpload({event: $event})">
-        <div *ngIf="selectedFilesUrls.length > 0">
-          <ul>
-            <div *ngFor="let url of selectedFilesUrls; let i = index">
-              <img [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
-              <button type="button" (click)="removeSelectedFile(i)">Remove</button>
-            </div>
-          </ul>
-        </div>
-      </div>
-
-      <label class="" > <div class="bold-text"> </div></label>
-      <div class="">
-        <button   (click)="uploadFiles()"
-                 type="submit"
-                 class="btn btn-info">Vytvoriť Inzerát
-        </button>
-        <br>
-        <br>
-      </div>
-
-
-    </div>
-
-
-  </form>
-  </div>
-
-      </div>
-</div>
-
-
-
- -->
-
-<div class="container">
+<!-- <div class="container">
   <div
     class="row g-0 text-center d-flex d-lg-flex d-xl-flex justify-content-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
   >
@@ -190,6 +90,264 @@
           <div class="col-12 col-md-6">
 
             <mat-select
+              class="form-control category"
+              type="file"
+              style="
+                box-shadow: 7px 7px 17px;
+                border-width: 0;
+                margin-bottom: 22px;
+              "
+              required
+              [(value)]="selectedCategory"
+              [(ngModel)]="allProducts.kindOfCategory"
+              name="category"
+              (selectionChange)="chooseCategory()"
+
+            >
+              <mat-option *ngFor="let category of categoryArray" [value]="category">
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="col-12 col-md-6">
+            <label for="img" class="input-for-img">Vložiť fotografie</label>
+            <input
+            id="img"
+              class="form-control"
+              type="file"
+              style="
+                box-shadow: 7px 7px 17px;
+                border-width: 0;
+                margin-bottom: 43px;
+                display: none;
+              "
+              required
+              (change)="onImagesUpload({event: $event})"
+              multiple
+              accept="image/*"
+              title = "Žiadne fotografie nie sú vložené"
+            />
+          </div>
+        </div>
+
+            <div class="row" *ngIf="selectedFilesUrls.length > 0">
+              <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
+                <div class="d-flex flex-column align-items-center">
+                  <img class="mb-2" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
+                  <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
+                </div>
+              </div>
+            </div>
+
+        <button
+          (click)="uploadFiles()"
+          class="btn btn-primary"
+          type="submit"
+          style="background: #0dcaf0; color: rgb(0, 0, 0); font-weight: bold"
+        >
+          Vytvoriť inzerát
+        </button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div _ngcontent-gyc-c50="" class="login-root mb-5">
+  <div
+    _ngcontent-gyc-c50=""
+    class="box-root flex-flex flex-direction--column"
+    style="flex-grow: 1"
+  >
+    <div
+      _ngcontent-gyc-c50=""
+      class="loginbackground box-background--white padding-top--64"
+    >
+      <div _ngcontent-gyc-c50="" class="loginbackground-gridContainer">
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: top / start / 8 / end"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root"
+            style="
+              background-image: linear-gradient(
+                white 0%,
+                /* rgb(247, 250, 252) 33% */
+              );
+              flex-grow: 1;
+            "
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 1 / auto / 5"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-divider--light-all-2 animationLeftRight tans3s"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 7 / end / auto / 16"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue800"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 6 / end / auto / 9"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue8002"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 7 / 7 / auto / 3"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--gray100"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 5 / auto / start"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue2 animationRightLeft"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 3 / 15 / auto / start"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--blue animationRightLeft"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 4 / 18 / auto / -6"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-background--gray100 animationRightLeft tans4s"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+        <div
+          _ngcontent-gyc-c50=""
+          class="box-root flex-flex"
+          style="grid-area: 5 / 15 / auto / 5"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="box-root box-divider--light-all-2 animationRightLeft tans3s"
+            style="flex-grow: 1"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div
+      _ngcontent-gyc-c50=""
+      class="box-root padding-top--24 flex-flex flex-direction--column position-absolute"
+      style="flex-grow: 1; z-index: 9; width: 100%"
+    >
+      <div
+        _ngcontent-gyc-c50=""
+        class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center"
+      ></div>
+      <div _ngcontent-gyc-c50="" class="formbg-outer" style="padding: 0 15px">
+        <div
+          _ngcontent-gyc-c50=""
+          class="formbg"
+          style="box-shadow: 4px 4px 10px #646464; border-radius: 8px"
+        >
+          <div
+            _ngcontent-gyc-c50=""
+            class="formbg-inner padding-horizontal--48"
+          >
+            <span _ngcontent-gyc-c50="" class="padding-bottom--15 text-center"
+              >Zadajte svoje osobné údaje.</span
+            >
+            <form
+              _ngcontent-gyc-c50=""
+              novalidate=""
+              id="stripe-login"
+              class="ng-untouched ng-pristine ng-valid"
+              
+              #addProductForm="ngForm"
+            >
+              <div _ngcontent-gyc-c50="" class="row">
+                <div _ngcontent-gyc-c50="" class="col">
+                  <input
+                    [(ngModel)]="allProducts.name"
+                    required
+                    name="name"
+                    _ngcontent-gyc-c50=""
+                    type="text"
+                    placeholder="Názov"
+                    required=""
+                    class="form-control mb-3"
+                  />
+                  <textarea
+                    [(ngModel)]="allProducts.description"
+                    id="description"
+                    required
+                    name="description"
+                    _ngcontent-gyc-c50=""
+                    type="text"
+                    placeholder="Description"
+                    required=""
+                    class="form-control mb-3"
+                  ></textarea>
+                  <input
+                    [(ngModel)]="allProducts.price"
+                    required
+                    name="price"
+                    _ngcontent-gyc-c50=""
+                    type="address"
+                    placeholder="Adresa"
+                    required=""
+                    class="form-control mb-3"
+                  />
+                  <input
+                    [(ngModel)]="allProducts.localization"
+                    
+                    required
+                    name="name"
+                    _ngcontent-gyc-c50=""
+                    type="text"
+                    placeholder="Telefónne číslo"
+                    required=""
+                    class="form-control mb-3"
+                  />
+                  <div class="row">
+          <div class="col-12 col-md-6">
+
+            <mat-select
               class="form-control"
               type="file"
               style="
@@ -227,30 +385,30 @@
               accept="image/*"
               title = "Žiadne fotografie nie sú vložené"
             />
-            <!-- <input type="file" name="uploadfile" id="img" style="display:none;"/>
-            <label for="img">Click me to upload image</label> -->
-
           </div>
         </div>
-
-            <div class="row" *ngIf="selectedFilesUrls.length > 0">
-              <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
-                <div class="d-flex flex-column align-items-center">
-                  <img class="mb-2" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
-                  <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
+        <div class="row" *ngIf="selectedFilesUrls.length > 0">
+          <div class="col-12 col-md-4 col-xl-2 mb-3" *ngFor="let url of selectedFilesUrls; let i = index">
+            <div class="d-flex flex-column align-items-center">
+              <img class="mb-2" [src]="sanitizer.bypassSecurityTrustUrl(url)" style="max-width: 200px; max-height: 200px;">
+              <button class="delete" type="button" (click)="removeSelectedFile(i)">Odstrániť</button>
+            </div>
+          </div>
+        </div>
+                    <button
+                    (click)="uploadFiles()"
+                    _ngcontent-gyc-c50=""
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Vytvoriť inzerát
+                  </button>
                 </div>
               </div>
-            </div>
-
-        <button
-          (click)="uploadFiles()"
-          class="btn btn-primary"
-          type="submit"
-          style="background: #0dcaf0; color: rgb(0, 0, 0); font-weight: bold"
-        >
-          Vytvoriť inzerát
-        </button>
-      </form>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
