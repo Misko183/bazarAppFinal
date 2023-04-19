@@ -62,14 +62,16 @@
             style="width: 100%;height: 100%;object-fit: cover;"
           />
         </div>
-        <div class="col-3" *ngFor="let image of dbImages;">
-          <img
-            [src]="image"
-            (click)="openModal2('custom-modal-2', image)"
-            class="img-fluid img"
-          />
-        </div>
       </div>
+        <div class="row">
+          <div class="col-6 col-md-4" *ngFor="let image of dbImages;">
+            <img
+              [src]="image"
+              (click)="openModal2('custom-modal-2', image)"
+              class="img-fluid img"
+            />
+          </div>
+        </div>
     </div>
     <div class="col" style="margin-top: 10px;
     border: 1px solid #0000002e !important;

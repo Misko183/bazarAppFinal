@@ -37,6 +37,13 @@ img{
     align-items: center;
     justify-content: center;
     font-weight: 600;
+
+    box-shadow: inset -2px -2px 4px #f9f9f9, inset 2px 2px 4px #d1d9e6;
+    border-radius: 8px;
+    border-width: 0px;
+    border: 0;
+    max-width: 100%;
+    width: 100%;
   }
 
   .input-for-img:hover{
@@ -248,7 +255,7 @@ img{
   border: 0;
 } */
 
-input {
+input, textarea, mat-select {
   box-shadow: inset -2px -2px 4px #f9f9f9, inset 2px 2px 4px #d1d9e6;
   border-radius: 8px;
   border-width: 0px;
@@ -257,6 +264,10 @@ input {
   width: 100%;
   margin-bottom: 15px;
   height: 40px;
+}
+
+textarea {
+  height: 100px;
 }
 
 button {
